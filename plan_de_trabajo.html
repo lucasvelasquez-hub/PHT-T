@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Trabajo - Entrenador Inteligente de Texas Hold'em (PHT-T)</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --accent: #10b981;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border: #e2e8f0;
+            --badge-bg: #eff6ff;
+            --badge-text: #1d4ed8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.2);
+            margin-bottom: 2.5rem;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .meta-bar {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .intro-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 5px solid var(--primary-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2.5rem;
+        }
+
+        .intro-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            position: relative;
+        }
+
+        .step-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .step-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .step-number {
+            background: var(--primary);
+            color: white;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .badge {
+            background-color: var(--badge-bg);
+            color: var(--badge-text);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid #bfdbfe;
+        }
+
+        .step-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .step-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .box {
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 0.93rem;
+        }
+
+        .box-what {
+            background: #f1f5f9;
+            border-left: 3px solid #64748b;
+        }
+
+        .box-why {
+            background: #fef3c7;
+            border-left: 3px solid #f59e0b;
+        }
+
+        .box-advance {
+            background: #ecfdf5;
+            border-left: 3px solid var(--accent);
+        }
+
+        .box-title {
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        .box-what .box-title { color: #475569; }
+        .box-why .box-title { color: #b45309; }
+        .box-advance .box-title { color: #047857; }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Plan Maestro de Aprendizaje y Desarrollo</h1>
+        <p>Entrenador Inteligente de Texas Hold'em con Machine Learning</p>
+        <div class="meta-bar">
+            <span class="meta-item">🎯 Meta: Proyecto final (3 semanas)</span>
+            <span class="meta-item">💻 Entorno: VS Code + Python 3.12</span>
+            <span class="meta-item">🧠 Modelo: Red Neuronal desde cero</span>
+        </div>
+    </header>
+
+    <div class="intro-card">
+        <h3>Principio Pedagógico del Proyecto</h3>
+        <p>
+            No vamos a apresurarnos a escribir algoritmos sin saber qué tenemos entre manos.
+            En Machine Learning profesional existe una regla de oro: <strong>la calidad de un modelo nunca supera la calidad de los datos con los que fue entrenado</strong>.
+            Cada uno de los 7 pasos a continuación cumple un propósito específico para que aprendas, practiques lo visto en tu curso y puedas explicarle cada gráfica y decisión a tus profesores con total seguridad.
+        </p>
+    </div>
+
+    <div class="timeline">
+
+        <!-- PASO 1 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-title-wrap">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Auditoría Inicial de los Datos</div>
+                </div>
+                <span class="badge">Soporte: Doc. Maestro § 2.6 y § 6.3 (Notebook 01)</span>
+            </div>
+            <div class="step-grid">
+                <div class="box box-what">
+                    <div class="box-title">¿Qué hace este paso?</div>
+                    Descarga una muestra controlada de manos reales y abre los datos por primera vez para ver qué columnas y filas trae el archivo.
+                </div>
+                <div class="box box-why">
+                    <div class="box-title">¿Por qué lo hacemos?</div>
+                    Porque antes de construir una casa hay que revisar el terreno. Necesitamos comprobar si los datos están completos o si faltan piezas clave (como las cartas de los jugadores).
+                </div>
+                <div class="box box-advance">
+                    <div class="box-title">¿Qué aporta al trabajo?</div>
+                    Garantiza con cifras reales (no suposiciones) que tenemos manos válidas de No-Limit Texas Hold'em listas para trabajar.
+                </div>
+            </div>
+        </div>
+
+        <!-- PASO 2 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-title-wrap">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Reconstrucción de Situaciones de Juego</div>
+                </div>
+                <span class="badge">Soporte: Doc. Maestro § 3.1 y § 8.1 (Notebook 02)</span>
+            </div>
+            <div class="step-grid">
+                <div class="box box-what">
+                    <div class="box-title">¿Qué hace este paso?</div>
+                    Desarma la historia completa de cada partida de póker y la divide en los momentos exactos en los que a un jugador le tocó tomar una decisión.
+                </div>
+                <div class="box box-why">
+                    <div class="box-title">¿Por qué lo hacemos?</div>
+                    Una red neuronal no puede aprender de un relato largo en texto. Necesita ejemplos concretos: "En esta situación con este bote y esta apuesta, el jugador eligió X".
+                </div>
+                <div class="box box-advance">
+                    <div class="box-title">¿Qué aporta al trabajo?</div>
+                    Crea la tabla limpia y organizada con la que vamos a entrenar (nuestro dataset supervisado).
+                </div>
+            </div>
+        </div>
+
+        <!-- PASO 3 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-title-wrap">
+                    <div class="step-number">3</div>
+                    <div class="step-title">El Modelo de Referencia (Baseline)</div>
+                </div>
+                <span class="badge">Soporte: Doc. Maestro § 9.1 (Notebook 04)</span>
+            </div>
+            <div class="step-grid">
+                <div class="box box-what">
+                    <div class="box-title">¿Qué hace este paso?</div>
+                    Crea una regla de decisión muy ingenua o simple (por ejemplo: "elegir siempre la acción que la gente hace con más frecuencia").
+                </div>
+                <div class="box box-why">
+                    <div class="box-title">¿Por qué lo hacemos?</div>
+                    Para tener un punto de comparación justo. Si tu red neuronal no le gana a una regla tonta, significa que no está aprendiendo nada real.
+                </div>
+                <div class="box box-advance">
+                    <div class="box-title">¿Qué aporta al trabajo?</div>
+                    Establece el listón mínimo que la inteligencia artificial tiene que superar para demostrar que funciona ante los evaluadores.
+                </div>
+            </div>
+        </div>
+
+        <!-- PASO 4 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-title-wrap">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Entrenamiento de la Red Neuronal</div>
+                </div>
+                <span class="badge">Soporte: Doc. Maestro § 3.3 y § 9.2 (Notebook 05)</span>
+            </div>
+            <div class="step-grid">
+                <div class="box box-what">
+                    <div class="box-title">¿Qué hace este paso?</div>
+                    Diseña la arquitectura de la red (capas de neuronas con TensorFlow/Keras) y la pone a practicar y ajustar sus conexiones con los datos.
+                </div>
+                <div class="box box-why">
+                    <div class="box-title">¿Por qué lo hacemos?</div>
+                    Es el corazón técnico del curso de Machine Learning: entrenar un modelo desde cero con datos propios, sin usar inteligencias prefabricadas.
+                </div>
+                <div class="box box-advance">
+                    <div class="box-title">¿Qué aporta al trabajo?</div>
+                    Obtenemos el archivo con el modelo entrenado capaz de estimar qué acción suele ocurrir ante cualquier situación de juego que le presentemos.
+                </div>
+            </div>
+        </div>
+
+        <!-- PASO 5 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-title-wrap">
+                    <div class="step-number">5</div>
+                    <div class="step-title">Evaluación Formal y Análisis de Errores</div>
+                </div>
+                <span class="badge">Soporte: Doc. Maestro § 9.3 y § 9.4 (Notebook 06)</span>
+            </div>
+            <div class="step-grid">
+                <div class="box box-what">
+                    <div class="box-title">¿Qué hace este paso?</div>
+                    Examina a la red con situaciones que nunca vio en su vida y dibuja gráficas para ver en qué acierta y en qué se confunde.
+                </div>
+                <div class="box box-why">
+                    <div class="box-title">¿Por qué lo hacemos?</div>
+                    Para no engañarnos. Si un estudiante solo muestra el entrenamiento, los profesores no saben si memorizó o si realmente aprendió a generalizar.
+                </div>
+                <div class="box box-advance">
+                    <div class="box-title">¿Qué aporta al trabajo?</div>
+                    Genera las evidencias científicas (matriz de confusión, curvas de aprendizaje) que van directo a tu presentación final.
+                </div>
+            </div>
+        </div>
+
+        <!-- PASO 6 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-title-wrap">
+                    <div class="step-number">6</div>
+                    <div class="step-title">Motor Matemático de Probabilidades</div>
+                </div>
+                <span class="badge">Soporte: Doc. Maestro § 4 y § 7.2 (Notebook 07)</span>
+            </div>
+            <div class="step-grid">
+                <div class="box box-what">
+                    <div class="box-title">¿Qué hace este paso?</div>
+                    Programa un módulo independiente que evalúa combinaciones de cartas y calcula probabilidades matemáticas exactas (fuerza y probabilidad de ganar).
+                </div>
+                <div class="box box-why">
+                    <div class="box-title">¿Por qué lo hacemos?</div>
+                    Para mantener el rigor académico: una red neuronal aprende hábitos humanos; las matemáticas calculan probabilidades de cartas. No se deben mezclar.
+                </div>
+                <div class="box box-advance">
+                    <div class="box-title">¿Qué aporta al trabajo?</div>
+                    El cerebro matemático que complementa a la red neuronal, permitiendo darle al usuario análisis objetivo de sus cartas.
+                </div>
+            </div>
+        </div>
+
+        <!-- PASO 7 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-title-wrap">
+                    <div class="step-number">7</div>
+                    <div class="step-title">La Aplicación Interactiva (El Entrenador)</div>
+                </div>
+                <span class="badge">Soporte: Doc. Maestro § 5 y § 11 (App Streamlit)</span>
+            </div>
+            <div class="step-grid">
+                <div class="box box-what">
+                    <div class="box-title">¿Qué hace este paso?</div>
+                    Construye una interfaz gráfica sencilla y atractiva en el navegador con las tres secciones: Aprender, Practicar y Analizar.
+                </div>
+                <div class="box box-why">
+                    <div class="box-title">¿Por qué lo hacemos?</div>
+                    Porque un proyecto en una libreta de notas es aburrido de evaluar, pero una aplicación donde el profesor puede interactuar y jugar en vivo es inolvidable.
+                </div>
+                <div class="box box-advance">
+                    <div class="box-title">¿Qué aporta al trabajo?</div>
+                    El producto final terminado y listo para una demostración en vivo que asegure la máxima calificación.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Proyecto PHT-T • Construido paso a paso para el curso de Machine Learning • Noviembre 2026</p>
+    </footer>
+</div>
+
+</body>
+</html>
