@@ -12,7 +12,7 @@
 | Versión | Datos | Variables | Exactitud en test | F1-Macro | Estado |
 | :--- | :--- | :---: | :---: | :---: | :--- |
 | **Modelo 1** (`v1-con-fuga`) | HandHQ, 60,000 manos (Absolute Poker 1000NL) | 5 públicas | 92.90% | 0.910 | ❌ Inflado por fuga de información |
-| **Modelo 2** (`v2-corregido`) | Igual que el Modelo 1 | 5 públicas | 64.90% | 0.531 | ✅ Válido; empata con un árbol simple |
+| **Modelo 2** (`v2-corregido`) | Igual que el Modelo 1 | 5 públicas | 64.86% | 0.531 | ✅ Válido; empata con un árbol simple |
 | **Modelo 3** (`v3-45-variables`) | HandHQ, 440,249 manos (3.77 M decisiones) | 44 públicas | 73.83% | 0.630 | ✅ Válido; techo sin cartas privadas |
 | **Modelo 4** (`v4-pluribus`) | Pluribus, 10,000 manos con todas las cartas visibles | 47 (públicas + cartas + equity) | **87.39%** (CV 87.50 ± 0.25) | **0.839** | ✅ Modelo final |
 
@@ -50,11 +50,11 @@ La fuga también inflaba al árbol (72.21% contra 64.77% con los datos corregido
 | :--- | :---: | :---: |
 | Baseline 1: clase mayoritaria (*Fold*) | 48.10% | 0.217 |
 | Baseline 2: árbol de profundidad 3 | 64.77% | 0.528 |
-| Red neuronal MLP | **64.90%** | **0.531** |
+| Red neuronal MLP | **64.86%** | **0.531** |
 
 - La red apenas supera al árbol: con 5 variables públicas, **la información disponible es el límite, no la arquitectura**.
 - El *recall* de *Bet/Raise* es muy bajo: sin cartas ni contexto, las agresiones no se pueden anticipar.
-- En la prueba de cordura, el Modelo 2 reparte la probabilidad entre las tres acciones (51% / 36% / 13%).
+- En la prueba de cordura, el Modelo 2 reparte la probabilidad entre las tres acciones (53% / 36% / 12%).
 
 Figuras: `modelo2_curvas_aprendizaje.png`, `modelo2_matriz_confusion.png`.
 
@@ -92,7 +92,7 @@ F1 por clase: *Fold* 0.845 · *Check/Call* 0.662 · *Bet/Raise* 0.382 (recall 27
 | G3 · + textura de la mesa | 37 | 72.77% |
 | G4 · + perfil del jugador | 44 | 73.83% |
 
-Con las mismas 5 variables, la nueva reconstrucción da 70.19% frente al 64.90% del Modelo 2. La diferencia combina la corrección de ciegas, unas 10 veces más decisiones y la partición cronológica; no se aisló el aporte de cada factor.
+Con las mismas 5 variables, la nueva reconstrucción da 70.19% frente al 64.86% del Modelo 2. La diferencia combina la corrección de ciegas, unas 10 veces más decisiones y la partición cronológica; no se aisló el aporte de cada factor.
 
 **Curva de aprendizaje: más datos no ayudan.**
 

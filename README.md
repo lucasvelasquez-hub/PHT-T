@@ -19,7 +19,7 @@ El proyecto se presenta como una investigación en cuatro etapas. Cada versión 
 | Versión | Datos | Variables | Exactitud (Test) | F1-Macro | Estado |
 | :--- | :--- | :---: | :---: | :---: | :--- |
 | **Modelo 1** · `v1-con-fuga` | HandHQ, 60,000 manos | 5 públicas | 92.90% | 0.910 | ❌ Inflado por fuga de información |
-| **Modelo 2** · `v2-corregido` | HandHQ, 60,000 manos | 5 públicas | 64.90% | 0.531 | ✅ Fuga corregida |
+| **Modelo 2** · `v2-corregido` | HandHQ, 60,000 manos | 5 públicas | 64.86% | 0.531 | ✅ Fuga corregida |
 | **Modelo 3** · `v3-45-variables` | HandHQ, 440,249 manos | 44 públicas | 73.83% | 0.630 | ✅ Techo sin cartas privadas |
 | **Modelo 4** · `v4-pluribus` | Pluribus, 10,000 manos con cartas | 47 (contexto + cartas + equity) | **87.39%** | **0.839** | ✅ Modelo final |
 
@@ -46,7 +46,7 @@ El detalle completo (evidencias de la fuga, ablaciones, calibración, sensibilid
 | `04_m1_entrenamiento` | 1 | Entrenamiento original: 92.90% inflado |
 | `05_m2_reconstruccion_corregida` | 2 | Reconstrucción corregida (foto de la mesa *antes* de actuar) |
 | `06_m2_baselines` | 2 | Baselines con los datos corregidos |
-| `07_m2_entrenamiento` | 2 | Entrenamiento del Modelo 2: 64.90% |
+| `07_m2_entrenamiento` | 2 | Entrenamiento del Modelo 2: 64.86% |
 | `08_m3_reconstruccion` | 3 | 44 variables públicas, perfil del jugador, partición cronológica |
 | `09_m3_entrenamiento` | 3 | Entrenamiento, ablación y curva de datos: 73.83% |
 | `10_m4_reconstruccion_pluribus` | 4 | Descarga de las manos de Pluribus, variables de cartas y equity |
