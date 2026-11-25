@@ -1,0 +1,58 @@
+{
+  "decisiones_postflop_con_apuesta": 1477,
+  "pct_rentables_segun_motor": 91.33,
+  "fold_real_cuando_rentable": 45.0,
+  "fold_real_cuando_no_rentable": 96.88,
+  "tabla_por_margen": [
+    {
+      "tramo": "< -20",
+      "decisiones": 11,
+      "Fold": 100.0,
+      "Check/Call": 0.0,
+      "Bet/Raise": 0.0,
+      "Fold (red)": 99.3,
+      "Check/Call (red)": 0.2,
+      "Bet/Raise (red)": 0.5
+    },
+    {
+      "tramo": "-20 a 0",
+      "decisiones": 117,
+      "Fold": 96.6,
+      "Check/Call": 1.7,
+      "Bet/Raise": 1.7,
+      "Fold (red)": 95.1,
+      "Check/Call (red)": 3.0,
+      "Bet/Raise (red)": 1.9
+    },
+    {
+      "tramo": "0 a 20",
+      "decisiones": 362,
+      "Fold": 81.8,
+      "Check/Call": 13.0,
+      "Bet/Raise": 5.2,
+      "Fold (red)": 80.5,
+      "Check/Call (red)": 15.9,
+      "Bet/Raise (red)": 3.6
+    },
+    {
+      "tramo": "20 a 40",
+      "decisiones": 435,
+      "Fold": 49.7,
+      "Check/Call": 43.4,
+      "Bet/Raise": 6.9,
+      "Fold (red)": 51.4,
+      "Check/Call (red)": 43.5,
+      "Bet/Raise (red)": 5.2
+    },
+    {
+      "tramo": "> 40",
+      "decisiones": 552,
+      "Fold": 17.2,
+      "Check/Call": 65.4,
+      "Bet/Raise": 17.4,
+      "Fold (red)": 15.5,
+      "Check/Call (red)": 69.4,
+      "Bet/Raise (red)": 15.1
+    }
+  ]
+}

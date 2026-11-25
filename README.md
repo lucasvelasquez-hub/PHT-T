@@ -38,16 +38,24 @@ El detalle completo (evidencias de la fuga, ablaciones, calibración, sensibilid
 ---
 
 ## 📂 3. Estructura del Repositorio
-* **`notebooks/01_auditoria_dataset.ipynb`**: descarga del shard de HandHQ (`takara-ai/poker_hands`) y auditoría de las 440,249 manos de No-Limit Hold'em.
-* **`notebooks/02_reconstruccion_decisiones.ipynb`**: máquina de estados que reconstruye cada decisión (foto de la mesa *antes* de actuar).
-* **`notebooks/03_modelo_baseline.ipynb`**: baselines de comparación.
-* **`notebooks/04_entrenamiento_red_neuronal.ipynb`**: entrenamiento del Modelo 2.
-* **`notebooks/05_motor_matematico_equity.ipynb`**: motor de equity Monte Carlo con `treys`.
-* **`notebooks/06_reconstruccion_modelo3.ipynb`** y **`07_entrenamiento_modelo3.ipynb`**: Modelo 3 (contexto, textura de la mesa y perfil del jugador; ablación y curva de datos).
-* **`notebooks/08_reconstruccion_pluribus.ipynb`** y **`09_entrenamiento_modelo4.ipynb`**: Modelo 4 (descarga de las manos de Pluribus, variables de cartas y equity, validación cruzada por sesiones, sensibilidad a la equity).
+| Notebook | Modelo | Contenido |
+| :--- | :---: | :--- |
+| `01_auditoria_dataset` | — | Descarga del shard de HandHQ (`takara-ai/poker_hands`) y auditoría de las 440,249 manos |
+| `02_m1_reconstruccion_con_fuga` | 1 | Reconstrucción original, con la fuga de información (se conserva para documentar el error) |
+| `03_m1_baselines` | 1 | Baselines originales |
+| `04_m1_entrenamiento` | 1 | Entrenamiento original: 92.90% inflado |
+| `05_m2_reconstruccion_corregida` | 2 | Reconstrucción corregida (foto de la mesa *antes* de actuar) |
+| `06_m2_baselines` | 2 | Baselines con los datos corregidos |
+| `07_m2_entrenamiento` | 2 | Entrenamiento del Modelo 2: 64.90% |
+| `08_m3_reconstruccion` | 3 | 44 variables públicas, perfil del jugador, partición cronológica |
+| `09_m3_entrenamiento` | 3 | Entrenamiento, ablación y curva de datos: 73.83% |
+| `10_m4_reconstruccion_pluribus` | 4 | Descarga de las manos de Pluribus, variables de cartas y equity |
+| `11_m4_entrenamiento` | 4 | Entrenamiento, validación cruzada por sesiones y sensibilidad: 87.39% |
+| `12_motor_matematico_equity` | 4 | Motor de equity Monte Carlo (`treys`) integrado con el Modelo 4 y lectura conjunta |
+
 * **`models/v1_con_fuga/` … `models/v4_pluribus/`**: red entrenada, escalador y lista de variables de cada versión.
 * **`informe/`**: borrador de resultados, figuras (`figuras/`) y métricas en JSON (`metricas/`).
-* **`data/`** (no se sube al repositorio): los notebooks 01 y 08 descargan los datos automáticamente.
+* **`data/`** (no se sube al repositorio): los notebooks 01 y 10 descargan los datos automáticamente.
 
 ---
 

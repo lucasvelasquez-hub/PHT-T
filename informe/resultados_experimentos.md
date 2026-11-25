@@ -2,6 +2,8 @@
 
 > Borrador técnico con todas las cifras verificadas en los notebooks. Sirve de base para redactar el informe académico final.
 > Todas las métricas provienen de `informe/metricas/*.json` y las figuras de `informe/figuras/`.
+>
+> Notebooks por modelo: Modelo 1 → 02–04 · Modelo 2 → 05–07 · Modelo 3 → 08–09 · Modelo 4 → 10–11 · Motor matemático + Modelo 4 → 12.
 
 ---
 
@@ -22,7 +24,7 @@ El modelo describe **lo que harían jugadores de élite** en una situación, no 
 
 ## 2. Modelo 1: el 92.9% que no era real
 
-**Qué pasó.** En la reconstrucción de decisiones (notebook 02), la "foto" de la mesa (bote, stack, apuesta pendiente) se guardaba **después** de mover las fichas en las jugadas *Check/Call* y *Bet/Raise*, pero **antes** en los *Fold*. La red no aprendió póker: aprendió a distinguir cuál de las dos fotos estaba mirando.
+**Qué pasó.** En la reconstrucción de decisiones (Notebook 02), la "foto" de la mesa (bote, stack, apuesta pendiente) se guardaba **después** de mover las fichas en las jugadas *Check/Call* y *Bet/Raise*, pero **antes** en los *Fold*. La red no aprendió póker: aprendió a distinguir cuál de las dos fotos estaba mirando.
 
 **Evidencia.**
 - En el test, entre las decisiones con apuesta pendiente (`to_call > 0`), la igualdad `pot_odds == to_call / (bote + to_call)` se cumplía en **26,271 folds y en 0 no-folds**.
@@ -31,7 +33,14 @@ El modelo describe **lo que harían jugadores de élite** en una situación, no 
 
 **Segundo error encontrado en la misma celda.** En el formato PHH, `cbr X` significa "subir **hasta** X". El código sumaba X completo al bote en lugar de solo la diferencia con lo ya apostado en la ronda.
 
-**Corrección.** Guardar siempre la foto antes de mover fichas y calcular el pago de `cbr` como `min(max(0, X − ya_puesto), stack)`. Versión original preservada en `models/v1_con_fuga/` (commit `ffa760e`).
+| Modelo (datos con fuga) | Exactitud | F1-Macro |
+| :--- | :---: | :---: |
+| Baseline 2: árbol de profundidad 3 | 72.21% | 0.662 |
+| Red neuronal MLP | 92.90% | 0.910 |
+
+La fuga también inflaba al árbol (72.21% contra 64.77% con los datos corregidos). Los Notebooks 02–04 conservan la versión original con sus salidas. Al volver a ejecutarlos con rutas separadas se obtiene 92.91%, así que el resultado es reproducible.
+
+**Corrección (Notebooks 05–07).** Guardar siempre la foto antes de mover fichas y calcular el pago de `cbr` como `min(max(0, X − ya_puesto), stack)`. Artefactos originales en `models/v1_con_fuga/` (commit `ffa760e`).
 
 ---
 
@@ -192,7 +201,38 @@ Figuras: `modelo4_distribuciones.png`, `modelo4_curvas_aprendizaje.png`, `modelo
 
 ---
 
-## 7. Lecciones para el informe
+## 7. Motor matemático + red neuronal (Notebook 12)
+
+El motor de equity Monte Carlo (`treys`) calcula las variables de cartas que recibe el Modelo 4, y la red cargada reproduce su exactitud en test (87.39%). Esto permite hacer preguntas del tipo "¿qué pasaría si tuviera otras cartas en la misma situación?".
+
+**Ejemplo (situación real de test).** Flop Qh 3c Kh, apuesta de 2.5 BB a un bote de 7.5 BB (pot odds 25%), 1 rival:
+
+| Cartas | Equity (motor) | Veredicto matemático | Fold | Check/Call | Bet/Raise |
+| :--- | :---: | :--- | :---: | :---: | :---: |
+| A♣ 6♥ (reales; el jugador se retiró) | 44.0% | Rentable pagar | 98.9% | 0.4% | 0.7% |
+| A♠ A♥ | 87.7% | Rentable pagar | 0.1% | 66.6% | 33.3% |
+| 7♦ 2♣ | 17.8% | No rentable | 99.9% | 0.0% | 0.1% |
+
+**Lectura conjunta sobre todo el test** (1,477 decisiones postflop enfrentando una apuesta). Margen = equity del motor − pot odds:
+
+| Margen (pp) | Decisiones | Fold real | Call real | Raise real | Fold según la red |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| < −20 | 11 | 100.0% | 0.0% | 0.0% | 99.3% |
+| −20 a 0 | 117 | 96.6% | 1.7% | 1.7% | 95.1% |
+| 0 a 20 | 362 | 81.8% | 13.0% | 5.2% | 80.5% |
+| 20 a 40 | 435 | 49.7% | 43.4% | 6.9% | 51.4% |
+| > 40 | 552 | 17.2% | 65.4% | 17.4% | 15.5% |
+
+- Según el motor, pagar era rentable en el 91.3% de los casos, pero la élite se retiró en el 45.0% de ellos. Cuando no era rentable, se retiró en el 96.9%.
+- La razón es que la equity se calcula contra manos aleatorias, y quien apuesta suele tener una mano más fuerte que el promedio.
+- La red reproduce esas frecuencias por tramo: aprendió el "descuento" que aplican los profesionales.
+- Para la aplicación, mostrar ambas lecturas enseña cuándo la élite coincide con la matemática y cuándo se aparta.
+
+Figura: `motor_vs_elite.png`. Métricas: `motor_vs_elite.json`.
+
+---
+
+## 8. Lecciones para el informe
 
 1. **Una exactitud muy alta es una señal de alerta.** El 92.9% del Modelo 1 venía de una fuga de información en la preparación de datos, no del modelo.
 2. **La información limita más que la arquitectura.** En los Modelos 2, 3 y 4, la red y un modelo de árboles quedan empatados; lo que mueve la exactitud son las variables disponibles.
@@ -201,7 +241,7 @@ Figuras: `modelo4_distribuciones.png`, `modelo4_curvas_aprendizaje.png`, `modelo
 
 ---
 
-## 8. Referencias
+## 9. Referencias
 
 - Brown, N. & Sandholm, T. (2019). Superhuman AI for multiplayer poker. *Science*, 365(6456), 885–890.
 - Shapira et al. (2026). Havoc [título completo por confirmar]. *Proceedings of AAMAS 2026*. https://ifaamas.org/Proceedings/aamas2026/pdfs/LRNX6318.pdf
