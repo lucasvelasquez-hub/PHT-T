@@ -1,0 +1,12 @@
+/** Puerta de entrada del motor de Next Chip (TypeScript puro, sin React). */
+export * from './cartas.ts'
+export * from './evaluador.ts'
+export * from './equidad.ts'
+export * from './mano.ts'
+export * from './variables.ts'
+export * from './phh.ts'
+export * from './preparacion.ts'
+export * from './red.ts'
+export * from './lectura.ts'
+export * from './protocolo.ts'
+export { crearServicio, type Cargador, type Servicio } from './servicio.ts'
