@@ -1,0 +1,218 @@
+{
+  "modelo": "Modelo 3 - MLP 44 variables públicas, shard completo, partición cronológica",
+  "n_train": 2584256,
+  "n_val": 596389,
+  "n_test": 593212,
+  "resultados": {
+    "Baseline 1: Clase Mayoritaria (Fold)": {
+      "accuracy": 0.5376,
+      "f1_macro": 0.2331,
+      "log_loss": 7.4534
+    },
+    "Baseline 2: Árbol Prof. 3 (5 variables)": {
+      "accuracy": 0.695,
+      "f1_macro": 0.4741,
+      "log_loss": 0.7366
+    },
+    "Referencia: Gradient Boosting (44 variables)": {
+      "accuracy": 0.7371,
+      "f1_macro": 0.6278,
+      "log_loss": 0.6158
+    },
+    "🎯 Red Neuronal MLP — Modelo 3 (44 variables)": {
+      "accuracy": 0.7383,
+      "f1_macro": 0.6297,
+      "log_loss": 0.6124
+    },
+    "Ablación G0 · 5 variables originales (fichas)": {
+      "accuracy": 0.7019,
+      "f1_macro": 0.5075,
+      "log_loss": 0.6961
+    },
+    "Ablación G1 · + ciegas grandes y nivel": {
+      "accuracy": 0.702,
+      "f1_macro": 0.5101,
+      "log_loss": 0.6956
+    },
+    "Ablación G2 · + posición e historial de apuestas": {
+      "accuracy": 0.7273,
+      "f1_macro": 0.6122,
+      "log_loss": 0.6575
+    },
+    "Ablación G3 · + textura de la mesa": {
+      "accuracy": 0.7277,
+      "f1_macro": 0.6144,
+      "log_loss": 0.657
+    },
+    "Ablación G4 · + perfil del jugador (HUD)": {
+      "accuracy": 0.7383,
+      "f1_macro": 0.6297,
+      "log_loss": 0.6124
+    }
+  },
+  "reporte_por_clase": {
+    "Fold (0)": {
+      "precision": 0.7624785157778109,
+      "recall": 0.9473651201806237,
+      "f1-score": 0.8449258581824487,
+      "support": 318895.0
+    },
+    "Check/Call (1)": {
+      "precision": 0.7060180358632193,
+      "recall": 0.623404867383925,
+      "f1-score": 0.6621445725704438,
+      "support": 173810.0
+    },
+    "Bet/Raise (2)": {
+      "precision": 0.6322066223948161,
+      "recall": 0.27374212741401094,
+      "f1-score": 0.3820560176634774,
+      "support": 100507.0
+    },
+    "accuracy": 0.738314464306184,
+    "macro avg": {
+      "precision": 0.7002343913452821,
+      "recall": 0.6148373716595198,
+      "f1-score": 0.6297088161387899,
+      "support": 593212.0
+    },
+    "weighted avg": {
+      "precision": 0.723863934140555,
+      "recall": 0.738314464306184,
+      "f1-score": 0.7129479576793186,
+      "support": 593212.0
+    }
+  },
+  "matriz_confusion": [
+    [
+      302110,
+      14296,
+      2489
+    ],
+    [
+      51939,
+      108354,
+      13517
+    ],
+    [
+      42172,
+      30822,
+      27513
+    ]
+  ],
+  "curva_aprendizaje": [
+    {
+      "decisiones_entrenamiento": 50000,
+      "accuracy": 0.7314
+    },
+    {
+      "decisiones_entrenamiento": 200000,
+      "accuracy": 0.7353
+    },
+    {
+      "decisiones_entrenamiento": 800000,
+      "accuracy": 0.7375
+    },
+    {
+      "decisiones_entrenamiento": 2584256,
+      "accuracy": 0.7383
+    }
+  ],
+  "por_situacion": [
+    {
+      "situacion": "Postflop, enfrenta apuesta",
+      "decisiones": 65802,
+      "exactitud": 0.625680070514574,
+      "% del test": 11.092493071616891
+    },
+    {
+      "situacion": "Postflop, nadie apostó",
+      "decisiones": 123077,
+      "exactitud": 0.7119933050041843,
+      "% del test": 20.747557365663543
+    },
+    {
+      "situacion": "Preflop, enfrenta subida",
+      "decisiones": 140529,
+      "exactitud": 0.8017206412911214,
+      "% del test": 23.689507292502512
+    },
+    {
+      "situacion": "Preflop, nadie ha subido",
+      "decisiones": 263804,
+      "exactitud": 0.7449128898727844,
+      "% del test": 44.470442270217056
+    }
+  ],
+  "por_historial": [
+    {
+      "historial": "0 manos",
+      "decisiones": 6430,
+      "sin_perfil": 0.6021772939346812,
+      "con_perfil": 0.6339035769828927
+    },
+    {
+      "historial": "1-20",
+      "decisiones": 86096,
+      "sin_perfil": 0.6446989407173388,
+      "con_perfil": 0.6595892956699498
+    },
+    {
+      "historial": "21-100",
+      "decisiones": 138687,
+      "sin_perfil": 0.6640276305637876,
+      "con_perfil": 0.6801286349838125
+    },
+    {
+      "historial": "101-500",
+      "decisiones": 172725,
+      "sin_perfil": 0.7371718048921696,
+      "con_perfil": 0.747181936604429
+    },
+    {
+      "historial": ">500",
+      "decisiones": 189274,
+      "sin_perfil": 0.8077337616365692,
+      "con_perfil": 0.8122140389065587
+    }
+  ],
+  "calibracion": [
+    {
+      "tramo": "(0.33, 0.5]",
+      "decisiones": 33416,
+      "confianza_media": 0.4578884243965149,
+      "exactitud_real": 0.4590016758439071
+    },
+    {
+      "tramo": "(0.5, 0.6]",
+      "decisiones": 92495,
+      "confianza_media": 0.5499610900878906,
+      "exactitud_real": 0.5475755446240337
+    },
+    {
+      "tramo": "(0.6, 0.7]",
+      "decisiones": 100080,
+      "confianza_media": 0.6515787243843079,
+      "exactitud_real": 0.6513888888888889
+    },
+    {
+      "tramo": "(0.7, 0.8]",
+      "decisiones": 118409,
+      "confianza_media": 0.7509995102882385,
+      "exactitud_real": 0.745382530044169
+    },
+    {
+      "tramo": "(0.8, 0.9]",
+      "decisiones": 165273,
+      "confianza_media": 0.8523502349853516,
+      "exactitud_real": 0.8511493105346911
+    },
+    {
+      "tramo": "(0.9, 1.0]",
+      "decisiones": 83539,
+      "confianza_media": 0.9301117062568665,
+      "exactitud_real": 0.9321155388501179
+    }
+  ],
+  "epocas": 40
+}
