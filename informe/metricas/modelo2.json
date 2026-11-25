@@ -1,0 +1,57 @@
+{
+  "modelo": "Modelo 2 - MLP 5 variables, fuga corregida",
+  "test_accuracy": 0.649,
+  "test_loss": 0.757,
+  "f1_macro": 0.5308,
+  "reporte_por_clase": {
+    "Fold (0)": {
+      "precision": 0.6636229148599704,
+      "recall": 0.9596842610010696,
+      "f1-score": 0.7846555181929219,
+      "support": 27111.0
+    },
+    "Check/Call (1)": {
+      "precision": 0.6175216711666903,
+      "recall": 0.5467069258350632,
+      "f1-score": 0.5799606286076541,
+      "support": 15897.0
+    },
+    "Bet/Raise (2)": {
+      "precision": 0.6073977936404932,
+      "recall": 0.1401827167889771,
+      "f1-score": 0.22779265027987344,
+      "support": 13354.0
+    },
+    "accuracy": 0.649036584933111,
+    "macro avg": {
+      "precision": 0.6295141265557179,
+      "recall": 0.5488579678750366,
+      "f1-score": 0.5308029323601499,
+      "support": 56362.0
+    },
+    "weighted avg": {
+      "precision": 0.6372984100560781,
+      "recall": 0.649036584933111,
+      "f1-score": 0.5949819544824814,
+      "support": 56362.0
+    }
+  },
+  "matriz_confusion": [
+    [
+      26018,
+      266,
+      827
+    ],
+    [
+      6823,
+      8691,
+      383
+    ],
+    [
+      6365,
+      5117,
+      1872
+    ]
+  ],
+  "n_test": 56362
+}
