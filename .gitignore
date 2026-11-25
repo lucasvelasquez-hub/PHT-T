@@ -1,3 +1,7 @@
 data/
 .ipynb_checkpoints/
 __pycache__/
+# Herramientas locales de desarrollo (se reinstalan con skills-lock.json)
+.claude/skills/
+.claude/settings.local.json
+.impeccable/
