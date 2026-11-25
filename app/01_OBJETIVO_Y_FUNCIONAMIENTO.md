@@ -94,5 +94,6 @@ Convertir el modelo entrenado en el proyecto (Modelo 4, entrenado con manos de P
 - [ ] Dónde va la comparación de los 4 modelos y cómo se presenta el Modelo 1 (como "el modelo con fuga, para mostrar el error").
 - [ ] Perfil de jugador que se le da al Modelo 3 en la comparación (necesita `pf_vpip`, `pf_pfr`, etc.). Propuesta: un perfil promedio.
 - [ ] Tamaños de apuesta que usa el generador, por ejemplo 1/3, 1/2, 3/4 y 1 bote, y subidas preflop típicas.
-- [ ] Nombre visible de la app y textos de bienvenida.
+- [x] ~~Nombre visible de la app~~. Decidido el 25-nov-2026: **Next Chip**.
+- [ ] Textos de bienvenida.
 - [x] ~~Si estos documentos de `app/` se suben a GitHub~~. Decidido el 25-nov-2026: **sí se suben**, porque son la documentación de la app. También se sube `skills-lock.json`. Los archivos de `.claude/skills/` se reinstalan desde ese registro y no se suben.

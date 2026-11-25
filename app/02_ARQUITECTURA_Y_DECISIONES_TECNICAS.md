@@ -148,6 +148,13 @@ Para el diseño hay **una sola directora (impeccable)**, porque varias skills de
 | 2026-11-25 | Skills instaladas solo en este proyecto (`.claude/skills/`) | Decisión del usuario; las globales se dejan como están |
 | 2026-11-25 | Se versionan `app/` y `skills-lock.json`; `.claude/skills/` y `.impeccable/` quedan fuera de git | Los documentos son de la app. Las skills se reinstalan desde el registro, y `.impeccable/` es configuración local |
 | 2026-11-25 | El README cuenta la evolución del proyecto: plan inicial → decisión actual → por qué | Mostrar el proceso, no solo el resultado |
+| 2026-11-25 | Nombre visible de la app: **Next Chip** | Corto, juguetón y con lenguaje de póker. Se descartaron "Leak/Fuga" (solo lo entenderían los profesores) y "Next Coin" (suena a criptomoneda) |
+| 2026-11-25 | Construcción con varios agentes: Opus dirige y revisa; Sonnet construye; Haiku hace tareas mecánicas; Gemini lee los notebooks grandes | Ahorro de tokens sin perder calidad. Ninguna pieza vale hasta pasar la prueba golden |
+| 2026-11-25 | Memoria de la construcción en `app/BITACORA_CONSTRUCCION.md`, sin NotebookLM | Los archivos del repositorio son la fuente de verdad |
+| 2026-11-25 | Un agente de prueba usa la app como jugador y reporta errores y sugerencias; impeccable critica el diseño | Control de calidad desde la mirada del usuario |
+| 2026-11-25 | Se publica en Vercel solo cuando el agente de prueba aprueba la versión local | No publicar nada sin probar |
+| 2026-11-25 | Commit y push a `main` en cada etapa auditada y funcionando | Igual que con los notebooks |
+| 2026-11-25 | Tres revisiones obligatorias con el usuario: cifras del Notebook 13, dirección de diseño y Módulo 3 funcionando | Puntos de control antes de avanzar |
 
 ## 8. Cómo empezar la construcción (para el próximo agente)
 

@@ -2,7 +2,7 @@
 
 > Cómo se transformaron los modelos entrenados para que funcionen en el navegador, por qué se hizo y qué pruebas confirman que dan los mismos resultados que los originales.
 
-**Estado:** ⏳ **Pendiente.** Este documento describe el plan. Las secciones de resultados se llenarán con cifras del notebook ejecutado; ninguna cifra se escribe a mano.
+**Estado:** ✅ **Pruebas 1 a 4 hechas** con el Notebook 13 (conversión de los 4 modelos aprobada). Las pruebas 5 a 8 (la app) siguen pendientes. Las cifras vienen del notebook ejecutado; ninguna se escribe a mano.
 
 ---
 
@@ -59,14 +59,18 @@ Todo se hace en el notebook `notebooks/13_exportar_app.ipynb`, con el estilo de 
 ## 5. Reporte de resultados
 
 ### 5.1 Conversión (pruebas 1–4)
-*Pendiente: se llenará con la salida del Notebook 13.*
+Cifras impresas por `notebooks/13_exportar_app.ipynb` sobre el test completo de cada modelo (ONNX opset 17, ejecutado con onnxruntime; criterios: diferencia ≤ 1e-5, coincidencia 100 %, escalador ≤ 1e-6).
 
-| Modelo | Diferencia máxima | Coincidencia de acción | Exactitud Keras | Exactitud ONNX |
-|---|---|---|---|---|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
-| 4 | | | | |
+| Modelo | Decisiones de test | Diferencia máxima | Coincidencia de acción | Exactitud Keras | Exactitud ONNX | Escalador JSON vs .pkl |
+|---|---|---|---|---|---|---|
+| 1 | 56,362 | 9.54e-07 | 100.00 % | 92.90 % | 92.90 % | 0.00e+00 |
+| 2 | 56,362 | 4.47e-07 | 100.00 % | 64.86 % | 64.86 % | 0.00e+00 |
+| 3 | 593,212 | 2.68e-07 | 100.00 % | 73.83 % | 73.83 % | 0.00e+00 |
+| 4 | 16,599 | 8.05e-07 | 100.00 % | 87.39 % | 87.39 % | 0.00e+00 |
+
+- Método: `model.export(..., format="onnx", opset_version=17)` de Keras 3.15 (usa `tf2onnx` 1.17.0, instalado sin dependencias para no tocar numpy ni protobuf). Entrada `Entrada_Variables`, salida `Identity:0`.
+- Informativo: escalando en float32 como sklearn, la diferencia con el cálculo en float64 llega a 1.91e-06 (Modelo 3) y 3.81e-06 (Modelo 4); con el escalado del JSON las probabilidades quedan a ≤ 1.25e-06 de Keras.
+- Verificación del archivo de referencia: las 47,000 variables de `referencia_golden.json` (1,000 situaciones) son idénticas al parquet de test, y las 46 variables sin Monte Carlo de las 16,599 decisiones se reproducen exactamente reconstruyendo las manos desde los archivos PHH.
 
 ### 5.2 App (pruebas 5–8)
 *Pendiente: se llenará con la salida de Vitest.*

@@ -1,0 +1,71 @@
+{
+ "modelo": 1,
+ "nombre": "Modelo 1 · con fuga (HandHQ, 5 variables)",
+ "origen_keras": "models/v1_con_fuga/pht_t_modelo_poker.keras",
+ "origen_escalador": "models/v1_con_fuga/scaler_poker.pkl",
+ "archivo_onnx": "modelo1.onnx",
+ "onnx": {
+  "opset": 17,
+  "entrada": {
+   "nombre": "Entrada_Variables",
+   "forma": [
+    "N",
+    5
+   ],
+   "tipo": "float32"
+  },
+  "salida": {
+   "nombre": "Identity:0",
+   "forma": [
+    "N",
+    3
+   ],
+   "tipo": "float32"
+  },
+  "descripcion_salida": "Probabilidades softmax (suman 1). La acción elegida es el índice del máximo."
+ },
+ "n_variables": 5,
+ "variables": [
+  "calle",
+  "bote",
+  "to_call",
+  "stack",
+  "pot_odds"
+ ],
+ "variables_log": [],
+ "pasos_preparacion": [
+  "1. Tomar las variables en el orden de 'variables' (valores numéricos en float64).",
+  "2. Este modelo no usa log1p: las variables entran tal cual.",
+  "4. Escalar cada columna: z = (x - escalador.mean[i]) / escalador.scale[i].",
+  "5. Entregar un Float32Array de forma [N, n_variables] al ONNX; la salida son 3 probabilidades (softmax)."
+ ],
+ "escalador": {
+  "tipo": "StandardScaler",
+  "formula": "z = (x - mean) / scale",
+  "mean": [
+   0.5490891822585241,
+   131.67382060974452,
+   31.246017855446862,
+   1971.018217760471,
+   0.2517812593788584
+  ],
+  "scale": [
+   0.8912187434255942,
+   287.6478691902099,
+   106.7361057240821,
+   1344.8469366149438,
+   0.17077506836516246
+  ]
+ },
+ "clases_salida": [
+  "Fold",
+  "Check/Call",
+  "Bet/Raise"
+ ],
+ "exactitud_test": {
+  "conjunto": "data/processed/modelo1/test.parquet",
+  "decisiones": 56362,
+  "keras_pct": 92.89592278485505,
+  "onnx_pct": 92.89592278485505
+ }
+}
