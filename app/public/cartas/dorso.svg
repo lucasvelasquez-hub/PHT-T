@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 503">
+  <!-- Dorso de Next Chip. Proporcion 63 x 88 mm, igual que las caras. -->
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17304a"/>
+      <stop offset="1" stop-color="#0b1626"/>
+    </linearGradient>
+    <pattern id="p" width="24" height="24" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M12 0V24M0 12H24" stroke="#2a6b57" stroke-width="1" opacity=".55"/>
+      <circle cx="12" cy="12" r="2.2" fill="#2a6b57" opacity=".7"/>
+    </pattern>
+  </defs>
+  <rect x=".5" y=".5" width="359" height="502" rx="26" fill="#ffffff" stroke="#bdb6a4"/>
+  <rect x="16" y="16" width="328" height="471" rx="16" fill="url(#g)"/>
+  <rect x="16" y="16" width="328" height="471" rx="16" fill="url(#p)"/>
+  <rect x="30" y="30" width="300" height="443" rx="10" fill="none" stroke="#8fb9a6" stroke-opacity=".55" stroke-width="1.5"/>
+  <circle cx="180" cy="251.5" r="92" fill="#0b1626" stroke="#8fb9a6" stroke-opacity=".7" stroke-width="2"/>
+  <circle cx="180" cy="251.5" r="78" fill="none" stroke="#2a6b57" stroke-width="1.5"/>
+  <text x="180" y="243.5" text-anchor="middle" font-family="Barlow, Arial, sans-serif" font-weight="700" font-size="26" letter-spacing="5" fill="#e8efe9">NEXT</text>
+  <text x="180" y="277.5" text-anchor="middle" font-family="Barlow, Arial, sans-serif" font-weight="700" font-size="26" letter-spacing="5" fill="#e8efe9">CHIP</text>
+</svg>

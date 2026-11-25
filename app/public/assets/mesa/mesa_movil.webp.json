@@ -1,0 +1,5 @@
+{
+  "prompt": "Canva generate-image (media MAHb8QF5NOk), image-to-image from approved comp MAHb8PZzzsw: empty poker table scene with all UI removed, dark private room with warm bokeh, overhead light pool, emerald felt in slight 3D perspective, walnut and dark leather rail, muted brass cup holders. Portrait 9:16. Exported via Canva design DAHb8cmTEfk at 1080x1920.",
+  "createdAt": "2026-11-25T17:12:22.817Z",
+  "postproceso": "2026-11-25: fondo de la sala y lampara desenfocados (blur 14 px, -12 % brillo, lampara atenuada) fuera de la mesa, con mascara eliptica difuminada. Original nitido: assets/originales_ia/mesa_movil_nitida.webp"
+}

@@ -1,0 +1,5 @@
+{
+  "prompt": "Canva generate-image (media MAHb8agm3fc), image-to-image from approved comp MAHb8PZzzsw: same empty poker table scene as mesa_movil, landscape 16:9, table centered-left with empty dark room on the right for a side panel. Exported via Canva design DAHb8c4Q9Po.",
+  "createdAt": "2026-11-25T17:12:42.572Z",
+  "postproceso": "2026-11-25: fondo de la sala y lampara desenfocados (blur 14 px, -12 % brillo, lampara atenuada) fuera de la mesa, con mascara eliptica difuminada. Original nitido: assets/originales_ia/mesa_escritorio_nitida.webp"
+}

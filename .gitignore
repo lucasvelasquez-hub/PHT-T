@@ -5,3 +5,6 @@ __pycache__/
 .claude/skills/
 .claude/settings.local.json
 .impeccable/
+
+# Descargas de terceros para la app (76 MB); se conservan locales. Ver app/BITACORA_CONSTRUCCION.md
+recursos/

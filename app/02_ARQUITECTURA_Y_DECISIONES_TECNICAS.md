@@ -155,6 +155,10 @@ Para el diseño hay **una sola directora (impeccable)**, porque varias skills de
 | 2026-11-25 | Se publica en Vercel solo cuando el agente de prueba aprueba la versión local | No publicar nada sin probar |
 | 2026-11-25 | Commit y push a `main` en cada etapa auditada y funcionando | Igual que con los notebooks |
 | 2026-11-25 | Tres revisiones obligatorias con el usuario: cifras del Notebook 13, dirección de diseño y Módulo 3 funcionando | Puntos de control antes de avanzar |
+| 2026-11-25 | Diseño: mesa cinematográfica en perspectiva (comp B), con el prototipo plano "Mesa televisada" descartado | El usuario espera el acabado de un juego de estudio |
+| 2026-11-25 | Cartas: mazo de Chris Aguilar 3.2 (LGPL 3.0) con acabado por script; fichas, mesa y avatares generados con IA | Gratis y exacto; la IA no garantiza las cartas correctas. La licencia obliga a mostrar Créditos |
+| 2026-11-25 | Tablero de 5 cartas arriba en el paño, bote debajo, héroe sobre el riel | Espacio para el bote y para el river (aprobado por el usuario) |
+| 2026-11-25 | Las descargas de terceros se guardan en `recursos/`, fuera de git | Pesan 76 MB; se conservan por si sirven después |
 
 ## 8. Cómo empezar la construcción (para el próximo agente)
 

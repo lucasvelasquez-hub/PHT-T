@@ -10,8 +10,8 @@
 | 1 · Base: Notebook 13 (ONNX, JSON, golden, banco real) | ✅ hecho y auditado | Sonnet (alto) | `app/modelo_transformado/` |
 | 1b · Especificación de las 47 variables y el motor para TypeScript | ✅ hecho (sin verificar: la valida la prueba golden en la etapa 3) | Gemini | `app/docs/ESPEC_MOTOR_Y_VARIABLES.md` |
 | ⛔ Revisión 1 con el usuario: cifras del Notebook 13 | pendiente | — | — |
-| 2 · Dirección de diseño (impeccable) | 🔄 prototipo en curso | Sonnet (alto) | `app/prototipo/mesa.html`, brief en `.impeccable/surfaces/app.md` |
-| ⛔ Revisión 2 con el usuario: diseño | pendiente | — | — |
+| 2 · Dirección de diseño (impeccable) + pantalla de mesa en React | ✅ hecho (build y 29/29 pruebas) | Sonnet (alto) + orquestador (recursos) | `app/src/ui/`, `app/public/{assets,cartas,fonts}/`, comp `.impeccable/mocks/decision/comp-b.png` + `preview_cartas_fichas.png` |
+| ⛔ Revisión 2 con el usuario: diseño | ✅ aprobada el 2026-11-25 ("se ve muy muy bien") | — | — |
 | 3 · Núcleo TS (evaluador, equity, variables, ONNX) + Vitest golden | ✅ hecho y auditado (27/27) | Sonnet (alto) | `app/src/motor/` |
 | 4 · Módulo 3 con manos reales | pendiente | — | — |
 | ⛔ Revisión 3 con el usuario: Módulo 3 funcionando | pendiente | — | — |
@@ -38,3 +38,15 @@
   - Correcciones a la spec de Gemini: no hay inversión de ciegas en heads-up en los notebooks (irrelevante: la mesa siempre empieza con 6); `c_clase` va de 0 a 9 (0 = escalera real) y preflop usa 10; no hay decisiones con stack 0.
   - Datos: un plugin de `vite.config.ts` sirve `/modelo_transformado/*` en dev y copia solo lo necesario a `dist/`. El wasm de onnxruntime (14.8 MB) no se precarga en la PWA.
   - Pendiente: `npm audit` marca 4 vulnerabilidades moderadas (revisar antes de publicar).
+- 2026-11-25 · El usuario rechazó el prototipo plano "Mesa televisada" (`app/prototipo/`, se conserva como antecedente): "no se ve como un juego de estudio". Se generaron 3 imágenes de referencia con Canva y eligió la **B** (mesa cinematográfica en perspectiva, paño verde, avatares). Desde ahora el diseño se construye contra ese comp: primero la imagen, después el código.
+- 2026-11-25 (tarde) · Recursos gráficos listos (el orquestador los produjo; los agentes de UI no los editan):
+  - **Mesas** `public/assets/mesa/mesa_{movil,escritorio}.webp`: Canva, exportadas a tamaño completo envolviendo la imagen en un diseño. Fondo de sala y lámpara desenfocados con máscara elíptica (pedido del usuario). Las originales nítidas están en `public/assets/originales_ia/`.
+  - **Avatares** `public/assets/avatares/*.webp` (18, 512×512): 2 hojas 3×3 de Canva, recortadas con `scripts/recortar_avatares.sh`.
+  - **Cartas**: mazo **Vectorized Playing Cards 3.2 de Chris Aguilar (LGPL 3.0)**, descargado de totalnonsense.com y guardado en `recursos/cartas_chris_aguilar/` (local, fuera de git, 76 MB). `scripts/acabado_cartas.sh` lo rasteriza a 640×894 con papel marfil, luz, fibra, canto y brillo, y genera `public/cartas/{clasico,cuatro_colores}/` y `dorso.webp` (el dorso se renderiza con Chrome sin ventana, por la fuente Barlow). Tarda unos 2,5 min. **La licencia exige mostrar el crédito**: ya está en Ajustes → Créditos (`LICENCIA.md`).
+  - **Fichas** `public/assets/fichas/ficha_{1,5,10,25,50,100}.webp`: ChatGPT (hoja de sprites, fondo transparente), ver `ORIGEN.md`.
+  - El usuario rechazó "SVG plano + retoques CSS" para las cartas ("Nada de mediocridad"): cartas y fichas deben verse como en el comp.
+  - Distribución aprobada: tablero de 5 cartas arriba en el paño (≈170 px de ancho en la imagen de 1080), bote con pill debajo y héroe sobre el riel (`preview_cartas_fichas.png`). Caben justas: no agrandar las cartas del tablero.
+- 2026-11-25 (tarde) · Pantalla de mesa construida en `src/ui/` (`PantallaMesa`, `mesa/*`, `datos/*`, `geometria.ts` coloca todo en coordenadas de la imagen). Ajustes: mazo de 4 colores y Créditos. Parámetros: `?mano=<key>&d=<idx>` (otra mano) y `?fuente=banco` (valores guardados). RAISE sube al mínimo legal (sin control de tamaño todavía).
+  - **En vivo frente al banco** (mano 1687, MrBlue en el flop): las 46 variables deterministas son idénticas y la red coincide a 2e-4. La equity en vivo da **58.7 %** y el banco **61.7 %**: el banco usó un Monte Carlo corto (185/300, error ≈ ±3 puntos) y 200,000 simulaciones dan ≈59 %. Con esa diferencia, la élite pasa de Fold 69 % a **78 %**. Conclusión: la red es muy sensible a la equity (va al informe).
+  - Detalles conocidos que el usuario decidió no corregir por ahora: en 360×640 los asientos de arriba se tapan con la pill de calle; el bote se arma con pilas "codiciosas" (13 BB = pocas pilas).
+  - Mejoras posibles para después: cartas de índice grande para celular; figuras J/Q/K generadas con IA si hay cuota (ChatGPT ya probó un estilo que gustó: `public/assets/originales_ia/Qh_chatgpt.webp`).
