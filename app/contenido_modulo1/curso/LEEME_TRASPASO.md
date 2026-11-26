@@ -33,6 +33,16 @@ El formato de entrega del curso no está definido. La carpeta vive dentro de un 
 
 El curso completo listo para usar: las 64 lecciones redactadas (o las que tú decidas tras analizar la estructura), con ejemplos de cartas y apuestas verificados, mini-evaluaciones por módulo y un formato de entrega adecuado. La calidad pedagógica es lo central: claridad, progresión estricta (una lección solo usa lo ya enseñado), lenguaje sin jerga innecesaria y ejemplos que se entienden de un vistazo.
 
+## 4b. Primera tarea obligatoria: auditoría independiente
+
+El usuario perdió confianza en lo producido porque el agente anterior introdujo, en una primera versión de estos documentos, contexto de otro proyecto que el usuario nunca mencionó. Ya se eliminó, pero antes de escribir una sola lección:
+
+1. Lee la sección 10 de `ESTRUCTURA_CURRICULAR.md` (origen de cada decisión).
+2. Audita la estructura contra NotebookLM **sin dar por bueno nada que haya puesto el agente anterior**: pregunta al cuaderno qué respalda cada módulo, cada cifra y cada regla.
+3. Marca cada decisión del agente anterior como CONFIRMADA, CAMBIADA o ELIMINADA, con la razón.
+4. Cualquier regla de mesa o tamaño de apuesta debe poder rastrearse a un libro, a las reglas públicas del póker o a una decisión explícita del usuario.
+5. Entrega al usuario un resumen corto del resultado antes de continuar.
+
 ## 5. Tienes permiso para analizar y proponer mejoras
 
 La estructura es un **buen borrador, no un dogma**. El usuario te pide expresamente que la analices y la mejores con criterio profesional. Algunas preguntas que vale la pena hacerte:

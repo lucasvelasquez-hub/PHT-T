@@ -284,3 +284,29 @@ Estado: borrador completo, verificado contra los 4 libros en NotebookLM. Pendien
 
 1. Con tu visto bueno, redactar una **lección piloto completa** (propuesta: 3.2, *pot odds*) para validar tono y formato.
 2. Después, producir los módulos de a uno, con NotebookLM verificando cada cifra antes de publicar.
+
+## 10. Origen de cada decisión
+
+Para que puedas cuestionar lo que no te convenza. "Libros" significa que NotebookLM lo extrajo de los 4 libros. "Agente" significa que lo decidió el asistente que armó esta versión, sin que el usuario lo pidiera.
+
+| Decisión | Origen |
+|---|---|
+| Curso para principiantes, de cash, con lecciones cortas y paulatinas | Usuario |
+| Ejemplos con cartas y apuestas en cada lección | Usuario |
+| Contenido propio, no copiado de los libros | Usuario |
+| NotebookLM lee y consolida los libros; el agente no los lee | Usuario |
+| Definir primero la estructura, de forma detallada | Usuario (el agente propuso hacerla en capas) |
+| Mesas de 6 jugadores y 100 ciegas grandes | Libros (Clarke y Acevedo); el agente lo adoptó sin consultarte |
+| Ciegas $1/$2 y stack de $200 en los ejemplos | Agente |
+| Temas, orden de módulos y nivel por tema | Libros, con correcciones del agente |
+| Módulo 0 (primeros pasos) y Módulo 11 (mentalidad y banca) | Idea del agente; contenido de los libros |
+| Lección 4.2 (cuadrícula 13×13) | Agente |
+| 64 lecciones, ritmo de 13 semanas, formato de cinco pasos por lección, repaso cada 3 módulos | Agente |
+| Reglas para resolver discrepancias entre autores | Propuestas por NotebookLM; adoptadas por el agente |
+| Jerarquía de manos, reglas básicas, regla estándar del *minraise* | Agente (reglas públicas del juego) |
+| Equity de 27% para defender la ciega grande contra 2,5bb | Agente (cálculo propio) |
+| Propuesta de 30 *buy-ins* de banca | Agente (pendiente de tu decisión) |
+| Corrección de cifras y ejemplos | Agente, con verificación de NotebookLM |
+| Commit local y `.gitignore` de `libros/` y respuestas en bruto | Agente (no pedido por el usuario) |
+
+**Nota de procedencia:** el agente tuvo cargada, al inicio, la memoria de otro proyecto del mismo repositorio y la usó en una primera versión de los documentos de traspaso. Esas referencias ya se eliminaron. No hay constancia de que ninguna regla de ese otro proyecto se haya usado en el contenido, pero la auditoría independiente existe para comprobarlo.
