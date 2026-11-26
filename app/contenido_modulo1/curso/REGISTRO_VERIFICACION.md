@@ -15,4 +15,9 @@ Cada cifra que sale de un libro se verificó con NotebookLM (CONFIRMADA / CORREG
 | 8 | `07_m7_m8.md` | Proceso en dos partes en el river y tres preguntas rápidas (Clarke Cap. 7, Fig. 39). Tabla de hero call (Hardin Cap. 16). Ghost equity y estrategia piramidal (Clarke 8.1 y 8.3). MDF y su advertencia en el flop (Acevedo Cap. 12). Chase y float, cinco factores (Clarke 8.2). Donk bets en límites bajos y regla de la min-donk (Clarke 8.4). Recuento de 23 cartas malas del turn: cálculo propio. | 9 |
 | 10 | `08_m9_m10.md`; auditoría C | Motivos del 3-bet, lineal frente a polarizado, A5s–A2s (Clarke 10.1–10.2; Hardin Cap. 13). Matemática del 3-bet de farol (Hardin Cap. 13). Tamaños (Clarke Fig. 62: 7/8BB contra 2,5BB; Acevedo Cap. 5: 8,5/10bb y 4-bet 23bb). Defensa ante 3-bet: QQ+ y AK, lista de pago (Clarke 11.2, Fig. 64). SPR y tabla de guía (Hardin Cap. 2); cortes de Acevedo (Cap. 1); c-bets pequeñas en botes de 3-bet (Acevedo Cap. 12). | 10 |
 
-**Contenido sin base en los libros (reglas públicas):** lecciones 0.1 a 0.5 (flujo de la mano, jerarquía, cinco mejores cartas, *kicker*, acciones, subida mínima, ciegas y orden de acción).
+**Contenido sin base en los libros, declarado en cada lección:**
+- Reglas públicas: lecciones 0.1 a 0.5 (flujo de la mano, jerarquía, cinco mejores cartas, *kicker*, acciones, subida mínima, ciegas y orden de acción).
+- Reglas propias del curso, con su justificación: banca 30/20 (1.5), defensa de la BB contra aperturas tempranas (5.2), lista de pago fuera de posición ante un 3-bet (10.4), rangos de 3-bet de la tabla de 10.2, señales y regla del tilt (11.1), rutina de estudio (11.2), número de mesas (11.3).
+- Escala $1/$2 de los ejemplos.
+
+**Total:** 183 comprobaciones automáticas, 0 errores (`python -I herramientas/verificar_lecciones.py`).

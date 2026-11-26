@@ -310,6 +310,54 @@ def m10():
     ok('M10', 'Q7 ATs en UTG', en('UTG', 'ATs'))
 
 
+
+# ---------------------------------------------------------------- Módulo 11
+@modulo
+def m11():
+    ev = lambda pw, gana_, pierde: pw * gana_ - (1 - pw) * pierde
+    ok('11.1', 'Q8o fuera de UTG', not en('UTG', 'Q8o'))
+    ok('11.2', 'EV -4 y precio 37,5%; ej +10', near(ev(.35, 100, 60), -4) and near(pot_odds(40, 60), .375) and near(ev(.30, 150, 50), 10))
+    ok('11.2', '9 outs all-in 35%', near(1 - 38 * 37 / (47 * 46), .35, .001))
+    ok('11.3', '$40 vs $50; 0,10 vs 0,30', 2 * 20 == 40 and 10 * 5 == 50 and near(1 * .10, .10) and near(6 * .05, .30))
+    ok('11.4', 'AJo en BU; iso 4bb; botes 9,5 -> 19,5 -> 45,5 -> 75,5', en('BU', 'AJo') and 4 + 4 + .5 + 1 == 9.5 and 9.5 + 10 == 19.5 and 19.5 + 26 == 45.5 and 45.5 + 30 == 75.5)
+    ok('11.4', 'AJ gana a JTc en J724K', gana('A♥J♠', 'J♣T♣', 'J♦7♣2♠4♥K♣'))
+    b = 'J♦7♣2♠4♥A♦'
+    ok('11.4', 'ej: AJ gana a A7, A4, A2, J-x; pierde con 77, 44, 22, 53', all(gana('A♥J♠', h, b) for h in ('A♣7♦', 'A♣4♦', 'A♣2♦', 'J♣T♣'))
+       and all(gana(h, 'A♥J♠', b) for h in ('7♠7♦', '4♠4♦', '2♣2♥', '5♣3♣')))
+    ok('11.4', 'precio 40/125,5 = 32%', near(40 / (45.5 + 80), .319, .001))
+    ok('M11', 'Q2 EV +23', near(ev(.45, 100, 40), 23))
+
+
+# ---------------------------------------------------------------- Módulo 12
+def combos_par(rank, vistas):
+    rest = [x for x in remaining(cards(vistas)) if x[0] == rank]
+    return len(rest) * (len(rest) - 1) // 2
+
+
+def combos_no_par(r1, r2, vistas):
+    rest = remaining(cards(vistas))
+    return sum(1 for x in rest if x[0] == r1) * sum(1 for x in rest if x[0] == r2)
+
+
+@modulo
+def m12():
+    v = 'A♠Q♥A♥K♣7♦'
+    ok('12.1', 'tabla: AA 1, KK 3, 77 3, AK 6, A7 6', combos_par('A', v) == 1 and combos_par('K', v) == 3 and combos_par('7', v) == 3 and combos_no_par('A', 'K', v) == 6 and combos_no_par('A', '7', v) == 6)
+    ok('12.1', 'AK en mano: 3 AA y 3 KK', combos_par('A', 'A♠K♥') == 3 and combos_par('K', 'A♠K♥') == 3)
+    ok('12.1', 'ej QQ 3 y KK 1; 66 1 y 22 3', combos_par('Q', 'K♦K♠Q♣8♥3♦') == 3 and combos_par('K', 'K♦K♠Q♣8♥3♦') == 1 and combos_par('6', '6♥6♣2♦') == 1 and combos_par('2', '6♥6♣2♦') == 3)
+    c = 2 / 3  # Opal paga 2/3: Ivan indiferente con Q -> 2(1-c) - 1c = 0
+    ok('12.2', 'Opal paga 2/3; faroles = 1/4 de las apuestas de Ivan', near(2 * (1 - c) - c, 0) and near((.5 / 3) / (.5 + .5 / 3), .25))
+    # ganancia neta de Ivan frente a Opal (cada uno puso $1 de ante)
+    ev_a = c * 2 + (1 - c) * 1                       # con A apuesta: si paga gana ante + pago; si no, el ante
+    farol = (1 - c) * 1 + c * (-2)                    # con Q farolea: gana el ante o pierde ante + apuesta
+    ev_q = (1 / 3) * farol + (2 / 3) * (-1)           # con Q pasa 2/3 y pierde el ante
+    ok('12.2', 'EV Ivan neto +0,33 por partida; Q indiferente', near(.5 * ev_a + .5 * ev_q, 1 / 3) and near(farol, -1), f'{.5*ev_a+.5*ev_q:.3f}')
+    ok('12.2', 'mesa del ejemplo: dos picas, color fallado', sum(1 for x in cards('K♠9♠4♣2♥7♦') if x[1] == 's') == 2)
+    ok('12.3', 'proporción faroles = precio: 25%, 2/7, 33%', near(pot_odds(1, .5), .25) and near(pot_odds(1, 2 / 3), 2 / 7) and near(pot_odds(1, 1), 1 / 3))
+    ok('12.3', 'EV bluff-catcher 0 con 2:1; MDF 67% y 50%', near(1 / 3 * 200 - 2 / 3 * 100, 0) and near(mdf(1, .5), 2 / 3) and mdf(1, 1) == .5)
+    ok('M12', 'Q1 AK en A72: AA 1, KK 3, AK 6', combos_par('A', 'A♠K♥A♦7♣2♥') == 1 and combos_par('K', 'A♠K♥A♦7♣2♥') == 3 and combos_no_par('A', 'K', 'A♠K♥A♦7♣2♥') == 6)
+
+
 # ---------------------------------------------------------------- Módulo 4
 @modulo
 def m04():

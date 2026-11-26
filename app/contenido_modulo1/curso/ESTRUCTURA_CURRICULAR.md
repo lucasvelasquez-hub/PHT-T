@@ -1,6 +1,6 @@
 # Curso de Texas Hold'em Cash 6-max para principiantes — Estructura curricular v2
 
-Estado: v2, tras la auditoría independiente (`AUDITORIA_INDEPENDIENTE.md`). La v1 está en el historial de git (commit `3c00256`). Las decisiones de diseño y su justificación están en `DECISIONES.md`.
+Estado: v2, completa: las 66 lecciones están redactadas y verificadas. Tras la auditoría independiente (`AUDITORIA_INDEPENDIENTE.md`). La v1 está en el historial de git (commit `3c00256`). Las decisiones de diseño y su justificación están en `DECISIONES.md`.
 
 ## 1. Cómo se construyó
 
