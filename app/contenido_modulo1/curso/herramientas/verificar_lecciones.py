@@ -140,6 +140,37 @@ def m02():
     ok('M2', 'Q6 AQo en rango SB; 6bb', en('SB', 'AQo'))
 
 
+
+# ---------------------------------------------------------------- Módulo 3
+def outs_cartas(hand, board, ranks):
+    """outs que emparejan alguna de las cartas indicadas (p. ej. sobrecartas)."""
+    return [x for x in remaining(cards(hand) + cards(board)) if x[0] in ranks]
+
+
+@modulo
+def m03():
+    ok('3.1', 'color 9; trío 2; escalera 8', n_outs('9♥8♥', 'K♥4♥2♣') == 9 and len(outs_to(cards('7♣7♦'), cards('K♠9♥2♣'), {'trío'})) == 2 and n_outs('J♠T♠', '9♦8♣2♥') == 8)
+    ok('3.1', 'ej A5c en K9c3d = 9; 65h en 87K = 8', n_outs('A♣5♣', 'K♣9♣3♦') == 9 and n_outs('6♥5♥', '8♠7♦K♣') == 8)
+    ok('3.2', 'tabla: 8, 4, 6, 12, 15', n_outs('J♠T♦', 'Q♣9♥2♠') == 8 and n_outs('Q♣T♣', 'K♦9♠8♠') == 4
+       and len(outs_cartas('A♦K♣', '9♠6♥2♦', 'AK')) == 6 and n_outs('K♥J♥', 'Q♥9♥4♠') == 12 and n_outs('J♥T♥', '9♥8♣2♥') == 15)
+    ok('3.2', 'ej 87d en 65K = 8 sin color; A4s en K7s3 = 9', n_outs('8♦7♦', '6♣5♦K♥') == 8 and n_outs('A♠4♠', 'K♠7♠3♦') == 9)
+    filas = {4: (.085, .165), 8: (.170, .315), 9: (.191, .350), 12: (.255, .450), 15: (.319, .541)}
+    ok('3.3', 'tabla exacta 1 y 2 cartas', all(near(o / 47, a, .001) and near(1 - (47 - o) * (46 - o) / (47 * 46), b, .001) for o, (a, b) in filas.items()))
+    ok('3.3', '1/47=2,13%; 1/46=2,17%', near(1 / 47, .0213, .0001) and near(1 / 46, .0217, .0001))
+    o = outs_to(cards('J♠T♦'), cards('9♥8♥2♣'), {'escalera'})
+    ok('3.4', 'JT en 98hh2: Qh 7h sucios, 6 limpios', len(o) == 8 and sorted(x for x in o if x[1] == 'h') == ['7h', 'Qh'])
+    o = outs_to(cards('K♠Q♠'), cards('J♥T♥2♠'), {'escalera'})
+    ok('3.4', 'KQ en JT2: A y 9; Ah 9h sucios', sorted(set(x[0] for x in o)) == ['9', 'A'] and len(o) == 8)
+    ok('3.4', 'ej AKd en Qd J 5d = 12', n_outs('A♦K♦', 'Q♦J♠5♦') == 12)
+    o = outs_to(cards('8♣7♣'), cards('6♠5♠K♥'), {'escalera'})
+    ok('3.4', 'ej 87c en 65s: 4s 9s sucios', len(o) == 8 and sorted(x for x in o if x[1] == 's') == ['4s', '9s'])
+    ok('M3', 'Q1 AQ en JT3: 4 + 6', n_outs('A♦Q♣', 'J♠T♥3♦') == 4 and len(outs_cartas('A♦Q♣', 'J♠T♥3♦', 'AQ')) == 6)
+    ok('M3', 'Q2 98c en 7c6d2c = 15', n_outs('9♣8♣', '7♣6♦2♣') == 15)
+    o = outs_to(cards('Q♠J♠'), cards('T♦9♦4♣'), {'escalera'})
+    ok('M3', 'Q4 QJ en T9dd4: 8, sucios Kd 8d', len(o) == 8 and sorted(x for x in o if x[1] == 'd') == ['8d', 'Kd'])
+    ok('M3', 'Q5 K6s no CO, sí BU', not en('CO', 'K6s') and en('BU', 'K6s'))
+
+
 # ---------------------------------------------------------------- Módulo 4
 @modulo
 def m04():
@@ -154,6 +185,28 @@ def m04():
     ok('4.2', 'ej1 JT en Q92 8 outs, 30/10 -> 20%', n_outs('J♠T♦', 'Q♣9♥2♠') == 8 and near(pot_odds(30, 10), .20))
     ok('4.2', 'ej2 16/4 -> 16,7%', near(pot_odds(16, 4), 1 / 6))
     ok('4.2', 'ej3 12/12 -> 33,3%', near(pot_odds(12, 12), 1 / 3))
+    # 4.1
+    e = equity(cards('9♥8♥'), cards('K♠Q♦'), cards('K♥7♥2♣'))
+    ok('4.1', 'equity exacta ~40%', abs(e - .40) < .006, pct(e))
+    e2 = equity(cards('9♥8♥'), cards('K♠Q♦'), cards('K♥7♥2♣3♠'))
+    ok('4.1', 'tras 3s: 9/44 = 20%', near(e2, 9 / 44, .001), pct(e2))
+    ok('4.1', 'ej 25% de 80 = 20', .25 * 80 == 20)
+    # 4.3
+    f = lambda x: x / (1 + 2 * x)
+    ok('4.3', 'tabla 1/4..2x', [round(100 * f(x), 1) for x in (.25, 1 / 3, .5, 2 / 3, .75, 1, 2)] == [16.7, 20.0, 25.0, 28.6, 30.0, 33.3, 40.0])
+    ok('4.3', 'ejemplos 15/30, 60/90, 22/40', near(pot_odds(30, 15), .25) and near(60 / 90, 2 / 3) and near(pot_odds(40, 22), 22 / 84))
+    ok('4.3', 'ej 8/24 = 1/3', near(8 / 24, 1 / 3))
+    # 4.4
+    ok('4.4', 'caso 1 A5s en K8s3: 9 outs, 16,7%', n_outs('A♠5♠', 'K♠8♠3♦') == 9 and near(pot_odds(40, 10), 1 / 6))
+    ok('4.4', 'caso 2 JT en Q83: 4 outs, 33%', n_outs('J♥T♥', 'Q♣8♦3♠') == 4 and near(pot_odds(20, 20), 1 / 3))
+    ok('4.4', 'caso 3 KQh en JTh2: 15 outs', n_outs('K♥Q♥', 'J♥T♥2♣') == 15)
+    ok('4.4', 'ej1 76c en 85K: 8 outs; 20%', n_outs('7♣6♣', '8♥5♠K♦') == 8 and near(pot_odds(30, 10), .20))
+    ok('4.4', 'ej2 A2d en Qd7d4: 9 outs; 18,75%', n_outs('A♦2♦', 'Q♦7♦4♣') == 9 and near(pot_odds(50, 15), .1875))
+    # 4.5
+    extra = lambda c, e, p: c / e - p
+    ok('4.5', 'caso 1: 86 en K75 8 outs; 30%; extra 43,75', n_outs('8♣6♣', 'K♥7♦5♠') == 8 and near(pot_odds(20, 15), .30) and near(extra(15, .16, 50), 43.75))
+    ok('4.5', 'caso 2 extra 33; caso 3 extra 85; ej 15,6', near(extra(15, .18, 50), 33.33, .01) and near(extra(10, .08, 40), 85) and near(extra(10, .18, 40), 15.56, .01))
+    ok('M4', 'Q1 45; Q2 25%; Q4 87 en K65: 8 outs; Q5 67,5', .3 * 150 == 45 and pot_odds(60, 30) == .25 and n_outs('8♠7♠', 'K♥6♣5♦') == 8 and near(extra(30, .16, 120), 67.5))
 
 
 if __name__ == '__main__':
