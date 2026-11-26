@@ -1,6 +1,6 @@
 # Progreso
 
-**Estado:** diseñado · **Actualizado:** 2026-11-26 · [GDD](../../GDD.md)
+**Estado:** implementado · **Actualizado:** 2026-11-26 · [GDD](../../GDD.md)
 
 El jugador entra con un nombre o como invitado, sin cuentas. Todo lo que hace suma experiencia, la experiencia sube su rango, y el juego recuerda dónde quedó en cada módulo. Todo se guarda solo en su navegador ([D-001](../../GDD.md#decisiones)). Sirve al pilar 5: el progreso nunca se pierde por jugar mal.
 

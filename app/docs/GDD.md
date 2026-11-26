@@ -1,6 +1,6 @@
 # Next Chip · Documento de diseño del juego
 
-**Versión:** 0.1 · **Actualizado:** 2026-11-26 · [Funciones](#índice-de-funciones) · [Decisiones](#decisiones) · [Cambios](#registro-de-cambios)
+**Versión:** 0.2 · **Actualizado:** 2026-11-26 · [Funciones](#índice-de-funciones) · [Decisiones](#decisiones) · [Cambios](#registro-de-cambios)
 
 > Qué es la app: `../01_OBJETIVO_Y_FUNCIONAMIENTO.md`. Cómo está construida: `../02_ARQUITECTURA_Y_DECISIONES_TECNICAS.md`.
 > Este documento dice **cómo se juega y por qué es divertido**. Los números de cada función viven en su nota (`features/<función>/design.md`).
@@ -54,16 +54,16 @@ Las tarjetas de bienvenida hablan en tono de juego y no mencionan nada técnico 
 | Función | Estado | Alcance | Resumen | Nota |
 |---|---|---|---|---|
 | Mesa y lecturas | implementado | MVP | Mesa del comp B con lecturas del motor y de la élite | `src/ui/` |
-| Mano completa | diseñado | MVP | Reparto, turnos, rivales con el Modelo 4, Raise con tamaño, showdown | [diseño](features/mano-completa/design.md) |
-| Retador | diseñado | MVP | Sesión de 10 manos, puntaje de precisión, resumen y reto del día | [diseño](features/retador/design.md) |
-| Progreso | diseñado | MVP | Nombre o invitado, experiencia, 6 rangos con las fichas, guardado local | [diseño](features/progreso/design.md) |
-| Portada y bienvenida | idea | MVP | Portada, nombre, 3 tarjetas de módulos y mano guiada de ~30 s | — |
-| Sonido | idea | MVP | Efectos de los paquetes de Kenney (uso libre), música apagada por defecto | — |
-| Instructor | idea | MVP | Camino de 13 módulos; lecciones partidas en pantallas; estrellas; repaso | — |
-| Casos "Prueba en vivo" | idea | MVP | 3–6 casos por módulo en la mesa, en bb, verificados por el motor | — |
-| Evaluaciones interactivas | idea | MVP | Las mini-evaluaciones del curso como preguntas de opción o número | — |
-| Analista | idea | MVP | Repetir manos reales decisión por decisión, filtros | — |
-| ¿Adivinas qué hizo la élite? | idea | MVP | En el Analista, decides antes de ver la respuesta | — |
+| Mano completa | implementado | MVP | Reparto, turnos, rivales con el Modelo 4, Raise con tamaño, showdown | [diseño](features/mano-completa/design.md) |
+| Retador | implementado | MVP | Sesión de 10 manos, puntaje de precisión, resumen y reto del día | [diseño](features/retador/design.md) |
+| Progreso | implementado | MVP | Nombre o invitado, experiencia, 6 rangos con las fichas, guardado local | [diseño](features/progreso/design.md) |
+| Portada y bienvenida | implementado | MVP | Portada, nombre, 3 tarjetas de módulos y mano guiada de ~30 s | — |
+| Sonido | implementado | MVP | Efectos de los paquetes de Kenney (uso libre), música apagada por defecto | — |
+| Instructor | implementado | MVP | Camino de 13 módulos; lecciones partidas en pantallas; estrellas; repaso | — |
+| Casos "Prueba en vivo" | implementado | MVP | 3–6 casos por módulo en la mesa, en bb, verificados por el motor | — |
+| Evaluaciones interactivas | implementado | MVP | Las mini-evaluaciones del curso como preguntas de opción o número | — |
+| Analista | implementado | MVP | Repetir manos reales decisión por decisión, filtros | — |
+| ¿Adivinas qué hizo la élite? | implementado | MVP | En el Analista, decides antes de ver la respuesta | — |
 | ¿Y si...? | idea | después | Cambiar una pieza y ver la curva de sensibilidad a la equity | — |
 | Comparar los 4 modelos | idea | después | La misma situación con los 4 modelos del proyecto | — |
 
@@ -100,3 +100,4 @@ Las tarjetas de bienvenida hablan en tono de juego y no mencionan nada técnico 
 ## Registro de cambios
 
 **0.1 (2026-11-26):** primer borrador; diseñados mano completa, Retador y progreso; D-001 a D-008.
+**0.2 (2026-11-26):** implementados los hitos H1 a H5 (falta la portada de PC); los tamaños de los rivales se midieron en el banco (`src/juego/tamanos_pluribus.json`).

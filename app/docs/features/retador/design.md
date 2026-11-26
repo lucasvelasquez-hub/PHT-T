@@ -1,6 +1,6 @@
 # Retador
 
-**Estado:** diseñado · **Actualizado:** 2026-11-26 · [GDD](../../GDD.md)
+**Estado:** implementado · **Actualizado:** 2026-11-26 · [GDD](../../GDD.md)
 
 El jugador juega sesiones cortas de manos completas contra 5 rivales que juegan como la élite. Cada decisión recibe al instante un puntaje de precisión, y al final de la sesión ve un resumen de cómo juega frente a la élite. Es el módulo más "juego" y sirve sobre todo al pilar 1 (decidir bien vale más que ganar la mano).
 

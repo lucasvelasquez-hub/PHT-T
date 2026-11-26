@@ -1,6 +1,6 @@
 # Mano completa
 
-**Estado:** diseñado · **Actualizado:** 2026-11-26 · [GDD](../../GDD.md)
+**Estado:** implementado · **Actualizado:** 2026-11-26 · [GDD](../../GDD.md)
 
 Es la base de los tres módulos: una mano de póker jugada de principio a fin en la mesa del comp B. Se reparte, cada jugador actúa en su turno, se reparten las calles, se muestran las cartas y el bote va al ganador. Los 5 rivales deciden con el Modelo 4, así que juegan como la élite. Sirve a los pilares 2 (cada acción responde) y 4 (honesto: solo situaciones posibles).
 

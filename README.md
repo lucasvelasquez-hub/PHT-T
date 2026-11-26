@@ -54,25 +54,28 @@ El plan inicial fue una aproximación teórica, escrita cuando el proyecto era s
 | **Módulos** | Aprender, Practicar y Analizar (con un formulario libre) | **Instructor, Retador y Analista**, con manos jugadas paso a paso o manos reales | Un formulario libre permite combinaciones imposibles, como un bote menor que lo ya apostado. La red generaliza a situaciones nuevas del mismo formato, no a situaciones que nunca ocurren. |
 | **Calificación del usuario** | Puntuación de los ejercicios, sin un criterio definido | **"Coincidencia con la élite"**: proporcional a la probabilidad que la red da a la acción elegida | La red entrega probabilidades, no una respuesta correcta. |
 | **Generación de situaciones** | Ejercicios aleatorios o temáticos | Generador que juega manos completas, con **rivales que deciden con el propio Modelo 4**, más un banco de manos reales y generadas | Las manos generadas resultan realistas y siempre posibles. |
+| **Experiencia de juego** | Ejercicios sueltos con puntaje | **Dos marcadores** (Fichas y Precisión élite), rangos con las fichas de la mesa, sesiones cortas, reto del día y un curso con estilo Duolingo, sin vidas | Separar el resultado de la decisión enseña la idea central del póker: se puede decidir bien y perder la mano por suerte. |
+| **Tamaños de apuesta del generador** | Por definir | **Medidos en 1,849 manos reales** de Pluribus (por ejemplo, abren a 2.5 bb el 87 % de las veces) | Los rivales apuestan como en las manos reales, no con tamaños inventados. |
+| **Cuentas de usuario** | No definido | **Sin cuentas**: nombre o invitado, progreso guardado en el navegador | Es una demostración académica y no hay servidor. |
 
 ---
 
-## 📱 4. La Aplicación (en construcción)
+## 📱 4. La Aplicación: Next Chip
 Un entrenador para celular y PC, con una mesa animada de 6 jugadores en la que el usuario solo ve sus propias cartas.
 
 | Módulo | Qué hace |
 | :--- | :--- |
-| **Instructor** | Lecciones progresivas con casos de "prueba en vivo" al final de cada unidad |
-| **Retador** | El usuario decide en situaciones generadas o reales y recibe un puntaje de coincidencia con la élite |
-| **Analista** | Repetición de manos reales de Pluribus, generador con condiciones escogidas y "¿y si...?" con la curva de sensibilidad a la equity |
-| **Comparar modelos** | La misma situación evaluada por las 4 versiones del modelo |
+| **Instructor** ✅ | Curso de 13 módulos y 66 lecciones, con 101 preguntas interactivas y 70 casos "Prueba en vivo" en la mesa, validados con el motor |
+| **Retador** ✅ | Sesiones de 10 manos completas contra 5 rivales que deciden con el Modelo 4, reto del día y puntaje de coincidencia con la élite |
+| **Analista** ✅ | Repetición de 1,849 manos reales de Pluribus decisión por decisión y el juego "¿Adivinas qué hizo la élite?" |
+| **"¿Y si...?" y comparar modelos** | Pendientes: curva de sensibilidad a la equity y la misma situación evaluada por las 4 versiones |
 
 **Rigor en el paso a producción:**
 * Los modelos se convierten a ONNX.
 * El evaluador de manos, el motor de equity y las 47 variables se reescriben en TypeScript.
 * Ninguna pieza se acepta hasta que da los mismos números que Python sobre un archivo de referencia.
 
-Diseño y decisiones técnicas en [`app/01_OBJETIVO_Y_FUNCIONAMIENTO.md`](app/01_OBJETIVO_Y_FUNCIONAMIENTO.md) y [`app/02_ARQUITECTURA_Y_DECISIONES_TECNICAS.md`](app/02_ARQUITECTURA_Y_DECISIONES_TECNICAS.md).
+Diseño del juego en [`app/docs/GDD.md`](app/docs/GDD.md). Diseño y decisiones técnicas en [`app/01_OBJETIVO_Y_FUNCIONAMIENTO.md`](app/01_OBJETIVO_Y_FUNCIONAMIENTO.md) y [`app/02_ARQUITECTURA_Y_DECISIONES_TECNICAS.md`](app/02_ARQUITECTURA_Y_DECISIONES_TECNICAS.md).
 
 ---
 

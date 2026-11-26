@@ -13,10 +13,11 @@
 | 2 · Dirección de diseño (impeccable) + pantalla de mesa en React | ✅ hecho (build y 29/29 pruebas) | Sonnet (alto) + orquestador (recursos) | `app/src/ui/`, `app/public/{assets,cartas,fonts}/`, comp `.impeccable/mocks/decision/comp-b.png` + `preview_cartas_fichas.png` |
 | ⛔ Revisión 2 con el usuario: diseño | ✅ aprobada el 2026-11-25 ("se ve muy muy bien") | — | — |
 | 3 · Núcleo TS (evaluador, equity, variables, ONNX) + Vitest golden | ✅ hecho y auditado (27/27) | Sonnet (alto) | `app/src/motor/` |
-| 4 · Módulo 3 con manos reales | pendiente | — | — |
-| ⛔ Revisión 3 con el usuario: Módulo 3 funcionando | pendiente | — | — |
+| 4 · Jugabilidad: mano completa, portada, bienvenida, inicio, progreso y sonido | ✅ hecho y auditado (commit 879dcdd) | Sonnet (frentes en paralelo) | `src/juego/`, `src/pantallas/`, `src/progreso/`, `src/sonido/`, `docs/GDD.md`, `docs/CONTRATOS_JUGABILIDAD.md` |
+| 4b · Módulos Retador, Instructor y Analista + curso en formato de juego | ✅ hecho y auditado (commits f74537c y 728a890; 168 pruebas) | Sonnet | `src/modulos/`, `src/curso/`, `contenido_modulo1/{casos,evaluaciones}/` |
+| ⛔ Revisión 3 con el usuario: la app jugable | ✅ el 2026-11-26 lo probó en local: "Está genial" | — | — |
 | 5 · Agente de prueba + publicación en Vercel | pendiente | — | — |
-| 6 · Módulo 2 · 7 · "¿Y si...?" · 8 · Módulo 1 | pendiente | — | — |
+| 6 · "¿Y si...?" · comparar los 4 modelos · imágenes de bienvenida y portada de PC | pendiente | — | — |
 
 ## Reglas para todos los agentes
 
