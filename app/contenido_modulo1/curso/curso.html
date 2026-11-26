@@ -1,0 +1,413 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Curso de póker cash</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+</style></head><body><div class="wrap">
+<h1>Curso de Texas Hold'em cash para principiantes</h1>
+<p>No-Limit Hold'em, mesas de 6 jugadores, 100 ciegas grandes. Una lección al día, de 5 a 10 minutos. Ejemplos en ciegas $1/$2.</p>
+<p>Baraja de cuatro colores: <span class="card s">A♠</span> <span class="card h">A♥</span> <span class="card d">A♦</span> <span class="card c">A♣</span></p>
+<nav class="toc"><strong>Índice</strong><ol><li><a href="#m0">Módulo 0: Primeros pasos antes de tu primera mano</a><ol><li><a href="#M00_L01">0.1 El viaje de una mano</a></li><li><a href="#M00_L02">0.2 ¿Qué mano gana? La jerarquía</a></li><li><a href="#M00_L03">0.3 Tus cinco mejores cartas, el <em>kicker</em> y el empate</a></li><li><a href="#M00_L04">0.4 Tus opciones en cada turno</a></li><li><a href="#M00_L05">0.5 Ciegas, botón y por qué contamos en bb</a></li><li><a href="#M00_L06">0.6 Cuenta el bote en segundos</a></li><li><a href="#M00_L07">0.7 El <em>rake</em>: el peaje de la mesa</a></li><li><a href="#M00_L08">0.8 El idioma del póker</a></li><li><a href="#M00_evaluacion">Mini-evaluación del Módulo 0</a></li></ol></li><li><a href="#m4">Módulo 4: ¿Pago o me retiro? Equity, pot odds e implied odds</a><ol><li><a href="#M04_L02">4.2 <em>Pot odds</em>: el precio de ver una carta</a></li></ol></li></ol></nav>
+<div class="mod" id="m0">Módulo 0 · Primeros pasos antes de tu primera mano</div><section class="leccion" id="M00_L01"><h2>0.1 El viaje de una mano</h2>
+<p><em>Módulo 0 · Lección 1 · 6 minutos</em></p>
+<h3>Gancho</h3>
+<p>Te sientas en una mesa de póker y el crupier te reparte dos cartas boca abajo. Todos te miran. ¿Qué pasa ahora y cuándo termina esto?</p>
+<p>Una mano de Texas Hold'em siempre sigue el mismo camino. Cuando lo conoces, todo lo demás encaja.</p>
+<h3>La idea</h3>
+<p>En cada mano:</p>
+<ol><li><strong>Cada jugador recibe 2 cartas propias</strong>, boca abajo. Solo tú las ves.</li><li><strong>Se ponen en la mesa hasta 5 cartas comunitarias</strong>, boca arriba, que sirven para todos.</li><li><strong>Hay cuatro rondas de apuestas</strong>, una después de cada reparto:</li></ol>
+<div class="tw"><table><thead><tr><th>Ronda</th><th>Qué se ha repartido</th><th>Cartas comunitarias en la mesa</th></tr></thead><tbody><tr><td><strong>Preflop</strong></td><td>Tus 2 cartas</td><td>0</td></tr><tr><td><strong>Flop</strong></td><td>Las 3 primeras comunitarias, a la vez</td><td>3</td></tr><tr><td><strong>Turn</strong></td><td>La cuarta comunitaria</td><td>4</td></tr><tr><td><strong>River</strong></td><td>La quinta y última</td><td>5</td></tr></tbody></table></div>
+<ol><li><strong>La mano puede terminar de dos formas:</strong></li><li><strong>Todos se retiran menos uno.</strong> Ese jugador gana el bote sin mostrar sus cartas. Puede pasar en cualquier ronda.</li><li><strong>Quedan dos o más jugadores al final del river.</strong> Muestran sus cartas: es el <em>showdown</em> ("la hora de enseñar"). Gana quien forme la mejor mano de cinco cartas combinando sus 2 cartas propias con las 5 comunitarias.</li></ol>
+<p>El <strong>bote</strong> es el dinero que los jugadores van poniendo en el centro durante la mano. Quien gana la mano se lo lleva entero.</p>
+<p><strong>Cash.</strong> En este curso jugamos partidas de <em>cash</em>: las fichas son dinero real, entras y sales de la mesa cuando quieres y cada mano es independiente de la anterior.</p>
+<h3>Ejemplo guiado</h3>
+<p>Juegas contra un rival. Así va la mano:</p>
+<ul><li><strong>Preflop:</strong> recibes <strong><span class="card s">A♠</span> <span class="card c">K♣</span></strong>. Apuestas y tu rival paga. Pasan al flop.</li><li><strong>Flop:</strong> <strong><span class="card h">K♥</span> <span class="card d">7♦</span> <span class="card s">2♠</span></strong>. Ahora tienes una pareja de reyes (tu <span class="card c">K♣</span> con el <span class="card h">K♥</span> de la mesa). Apuestas; tu rival paga.</li><li><strong>Turn:</strong> <strong><span class="card c">9♣</span></strong>. En la mesa hay 4 cartas: <span class="card h">K♥</span> <span class="card d">7♦</span> <span class="card s">2♠</span> <span class="card c">9♣</span>. Los dos pasan sin apostar.</li><li><strong>River:</strong> <strong><span class="card h">4♥</span></strong>. Mesa completa: <span class="card h">K♥</span> <span class="card d">7♦</span> <span class="card s">2♠</span> <span class="card c">9♣</span> <span class="card h">4♥</span>. Apuestas, tu rival paga.</li><li><strong>Showdown:</strong> tu rival muestra <strong><span class="card h">Q♥</span> <span class="card d">Q♦</span></strong> (pareja de damas). Tú tienes pareja de reyes con un as. Los reyes valen más que las damas: <strong>ganas el bote</strong>.</li></ul>
+<p>Fíjate en que tu rival nunca vio tus cartas hasta el final. Durante toda la mano tuvo que decidir sin saber qué tenías. Esa es la esencia del póker.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> ¿Cuántas cartas comunitarias hay en la mesa durante el turn?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>Cuatro.</strong> Tres del flop más la carta del turn.</p>
+</div></details>
+<p><strong>2.</strong> En el flop apuestas y tu único rival se retira. ¿Hay <em>showdown</em>? ¿Quién gana?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>No hay <em>showdown</em>.</strong> Ganas tú el bote sin mostrar tus cartas, porque eres el único jugador que queda. No hacen falta el turn ni el river.</p>
+</div></details>
+<p><strong>3.</strong> ¿Con cuántas cartas en total forma cada jugador su mano en el <em>showdown</em>, y con cuántas puede elegir?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Elige entre <strong>7 cartas</strong> (sus 2 propias y las 5 comunitarias) y su mano final son <strong>las 5 mejores</strong>. Lo verás en detalle en la lección 0.3.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Dos cartas propias, cinco comunitarias, cuatro rondas de apuestas (preflop, flop, turn y river), y gana el último que queda o la mejor mano en el <em>showdown</em>.</p>
+<hr>
+<p><em>Fuentes: reglas públicas de Texas Hold'em. Los libros del curso asumen que el lector ya las conoce.</em></p></section><section class="leccion" id="M00_L02"><h2>0.2 ¿Qué mano gana? La jerarquía</h2>
+<p><em>Módulo 0 · Lección 2 · 8 minutos</em></p>
+<h3>Gancho</h3>
+<p>En el <em>showdown</em> tu rival enseña tres sietes y tú tienes cinco corazones. ¿Quién gana? Si dudas, esta lección es para ti. La jerarquía de manos es la tabla que hay que saberse de memoria antes de jugar una sola ficha.</p>
+<h3>La idea</h3>
+<p>Toda mano de póker son <strong>5 cartas</strong>. Según cómo combinen, pertenecen a una de estas diez categorías. Cada categoría gana a todas las que están debajo.</p>
+<div class="tw"><table><thead><tr><th>#</th><th>Mano</th><th>Qué es</th><th>Ejemplo</th></tr></thead><tbody><tr><td>1</td><td><strong>Escalera real</strong></td><td>A-K-Q-J-10 del mismo palo</td><td><span class="card s">A♠</span> <span class="card s">K♠</span> <span class="card s">Q♠</span> <span class="card s">J♠</span> <span class="card s">10♠</span></td></tr><tr><td>2</td><td><strong>Escalera de color</strong></td><td>Cinco seguidas del mismo palo</td><td><span class="card h">9♥</span> <span class="card h">8♥</span> <span class="card h">7♥</span> <span class="card h">6♥</span> <span class="card h">5♥</span></td></tr><tr><td>3</td><td><strong>Póker</strong></td><td>Cuatro cartas iguales</td><td><span class="card c">8♣</span> <span class="card d">8♦</span> <span class="card h">8♥</span> <span class="card s">8♠</span> <span class="card d">K♦</span></td></tr><tr><td>4</td><td><strong>Full</strong></td><td>Un trío y una pareja</td><td><span class="card s">J♠</span> <span class="card h">J♥</span> <span class="card d">J♦</span> <span class="card c">4♣</span> <span class="card h">4♥</span></td></tr><tr><td>5</td><td><strong>Color</strong></td><td>Cinco del mismo palo, no seguidas</td><td><span class="card d">A♦</span> <span class="card d">J♦</span> <span class="card d">8♦</span> <span class="card d">6♦</span> <span class="card d">2♦</span></td></tr><tr><td>6</td><td><strong>Escalera</strong></td><td>Cinco seguidas, de palos mezclados</td><td><span class="card c">10♣</span> <span class="card d">9♦</span> <span class="card s">8♠</span> <span class="card h">7♥</span> <span class="card c">6♣</span></td></tr><tr><td>7</td><td><strong>Trío</strong></td><td>Tres cartas iguales</td><td><span class="card s">7♠</span> <span class="card h">7♥</span> <span class="card d">7♦</span> <span class="card c">K♣</span> <span class="card s">2♠</span></td></tr><tr><td>8</td><td><strong>Doble pareja</strong></td><td>Dos parejas distintas</td><td><span class="card s">Q♠</span> <span class="card d">Q♦</span> <span class="card c">5♣</span> <span class="card h">5♥</span> <span class="card s">9♠</span></td></tr><tr><td>9</td><td><strong>Pareja</strong></td><td>Dos cartas iguales</td><td><span class="card h">10♥</span> <span class="card s">10♠</span> <span class="card c">A♣</span> <span class="card d">6♦</span> <span class="card s">3♠</span></td></tr><tr><td>10</td><td><strong>Carta alta</strong></td><td>Nada de lo anterior</td><td><span class="card c">A♣</span> <span class="card d">Q♦</span> <span class="card s">9♠</span> <span class="card h">6♥</span> <span class="card c">3♣</span></td></tr></tbody></table></div>
+<p><strong>Cuatro reglas que confunden a casi todos al principio:</strong></p>
+<ol><li><strong>El color gana a la escalera.</strong> Es más difícil reunir cinco cartas del mismo palo que cinco seguidas.</li><li><strong>El as sirve arriba y abajo.</strong> A-K-Q-J-10 es la escalera más alta; <strong>5-4-3-2-A</strong> es la más baja (el as cuenta como 1). Pero no se puede "dar la vuelta": Q-K-A-2-3 <strong>no</strong> es escalera.</li><li><strong>Los palos no tienen rango.</strong> Un color de picas no gana a uno de corazones. Si dos manos son idénticas en números, empatan.</li><li><strong>Dentro de la misma categoría gana la carta más alta:</strong> una pareja de reyes gana a una pareja de damas; una escalera hasta el 9 gana a una escalera hasta el 8.</li></ol>
+<p><strong>Truco para memorizar.</strong> Cuanto más rara es una mano, más vale. Por eso el póker (cuatro iguales) está tan arriba: casi nunca lo verás.</p>
+<h3>Ejemplo guiado</h3>
+<p>Volvemos al gancho. En el river la mesa es <strong><span class="card c">7♣</span> <span class="card h">K♥</span> <span class="card h">9♥</span> <span class="card h">2♥</span> <span class="card s">4♠</span></strong>.</p>
+<ul><li>Tu rival tiene <strong><span class="card s">7♠</span> <span class="card d">7♦</span></strong>: con el <span class="card c">7♣</span> de la mesa forma <strong>trío de sietes</strong> (7-7-7-K-9).</li><li>Tú tienes <strong><span class="card h">A♥</span> <span class="card h">5♥</span></strong>: con <span class="card h">K♥</span> <span class="card h">9♥</span> <span class="card h">2♥</span> de la mesa reúnes cinco corazones, <strong>color</strong> (A-K-9-5-2).</li></ul>
+<p>El color (puesto 5) está por encima del trío (puesto 7). <strong>Ganas tú.</strong></p>
+<p>Otro caso: la mesa es <strong><span class="card c">Q♣</span> <span class="card d">J♦</span> <span class="card s">10♠</span> <span class="card h">3♥</span> <span class="card d">3♦</span></strong>. Tú tienes <strong><span class="card s">K♠</span> <span class="card c">9♣</span></strong>: K-Q-J-10-9, <strong>escalera</strong>. Tu rival tiene <strong><span class="card c">A♣</span> <span class="card h">A♥</span></strong>: doble pareja, ases y treses. La escalera (puesto 6) gana a la doble pareja (puesto 8). <strong>Ganas tú.</strong></p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Ordena de mayor a menor: doble pareja, escalera, full, trío.</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>Full &gt; escalera &gt; trío &gt; doble pareja.</strong></p>
+</div></details>
+<p><strong>2.</strong> ¿Es escalera <strong><span class="card d">A♦</span> <span class="card c">2♣</span> <span class="card s">3♠</span> <span class="card h">4♥</span> <span class="card d">5♦</span></strong>? ¿Y <strong><span class="card c">K♣</span> <span class="card d">A♦</span> <span class="card h">2♥</span> <span class="card s">3♠</span> <span class="card c">4♣</span></strong>?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>La primera <strong>sí</strong>: es la escalera más baja (el as vale 1). La segunda <strong>no</strong>: no se puede dar la vuelta pasando del as al 2.</p>
+</div></details>
+<p><strong>3.</strong> Tú tienes un color de corazones con el as. Tu rival tiene un color de picas con el as y exactamente los mismos números que el tuyo. ¿Quién gana?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>Empate.</strong> Los palos no tienen rango; se reparten el bote.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>De arriba abajo: escalera real, escalera de color, póker, full, color, escalera, trío, doble pareja, pareja y carta alta; cuanto más rara la mano, más vale.</p>
+<hr>
+<p><em>Fuentes: reglas públicas de Texas Hold'em. Los libros del curso asumen que el lector ya conoce la jerarquía.</em></p></section><section class="leccion" id="M00_L03"><h2>0.3 Tus cinco mejores cartas, el <em>kicker</em> y el empate</h2>
+<p><em>Módulo 0 · Lección 3 · 8 minutos</em></p>
+<h3>Gancho</h3>
+<p>Tú y tu rival tienen pareja de reyes. ¿Empate? Casi nunca. Muchos botes los decide una carta que parece no importar: la que acompaña a la pareja.</p>
+<h3>La idea</h3>
+<p><strong>Regla 1: tu mano son tus 5 mejores cartas de entre las 7 disponibles.</strong> Puedes usar tus dos cartas propias, solo una o ninguna. Si la mejor mano está entera en la mesa, se dice que "juegas la mesa", y todos los que siguen en la mano tienen al menos esa misma mano.</p>
+<p><strong>Regla 2: el <em>kicker</em> desempata.</strong> Cuando dos jugadores tienen la misma categoría y los mismos números (por ejemplo, los dos tienen pareja de reyes), se comparan <strong>las cartas que completan las cinco</strong>, de la más alta a la más baja. Esa carta de desempate se llama <em>kicker</em> (en inglés, "la que patea").</p>
+<p><strong>Regla 3: si las cinco cartas son iguales en números, es empate</strong> y el bote se reparte a partes iguales. A esto se le llama <strong>bote dividido</strong>.</p>
+<p><strong>Dos detalles:</strong></p>
+<ul><li>Solo cuentan <strong>cinco</strong> cartas. Una sexta carta nunca desempata.</li><li>En manos como el full, primero se compara el trío y luego la pareja: J-J-J-4-4 gana a 10-10-10-A-A.</li></ul>
+<h3>Ejemplo guiado</h3>
+<p><strong>Caso 1: el <em>kicker</em> decide.</strong> Flop: <strong><span class="card c">K♣</span> <span class="card d">8♦</span> <span class="card s">3♠</span></strong>. Tú tienes <strong><span class="card s">K♠</span> <span class="card h">Q♥</span></strong>; tu rival, <strong><span class="card d">K♦</span> <span class="card s">J♠</span></strong>.</p>
+<ul><li>Tú: K-K-Q-8-3.</li><li>Tu rival: K-K-J-8-3.</li></ul>
+<p>Los dos tienen pareja de reyes. Se compara la siguiente carta: tu Q contra su J. <strong>Ganas tú, por el <em>kicker</em>.</strong></p>
+<p>Este choque es muy común y caro. Antes del flop, K-Q gana a K-J alrededor del 73 % de las veces, justamente porque cuando los dos ligan un rey, el <em>kicker</em> más alto se lleva el bote.</p>
+<p><strong>Caso 2: juegas la mesa.</strong> Mesa completa: <strong><span class="card s">A♠</span> <span class="card d">K♦</span> <span class="card c">Q♣</span> <span class="card h">J♥</span> <span class="card s">10♠</span></strong> (una escalera). Tú tienes <strong><span class="card c">4♣</span> <span class="card d">4♦</span></strong>; tu rival, <strong><span class="card h">9♥</span> <span class="card c">9♣</span></strong>. Ninguna de sus cartas propias mejora la escalera de la mesa. Los dos juegan A-K-Q-J-10: <strong>bote dividido</strong>.</p>
+<p><strong>Caso 3: el <em>kicker</em> que no llega.</strong> Mesa: <strong><span class="card c">A♣</span> <span class="card d">A♦</span> <span class="card s">9♠</span> <span class="card h">9♥</span> <span class="card c">K♣</span></strong>. Tú tienes <strong><span class="card s">Q♠</span> <span class="card s">J♠</span></strong>; tu rival, <strong><span class="card h">Q♥</span> <span class="card d">2♦</span></strong>.</p>
+<ul><li>Los dos: A-A-9-9-K. La K de la mesa es la quinta carta de ambos. Tu J ni tu Q entran en las cinco mejores.</li><li><strong>Empate.</strong> Muchos principiantes creen que ganan con "la Q más la J"; no, solo cuentan cinco cartas.</li></ul>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Mesa: <strong><span class="card d">Q♦</span> <span class="card c">7♣</span> <span class="card h">7♥</span> <span class="card s">4♠</span> <span class="card d">2♦</span></strong>. Tú: <strong><span class="card c">A♣</span> <span class="card h">3♥</span></strong>. Rival: <strong><span class="card s">K♠</span> <span class="card d">3♦</span></strong>. ¿Quién gana y por qué?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Los dos tienen pareja de sietes con la Q de la mesa. Tú: 7-7-A-Q-4. Rival: 7-7-K-Q-4. <strong>Ganas tú</strong>, por el as como <em>kicker</em>.</p>
+</div></details>
+<p><strong>2.</strong> Mesa: <strong><span class="card s">J♠</span> <span class="card h">J♥</span> <span class="card c">8♣</span> <span class="card d">8♦</span> <span class="card s">5♠</span></strong>. Tú: <strong><span class="card h">A♥</span> <span class="card c">2♣</span></strong>. Rival: <strong><span class="card c">K♣</span> <span class="card c">Q♣</span></strong>. ¿Quién gana?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Los dos tienen doble pareja, jotas y ochos. Quinta carta: tu A contra su K. <strong>Ganas tú.</strong></p>
+</div></details>
+<p><strong>3.</strong> Mesa: <strong><span class="card c">9♣</span> <span class="card d">9♦</span> <span class="card h">9♥</span> <span class="card s">9♠</span> <span class="card c">3♣</span></strong>. Tú: <strong><span class="card d">K♦</span> <span class="card h">2♥</span></strong>. Rival: <strong><span class="card s">Q♠</span> <span class="card c">J♣</span></strong>. ¿Quién gana?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Los dos tienen póker de nueves de la mesa. La quinta carta decide: tu K contra su Q. <strong>Ganas tú.</strong></p>
+</div></details>
+<h3>En una frase</h3>
+<p>Juegas tus cinco mejores cartas de siete; si empatas en categoría y números, decide el <em>kicker</em>, y si las cinco son iguales, se divide el bote.</p>
+<hr>
+<p><em>Fuentes: reglas públicas de Texas Hold'em. Probabilidad de K-Q contra K-J (73,16 %): Hardin, Essential Poker Math, Cap. 5 y tablas de referencia.</em></p></section><section class="leccion" id="M00_L04"><h2>0.4 Tus opciones en cada turno</h2>
+<p><em>Módulo 0 · Lección 4 · 8 minutos</em></p>
+<h3>Gancho</h3>
+<p>Te toca hablar y tienes cinco segundos. ¿Qué botones hay y qué hace cada uno? Hay muy pocos, y casi todo el póker consiste en elegir bien entre ellos.</p>
+<h3>La idea</h3>
+<p>Cuando te toca, tus opciones dependen de una sola pregunta: <strong>¿alguien ya apostó en esta ronda?</strong></p>
+<p><strong>Si nadie ha apostado todavía:</strong></p>
+<ul><li><strong>Pasar (<em>check</em>):</strong> no pones dinero y sigues en la mano. El turno pasa al siguiente.</li><li><strong>Apostar (<em>bet</em>):</strong> pones dinero. Los demás tendrán que igualarlo para seguir.</li></ul>
+<p><strong>Si alguien ya apostó:</strong></p>
+<ul><li><strong>Retirarte (<em>fold</em>):</strong> tiras tus cartas y pierdes lo que hayas puesto. No puedes ganar el bote.</li><li><strong>Pagar (<em>call</em>):</strong> igualas la apuesta y sigues.</li><li><strong>Subir (<em>raise</em>):</strong> igualas y además pones más. Ahora son los demás quienes deben pagar la diferencia.</li></ul>
+<p><strong>Ir <em>all-in</em>:</strong> apostar todas tus fichas. Si un rival tiene más que tú, solo puedes ganar de él lo mismo que pusiste.</p>
+<p><strong>La subida mínima.</strong> Una subida tiene que ser <strong>al menos tan grande como la apuesta o subida anterior</strong>. Se calcula así:</p>
+<blockquote><p><strong>Subida mínima = lo que hay que pagar + el último aumento</strong></p></blockquote>
+<p>La apuesta mínima después del flop es una ciega grande.</p>
+<p><strong>Una ronda termina</strong> cuando todos los que siguen en la mano han puesto la misma cantidad, o cuando todos han pasado.</p>
+<h3>Ejemplo guiado</h3>
+<p>Ciegas de $1 y $2 (verás qué son en la lección siguiente; por ahora: antes del preflop hay una "apuesta" obligatoria de $2).</p>
+<p><strong>Preflop.</strong> La apuesta actual es $2. Un rival sube a <strong>$6</strong>. El aumento fue de $4 (de $2 a $6).</p>
+<ul><li><strong>Retirarte:</strong> no pones nada más.</li><li><strong>Pagar:</strong> pones $6 en total.</li><li><strong>Subir:</strong> como mínimo a <strong>$10</strong> ($6 + el aumento de $4). Puedes subir más, hasta todas tus fichas.</li></ul>
+<p><strong>Flop.</strong> Nadie ha apostado. Eres el primero.</p>
+<ul><li>Puedes <strong>pasar</strong> o <strong>apostar</strong>. Si apuestas, mínimo $2.</li><li>Apuestas <strong>$8</strong>. Tu rival puede retirarse, pagar $8 o subir. Su subida mínima sería a <strong>$16</strong> ($8 + $8).</li></ul>
+<blockquote><p><strong>Aviso.</strong> Algunos textos simplifican la regla y dicen que la subida mínima es "el doble de la apuesta". Funciona cuando la apuesta anterior no fue una subida, como en el flop de arriba ($8 → $16), pero falla en otros casos: en el preflop del ejemplo, "el doble de $6" daría $12, y el mínimo real es $10.</p></blockquote>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Nadie ha apostado en el turn. ¿Puedes retirarte? ¿Tiene sentido?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Algunas salas te dejan, pero <strong>no tiene sentido</strong>: pasar te deja seguir en la mano gratis. Retirarse cuando puedes pasar es regalar tus opciones.</p>
+</div></details>
+<p><strong>2.</strong> En el river tu rival apuesta $20 y tú quieres subir lo mínimo. ¿A cuánto?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>A <strong>$40</strong>: pagas los $20 y aumentas otros $20.</p>
+</div></details>
+<p><strong>3.</strong> Preflop, la ciega grande es $2. Un jugador sube a $5 y el siguiente sube a $15. ¿Cuál es la subida mínima para el tercero?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>El último aumento fue de $10 (de $5 a $15). Subida mínima: $15 + $10 = <strong>$25</strong>.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Sin apuesta previa puedes pasar o apostar; con apuesta previa puedes retirarte, pagar o subir, y la subida mínima es lo que hay que pagar más el último aumento.</p>
+<hr>
+<p><em>Fuentes: reglas públicas de Texas Hold'em (subida mínima). Definiciones de las acciones: Acevedo, Modern Poker Theory, Cap. 1, que simplifica la subida mínima como "dos veces la última apuesta".</em></p></section><section class="leccion" id="M00_L05"><h2>0.5 Ciegas, botón y por qué contamos en bb</h2>
+<p><em>Módulo 0 · Lección 5 · 7 minutos</em></p>
+<h3>Gancho</h3>
+<p>Si nadie estuviera obligado a poner dinero, lo más sensato sería esperar ases toda la noche. El póker se quedaría sin acción. Las <strong>ciegas</strong> existen para que siempre haya algo por lo que pelear.</p>
+<h3>La idea</h3>
+<p><strong>El botón.</strong> Una ficha blanca, el <strong>botón</strong> (<em>button</em>), marca al jugador que hace de "repartidor" en esa mano. Después de cada mano se mueve un asiento hacia la izquierda, así que todos pasan por todas las posiciones.</p>
+<p><strong>Las ciegas.</strong> Antes de repartir, los dos jugadores a la izquierda del botón ponen dinero sin ver sus cartas, por eso se llaman "ciegas":</p>
+<ul><li><strong>Ciega pequeña (SB, <em>small blind</em>):</strong> el primero a la izquierda del botón. Pone la mitad.</li><li><strong>Ciega grande (BB, <em>big blind</em>):</strong> el siguiente. Pone la apuesta completa.</li></ul>
+<p>En una mesa <strong>$1/$2</strong>, la SB pone $1 y la BB pone $2. Esos $3 son el bote inicial.</p>
+<p><strong>Quién habla primero.</strong></p>
+<ul><li><strong>Preflop:</strong> empieza el jugador a la izquierda de la ciega grande. La BB habla la última, porque su ciega ya cuenta como apuesta.</li><li><strong>Flop, turn y river:</strong> empieza el primer jugador que siga en la mano a la izquierda del botón. El botón habla el último.</li></ul>
+<p><strong>¿Por qué contamos en "bb"?</strong> Los jugadores serios no dicen "aposté $10", dicen "aposté 5 ciegas grandes". Así las mismas ideas sirven en cualquier mesa, sea de céntimos o de cientos de dólares. Se escribe <strong>bb</strong> en minúscula cuando hablamos de la unidad ("subo a 2,5bb") y <strong>BB</strong> en mayúscula cuando hablamos del asiento ("el jugador de la BB").</p>
+<p>En $1/$2: <strong>1bb = $2</strong>. Si entras con $200, tienes <strong>100bb</strong>. Ese es el stack estándar de este curso.</p>
+<blockquote><p><strong>Recuadro: cash no es torneo.</strong> En un torneo pagas una entrada, recibes fichas que no son dinero, las ciegas suben cada pocos minutos y cuando pierdes tus fichas quedas eliminado. En <em>cash</em> las fichas son dinero, las ciegas nunca cambian, puedes recargar si pierdes y levantarte cuando quieras. Son juegos tan distintos que muchas estrategias de torneo no sirven en <em>cash</em>. Este curso es solo de <em>cash</em>.</p></blockquote>
+<h3>Ejemplo guiado</h3>
+<p>Mesa de $1/$2 con seis jugadores. Ana tiene el botón; Beto está a su izquierda y Carla a la izquierda de Beto.</p>
+<ul><li>Beto es la <strong>SB</strong>: pone $1.</li><li>Carla es la <strong>BB</strong>: pone $2.</li><li>Preflop habla primero el jugador a la izquierda de Carla.</li><li>Si todos se retiran hasta Beto y él solo paga $1 más, Carla puede pasar: su ciega ya cubre los $2. El bote es $4 y ven el flop.</li><li>En el flop habla primero Beto (el primero a la izquierda del botón que sigue en la mano) y Carla después.</li></ul>
+<p>En la siguiente mano el botón pasa a Beto, Carla será la SB y el siguiente jugador será la BB.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Mesa $0,50/$1. Tienes $100. ¿Cuántas bb tienes?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>1bb = $1, así que <strong>100bb</strong>.</p>
+</div></details>
+<p><strong>2.</strong> En $1/$2, alguien sube a $5. ¿Cuántas bb es esa subida?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>$5 ÷ $2 = <strong>2,5bb</strong>.</p>
+</div></details>
+<p><strong>3.</strong> ¿Quién habla último en el flop si siguen en la mano la BB y el botón?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>El botón.</strong> Después del flop habla último el jugador que sigue en la mano y está más cerca del botón; si el propio botón sigue en la mano, es él.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Las ciegas ponen dinero antes de repartir para que siempre haya un bote, y medimos todo en ciegas grandes (bb) para que las ideas sirvan en cualquier mesa.</p>
+<hr>
+<p><em>Fuentes: reglas públicas del juego (botón, ciegas, orden de acción). Notación BB/bb y stacks de 100bb: Hardin, Essential Poker Math, Cap. 2. Diferencias entre cash y torneos: Acevedo, Modern Poker Theory, Cap. 6.</em></p></section><section class="leccion" id="M00_L06"><h2>0.6 Cuenta el bote en segundos</h2>
+<p><em>Módulo 0 · Lección 6 · 7 minutos</em></p>
+<h3>Gancho</h3>
+<p>Tu rival apuesta $15. ¿Es mucho o poco? Depende de cuánto hay en el bote. Una apuesta de $15 en un bote de $100 es tímida; en un bote de $10 es enorme. Para decidir bien, siempre necesitas saber <strong>cuánto hay en el centro</strong>.</p>
+<h3>La idea</h3>
+<p><strong>El bote es todo el dinero que ya está en el centro</strong>: las ciegas, las apuestas y los pagos de todas las rondas anteriores, más lo que se haya apostado en la ronda actual.</p>
+<p><strong>Un método que no falla:</strong> cuenta lo que puso <strong>cada jugador</strong> en la ronda y súmalo. No olvides las ciegas, aunque su dueño se haya retirado: ese dinero sigue en el bote.</p>
+<p><strong>Las apuestas se miden como fracción del bote.</strong> Los jugadores dicen "apostó medio bote" o "apostó dos tercios". Es la forma de comparar apuestas en botes de cualquier tamaño.</p>
+<div class="tw"><table><thead><tr><th>Bote</th><th>Apuesta</th><th>Tamaño</th></tr></thead><tbody><tr><td>$12</td><td>$3</td><td>1/4 del bote</td></tr><tr><td>$12</td><td>$4</td><td>1/3 del bote</td></tr><tr><td>$12</td><td>$6</td><td>1/2 del bote</td></tr><tr><td>$12</td><td>$8</td><td>2/3 del bote</td></tr><tr><td>$12</td><td>$12</td><td>bote completo</td></tr></tbody></table></div>
+<p>Para calcularlo, divide la apuesta entre el bote <strong>antes</strong> de la apuesta: $6 ÷ $12 = 0,5 = medio bote.</p>
+<h3>Ejemplo guiado</h3>
+<p>Mesa $1/$2.</p>
+<p><strong>Preflop.</strong> SB $1, BB $2. El botón sube a $5, la SB se retira y la BB paga $3 más (ya tenía $2).</p>
+<ul><li>Botón: $5. BB: $5. SB: $1 (se retiró, pero su dinero se queda).</li><li><strong>Bote en el flop: $5 + $5 + $1 = $11.</strong></li></ul>
+<p><strong>Flop.</strong> La BB pasa. El botón apuesta <strong>$6</strong>.</p>
+<ul><li>Tamaño: $6 ÷ $11 ≈ 0,55, algo más de medio bote.</li><li>En este momento el bote es <strong>$11 + $6 = $17</strong>.</li><li>Si la BB paga, el bote queda en <strong>$17 + $6 = $23</strong>.</li></ul>
+<p><strong>Turn.</strong> La BB pasa y el botón apuesta $15: un 65 % del bote ($15 ÷ $23), cerca de dos tercios.</p>
+<p>Fíjate en la costumbre: después de cada acción, actualiza el número mentalmente. Si lo haces en cada mano, en unas semanas te saldrá sin pensar.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Preflop en $1/$2: UTG sube a $5, el botón paga, las dos ciegas se retiran. ¿Cuánto hay en el bote del flop?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>$5 + $5 + $1 + $2 = <strong>$13</strong>. Las ciegas se quedan en el bote aunque sus dueños se retiren.</p>
+</div></details>
+<p><strong>2.</strong> Bote de $30. Tu rival apuesta $20. ¿Qué fracción del bote es? ¿Cuánto hay en el centro ahora?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>$20 ÷ $30 = <strong>2/3 del bote</strong>. En el centro hay $30 + $20 = <strong>$50</strong> (y $70 si tú pagas).</p>
+</div></details>
+<p><strong>3.</strong> Bote de $40. Quieres apostar medio bote. ¿Cuánto apuestas?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>$20.</strong></p>
+</div></details>
+<h3>En una frase</h3>
+<p>El bote es todo lo que ya está en el centro, ciegas incluidas; actualízalo tras cada acción y mide cada apuesta como fracción del bote.</p>
+<hr>
+<p><em>Fuentes: Hardin, Essential Poker Math, Cap. 6 (contar el bote para las pot odds); Acevedo, Modern Poker Theory, Cap. 4 (expresar las apuestas como fracción del bote).</em></p></section><section class="leccion" id="M00_L07"><h2>0.7 El <em>rake</em>: el peaje de la mesa</h2>
+<p><em>Módulo 0 · Lección 7 · 6 minutos</em></p>
+<h3>Gancho</h3>
+<p>Seis amigos juegan en casa durante un año. Al final, entre todos, han perdido dinero. ¿Cómo es posible si el dinero solo cambia de manos? En un casino o una sala online pasa exactamente eso: <strong>la sala se queda con una parte de cada bote</strong>.</p>
+<h3>La idea</h3>
+<p>El <strong><em>rake</strong></em> es la comisión que cobra la sala por organizar la partida. En <em>cash</em> suele funcionar así:</p>
+<ul><li><strong>Un porcentaje del bote</strong>, normalmente entre el 2,5 % y el 10 %.</li><li><strong>Con un tope</strong> (<em>cap</em>): pasado cierto bote, la sala no cobra más.</li><li><strong>Sin flop no hay <em>rake</strong></em>: si la mano termina antes del flop, la sala no cobra nada, por grande que sea el bote.</li></ul>
+<p><strong>Por qué te importa:</strong></p>
+<ol><li><strong>Es un rival más que siempre gana.</strong> Para ganar dinero tienes que ganarles a tus rivales por más de lo que te quita el <em>rake</em>.</li><li><strong>Castiga las manos dudosas.</strong> Una mano que en una partida sin comisión ganaría un poquito, con <em>rake</em> pierde. Por eso, cuanto más alto el <em>rake</em>, <strong>menos manos conviene jugar</strong>.</li><li><strong>Premia ganar antes del flop.</strong> Subir y que todos se retiren no paga comisión. Pagar para ver flops baratos sí. Es una de las razones por las que en este curso preferimos <strong>subir</strong> antes que solo pagar.</li></ol>
+<h3>Ejemplo guiado</h3>
+<p>Una sala cobra <strong>5 % con tope de $5</strong>.</p>
+<div class="tw"><table><thead><tr><th>Bote</th><th>5 %</th><th><em>Rake</em> cobrado</th></tr></thead><tbody><tr><td>$20</td><td>$1</td><td><strong>$1</strong></td></tr><tr><td>$60</td><td>$3</td><td><strong>$3</strong></td></tr><tr><td>$100</td><td>$5</td><td><strong>$5</strong> (justo el tope)</td></tr><tr><td>$200</td><td>$10</td><td><strong>$5</strong> (no pasa del tope)</td></tr></tbody></table></div>
+<p>Y un caso sin flop: preflop, un jugador sube a $5, otro resube a $16, el primero mete todo ($200) y el otro se retira. El bote es grande, pero <strong>no hay flop: no hay <em>rake</strong></em>.</p>
+<p>Nota cómo pesa más el <em>rake</em> en botes pequeños: los $3 de un bote de $60 son una parte grande de lo que ganas en una mano normal en $1/$2.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> <em>Rake</em> de 5 % con tope de $3. ¿Cuánto se cobra de un bote de $40? ¿Y de uno de $150?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>$40 × 5 % = <strong>$2</strong>. $150 × 5 % = $7,50, pero el tope es $3: <strong>$3</strong>.</p>
+</div></details>
+<p><strong>2.</strong> Subes antes del flop y todos se retiran. Ganas las ciegas, $3. ¿Cuánto <em>rake</em> pagas?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>Nada.</strong> No hubo flop.</p>
+</div></details>
+<p><strong>3.</strong> ¿Por qué el <em>rake</em> hace que convenga jugar menos manos?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Porque la comisión convierte en perdedoras a las manos que solo ganaban un poquito. Las manos marginales dejan de ser rentables y conviene retirarse con ellas.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>La sala cobra un porcentaje de cada bote que llega al flop, con un tope; por eso conviene jugar menos manos y preferir subir a solo pagar.</p>
+<hr>
+<p><em>Fuentes: Acevedo, Modern Poker Theory, Cap. 1 (definición de rake, 2,5 %–10 % con tope, ejemplo de 5 % con tope de $5, sin flop no hay rake) y Cap. 4 (efecto del rake: manos marginales pasan a perder, rangos más cerrados y más agresivos).</em></p></section><section class="leccion" id="M00_L08"><h2>0.8 El idioma del póker</h2>
+<p><em>Módulo 0 · Lección 8 · 8 minutos</em></p>
+<h3>Gancho</h3>
+<p>Lees en un foro: "Hero abre AJo en el CO, Villain 3-betea desde la BB con un rango de TT+, AQs+". Parece otro idioma, y lo es. Pero se aprende en una sesión, y a partir de aquí lo usaremos en todo el curso.</p>
+<h3>La idea</h3>
+<p><strong>Cartas.</strong> A (as), K (rey), Q (dama o reina), J (jota), <strong>T (diez)</strong>, 9 … 2. Se escribe T en lugar de 10 para que todas las cartas ocupen un solo carácter. Desde ahora verás <strong><span class="card s">T♠</span></strong> en lugar de <span class="card s">10♠</span>.</p>
+<p><strong>Manos iniciales sin palos.</strong></p>
+<ul><li><strong>AK</strong> = as y rey, de cualquier palo.</li><li><strong>AKs</strong> = as y rey <strong>del mismo palo</strong> (<em>suited</em>): <span class="card c">A♣</span><span class="card c">K♣</span>.</li><li><strong>AKo</strong> = as y rey <strong>de palos distintos</strong> (<em>offsuit</em>): <span class="card c">A♣</span><span class="card d">K♦</span>.</li><li><strong>77</strong> = pareja de sietes.</li></ul>
+<p><strong>El signo +</strong> significa "esta y las que están por encima del mismo tipo":</p>
+<ul><li><strong>JJ+</strong> = JJ, QQ, KK, AA.</li><li><strong>ATs+</strong> = ATs, AJs, AQs, AKs (sube la segunda carta; la primera no cambia).</li><li><strong>22+</strong> = todas las parejas.</li></ul>
+<p><strong>Combinaciones (<em>combos</em>).</strong> Cada mano se puede formar de varias maneras según los palos:</p>
+<div class="tw"><table><thead><tr><th>Tipo</th><th>Combos</th><th>Por qué</th></tr></thead><tbody><tr><td>Pareja (QQ)</td><td><strong>6</strong></td><td>Hay 6 maneras de elegir 2 damas de las 4</td></tr><tr><td><em>Suited</em> (AKs)</td><td><strong>4</strong></td><td>Una por palo</td></tr><tr><td><em>Offsuit</em> (AKo)</td><td><strong>12</strong></td><td>4 ases × 4 reyes = 16, menos las 4 <em>suited</em></td></tr></tbody></table></div>
+<p>Por eso es mucho más frecuente recibir una mano <em>offsuit</em> que una <em>suited</em>: AKo sale tres veces más que AKs.</p>
+<p><strong>Personajes.</strong></p>
+<ul><li><strong><em>Hero</strong></em> = tú, el jugador desde cuyo punto de vista se cuenta la mano.</li><li><strong><em>Villain</strong></em> = el rival.</li></ul>
+<p><strong>Subidas antes del flop.</strong></p>
+<ul><li><strong>Abrir (<em>open</em>):</strong> ser el primero en subir.</li><li><strong><em>Limp</em>:</strong> entrar solo pagando la ciega grande, sin subir.</li><li><strong><em>3-bet</em>:</strong> resubir una apertura. (La ciega grande cuenta como la primera "apuesta", la apertura como la segunda y la resubida como la tercera.)</li><li><strong><em>4-bet</em>:</strong> resubir un 3-bet.</li></ul>
+<h3>Ejemplo guiado</h3>
+<p>Traducimos la frase del gancho: "Hero abre AJo en el CO, Villain 3-betea desde la BB con un rango de TT+, AQs+".</p>
+<ul><li><strong>Hero abre AJo:</strong> tú, con as y jota de palos distintos (por ejemplo, <span class="card h">A♥</span> <span class="card c">J♣</span>), eres el primero en subir.</li><li><strong>en el CO:</strong> desde una posición de la mesa llamada <em>cutoff</em> (la verás en la lección 1.1).</li><li><strong>Villain 3-betea desde la BB:</strong> el rival en la ciega grande resube tu apertura.</li><li><strong>TT+, AQs+:</strong> con TT, JJ, QQ, KK, AA, AQs o AKs.</li></ul>
+<p>¿Cuántos combos es eso? Cinco parejas × 6 = 30, más 2 manos <em>suited</em> × 4 = 8. <strong>Total: 38 combos.</strong></p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> ¿Qué manos incluye <strong>KTs+</strong>? ¿Cuántos combos son?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>KTs, KJs, KQs: 3 manos <em>suited</em> × 4 = <strong>12 combos</strong>.</p>
+</div></details>
+<p><strong>2.</strong> Escribe dos ejemplos concretos de <strong>T9o</strong> y uno de <strong>T9s</strong>.</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>T9o:</strong> <span class="card s">T♠</span> <span class="card h">9♥</span>, <span class="card d">T♦</span> <span class="card c">9♣</span> (cualquier par de palos distintos). <strong>T9s:</strong> <span class="card h">T♥</span> <span class="card h">9♥</span>.</p>
+</div></details>
+<p><strong>3.</strong> ¿Cuántos combos hay de <strong>99+</strong>?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>99, TT, JJ, QQ, KK, AA: 6 parejas × 6 = <strong>36 combos</strong>.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>T es diez, "s" es del mismo palo y "o" de palos distintos, "+" significa "y las de arriba", y una pareja tiene 6 combos, una <em>suited</em> 4 y una <em>offsuit</em> 12.</p>
+<hr>
+<p><em>Fuentes: Hardin, Essential Poker Math, Cap. 2 (notación de rangos con +) y Cap. 18 (combos 6/4/12); Acevedo, Modern Poker Theory, Cap. 1 (definiciones de open, 3-bet y notación).</em></p></section><section class="leccion" id="M00_evaluacion"><h2>Mini-evaluación del Módulo 0</h2>
+<p><em>10 minutos. Responde por escrito antes de abrir cada solución. Si fallas dos o más, repasa las lecciones indicadas antes de seguir.</em></p>
+<p><strong>1.</strong> (0.1) Nombra las cuatro rondas de apuestas en orden y cuántas cartas comunitarias hay en cada una.</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Preflop (0), flop (3), turn (4), river (5).</p>
+</div></details>
+<p><strong>2.</strong> (0.2) Mesa: <strong><span class="card s">8♠</span> <span class="card s">7♠</span> <span class="card d">6♦</span> <span class="card s">2♠</span> <span class="card c">K♣</span></strong>. Tú: <strong><span class="card s">A♠</span> <span class="card c">4♣</span></strong>. Rival: <strong><span class="card h">9♥</span> <span class="card d">5♦</span></strong>. ¿Quién gana?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>Gana el rival</strong>, con escalera 9-8-7-6-5. Es una trampa: tú solo tienes <strong>cuatro</strong> picas (<span class="card s">A♠</span> <span class="card s">8♠</span> <span class="card s">7♠</span> <span class="card s">2♠</span>) y el color necesita cinco, así que te quedas con carta alta. Si caíste, repasa la lección 0.2 y acostúmbrate a contar las cinco cartas una por una.</p>
+</div></details>
+<p><strong>3.</strong> (0.3) Mesa: <strong><span class="card d">A♦</span> <span class="card c">9♣</span> <span class="card s">9♠</span> <span class="card h">6♥</span> <span class="card d">3♦</span></strong>. Tú: <strong><span class="card c">A♣</span> <span class="card s">4♠</span></strong>. Rival: <strong><span class="card s">A♠</span> <span class="card h">K♥</span></strong>. ¿Quién gana?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Los dos tienen doble pareja, ases y nueves. Quinta carta: tu 6 de la mesa (tu 4 no entra) contra su K. <strong>Gana el rival</strong> por el <em>kicker</em>.</p>
+</div></details>
+<p><strong>4.</strong> (0.4) Ciegas $1/$2. Un jugador sube a $7. ¿Cuál es la subida mínima para el siguiente?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>El aumento fue de $5 (de $2 a $7). Mínimo: $7 + $5 = <strong>$12</strong>.</p>
+</div></details>
+<p><strong>5.</strong> (0.5 y 0.6) En $1/$2, el botón sube a $5, la SB se retira, la BB paga. En el flop la BB pasa y el botón apuesta $8. ¿Cuánto hay en el bote si la BB paga? ¿Cuántas bb son?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Bote del flop: $5 + $5 + $1 = $11. Tras la apuesta y el pago: $11 + $8 + $8 = <strong>$27 = 13,5bb</strong>.</p>
+</div></details>
+<p><strong>6.</strong> (0.7) <em>Rake</em> de 5 % con tope de $4. ¿Cuánto se cobra de un bote de $50? ¿Y si el bote fue de $300 pero todos se retiraron antes del flop?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>$50 × 5 % = <strong>$2,50</strong>. Sin flop: <strong>$0</strong>.</p>
+</div></details>
+<p><strong>7.</strong> (0.8) ¿Cuántos combos hay de <strong>AQ</strong> (sin indicar palos)? ¿Y de <strong>AQs</strong>?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>AQ: <strong>16</strong> (4 × 4). AQs: <strong>4</strong>.</p>
+</div></details></section><div class="mod" id="m4">Módulo 4 · ¿Pago o me retiro? Equity, pot odds e implied odds</div><section class="leccion" id="M04_L02"><h2>4.2 <em>Pot odds</em>: el precio de ver una carta</h2>
+<p><em>Módulo 4 · Lección 2 · 8 minutos</em></p>
+<h3>Gancho</h3>
+<p>Tienes <strong><span class="card h">9♥</span> <span class="card h">8♥</span></strong>. El flop es <strong><span class="card h">K♥</span> <span class="card h">7♥</span> <span class="card c">2♣</span></strong>: te falta un corazón para el color. En el bote hay <strong>$20</strong> y tu rival apuesta <strong>$10</strong>.</p>
+<p>¿Pagas para ver la siguiente carta o te retiras? La respuesta no depende de lo que sientas ni de lo bonita que sea tu mano. Depende de <strong>cuánto cuesta ver la carta</strong> comparado con <strong>cuántas veces ligarás</strong>. Esa comparación tiene nombre: <em>pot odds</em>.</p>
+<h3>La idea</h3>
+<p>Las <em>pot odds</em> (literalmente, "las probabilidades que te da el bote") son <strong>el precio de pagar una apuesta</strong>, expresado como porcentaje. Te dicen qué porcentaje de veces necesitas ganar para no perder dinero a largo plazo.</p>
+<blockquote><p><strong>Equity necesaria = lo que pagas ÷ bote final</strong></p>
+<p><strong>Bote final</strong> = lo que ya había en el bote + la apuesta del rival + lo que pagas tú.</p></blockquote>
+<p>Piensa en un boleto de rifa. Si el boleto cuesta $10 y el premio total es de $40, cada boleto te da derecho a un cuarto del premio. Para que la rifa te convenga, tienes que ganar al menos 1 de cada 4 veces: un <strong>25 %</strong>.</p>
+<p>Después comparas ese precio con tu <em>equity</em>, que en la lección 4.1 viste que es tu parte del bote. Con un proyecto, la estimas con la regla del 2 y del 4 del Módulo 3:</p>
+<ul><li><strong>Si tu equity es mayor que el precio</strong>, pagar gana dinero a largo plazo (+EV).</li><li><strong>Si es menor</strong>, pagar pierde dinero a largo plazo (−EV): te retiras.</li></ul>
+<p><strong>El error más común:</strong> olvidar sumar al bote la apuesta del rival y tu propio pago. Si divides $10 entre $20, te sale 50 % y crees que la apuesta es carísima. El bote final no es $20, es $40.</p>
+<h3>Ejemplo guiado</h3>
+<p>Volvemos al gancho: <strong><span class="card h">9♥</span> <span class="card h">8♥</span></strong> en <strong><span class="card h">K♥</span> <span class="card h">7♥</span> <span class="card c">2♣</span></strong>, bote $20, el rival apuesta $10.</p>
+<p><strong>Paso 1. El precio.</strong></p>
+<ul><li>Pagas: $10.</li><li>Bote final: $20 + $10 + $10 = <strong>$40</strong>.</li><li>Equity necesaria: 10 ÷ 40 = <strong>25 %</strong>.</li></ul>
+<p><strong>Paso 2. Tu equity.</strong></p>
+<ul><li>Quedan 9 corazones: 9 <em>outs</em>.</li><li>Solo vas a ver una carta (el turn), así que multiplicas por 2: 9 × 2 = <strong>18 %</strong>. (El valor exacto es 19,1 %.)</li></ul>
+<p><strong>Paso 3. Comparas.</strong> 18 % es menor que 25 %. <strong>Te retiras.</strong> Pagar aquí pierde dinero a largo plazo.</p>
+<p><strong>¿Por qué pierde dinero?</strong> Imagina que juegas esta mano 100 veces y que, para simplificar, ganas el bote cuando ligas el color y te retiras cuando no:</p>
+<div class="tw"><table><thead><tr><th></th><th>Veces</th><th>Resultado</th><th>Total</th></tr></thead><tbody><tr><td>Ligas el color</td><td>18</td><td>ganas $30 (los $20 del bote + los $10 del rival)</td><td>+$540</td></tr><tr><td>No ligas</td><td>82</td><td>pierdes tus $10</td><td>−$820</td></tr><tr><td><strong>Balance</strong></td><td>100</td><td></td><td><strong>−$280</strong></td></tr></tbody></table></div>
+<p>Pierdes unos $2,80 cada vez que pagas.</p>
+<p><strong>Ahora cambia un solo dato: el rival apuesta $5 en lugar de $10.</strong></p>
+<ul><li>Bote final: $20 + $5 + $5 = $30.</li><li>Equity necesaria: 5 ÷ 30 = <strong>16,7 %</strong>.</li><li>Tu equity sigue siendo 18 %. Ahora es <strong>mayor</strong> que el precio: <strong>pagas</strong>.</li></ul>
+<p>Las mismas cartas, la misma mesa y dos decisiones distintas. Lo que cambió fue el precio.</p>
+<blockquote><p><strong>Otra forma de decirlo.</strong> Muchos jugadores hablan en proporciones: "me dan 3 a 1" significa que el bote ($30 antes de pagar: $20 + $10) es tres veces lo que pagas ($10). Para pasar de "3 a 1" a porcentaje: 1 ÷ (3 + 1) = 25 %. En este curso usamos porcentajes, porque se comparan directamente con tu equity.</p></blockquote>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> El bote tiene $30 y tu rival apuesta $10. Tienes <strong><span class="card s">J♠</span> <span class="card d">T♦</span></strong> en un flop <strong><span class="card c">Q♣</span> <span class="card h">9♥</span> <span class="card s">2♠</span></strong> (escalera abierta: 8 <em>outs</em>). ¿Qué equity necesitas? ¿Pagas?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Bote final: $30 + $10 + $10 = $50. Equity necesaria: 10 ÷ 50 = <strong>20 %</strong>. Tu equity: 8 × 2 = <strong>16 %</strong>. 16 % &lt; 20 %: <strong>te retiras</strong> (según las <em>pot odds</em>; en la lección 4.5 verás cuándo puede valer la pena igualmente).</p>
+</div></details>
+<p><strong>2.</strong> El bote tiene $16 y tu rival apuesta $4. Tienes un proyecto de color (9 <em>outs</em>). ¿Pagas?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Bote final: $16 + $4 + $4 = $24. Equity necesaria: 4 ÷ 24 = <strong>16,7 %</strong>. Tu equity: 9 × 2 = <strong>18 %</strong>. 18 % &gt; 16,7 %: <strong>pagas</strong>.</p>
+</div></details>
+<p><strong>3.</strong> Un compañero dice: "El bote es de $12, me apostaron $12, así que necesito ganar el 100 % de las veces". ¿Dónde está su error y cuál es el número correcto?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>No sumó la apuesta ni su pago al bote. Bote final: $12 + $12 + $12 = $36. Equity necesaria: 12 ÷ 36 = <strong>33,3 %</strong>. Una apuesta del tamaño del bote te pide ganar 1 de cada 3 veces, no siempre.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Divide lo que pagas entre el bote que quedará: si tu equity es mayor que ese porcentaje, pagas; si es menor, te retiras.</p>
+<hr>
+<p><em>Fuentes: Hardin, Essential Poker Math, Cap. 6 (pot odds como proporción y como porcentaje) y Cap. 11 (comparar pot odds con la equity en tres pasos); Clarke, The Grinder's Manual, Cap. 7 ("Required Equity"; advierte sumar la apuesta del rival al bote); Acevedo, Modern Poker Theory, Cap. 1. Equity exacta de 9 outs con una carta (19,1 %): tabla de referencia de Hardin, Cap. 9.</em></p></section>
+</div></body></html>
