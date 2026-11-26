@@ -269,6 +269,31 @@ def m08():
     ok('M8', 'Q2 JT gana a KQs y 65 fallados, pierde con Ax; Q5 TT trío', gana('J♥T♥', 'K♠Q♠', 'A♠J♠7♦4♣2♥') and gana('J♥T♥', '6♠5♠', 'A♠J♠7♦4♣2♥') and gana('A♦3♦', 'J♥T♥', 'A♠J♠7♦4♣2♥') and es('T♠T♦', 'T♣8♦3♥', 'trío'))
 
 
+
+# ---------------------------------------------------------------- Módulo 9
+@modulo
+def m09():
+    tabla = {.25: .20, 1 / 3: .25, .5: 1 / 3, 2 / 3: .40, .75: .4286, 1: .5, 2: .6667}
+    ok('9.1', 'tabla de faroles', all(near(bluff_be(1, f), v, .001) for f, v in tabla.items()))
+    ok('9.1', '50 en 100 = 33%; 40 en 60 = 40%; 100 en 100 = 50%', near(bluff_be(100, 50), 1 / 3) and near(bluff_be(60, 40), .4) and bluff_be(100, 100) == .5)
+    ok('9.2', 'JTh en 9h8c2h = 15 outs; bote 25', n_outs('J♥T♥', '9♥8♣2♥') == 15 and 11 + 14 == 25)
+    e = equity(cards('J♥T♥'), cards('9♠9♦'), cards('9♥8♣2♥'))
+    ok('9.2', '15 outs contra un trío aún tiene equity', e > .2, pct(e))
+    e2 = equity(cards('J♥T♥'), cards('A♠9♦'), cards('9♥8♣2♥'))
+    ok('9.2', '15 outs favorito contra top pair (~54%)', e2 > .5, pct(e2))
+    ok('9.2', 'ej AKs en Qs Jd 4s = 12 + 6 sobrecartas', n_outs('A♠K♠', 'Q♠J♦4♠') == 12 and len(outs_cartas('A♠K♠', 'Q♠J♦4♠', 'AK')) == 6)
+    ok('9.3', 'KJh en Qh94: gutshot; turn 2h: 12 outs; 3d: 4 outs', n_outs('K♥J♥', 'Q♥9♣4♠') == 4 and n_outs('K♥J♥', 'Q♥9♣4♠2♥') == 12 and n_outs('K♥J♥', 'Q♥9♣4♠3♦') == 4)
+    ok('9.3', 'bote 23, segundo tiro 15', 11 + 12 == 23 and round(23 * 2 / 3) == 15)
+    ok('9.3', 'ej AK top pair; QJs en K735 nada', es('A♣K♣', '8♠6♦2♥A♦', 'pareja') and nada('Q♠J♠', 'K♦7♣3♥5♣'))
+    ok('9.4', 'A5c sin nada en J84K', nada('A♣5♣', 'J♠8♦4♣K♥'))
+    ok('9.4', 'A5c en J84K2 sin escalera ni pareja', cat(cards('A♣5♣J♠8♦4♣K♥2♦')) == 'carta alta' and 5 + 6 == 11 and 11 + 15 + 35 == 61)
+    bb = lambda m: m in range_hands(RG['BBvsBU25'])
+    ok('9.5', 'QJ gutshot en 986; T9s,98s,87s,76s,65s en defensa BB; T7s y 75s no', n_outs('Q♣J♣', '9♥8♥6♠') == 4
+       and all(bb(m) for m in ('T9s', '98s', '87s', '76s', '65s')) and not bb('T7s') and not bb('75s'))
+    ok('M9', 'Q3 87s en 6s5dKs = 15; Q4 AQh en J73K: gutshot T', n_outs('8♠7♠', '6♠5♦K♠') == 15 and n_outs('A♥Q♥', 'J♣7♦3♠K♦') == 4)
+    ok('M9', 'Q6 30 en 90 = 20%', near(pot_odds(90, 30), .2))
+
+
 # ---------------------------------------------------------------- Módulo 4
 @modulo
 def m04():
