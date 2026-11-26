@@ -84,6 +84,62 @@ def m00():
     ok('M0', 'Q4 7 -> 12; Q5 27 = 13,5bb; Q6 2,5', 7 + 5 == 12 and 11 + 16 == 27 and rk(50, .05, 4) == 2.5)
 
 
+# ---------------------------------------------------------------- Módulo 1
+@modulo
+def m01():
+    ok('1.2', 'stacks efectivos', min(200, 100) == 100 and min(200, 300) == 200 and min(240, 130) / 2 == 65)
+    ok('1.3', 'EV moneda +0,50; dado +0,83', near(.5 * 3 - .5 * 2, .5) and near(10 / 6 - 5 / 6, .8333, .001))
+    e = equity_mc(cards('A♠A♥'), cards('K♣K♦'), 12000)
+    ok('1.3', 'AA vs KK ≈ 82%', abs(e - .82) < .01, pct(e))
+    ok('1.3', 'EV +128', near(.82 * 200 - .18 * 200, 128))
+    tabla = {1000: .41, 10000: .23, 50000: .05, 100000: .01}
+    ok('1.4', 'tabla prob. pérdidas 5bb/100 DE 67', all(abs(prob_perdidas(5, 67, n) - v) < .006 for n, v in tabla.items()),
+       ', '.join(pct(prob_perdidas(5, 67, n)) for n in tabla))
+    # Marta y Pablo: desviaciones plausibles (< 1 DE)
+    sd = 67 * (1000 / 100) ** .5
+    ok('1.4', 'Marta -75bb y Pablo +100bb a < 1 DE', abs(-75 - 50) < sd and abs(100 - (-100)) < sd, f'DE={sd:.0f}bb')
+    ok('1.5', 'riesgo de ruina 30BI 3,5%, 20BI 11%', near(riesgo_ruina(2.5, 67, 3000), .035, .002) and near(riesgo_ruina(2.5, 67, 2000), .108, .002))
+    ok('1.5', 'Luis 160=32BI NL5; 95=19BI -> 47BI NL2', 160 / 5 == 32 and 95 / 5 == 19 and int(95 / 2) == 47)
+    ok('1.5', 'ejercicios 250->50BI NL5; 310-120=190 -> 19BI', 250 / 5 == 50 and 250 < 300 and (310 - 120) / 10 == 19 and 190 / 5 == 38)
+    ok('1.6', 'K Q 9 2 7: pareja de 4 de la station sin escalera ni color', cat(cards('4♣4♦K♥Q♠9♦2♣7♠')) == 'pareja')
+    ok('M1', 'Q2 37,5bb; Q3 EV -0,25; Q5 24BI', 75 / 2 == 37.5 and near(.25 * 5 - .75 * 2, -.25) and 120 / 5 == 24 and 120 / 2 == 60)
+    ok('M1', 'Q7 18+12=30; Q8 A kicker', 18 + 12 == 30 and gana('A♥3♣', 'Q♠J♠', 'K♦K♣8♥5♠2♦'))
+
+
+
+# ---------------------------------------------------------------- Módulo 2
+from rangos_clarke import R as RG
+
+
+def en(rango, mano):
+    return mano in range_hands(RG[rango])
+
+
+@modulo
+def m02():
+    ok('2.1', 'UTG 140 combos ~11%', range_combos(RG['UTG']) == 140)
+    ok('2.1', 'UTG: AQo, KJs, QJs sí; 66, ATo no', en('UTG', 'AQo') and en('UTG', 'KJs') and en('UTG', 'QJs') and not en('UTG', '66') and not en('UTG', 'ATo'))
+    ok('2.2', 'combos por zona 78/312/936', 13 * 6 == 78 and 78 * 4 == 312 and 78 * 12 == 936 and 78 + 312 + 936 == 1326)
+    ok('2.2', '% por zona', near(78 / 1326, .0588) and near(312 / 1326, .2353) and near(936 / 1326, .7059))
+    ok('2.4', 'HJ 206 combos 15,5%', range_combos(RG['HJ']) == 206 and near(range_pct(RG['HJ']), .155, .001))
+    tabla = [('A5s', False, True), ('KJo', False, True), ('66', False, True), ('QTs', True, True), ('K9s', False, False),
+             ('ATo', False, True), ('98s', False, True)]
+    ok('2.4', 'tabla UTG/HJ', all(en('UTG', m) == u and en('HJ', m) == h for m, u, h in tabla))
+    ok('2.5', 'CO 338, BU 562, SB 470', range_combos(RG['CO']) == 338 and range_combos(RG['BU']) == 562 and range_combos(RG['SB']) == 470)
+    ok('2.5', 'K8s CO sí, HJ no', en('CO', 'K8s') and not en('HJ', 'K8s'))
+    ok('2.5', 'Q4s BU sí, CO no, SB no', en('BU', 'Q4s') and not en('CO', 'Q4s') and not en('SB', 'Q4s'))
+    ok('2.5', 'J9o BU; A7o ni CO ni BU; A7s ambos', en('BU', 'J9o') and not en('CO', 'A7o') and not en('BU', 'A7o') and en('CO', 'A7s') and en('BU', 'A7s'))
+    ok('2.5', '53s BU sí, SB no', en('BU', '53s') and not en('SB', '53s'))
+    ok('2.6', 'robo BU 62,5%, SB 57%, 4bb 72,7%', near(bluff_be(1.5, 2.5), .625) and near(bluff_be(1.5, 2), .5714) and near(bluff_be(1.5, 4), .7273))
+    ok('2.6', 'QTs en CO', en('CO', 'QTs'))
+    ok('2.7', 'ATo y KQo en BU; 86s no en HJ', en('BU', 'ATo') and en('BU', 'KQo') and not en('HJ', '86s'))
+    ok('2.7', 'iso 4bb=8; bote 19; gana 5; 5bb; 6bb', 3 + 1 == 4 and 8 + 8 + 1 + 2 == 19 and 2 + 1 + 2 == 5 and 3 + 2 == 5 and 3 + 1 + 1 == 5 and 3 + 2 + 1 == 6)
+    ok('2.3', 'limp: bote 8', 2 * 4 == 8)
+    ok('M2', 'Q1 Q9s no UTG; Q2 A3s HJ; Q3 T7s no CO, sí BU; Q4 K5o no BU, K5s sí',
+       not en('UTG', 'Q9s') and en('HJ', 'A3s') and not en('CO', 'T7s') and en('BU', 'T7s') and not en('BU', 'K5o') and en('BU', 'K5s'))
+    ok('M2', 'Q6 AQo en rango SB; 6bb', en('SB', 'AQo'))
+
+
 # ---------------------------------------------------------------- Módulo 4
 @modulo
 def m04():
@@ -101,6 +157,7 @@ def m04():
 
 
 if __name__ == '__main__':
+    sys.stdout.reconfigure(encoding='utf-8')
     only = sys.argv[1:]  # p. ej. m04
     for f in MODULOS:
         if not only or f.__name__ in only:

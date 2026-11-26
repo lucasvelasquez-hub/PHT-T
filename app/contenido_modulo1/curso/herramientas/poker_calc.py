@@ -107,6 +107,19 @@ def equity(h1, h2, board=()):
     return (w + t / 2) / n
 
 
+def equity_mc(h1, h2, n=20000, seed=1):
+    """Equity aproximada preflop (Monte Carlo, error típico < 0,5 %)."""
+    import random
+    rnd = random.Random(seed)
+    rest = remaining(h1 + h2)
+    w = 0.0
+    for _ in range(n):
+        b = rnd.sample(rest, 5)
+        a, bb = best(h1 + b), best(h2 + b)
+        w += 1 if a > bb else (0.5 if a == bb else 0)
+    return w / n
+
+
 # --- matemática de apuestas ---
 def pot_odds(pot_before_bet, bet, to_call=None):
     """Equity necesaria para pagar: lo que pagas / bote final."""
@@ -184,3 +197,26 @@ def range_pct(text):
 
 def pct(x, d=1):
     return f'{100 * x:.{d}f}%'
+
+
+def grid_md(range_text=None):
+    """Cuadrícula 13x13 en Markdown. Manos del rango en negrita; el resto con '·'.
+    Sin rango: muestra todas las manos (para enseñar la cuadrícula)."""
+    inr = set(range_hands(range_text)) if range_text else None
+    order = RANKS[::-1]  # A K Q ... 2
+    rows = ['| | ' + ' | '.join(order) + ' |', '|' + '---|' * 14]
+    for i, r1 in enumerate(order):
+        cells = []
+        for j, r2 in enumerate(order):
+            if i == j:
+                h = r1 + r2
+            elif i < j:
+                h = r1 + r2 + 's'
+            else:
+                h = r2 + r1 + 'o'
+            if inr is None:
+                cells.append(h)
+            else:
+                cells.append(f'**{h}**' if h in inr else '·')
+        rows.append(f'| **{r1}** | ' + ' | '.join(cells) + ' |')
+    return '\n'.join(rows)

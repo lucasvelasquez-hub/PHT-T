@@ -46,6 +46,8 @@ def md_to_html(md):
         s = ln.strip()
         if not s:
             flush(); i += 1; continue
+        if s.startswith('<!--'):
+            flush(); i += 1; continue
         if s.startswith('<details'):
             flush(); out.append('<details>'); i += 1; continue
         if s.startswith('<summary>'):
@@ -64,7 +66,8 @@ def md_to_html(md):
                 rows.append(lines[i].strip()); i += 1
             cells = [[c.strip() for c in r.strip('|').split('|')] for r in rows]
             body = [r for r in cells[1:] if not all(re.fullmatch(r':?-+:?', c) for c in r)]
-            h = '<div class="tw"><table><thead><tr>' + ''.join(f'<th>{inline(c)}</th>' for c in cells[0]) + '</tr></thead><tbody>'
+            cls = ' class="grid"' if len(cells[0]) == 14 else ''
+            h = f'<div class="tw"><table{cls}><thead><tr>' + ''.join(f'<th>{inline(c)}</th>' for c in cells[0]) + '</tr></thead><tbody>'
             for r in body:
                 h += '<tr>' + ''.join(f'<td>{inline(c)}</td>' for c in r) + '</tr>'
             out.append(h + '</tbody></table></div>'); continue
@@ -113,6 +116,8 @@ nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;p
 nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
 .mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
 .leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
 """
 
 

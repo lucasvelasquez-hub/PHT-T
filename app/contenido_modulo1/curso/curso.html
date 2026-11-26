@@ -28,11 +28,13 @@ nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;p
 nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
 .mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
 .leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
 </style></head><body><div class="wrap">
 <h1>Curso de Texas Hold'em cash para principiantes</h1>
 <p>No-Limit Hold'em, mesas de 6 jugadores, 100 ciegas grandes. Una lección al día, de 5 a 10 minutos. Ejemplos en ciegas $1/$2.</p>
 <p>Baraja de cuatro colores: <span class="card s">A♠</span> <span class="card h">A♥</span> <span class="card d">A♦</span> <span class="card c">A♣</span></p>
-<nav class="toc"><strong>Índice</strong><ol><li><a href="#m0">Módulo 0: Primeros pasos antes de tu primera mano</a><ol><li><a href="#M00_L01">0.1 El viaje de una mano</a></li><li><a href="#M00_L02">0.2 ¿Qué mano gana? La jerarquía</a></li><li><a href="#M00_L03">0.3 Tus cinco mejores cartas, el <em>kicker</em> y el empate</a></li><li><a href="#M00_L04">0.4 Tus opciones en cada turno</a></li><li><a href="#M00_L05">0.5 Ciegas, botón y por qué contamos en bb</a></li><li><a href="#M00_L06">0.6 Cuenta el bote en segundos</a></li><li><a href="#M00_L07">0.7 El <em>rake</em>: el peaje de la mesa</a></li><li><a href="#M00_L08">0.8 El idioma del póker</a></li><li><a href="#M00_evaluacion">Mini-evaluación del Módulo 0</a></li></ol></li><li><a href="#m4">Módulo 4: ¿Pago o me retiro? Equity, pot odds e implied odds</a><ol><li><a href="#M04_L02">4.2 <em>Pot odds</em>: el precio de ver una carta</a></li></ol></li></ol></nav>
+<nav class="toc"><strong>Índice</strong><ol><li><a href="#m0">Módulo 0: Primeros pasos antes de tu primera mano</a><ol><li><a href="#M00_L01">0.1 El viaje de una mano</a></li><li><a href="#M00_L02">0.2 ¿Qué mano gana? La jerarquía</a></li><li><a href="#M00_L03">0.3 Tus cinco mejores cartas, el <em>kicker</em> y el empate</a></li><li><a href="#M00_L04">0.4 Tus opciones en cada turno</a></li><li><a href="#M00_L05">0.5 Ciegas, botón y por qué contamos en bb</a></li><li><a href="#M00_L06">0.6 Cuenta el bote en segundos</a></li><li><a href="#M00_L07">0.7 El <em>rake</em>: el peaje de la mesa</a></li><li><a href="#M00_L08">0.8 El idioma del póker</a></li><li><a href="#M00_evaluacion">Mini-evaluación del Módulo 0</a></li></ol></li><li><a href="#m1">Módulo 1: La mesa, el EV y la suerte</a><ol><li><a href="#M01_L01">1.1 Las seis sillas</a></li><li><a href="#M01_L02">1.2 Tu stack y el stack efectivo</a></li><li><a href="#M01_L03">1.3 El EV: la moneda del póker</a></li><li><a href="#M01_L04">1.4 La varianza: por qué jugar bien no garantiza ganar hoy</a></li><li><a href="#M01_L05">1.5 Tu banca: el dinero del póker va aparte</a></li><li><a href="#M01_L06">1.6 ¿Quién está sentado contigo?</a></li><li><a href="#M01_evaluacion">Mini-evaluación del Módulo 1</a></li></ol></li><li><a href="#m2">Módulo 2: Abrir el bote antes del flop</a><ol><li><a href="#M02_L01">2.1 Piensa en rangos, no en una sola mano</a></li><li><a href="#M02_L02">2.2 La cuadrícula 13×13: el mapa de todas las manos</a></li><li><a href="#M02_L03">2.3 O subes o te retiras</a></li><li><a href="#M02_L04">2.4 Rangos de las primeras posiciones: UTG y HJ</a></li><li><a href="#M02_L05">2.5 Rangos de las posiciones finales: CO, BU y SB</a></li><li><a href="#M02_L06">2.6 Tamaño de apertura y robo de ciegas</a></li><li><a href="#M02_L07">2.7 Cuando alguien hace <em>limp</em>: aislar</a></li><li><a href="#M02_evaluacion">Mini-evaluación del Módulo 2</a></li></ol></li><li><a href="#m4">Módulo 4: ¿Pago o me retiro? Equity, pot odds e implied odds</a><ol><li><a href="#M04_L02">4.2 <em>Pot odds</em>: el precio de ver una carta</a></li></ol></li></ol></nav>
 <div class="mod" id="m0">Módulo 0 · Primeros pasos antes de tu primera mano</div><section class="leccion" id="M00_L01"><h2>0.1 El viaje de una mano</h2>
 <p><em>Módulo 0 · Lección 1 · 6 minutos</em></p>
 <h3>Gancho</h3>
@@ -363,6 +365,511 @@ nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
 <details>
 <summary>Ver respuesta</summary><div class="ans">
 <p>AQ: <strong>16</strong> (4 × 4). AQs: <strong>4</strong>.</p>
+</div></details></section><div class="mod" id="m1">Módulo 1 · La mesa, el EV y la suerte</div><section class="leccion" id="M01_L01"><h2>1.1 Las seis sillas</h2>
+<p><em>Módulo 1 · Lección 1 · 7 minutos</em></p>
+<h3>Gancho</h3>
+<p>Dos jugadores reciben exactamente las mismas cartas. Uno gana dinero con ellas y el otro lo pierde. La diferencia no está en las cartas: está en <strong>dónde estaban sentados</strong>.</p>
+<h3>La idea</h3>
+<p>En una mesa de 6 jugadores (<em>6-max</em>), cada asiento tiene un nombre según su lugar respecto al botón. En el sentido de las agujas del reloj, empezando por el primero que habla antes del flop:</p>
+<div class="tw"><table><thead><tr><th>Silla</th><th>Nombre completo</th><th>Qué significa</th></tr></thead><tbody><tr><td><strong>UTG</strong></td><td><em>Under the gun</em> ("bajo el arma")</td><td>Primero en hablar antes del flop</td></tr><tr><td><strong>HJ</strong></td><td><em>Hijack</em> (también llamada <strong>MP</strong>, posición media)</td><td>Segundo</td></tr><tr><td><strong>CO</strong></td><td><em>Cutoff</em></td><td>El asiento justo antes del botón</td></tr><tr><td><strong>BU</strong></td><td><em>Button</em> (botón)</td><td>El "repartidor"</td></tr><tr><td><strong>SB</strong></td><td><em>Small blind</em> (ciega pequeña)</td><td>Pone la ciega pequeña</td></tr><tr><td><strong>BB</strong></td><td><em>Big blind</em> (ciega grande)</td><td>Pone la ciega grande</td></tr></tbody></table></div>
+<p><strong>¿Por qué importa?</strong> Porque <strong>hablar después que tu rival es una ventaja enorme</strong>. Cuando actúas último ya sabes si tu rival pasó, apostó o subió, y él tuvo que decidir sin saber qué harías tú.</p>
+<ul><li>Estás <strong>en posición</strong> (<em>in position</em>, IP) cuando, después del flop, hablas después que tu rival.</li><li>Estás <strong>fuera de posición</strong> (<em>out of position</em>, OOP) cuando hablas antes.</li></ul>
+<p><strong>El botón es la mejor silla:</strong> después del flop siempre habla el último. Las ciegas son las peores: ya pusieron dinero sin ver sus cartas y después del flop hablan primero. Por eso los buenos jugadores ganan la mayor parte de su dinero desde el botón.</p>
+<p><strong>Una regla para no confundirse:</strong> piensa siempre en las sillas en relación con el botón. Si la mesa tiene menos de 6 jugadores, desaparecen primero las sillas más alejadas del botón: con 4 jugadores no hay UTG ni HJ; el primero en hablar es el CO.</p>
+<h3>Ejemplo guiado</h3>
+<p>Mesa de $1/$2. Sentados en orden: Ana (UTG), Beto (HJ), Carla (CO), Dani (BU), Elena (SB), Fede (BB).</p>
+<ul><li><strong>Preflop:</strong> habla primero Ana; después Beto, Carla, Dani, Elena y, al final, Fede.</li><li>Carla sube, Dani paga y los demás se retiran.</li><li><strong>En el flop:</strong> de los dos que quedan, habla primero Carla y después Dani. <strong>Dani está en posición</strong> sobre Carla durante el flop, el turn y el river.</li><li>En el flop Carla pasa. Dani ya sabe que Carla no apostó y puede elegir: apostar para llevarse el bote o pasar y ver el turn gratis. Carla nunca tiene esa información.</li></ul>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> El HJ sube y la BB paga. ¿Quién está en posición después del flop?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>El HJ.</strong> Después del flop la BB habla antes que el HJ, así que la BB está fuera de posición.</p>
+</div></details>
+<p><strong>2.</strong> ¿Qué silla habla primero antes del flop y cuál habla primero después del flop (si sigue en la mano)?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Antes del flop, <strong>UTG</strong>. Después del flop, la <strong>SB</strong>: es la primera a la izquierda del botón.</p>
+</div></details>
+<p><strong>3.</strong> En una mesa de 5 jugadores, ¿qué silla desaparece?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>UTG.</strong> El primero en hablar antes del flop pasa a ser el HJ.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Las seis sillas son UTG, HJ, CO, BU, SB y BB; hablar después que tu rival es una ventaja, y el botón es la mejor silla de la mesa.</p>
+<hr>
+<p><em>Fuentes: Clarke, The Grinder's Manual, Cap. 2.1 (nombres de las posiciones en 6-max, HJ también llamado MP, error de llamar UTG al primer asiento en mesas incompletas) y Cap. 2.6 (el BU es la posición que más EV genera).</em></p></section><section class="leccion" id="M01_L02"><h2>1.2 Tu stack y el stack efectivo</h2>
+<p><em>Módulo 1 · Lección 2 · 6 minutos</em></p>
+<h3>Gancho</h3>
+<p>Tienes $500 en la mesa. Tu rival, $60. Te pones nervioso porque vas a jugar "un bote enorme". ¿De verdad? Contra ese rival, lo máximo que puedes ganar o perder es $60.</p>
+<h3>La idea</h3>
+<p>Tu <strong>stack</strong> es el dinero que tienes delante en la mesa. En este curso entras con <strong>100bb</strong> ($200 en $1/$2), el tamaño de entrada habitual (<em>buy-in</em>) de una mesa de <em>cash</em>.</p>
+<p>El <strong>stack efectivo</strong> es <strong>el menor de los dos stacks</strong> entre tú y un rival. Es la cantidad máxima que puedes ganarle o perderle en una mano. Lo que tengas por encima no puede entrar en juego contra él.</p>
+<p>¿Por qué importa? Porque cambia cómo se juega. Con stacks grandes, las manos que pueden ligar jugadas muy fuertes (como una pareja pequeña que busca un trío) tienen mucho que ganar. Con stacks cortos, hay poco que ganar después del flop y cuentan más las parejas fuertes desde el principio. Verás esta idea en los módulos 5 y 10.</p>
+<p><strong>Con varios rivales</strong>, el stack efectivo se mira contra cada uno por separado.</p>
+<h3>Ejemplo guiado</h3>
+<p>Mesa $1/$2.</p>
+<ul><li>Tú tienes <strong>$200</strong>; tu rival, <strong>$100</strong>. Stack efectivo: <strong>$100 = 50bb</strong>. Aunque tú tengas el doble, en esta mano solo hay $100 de cada uno en juego.</li><li>Tu rival recarga hasta $300. Ahora el stack efectivo es <strong>$200 = 100bb</strong>: el tuyo es el menor.</li><li>En una mano a tres: tú $200, Ana $150, Beto $400. Contra Ana el stack efectivo es $150; contra Beto, $200.</li></ul>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Estás en el CO con $240 y el BU tiene $130. ¿Cuál es el stack efectivo, en dólares y en bb? ¿Quién está en posición después del flop?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>$130 = 65bb.</strong> El <strong>BU</strong> está en posición: después del flop habla después del CO.</p>
+</div></details>
+<p><strong>2.</strong> Un rival con $40 va <em>all-in</em> antes del flop. Tú tienes $200 y pagas. ¿Cuánto puedes perder en la mano?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>$40.</strong> El stack efectivo es $40; el resto de tus fichas no entra en juego.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>El stack efectivo es el menor de los dos stacks y marca lo máximo que puedes ganar o perder contra ese rival.</p>
+<hr>
+<p><em>Fuentes: Hardin, Essential Poker Math, Cap. 2 (definición de stack efectivo y de los stacks de 100bb); Clarke, The Grinder's Manual, Glosario y Cap. 5 (stack efectivo en botes con varios jugadores).</em></p></section><section class="leccion" id="M01_L03"><h2>1.3 El EV: la moneda del póker</h2>
+<p><em>Módulo 1 · Lección 3 · 9 minutos</em></p>
+<h3>Gancho</h3>
+<p>Vas <em>all-in</em> con <strong><span class="card s">A♠</span> <span class="card h">A♥</span></strong> contra <strong><span class="card c">K♣</span> <span class="card d">K♦</span></strong>. En el river cae un rey y pierdes $200. ¿Jugaste mal? Esta es la pregunta más importante del póker, y casi todos los principiantes la responden mal.</p>
+<h3>La idea</h3>
+<p>En póker, el dinero de una mano depende de la suerte. Pero <strong>cada decisión tiene un valor promedio</strong> que no depende de la suerte: lo que ganarías de media si repitieras esa misma decisión miles de veces. Ese valor se llama <strong>valor esperado</strong>, o <strong>EV</strong> (<em>expected value</em>).</p>
+<blockquote><p><strong>EV = (probabilidad de ganar × lo que ganas) − (probabilidad de perder × lo que pierdes)</strong></p></blockquote>
+<ul><li>Si el EV es positivo (<strong>+EV</strong>), la decisión gana dinero a largo plazo.</li><li>Si es negativo (<strong>−EV</strong>), lo pierde.</li></ul>
+<p>Una decisión +EV puede salir mal hoy. Una −EV puede salir bien hoy. <strong>Se juzga la decisión, no el resultado.</strong> Tu trabajo como jugador es tomar decisiones +EV una y otra vez; la suerte se compensa sola con el tiempo.</p>
+<p>Un ejemplo sin cartas: te ofrecen lanzar una moneda. Si sale cara ganas $3; si sale cruz pagas $2.</p>
+<ul><li>EV = 0,5 × $3 − 0,5 × $2 = <strong>+$0,50</strong> por lanzamiento.</li><li>Puedes perder los tres primeros lanzamientos. Da igual: cada vez que aceptas, ganas 50 centavos de media. Si te lo ofrecen mil veces, aceptas mil veces.</li></ul>
+<h3>Ejemplo guiado</h3>
+<p>Volvemos al gancho. Con <strong><span class="card s">A♠</span> <span class="card h">A♥</span></strong> contra <strong><span class="card c">K♣</span> <span class="card d">K♦</span></strong>, todo el dinero antes del flop, los ases ganan alrededor del <strong>82 %</strong> de las veces. Ponen $200 cada uno.</p>
+<ul><li>82 % de las veces ganas $200.</li><li>18 % de las veces pierdes $200.</li><li>EV = 0,82 × $200 − 0,18 × $200 = $164 − $36 = <strong>+$128</strong>.</li></ul>
+<p>Cada vez que metes el dinero en esta situación, ganas $128 <strong>de media</strong>, aunque esta vez concreta hayas perdido $200. La decisión fue excelente. El resultado fue mala suerte.</p>
+<p>El razonamiento al revés también vale: si tu rival pagó con los reyes, tomó una decisión −EV aunque se llevó el bote. Si sigue jugando así, te devolverá ese dinero con creces.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Un amigo te propone lanzar un dado. Si sale 6 te paga $10; si sale cualquier otro número le pagas $1. ¿Cuál es tu EV? ¿Aceptas?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>EV = 1/6 × $10 − 5/6 × $1 ≈ $1,67 − $0,83 = <strong>+$0,83</strong>. <strong>Aceptas</strong>: aunque pierdes 5 de cada 6 veces, ganas de media.</p>
+</div></details>
+<p><strong>2.</strong> Pierdes cinco sesiones seguidas. ¿Significa que estás jugando mal?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>No necesariamente.</strong> Cinco sesiones son muy pocas manos y la suerte pesa mucho. Para saber si juegas bien, revisa tus <strong>decisiones</strong> (¿eran +EV?), no tus resultados. En la lección siguiente verás cuántas manos hacen falta para que los resultados digan algo.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>El EV es lo que gana una decisión de media a largo plazo: juzga tus decisiones por su EV, nunca por el resultado de una mano.</p>
+<hr>
+<p><em>Fuentes: Clarke, The Grinder's Manual, Cap. 1.2 ("EV, la moneda del póker": una subida que gana $15 de EV puede perder $100 en una mano); Hardin, Essential Poker Math, Cap. 10 (definición de EV y foco en el largo plazo), Cap. 17 (fórmula del EV) y tablas de referencia (AA contra KK ≈ 82 %).</em></p></section><section class="leccion" id="M01_L04"><h2>1.4 La varianza: por qué jugar bien no garantiza ganar hoy</h2>
+<p><em>Módulo 1 · Lección 4 · 8 minutos</em></p>
+<h3>Gancho</h3>
+<p>Un jugador que gana dinero de forma constante, mes tras mes, juega 10.000 manos. Al terminar, ¿cuántas veces de cada 5 crees que está en pérdidas? La respuesta sorprende: <strong>más de 1 de cada 5</strong>.</p>
+<h3>La idea</h3>
+<p>La <strong>varianza</strong> es lo lejos que se alejan tus resultados reales de tu EV. En el corto plazo puede ser enorme. En el largo plazo, tus resultados se acercan a tu EV.</p>
+<p>Para medir cuánto gana un jugador se usa el <strong>winrate</strong> en <strong>bb/100</strong>: ciegas grandes ganadas cada 100 manos. Como referencia, en <em>cash</em> 6-max online y ya descontado el <em>rake</em>:</p>
+<div class="tw"><table><thead><tr><th>Winrate</th><th>Qué significa</th></tr></thead><tbody><tr><td>8bb/100</td><td>Gran ganador</td></tr><tr><td>4bb/100</td><td>Ganador sólido</td></tr><tr><td>0bb/100</td><td>Ni gana ni pierde</td></tr><tr><td>−2bb/100</td><td>Pierde un poco</td></tr><tr><td>−14bb/100</td><td>Pierde mucho</td></tr></tbody></table></div>
+<p>Ahora el dato importante. Supongamos un jugador que gana <strong>5bb/100</strong> con una varianza típica de <em>cash</em> 6-max. La probabilidad de que <strong>esté en pérdidas</strong> después de cierto número de manos es:</p>
+<div class="tw"><table><thead><tr><th>Manos jugadas</th><th>Ganancia esperada</th><th>Probabilidad de ir perdiendo</th></tr></thead><tbody><tr><td>1.000</td><td>50bb</td><td><strong>41 %</strong></td></tr><tr><td>10.000</td><td>500bb</td><td><strong>23 %</strong></td></tr><tr><td>50.000</td><td>2.500bb</td><td><strong>5 %</strong></td></tr><tr><td>100.000</td><td>5.000bb</td><td><strong>1 %</strong></td></tr></tbody></table></div>
+<p>Un buen jugador puede perder <strong>4 de cada 10 veces</strong> a lo largo de mil manos, que es lo que juega un aficionado en un mes. Por eso:</p>
+<ul><li><strong>Una sesión no te dice nada</strong> sobre si juegas bien.</li><li><strong>Un mes, casi nada.</strong></li><li>Para que los resultados digan algo, hacen falta decenas de miles de manos. Mientras tanto, la mejor medida de tu nivel es la <strong>calidad de tus decisiones</strong>.</li></ul>
+<h3>Ejemplo guiado</h3>
+<p>Marta y Pablo juegan $1/$2 durante un mes, unas 1.000 manos cada uno.</p>
+<ul><li>Marta juega bien: su winrate real es de 5bb/100. Termina el mes <strong>perdiendo $150</strong>.</li><li>Pablo juega mal: su winrate real es de −10bb/100. Termina el mes <strong>ganando $200</strong>.</li></ul>
+<p>¿Es raro? No: con 1.000 manos, la varianza puede tapar diferencias así. Si Marta concluye "esto no funciona" y cambia su juego, comete un error. Si Pablo concluye "soy bueno" y sube de límite, comete otro. Dentro de 100.000 manos, casi con seguridad Marta estará ganando y Pablo perdiendo.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Ganas tres sesiones seguidas y piensas que ya dominas el juego. ¿Qué concluyes de verdad?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>Nada todavía.</strong> Tres sesiones son muy pocas manos. Revisa si tus decisiones eran +EV; los resultados de unas pocas sesiones son casi pura varianza.</p>
+</div></details>
+<p><strong>2.</strong> Según la tabla, ¿cuántas manos tiene que jugar un ganador de 5bb/100 para que la probabilidad de ir perdiendo baje a 1 de cada 20?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Unas <strong>50.000 manos</strong> (5 %).</p>
+</div></details>
+<h3>En una frase</h3>
+<p>La varianza hace que los resultados de días o semanas casi no signifiquen nada; mide tu progreso por tus decisiones y por decenas de miles de manos.</p>
+<hr>
+<p><em>Fuentes: Acevedo, Modern Poker Theory, Cap. 2 (winrate en bb/100 y tabla de winrates de cash 6-max online) y Cap. 6 (Tabla 29: con 5bb/100 y desviación estándar de 67bb/100, 22,77 % de probabilidad de ir perdiendo tras 10.000 manos); Clarke, The Grinder's Manual, Cap. 1.2 (el ciclo del EV). Las filas de 1.000, 50.000 y 100.000 manos son un cálculo propio con la misma desviación estándar.</em></p></section><section class="leccion" id="M01_L05"><h2>1.5 Tu banca: el dinero del póker va aparte</h2>
+<p><em>Módulo 1 · Lección 5 · 8 minutos</em></p>
+<h3>Gancho</h3>
+<p>En la lección anterior viste que un buen jugador puede perder durante semanas. Si cada vez que pierdes tienes que dejar de jugar porque se te acabó el dinero, nunca llegarás al largo plazo donde se gana. Para eso sirve la <strong>banca</strong>.</p>
+<h3>La idea</h3>
+<p>Tu <strong>banca</strong> (<em>bankroll</em>) es el dinero que dedicas <strong>solo</strong> al póker. Tres reglas:</p>
+<ol><li><strong>Es dinero aparte.</strong> Tiene que ser una cantidad que puedas perder sin que afecte a tu vida: ni el alquiler, ni la comida, ni los ahorros.</li><li><strong>Para jugar un límite necesitas 30 <em>buy-ins</em> de ese límite.</strong> Un <em>buy-in</em> es la entrada completa a una mesa: 100bb.</li><li><strong>Si tu banca cae por debajo de 20 <em>buy-ins</em>, vuelves al límite anterior.</strong> Y vuelves a subir cuando tengas otra vez 30 <em>buy-ins</em> del límite superior.</li></ol>
+<p><strong>Mientras aprendes, juega el límite más bajo que encuentres.</strong> Al principio casi todos pierden un poco. Piensa en ese dinero como la matrícula del curso: barata si es el límite más bajo, cara si no lo es.</p>
+<p><strong>¿Por qué 30 y 20?</strong> Es una regla de este curso, no de un libro. Se apoya en un cálculo: para un jugador que gana 2,5bb/100, con 30 <em>buy-ins</em> la probabilidad de perder toda la banca antes de que su ventaja se note es de alrededor del <strong>3,5 %</strong>; con 20, del <strong>11 %</strong>. Pero ninguna banca salva a quien todavía pierde. Lo que de verdad protege es <strong>bajar de límite a tiempo</strong>.</p>
+<h3>Ejemplo guiado</h3>
+<p>Una sala online ofrece estos límites (ciegas pequeña/grande):</p>
+<div class="tw"><table><thead><tr><th>Límite</th><th>Ciegas</th><th>1 <em>buy-in</em> (100bb)</th><th>30 <em>buy-ins</em></th><th>20 <em>buy-ins</em></th></tr></thead><tbody><tr><td>NL2</td><td>$0,01/$0,02</td><td>$2</td><td>$60</td><td>$40</td></tr><tr><td>NL5</td><td>$0,02/$0,05</td><td>$5</td><td>$150</td><td>$100</td></tr><tr><td>NL10</td><td>$0,05/$0,10</td><td>$10</td><td>$300</td><td>$200</td></tr></tbody></table></div>
+<p>Luis tiene <strong>$160</strong> para póker.</p>
+<ul><li>Puede jugar <strong>NL5</strong>: $160 son 32 <em>buy-ins</em> de $5.</li><li>Tiene una mala racha y baja a <strong>$95</strong>. Son 19 <em>buy-ins</em> de NL5, menos de 20: <strong>vuelve a NL2</strong>. Allí, $95 son 47 <em>buy-ins</em>, una banca cómoda.</li><li>Cuando vuelva a tener <strong>$150</strong>, puede regresar a NL5.</li></ul>
+<p>Ahora Sofía, que tiene $60 y quiere jugar NL10 "porque es más emocionante". Con $60 solo tiene 6 <em>buy-ins</em> de NL10: una racha normal la deja sin nada. Con $60 su límite es <strong>NL2</strong>.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Tienes $250. ¿Cuál es el límite más alto que puedes jugar según la tabla?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>NL5.</strong> $250 son 50 <em>buy-ins</em> de NL5. Para NL10 necesitarías $300.</p>
+</div></details>
+<p><strong>2.</strong> Juegas NL10 con $310. Pierdes $120. ¿Qué haces?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Te quedan $190: 19 <em>buy-ins</em> de NL10, menos de 20. <strong>Bajas a NL5</strong>, donde tienes 38 <em>buy-ins</em>.</p>
+</div></details>
+<p><strong>3.</strong> "Puedo jugar más alto porque si pierdo, recargo de mi cuenta." ¿Qué falla en este razonamiento?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Que <strong>ya no es banca</strong>: estás usando dinero que no estaba apartado para el póker. La primera regla es que la banca es dinero aparte y que puedes perder.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Juega solo con dinero aparte, con 30 <em>buy-ins</em> del límite, y baja de límite si caes por debajo de 20.</p>
+<hr>
+<p><em>Fuentes: Acevedo, Modern Poker Theory, Cap. 6 (bancas mínimas de cash: 13,5 buy-ins con 5bb/100 y 27 con 2,5bb/100); Clarke, The Grinder's Manual, Cap. 1.4 (la banca como parte del "juego práctico") y Cap. 2 (aceptar perder un poco en el límite más bajo mientras se aprende, "como una matrícula"). La regla 30/20 es del curso; su justificación está en DECISIONES.md.</em></p></section><section class="leccion" id="M01_L06"><h2>1.6 ¿Quién está sentado contigo?</h2>
+<p><em>Módulo 1 · Lección 6 · 9 minutos</em></p>
+<h3>Gancho</h3>
+<p>Tu dinero no sale de la sala: sale de los errores de tus rivales. Y no todos cometen los mismos errores. Antes de decidir cómo jugar una mano, pregúntate <strong>contra quién</strong> la juegas.</p>
+<h3>La idea</h3>
+<p>Basta con seis perfiles. Se reconocen por lo que hacen:</p>
+<div class="tw"><table><thead><tr><th>Perfil</th><th>Cómo se reconoce</th><th>Cómo ganarle</th></tr></thead><tbody><tr><td><strong><em>Nit</strong></em></td><td>Juega muy pocas manos. Cuando sube, casi siempre tiene algo bueno.</td><td>Roba sus ciegas a menudo. Respeta sus subidas: si un <em>nit</em> apuesta fuerte, retírate con manos medias.</td></tr><tr><td><strong><em>Reg</strong></em> (regular)</td><td>Juega con criterio: sube mucho más de lo que paga y rara vez hace <em>limp</em>.</td><td>Juega sólido y evita pelear con él sin buena mano o buena posición. Tu dinero no está aquí.</td></tr><tr><td><strong><em>Fish fit-or-fold</strong></em> ("liga o se retira")</td><td>Hace <em>limp</em> con muchas manos y abandona en cuanto no liga el flop.</td><td>"Infla el bote y llévatelo": sube contra sus <em>limps</em> y apuesta el flop; se retirará casi siempre.</td></tr><tr><td><strong><em>Fish station</strong></em> ("estación de pago")</td><td>Odia retirarse. Paga con casi cualquier cosa hasta el final.</td><td><strong>Nunca le farolees.</strong> Cuando tengas una buena mano, apuesta y apuesta grande: te pagará.</td></tr><tr><td><strong><em>Fish</em> agresivo</strong></td><td>Sube y apuesta muchísimo, a menudo sin nada.</td><td>Déjalo apostar. Paga con manos decentes en lugar de pelear con manos malas.</td></tr><tr><td><strong><em>Whale</strong></em> (ballena)</td><td>Un <em>fish</em> extremo: juega casi todas las manos y comete errores enormes.</td><td>Juega más manos contra él, sobre todo con posición, y apuesta por valor.</td></tr></tbody></table></div>
+<p><em>Fish</em> (pez) es la palabra que usan los jugadores para el rival débil. No es un insulto que se diga en voz alta en la mesa: es una etiqueta para tus notas.</p>
+<p><strong>Dos avisos:</strong></p>
+<ul><li><strong>Etiqueta con pruebas.</strong> Una sola mano rara no hace a nadie <em>fish</em>. Espera a ver un patrón.</li><li><strong>El error más caro del principiante</strong> es farolear al <em>station</em>. Si alguien paga siempre, faroleándole solo le regalas dinero.</li></ul>
+<blockquote><p><strong>Si tu sala muestra estadísticas.</strong> Muchos programas muestran dos números: <strong>VPIP</strong> (porcentaje de manos en las que el jugador pone dinero voluntariamente antes del flop) y <strong>PFR</strong> (porcentaje en que sube antes del flop). Ejemplos típicos: <em>nit</em> 16/11; <em>reg</em> 23/19; <em>fish fit-or-fold</em> 40/6; <em>station</em> 65/3; <em>whale</em> 95/80. Una gran distancia entre los dos números delata a un jugador pasivo que paga demasiado.</p></blockquote>
+<h3>Ejemplo guiado</h3>
+<p>Llevas una hora en la mesa y has visto esto:</p>
+<ul><li><strong>Asiento 2</strong> ha jugado 2 manos en una hora. Ambas veces subió y mostró <strong><span class="card s">A♠</span> <span class="card d">A♦</span></strong> y <strong><span class="card h">Q♥</span> <span class="card c">Q♣</span></strong>. → <strong>Nit</strong>. Cuando suba, respeta su fuerza.</li><li><strong>Asiento 4</strong> entra en casi todas las manos pagando la ciega. Cuando alguien apuesta el flop, se retira casi siempre. → <strong>Fish fit-or-fold</strong>. Sube contra sus <em>limps</em> y apuesta los flops.</li><li><strong>Asiento 5</strong> pagó tres apuestas seguidas con una pareja de cuatros en una mesa <strong><span class="card h">K♥</span> <span class="card s">Q♠</span> <span class="card d">9♦</span> <span class="card c">2♣</span> <span class="card s">7♠</span></strong>. → <strong>Station</strong>. No le farolees; apuesta tus manos buenas.</li></ul>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Un rival entra en casi todas las manos y casi nunca sube; cuando le apuestan, paga hasta el river con cualquier pareja. ¿Qué perfil es y qué no debes hacer nunca contra él?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>Fish station.</strong> Nunca le farolees: apuesta por valor cuando tengas una buena mano.</p>
+</div></details>
+<p><strong>2.</strong> Un <em>nit</em> sube antes del flop desde UTG y tú tienes <strong><span class="card c">A♣</span> <span class="card d">J♦</span></strong>. ¿Qué te dice su perfil?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Que su rango es muy fuerte (parejas altas, AK, AQ…), y que tu AJ estará a menudo por detrás. Con un <em>nit</em>, <strong>retirarte</strong> con manos medias es lo normal. Lo verás en detalle en el Módulo 5.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Clasifica a cada rival en uno de seis perfiles y ajusta tu juego a su error: roba al <em>nit</em>, presiona al <em>fit-or-fold</em> y nunca le farolees al <em>station</em>.</p>
+<hr>
+<p><em>Fuentes: Clarke, The Grinder's Manual, Cap. 3.3 (los cuatro tipos de fish: fit-or-fold, station, aggro y whale; estadísticas y explotación de cada uno) y recuadro de VPIP/PFR del Cap. 2 (nit y regs); Hardin, Essential Poker Math, Cap. 3 (NIT, TAG, LAG, loose passive, calling station y maniac) y Cap. 7 (no farolear a las calling stations).</em></p></section><section class="leccion" id="M01_evaluacion"><h2>Mini-evaluación del Módulo 1</h2>
+<p><em>10 minutos. Si fallas dos o más, repasa las lecciones indicadas antes de seguir.</em></p>
+<p><strong>1.</strong> (1.1) El CO sube y el BU paga. Después del flop, ¿quién habla primero y quién está en posición?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Habla primero el <strong>CO</strong>; el <strong>BU</strong> está en posición.</p>
+</div></details>
+<p><strong>2.</strong> (1.2) Tú tienes $200 en la BB y el BU tiene $75. ¿Cuál es el stack efectivo en bb (ciegas $1/$2)?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>$75 = 37,5bb.</strong></p>
+</div></details>
+<p><strong>3.</strong> (1.3) Te ofrecen esta apuesta: sacas una carta de una baraja; si es un corazón ganas $5, si no, pagas $2. ¿Cuál es tu EV?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Hay 13 corazones de 52 cartas: 1/4. EV = 0,25 × $5 − 0,75 × $2 = $1,25 − $1,50 = <strong>−$0,25</strong>. No aceptas.</p>
+</div></details>
+<p><strong>4.</strong> (1.3 y 1.4) Pierdes un bote enorme con <strong><span class="card s">K♠</span> <span class="card h">K♥</span></strong> contra <strong><span class="card d">Q♦</span> <span class="card c">Q♣</span></strong>, todo el dinero antes del flop, porque cae una dama. ¿Fue un error meter el dinero?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>No.</strong> Los reyes ganan a las damas la gran mayoría de las veces; la decisión fue +EV. El resultado fue varianza.</p>
+</div></details>
+<p><strong>5.</strong> (1.5) Tienes $120 para póker. ¿Puedes jugar NL5 ($5 por <em>buy-in</em>)? ¿Cuál es tu límite?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>No:</strong> $120 son 24 <em>buy-ins</em> de NL5 y necesitas 30 ($150) para empezar en ese límite. Tu límite es <strong>NL2</strong>, donde tienes 60 <em>buy-ins</em>.</p>
+</div></details>
+<p><strong>6.</strong> (1.6) Un rival se retira casi siempre cuando alguien apuesta el flop, pero entra en muchísimas manos pagando la ciega. ¿Qué perfil es y cuál es el plan contra él?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>Fish fit-or-fold.</strong> Plan: subir contra sus <em>limps</em> y apostar el flop ("infla el bote y llévatelo").</p>
+</div></details>
+<h3>Repaso de módulos anteriores</h3>
+<p><strong>7.</strong> (0.4) Preflop en $1/$2, un jugador sube a $6 y otro resube a $18. ¿Cuál es la subida mínima del siguiente?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Último aumento: $12. Mínimo: $18 + $12 = <strong>$30</strong>.</p>
+</div></details>
+<p><strong>8.</strong> (0.3) Mesa: <strong><span class="card d">K♦</span> <span class="card c">K♣</span> <span class="card h">8♥</span> <span class="card s">5♠</span> <span class="card d">2♦</span></strong>. Tú: <strong><span class="card h">A♥</span> <span class="card c">3♣</span></strong>. Rival: <strong><span class="card s">Q♠</span> <span class="card s">J♠</span></strong>. ¿Quién gana?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Los dos tienen pareja de reyes. Tú: K-K-A-8-5. Rival: K-K-Q-J-8. <strong>Ganas tú</strong> por el as.</p>
+</div></details></section><div class="mod" id="m2">Módulo 2 · Abrir el bote antes del flop</div><section class="leccion" id="M02_L01"><h2>2.1 Piensa en rangos, no en una sola mano</h2>
+<p><em>Módulo 2 · Lección 1 · 7 minutos</em></p>
+<h3>Gancho</h3>
+<p>Un principiante mira sus cartas y se pregunta: "¿juego esta mano?". Un buen jugador ya sabe la respuesta antes de mirar, porque tiene una lista: <strong>las manos que juega desde cada silla</strong>. Esa lista se llama <strong>rango</strong>.</p>
+<h3>La idea</h3>
+<p>Un <strong>rango</strong> es el conjunto de manos con las que haces una acción concreta. Tu <strong>rango de apertura</strong> desde UTG es el grupo de manos con las que subes cuando eres el primero en entrar desde esa silla.</p>
+<p>Pensar en rangos tiene tres ventajas:</p>
+<ol><li><strong>Decides rápido y sin dudas.</strong> Si tu mano está en el rango, subes; si no, te retiras. No hay que inventar nada en cada mano.</li><li><strong>No te engaña la emoción.</strong> "Hoy me siento con suerte" no cambia el rango.</li><li><strong>Te ayuda a pensar en tu rival.</strong> Él tampoco tiene "una mano": tiene un rango. Si un <em>nit</em> sube desde UTG, su rango es estrecho y fuerte. Si un <em>fish</em> paga desde la BB, su rango es amplio y lleno de manos medias.</li></ol>
+<p>En las próximas lecciones aprenderás un rango para cada silla. Son los rangos "por defecto" del curso: un punto de partida sólido para mesas normales de límites bajos, pensados para no complicarte la vida mientras aprendes.</p>
+<h3>Ejemplo guiado</h3>
+<p>Este es el rango de apertura desde <strong>UTG</strong> que usarás:</p>
+<blockquote><p><strong>77+, ATs+, KTs+, QTs+, JTs, T9s, AJo+, KQo</strong></p></blockquote>
+<p>Tradúcelo con lo que aprendiste en la lección 0.8:</p>
+<ul><li><strong>77+</strong>: 77, 88, 99, TT, JJ, QQ, KK, AA.</li><li><strong>ATs+</strong>: ATs, AJs, AQs, AKs. <strong>KTs+</strong>: KTs, KJs, KQs. <strong>QTs+</strong>: QTs, QJs. Más <strong>JTs</strong> y <strong>T9s</strong>.</li><li><strong>AJo+</strong>: AJo, AQo, AKo. Más <strong>KQo</strong>.</li></ul>
+<p>En total son <strong>140 combos</strong>, alrededor del <strong>11 %</strong> de todas las manos posibles. Desde UTG juegas aproximadamente <strong>1 mano de cada 9</strong>.</p>
+<p>Ahora recibes tres manos en UTG:</p>
+<ul><li><strong><span class="card s">A♠</span> <span class="card h">Q♥</span></strong>: es AQo, está en AJo+. <strong>Subes.</strong></li><li><strong><span class="card c">6♣</span> <span class="card d">6♦</span></strong>: es 66; el rango empieza en 77. <strong>Te retiras.</strong></li><li><strong><span class="card d">K♦</span> <span class="card d">J♦</span></strong>: es KJs, está en KTs+. <strong>Subes.</strong></li></ul>
+<p>No hizo falta pensar en la suerte ni en cómo te sientes. Bastó con mirar la lista.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> En UTG recibes <strong><span class="card s">Q♠</span> <span class="card s">J♠</span></strong>. ¿Subes o te retiras?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Es QJs, dentro de <strong>QTs+</strong>. <strong>Subes.</strong></p>
+</div></details>
+<p><strong>2.</strong> En UTG recibes <strong><span class="card h">A♥</span> <span class="card c">T♣</span></strong>. ¿Subes o te retiras?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Es ATo. El rango de UTG solo tiene ases <em>offsuit</em> desde <strong>AJo+</strong>. <strong>Te retiras.</strong> (Fíjate en la diferencia: ATs sí está en el rango, ATo no.)</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Un rango es la lista de manos con las que haces una acción; decide con la lista, no con la emoción, y piensa también en la lista de tu rival.</p>
+<hr>
+<p><em>Fuentes: Clarke, The Grinder's Manual, Cap. 2 (pensar en rangos desde el primer capítulo; rangos por defecto "conservadores y aptos para principiantes"; rango de UTG ≈ 11 %, Fig. 5) y Glosario (definición de rango); Hardin, Essential Poker Math, Cap. 2 (pensamiento en rangos y notación).</em></p></section><section class="leccion" id="M02_L02"><h2>2.2 La cuadrícula 13×13: el mapa de todas las manos</h2>
+<p><em>Módulo 2 · Lección 2 · 8 minutos</em></p>
+<h3>Gancho</h3>
+<p>Hay 1.326 combinaciones posibles de dos cartas. Memorizarlas es imposible. Pero si quitas los palos, se reducen a <strong>169 manos</strong>, y caben todas en una cuadrícula de 13 por 13. Es el mapa que usan todos los jugadores para dibujar rangos.</p>
+<h3>La idea</h3>
+<p>La cuadrícula ordena las cartas de A a 2 en filas y en columnas. Cada casilla es una mano:</p>
+<ul><li><strong>La diagonal</strong> (de arriba a la izquierda hacia abajo a la derecha) son las <strong>13 parejas</strong>: AA, KK, … 22.</li><li><strong>Por encima de la diagonal</strong> están las <strong>78 manos <em>suited</strong></em> (con "s").</li><li><strong>Por debajo de la diagonal</strong> están las <strong>78 manos <em>offsuit</strong></em> (con "o").</li></ul>
+<p>Para encontrar una mano, busca la fila de su carta más alta y la columna de la más baja si es <em>suited</em>; al revés si es <em>offsuit</em>. AKs está en la fila A, columna K. AKo está en la fila K, columna A.</p>
+<div class="tw"><table class="grid"><thead><tr><th></th><th>A</th><th>K</th><th>Q</th><th>J</th><th>T</th><th>9</th><th>8</th><th>7</th><th>6</th><th>5</th><th>4</th><th>3</th><th>2</th></tr></thead><tbody><tr><td><strong>A</strong></td><td>AA</td><td>AKs</td><td>AQs</td><td>AJs</td><td>ATs</td><td>A9s</td><td>A8s</td><td>A7s</td><td>A6s</td><td>A5s</td><td>A4s</td><td>A3s</td><td>A2s</td></tr><tr><td><strong>K</strong></td><td>AKo</td><td>KK</td><td>KQs</td><td>KJs</td><td>KTs</td><td>K9s</td><td>K8s</td><td>K7s</td><td>K6s</td><td>K5s</td><td>K4s</td><td>K3s</td><td>K2s</td></tr><tr><td><strong>Q</strong></td><td>AQo</td><td>KQo</td><td>QQ</td><td>QJs</td><td>QTs</td><td>Q9s</td><td>Q8s</td><td>Q7s</td><td>Q6s</td><td>Q5s</td><td>Q4s</td><td>Q3s</td><td>Q2s</td></tr><tr><td><strong>J</strong></td><td>AJo</td><td>KJo</td><td>QJo</td><td>JJ</td><td>JTs</td><td>J9s</td><td>J8s</td><td>J7s</td><td>J6s</td><td>J5s</td><td>J4s</td><td>J3s</td><td>J2s</td></tr><tr><td><strong>T</strong></td><td>ATo</td><td>KTo</td><td>QTo</td><td>JTo</td><td>TT</td><td>T9s</td><td>T8s</td><td>T7s</td><td>T6s</td><td>T5s</td><td>T4s</td><td>T3s</td><td>T2s</td></tr><tr><td><strong>9</strong></td><td>A9o</td><td>K9o</td><td>Q9o</td><td>J9o</td><td>T9o</td><td>99</td><td>98s</td><td>97s</td><td>96s</td><td>95s</td><td>94s</td><td>93s</td><td>92s</td></tr><tr><td><strong>8</strong></td><td>A8o</td><td>K8o</td><td>Q8o</td><td>J8o</td><td>T8o</td><td>98o</td><td>88</td><td>87s</td><td>86s</td><td>85s</td><td>84s</td><td>83s</td><td>82s</td></tr><tr><td><strong>7</strong></td><td>A7o</td><td>K7o</td><td>Q7o</td><td>J7o</td><td>T7o</td><td>97o</td><td>87o</td><td>77</td><td>76s</td><td>75s</td><td>74s</td><td>73s</td><td>72s</td></tr><tr><td><strong>6</strong></td><td>A6o</td><td>K6o</td><td>Q6o</td><td>J6o</td><td>T6o</td><td>96o</td><td>86o</td><td>76o</td><td>66</td><td>65s</td><td>64s</td><td>63s</td><td>62s</td></tr><tr><td><strong>5</strong></td><td>A5o</td><td>K5o</td><td>Q5o</td><td>J5o</td><td>T5o</td><td>95o</td><td>85o</td><td>75o</td><td>65o</td><td>55</td><td>54s</td><td>53s</td><td>52s</td></tr><tr><td><strong>4</strong></td><td>A4o</td><td>K4o</td><td>Q4o</td><td>J4o</td><td>T4o</td><td>94o</td><td>84o</td><td>74o</td><td>64o</td><td>54o</td><td>44</td><td>43s</td><td>42s</td></tr><tr><td><strong>3</strong></td><td>A3o</td><td>K3o</td><td>Q3o</td><td>J3o</td><td>T3o</td><td>93o</td><td>83o</td><td>73o</td><td>63o</td><td>53o</td><td>43o</td><td>33</td><td>32s</td></tr><tr><td><strong>2</strong></td><td>A2o</td><td>K2o</td><td>Q2o</td><td>J2o</td><td>T2o</td><td>92o</td><td>82o</td><td>72o</td><td>62o</td><td>52o</td><td>42o</td><td>32o</td><td>22</td></tr></tbody></table></div>
+<p><strong>Ojo con el tamaño de las casillas.</strong> Todas ocupan lo mismo en el dibujo, pero no salen igual de a menudo:</p>
+<div class="tw"><table><thead><tr><th>Zona</th><th>Manos</th><th>Combos</th><th>% de todas las manos</th></tr></thead><tbody><tr><td>Diagonal (parejas)</td><td>13</td><td>13 × 6 = 78</td><td>5,9 %</td></tr><tr><td>Arriba (<em>suited</em>)</td><td>78</td><td>78 × 4 = 312</td><td>23,5 %</td></tr><tr><td>Abajo (<em>offsuit</em>)</td><td>78</td><td>78 × 12 = 936</td><td>70,6 %</td></tr></tbody></table></div>
+<p>Más de dos tercios de las manos que recibirás son <em>offsuit</em>. Por eso un rango con muchas casillas <em>offsuit</em> es mucho más amplio de lo que parece a simple vista.</p>
+<h3>Ejemplo guiado</h3>
+<p>Este es el rango de UTG de la lección anterior dibujado en la cuadrícula. Las manos en negrita son las que abres:</p>
+<div class="tw"><table class="grid"><thead><tr><th></th><th>A</th><th>K</th><th>Q</th><th>J</th><th>T</th><th>9</th><th>8</th><th>7</th><th>6</th><th>5</th><th>4</th><th>3</th><th>2</th></tr></thead><tbody><tr><td><strong>A</strong></td><td><strong>AA</strong></td><td><strong>AKs</strong></td><td><strong>AQs</strong></td><td><strong>AJs</strong></td><td><strong>ATs</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>K</strong></td><td><strong>AKo</strong></td><td><strong>KK</strong></td><td><strong>KQs</strong></td><td><strong>KJs</strong></td><td><strong>KTs</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>Q</strong></td><td><strong>AQo</strong></td><td><strong>KQo</strong></td><td><strong>QQ</strong></td><td><strong>QJs</strong></td><td><strong>QTs</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>J</strong></td><td><strong>AJo</strong></td><td>·</td><td>·</td><td><strong>JJ</strong></td><td><strong>JTs</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>T</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>TT</strong></td><td><strong>T9s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>9</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>99</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>8</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>88</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>7</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>77</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>6</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>5</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>4</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>3</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>2</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr></tbody></table></div>
+<p>Fíjate en la forma, que se repite en todos los rangos de apertura:</p>
+<ul><li><strong>Parejas</strong>: la diagonal, desde AA hasta 77.</li><li><strong>Bloque <em>suited</strong></em> arriba a la izquierda: las cartas altas del mismo palo, más conectadas como JTs y T9s.</li><li><strong>Pocas <em>offsuit</strong></em>: solo AJo, AQo, AKo y KQo.</li></ul>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> ¿En qué zona de la cuadrícula está <strong>97s</strong>? ¿Y <strong>97o</strong>?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>97s está <strong>por encima</strong> de la diagonal (fila 9, columna 7). 97o está <strong>por debajo</strong> (fila 7, columna 9).</p>
+</div></details>
+<p><strong>2.</strong> Un rango tiene 10 casillas <em>suited</em> y 10 <em>offsuit</em>. ¿Cuántos combos aporta cada grupo?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><em>Suited</em>: 10 × 4 = <strong>40</strong>. <em>Offsuit</em>: 10 × 12 = <strong>120</strong>. Las mismas casillas <em>offsuit</em> pesan el triple.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>La cuadrícula 13×13 tiene las parejas en la diagonal, las <em>suited</em> arriba y las <em>offsuit</em> abajo, y las <em>offsuit</em> pesan el triple que las <em>suited</em>.</p>
+<hr>
+<p><em>Fuentes: Acevedo, Modern Poker Theory, Cap. 1 (cuadrícula 13×13: 13 parejas, 5,88 %; 78 suited, 23,53 %; 78 offsuit, 70,59 %) y Cap. 4 (de 1.326 combos a 169 manos). Rango de UTG: Clarke, The Grinder's Manual, Cap. 2 (Fig. 5).</em></p></section><section class="leccion" id="M02_L03"><h2>2.3 O subes o te retiras</h2>
+<p><em>Módulo 2 · Lección 3 · 7 minutos</em></p>
+<h3>Gancho</h3>
+<p>Nadie ha entrado en el bote. Tienes <strong><span class="card d">A♦</span> <span class="card c">J♣</span></strong> en el CO. Lo "prudente" parece pagar solo la ciega grande para ver el flop barato. Es una de las jugadas que más dinero cuesta a los principiantes.</p>
+<h3>La idea</h3>
+<p>Entrar en el bote pagando solo la ciega grande, sin subir, cuando eres el primero, se llama <strong><em>open limp</strong></em>. En este curso <strong>nunca</strong> lo hacemos. La regla es simple:</p>
+<blockquote><p><strong>Si eres el primero en entrar: subes o te retiras.</strong></p></blockquote>
+<p>¿Por qué?</p>
+<ol><li><strong>Renuncias a ganar sin pelear.</strong> Cuando subes, a veces todos se retiran y te llevas las ciegas al instante. Esa posibilidad de que los rivales se retiren se llama <strong><em>fold equity</strong></em>. Si solo pagas, nadie tiene motivo para retirarse.</li><li><strong>Invitas a todo el mundo.</strong> Entrar barato anima a otros a entrar también. Con cuatro o cinco jugadores en el flop, es mucho más probable que alguien ligue algo mejor que tú.</li><li><strong>Te pueden subir.</strong> Detrás de ti quedan jugadores que pueden castigar tu <em>limp</em> con una subida. Entonces tienes que poner más dinero o retirarte y perder lo que pusiste.</li><li><strong>El <em>rake</em> castiga los flops baratos.</strong> Recuerda la lección 0.7: si la mano termina antes del flop, no hay comisión.</li></ol>
+<p>Existe una excepción que algunos autores aceptan: completar desde la ciega pequeña en ciertas situaciones. En este curso, para no complicarnos, <strong>también desde la SB subes o te retiras</strong> cuando eres el primero en entrar.</p>
+<h3>Ejemplo guiado</h3>
+<p>Mesa $1/$2. Tienes <strong><span class="card d">A♦</span> <span class="card c">J♣</span></strong> en el CO. Todos se retiran hasta ti.</p>
+<p><strong>Opción A: <em>limp</em> (pagas $2).</strong></p>
+<ul><li>El BU paga $2, la SB completa y la BB pasa. Cuatro jugadores en el flop con un bote de $8.</li><li>Cae <strong><span class="card s">K♠</span> <span class="card h">9♥</span> <span class="card c">5♣</span></strong>. No tienes nada y tres rivales pueden tener un rey, un nueve, un proyecto… Lo normal es que pierdas tus $2.</li></ul>
+<p><strong>Opción B: subes a $5.</strong></p>
+<ul><li>Escenario 1: todos se retiran. <strong>Ganas $3 al instante</strong> (las dos ciegas), sin ver el flop y sin pagar <em>rake</em>.</li><li>Escenario 2: te paga un jugador. Llegas al flop contra <strong>un solo rival</strong>, con la iniciativa (fuiste tú quien subió) y con una mano que encaja bien en tu rango.</li></ul>
+<p>En los dos escenarios de la opción B estás mejor que en la opción A.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Nadie ha entrado. Tienes <strong><span class="card s">7♠</span> <span class="card d">2♦</span></strong> en el BU. ¿Qué haces?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>Te retiras.</strong> 72o no está en ningún rango de apertura. Que no haga falta subir para jugarla no la convierte en una buena mano: <em>limp</em> no es una opción.</p>
+</div></details>
+<p><strong>2.</strong> Nombra dos razones por las que el <em>open limp</em> pierde dinero.</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Cualquiera de estas: renuncias a la <em>fold equity</em>; invitas a más jugadores; te pueden subir detrás; el <em>rake</em> castiga los flops baratos.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Cuando eres el primero en entrar, subes o te retiras: el <em>limp</em> regala la posibilidad de ganar sin pelear e invita a todos al bote.</p>
+<hr>
+<p><em>Fuentes: Clarke, The Grinder's Manual, Cap. 3 ("¿Qué tiene de malo el open limp?": renuncia a la fold equity preflop) y Cap. 2.7 (desde la SB, subir o retirarse); Acevedo, Modern Poker Theory, Cap. 4 (el rake hace menos rentable el limp; invita a botes con varios jugadores y a recibir subidas) y Cap. 5 (Acevedo sí usa limp desde la SB; el curso sigue la regla de Clarke).</em></p></section><section class="leccion" id="M02_L04"><h2>2.4 Rangos de las primeras posiciones: UTG y HJ</h2>
+<p><em>Módulo 2 · Lección 4 · 9 minutos</em></p>
+<h3>Gancho</h3>
+<p>Desde UTG tienes cinco jugadores detrás, y tres de ellos tendrán posición sobre ti en el resto de la mano. Es la silla más peligrosa de la mesa. ¿Qué manos aguantan esa presión?</p>
+<h3>La idea</h3>
+<p>Cuanto <strong>más pronto</strong> hablas, <strong>más estrecho</strong> debe ser tu rango: hay más rivales que pueden tener una mano fuerte y casi todos jugarán con posición sobre ti.</p>
+<p>Desde las primeras posiciones abres por dos motivos:</p>
+<ol><li><strong>Por valor:</strong> con manos fuertes que, cuando te pagan, suelen estar por delante.</li><li><strong>Para dejar pocos rivales:</strong> subir hace que se retiren las manos flojas, y con uno o dos rivales tus parejas buenas ganan más a menudo.</li></ol>
+<p><strong>¿Qué hace buena a una mano para abrir?</strong> Tres cualidades, de más a menos importante:</p>
+<ol><li><strong>Ligar buenas parejas con frecuencia:</strong> <em>top pair</em> (pareja con la carta más alta de la mesa) con buen <em>kicker</em>, o parejas en mano más altas que la mesa. Son las manos que más dinero ganan, porque salen a menudo y suelen ganar.</li><li><strong>Versatilidad:</strong> poder ligar de varias formas (pareja, proyecto de color, proyecto de escalera). Por eso las manos <em>suited</em> y conectadas valen más.</li><li><strong>Potencial de jugadas muy fuertes:</strong> tríos, colores altos, escaleras. Salen poco, pero ganan botes enormes.</li></ol>
+<p><strong>Rango de UTG (≈ 11 %, 140 combos):</strong></p>
+<blockquote><p><strong>77+, ATs+, KTs+, QTs+, JTs, T9s, AJo+, KQo</strong></p></blockquote>
+<div class="tw"><table class="grid"><thead><tr><th></th><th>A</th><th>K</th><th>Q</th><th>J</th><th>T</th><th>9</th><th>8</th><th>7</th><th>6</th><th>5</th><th>4</th><th>3</th><th>2</th></tr></thead><tbody><tr><td><strong>A</strong></td><td><strong>AA</strong></td><td><strong>AKs</strong></td><td><strong>AQs</strong></td><td><strong>AJs</strong></td><td><strong>ATs</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>K</strong></td><td><strong>AKo</strong></td><td><strong>KK</strong></td><td><strong>KQs</strong></td><td><strong>KJs</strong></td><td><strong>KTs</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>Q</strong></td><td><strong>AQo</strong></td><td><strong>KQo</strong></td><td><strong>QQ</strong></td><td><strong>QJs</strong></td><td><strong>QTs</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>J</strong></td><td><strong>AJo</strong></td><td>·</td><td>·</td><td><strong>JJ</strong></td><td><strong>JTs</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>T</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>TT</strong></td><td><strong>T9s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>9</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>99</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>8</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>88</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>7</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>77</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>6</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>5</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>4</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>3</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>2</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr></tbody></table></div>
+<p><strong>Rango de HJ (≈ 15,5 %, 206 combos).</strong> Una silla más tarde, se añade algo más:</p>
+<blockquote><p><strong>66+, A2s+, KTs+, QTs+, JTs, T9s, 98s, ATo+, KJo+</strong></p></blockquote>
+<div class="tw"><table class="grid"><thead><tr><th></th><th>A</th><th>K</th><th>Q</th><th>J</th><th>T</th><th>9</th><th>8</th><th>7</th><th>6</th><th>5</th><th>4</th><th>3</th><th>2</th></tr></thead><tbody><tr><td><strong>A</strong></td><td><strong>AA</strong></td><td><strong>AKs</strong></td><td><strong>AQs</strong></td><td><strong>AJs</strong></td><td><strong>ATs</strong></td><td><strong>A9s</strong></td><td><strong>A8s</strong></td><td><strong>A7s</strong></td><td><strong>A6s</strong></td><td><strong>A5s</strong></td><td><strong>A4s</strong></td><td><strong>A3s</strong></td><td><strong>A2s</strong></td></tr><tr><td><strong>K</strong></td><td><strong>AKo</strong></td><td><strong>KK</strong></td><td><strong>KQs</strong></td><td><strong>KJs</strong></td><td><strong>KTs</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>Q</strong></td><td><strong>AQo</strong></td><td><strong>KQo</strong></td><td><strong>QQ</strong></td><td><strong>QJs</strong></td><td><strong>QTs</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>J</strong></td><td><strong>AJo</strong></td><td><strong>KJo</strong></td><td>·</td><td><strong>JJ</strong></td><td><strong>JTs</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>T</strong></td><td><strong>ATo</strong></td><td>·</td><td>·</td><td>·</td><td><strong>TT</strong></td><td><strong>T9s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>9</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>99</strong></td><td><strong>98s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>8</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>88</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>7</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>77</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>6</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>66</strong></td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>5</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>4</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>3</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>2</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr></tbody></table></div>
+<p>Lo nuevo respecto a UTG: <strong>66</strong>, todos los ases <em>suited</em> (<strong>A2s–A9s</strong>), <strong>98s</strong>, <strong>ATo</strong> y <strong>KJo</strong>. Los ases <em>suited</em> pequeños entran porque pueden ligar el color más alto (el "color al as").</p>
+<h3>Ejemplo guiado</h3>
+<p>Recibes estas manos. Decide primero en UTG y luego en HJ:</p>
+<div class="tw"><table><thead><tr><th>Mano</th><th>UTG</th><th>HJ</th><th>Por qué</th></tr></thead><tbody><tr><td><strong><span class="card h">A♥</span> <span class="card h">5♥</span></strong></td><td>Retirarse</td><td><strong>Subir</strong></td><td>A5s entra en A2s+ del HJ; en UTG los ases <em>suited</em> empiezan en ATs</td></tr><tr><td><strong><span class="card c">K♣</span> <span class="card d">J♦</span></strong></td><td>Retirarse</td><td><strong>Subir</strong></td><td>KJo está en KJo+ del HJ; en UTG solo KQo</td></tr><tr><td><strong><span class="card s">6♠</span> <span class="card h">6♥</span></strong></td><td>Retirarse</td><td><strong>Subir</strong></td><td>El HJ abre desde 66; UTG desde 77</td></tr><tr><td><strong><span class="card d">Q♦</span> <span class="card d">T♦</span></strong></td><td><strong>Subir</strong></td><td><strong>Subir</strong></td><td>QTs está en los dos rangos</td></tr><tr><td><strong><span class="card s">K♠</span> <span class="card s">9♠</span></strong></td><td>Retirarse</td><td>Retirarse</td><td>Los reyes <em>suited</em> empiezan en KTs en ambos</td></tr></tbody></table></div>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> <strong><span class="card c">A♣</span> <span class="card d">T♦</span></strong> en el HJ. ¿Subes?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>Sí.</strong> ATo está en ATo+ del HJ (en UTG no).</p>
+</div></details>
+<p><strong>2.</strong> <strong><span class="card s">9♠</span> <span class="card s">8♠</span></strong> en UTG. ¿Y en HJ?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>UTG: <strong>te retiras</strong> (el rango solo tiene T9s entre las conectadas bajas). HJ: <strong>subes</strong> (98s está en el rango).</p>
+</div></details>
+<p><strong>3.</strong> ¿Por qué el rango del HJ es más amplio que el de UTG?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Porque detrás quedan <strong>menos jugadores</strong> que pueden tener una mano fuerte (cuatro en lugar de cinco) y <strong>menos</strong> que tendrán posición sobre ti.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Desde UTG abre solo 77+, ases y reyes <em>suited</em> altos, conectadas altas y AJo+; desde el HJ añade 66, todos los ases <em>suited</em>, 98s, ATo y KJo.</p>
+<hr>
+<p><em>Fuentes: Clarke, The Grinder's Manual, Cap. 2.2 (tres atributos para abrir una mano: Good Pair Potential, versatilidad y potencial de nuts, en ese orden), Cap. 2.3 (UTG: abrir por valor y para dejar pocos rivales; rango por defecto, Fig. 5, ≈ 11 %) y Cap. 2.4 (HJ, Fig. 7, 15,5 %). Combos calculados con herramientas/rangos_clarke.py.</em></p></section><section class="leccion" id="M02_L05"><h2>2.5 Rangos de las posiciones finales: CO, BU y SB</h2>
+<p><em>Módulo 2 · Lección 5 · 10 minutos</em></p>
+<h3>Gancho</h3>
+<p>El error más común de los principiantes en el botón no es jugar demasiadas manos: es <strong>jugar demasiado pocas</strong>. El botón es la silla donde más se gana, y para aprovecharla hay que abrir muchas manos que en UTG tirarías sin pensar.</p>
+<h3>La idea</h3>
+<p>En las últimas posiciones quedan pocos rivales detrás y, desde el CO y el BU, juegas casi siempre con posición después del flop. Eso cambia el motivo para subir: ya no es solo el valor, es también <strong>robar las ciegas</strong>. Muchas veces todos se retiran y ganas sin pelear.</p>
+<p><strong>CO (≈ 25,5 %, 338 combos):</strong></p>
+<blockquote><p><strong>22+, A2s+, K8s+, Q9s+, J9s+, T8s+, 97s+, 87s, 76s, 65s, A9o+, KTo+, QTo+, JTo, T9o</strong></p></blockquote>
+<div class="tw"><table class="grid"><thead><tr><th></th><th>A</th><th>K</th><th>Q</th><th>J</th><th>T</th><th>9</th><th>8</th><th>7</th><th>6</th><th>5</th><th>4</th><th>3</th><th>2</th></tr></thead><tbody><tr><td><strong>A</strong></td><td><strong>AA</strong></td><td><strong>AKs</strong></td><td><strong>AQs</strong></td><td><strong>AJs</strong></td><td><strong>ATs</strong></td><td><strong>A9s</strong></td><td><strong>A8s</strong></td><td><strong>A7s</strong></td><td><strong>A6s</strong></td><td><strong>A5s</strong></td><td><strong>A4s</strong></td><td><strong>A3s</strong></td><td><strong>A2s</strong></td></tr><tr><td><strong>K</strong></td><td><strong>AKo</strong></td><td><strong>KK</strong></td><td><strong>KQs</strong></td><td><strong>KJs</strong></td><td><strong>KTs</strong></td><td><strong>K9s</strong></td><td><strong>K8s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>Q</strong></td><td><strong>AQo</strong></td><td><strong>KQo</strong></td><td><strong>QQ</strong></td><td><strong>QJs</strong></td><td><strong>QTs</strong></td><td><strong>Q9s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>J</strong></td><td><strong>AJo</strong></td><td><strong>KJo</strong></td><td><strong>QJo</strong></td><td><strong>JJ</strong></td><td><strong>JTs</strong></td><td><strong>J9s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>T</strong></td><td><strong>ATo</strong></td><td><strong>KTo</strong></td><td><strong>QTo</strong></td><td><strong>JTo</strong></td><td><strong>TT</strong></td><td><strong>T9s</strong></td><td><strong>T8s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>9</strong></td><td><strong>A9o</strong></td><td>·</td><td>·</td><td>·</td><td><strong>T9o</strong></td><td><strong>99</strong></td><td><strong>98s</strong></td><td><strong>97s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>8</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>88</strong></td><td><strong>87s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>7</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>77</strong></td><td><strong>76s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>6</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>66</strong></td><td><strong>65s</strong></td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>5</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>55</strong></td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>4</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>44</strong></td><td>·</td><td>·</td></tr><tr><td><strong>3</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>33</strong></td><td>·</td></tr><tr><td><strong>2</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>22</strong></td></tr></tbody></table></div>
+<p><strong>BU (≈ 42 %, 562 combos).</strong> El rango más amplio de todos:</p>
+<blockquote><p><strong>22+, A2s+, K2s+, Q2s+, J6s+, T6s+, 96s+, 86s+, 75s+, 64s+, 53s+, 43s, 32s, A8o+, K8o+, Q8o+, J8o+, T8o+, 98o, 87o</strong></p></blockquote>
+<div class="tw"><table class="grid"><thead><tr><th></th><th>A</th><th>K</th><th>Q</th><th>J</th><th>T</th><th>9</th><th>8</th><th>7</th><th>6</th><th>5</th><th>4</th><th>3</th><th>2</th></tr></thead><tbody><tr><td><strong>A</strong></td><td><strong>AA</strong></td><td><strong>AKs</strong></td><td><strong>AQs</strong></td><td><strong>AJs</strong></td><td><strong>ATs</strong></td><td><strong>A9s</strong></td><td><strong>A8s</strong></td><td><strong>A7s</strong></td><td><strong>A6s</strong></td><td><strong>A5s</strong></td><td><strong>A4s</strong></td><td><strong>A3s</strong></td><td><strong>A2s</strong></td></tr><tr><td><strong>K</strong></td><td><strong>AKo</strong></td><td><strong>KK</strong></td><td><strong>KQs</strong></td><td><strong>KJs</strong></td><td><strong>KTs</strong></td><td><strong>K9s</strong></td><td><strong>K8s</strong></td><td><strong>K7s</strong></td><td><strong>K6s</strong></td><td><strong>K5s</strong></td><td><strong>K4s</strong></td><td><strong>K3s</strong></td><td><strong>K2s</strong></td></tr><tr><td><strong>Q</strong></td><td><strong>AQo</strong></td><td><strong>KQo</strong></td><td><strong>QQ</strong></td><td><strong>QJs</strong></td><td><strong>QTs</strong></td><td><strong>Q9s</strong></td><td><strong>Q8s</strong></td><td><strong>Q7s</strong></td><td><strong>Q6s</strong></td><td><strong>Q5s</strong></td><td><strong>Q4s</strong></td><td><strong>Q3s</strong></td><td><strong>Q2s</strong></td></tr><tr><td><strong>J</strong></td><td><strong>AJo</strong></td><td><strong>KJo</strong></td><td><strong>QJo</strong></td><td><strong>JJ</strong></td><td><strong>JTs</strong></td><td><strong>J9s</strong></td><td><strong>J8s</strong></td><td><strong>J7s</strong></td><td><strong>J6s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>T</strong></td><td><strong>ATo</strong></td><td><strong>KTo</strong></td><td><strong>QTo</strong></td><td><strong>JTo</strong></td><td><strong>TT</strong></td><td><strong>T9s</strong></td><td><strong>T8s</strong></td><td><strong>T7s</strong></td><td><strong>T6s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>9</strong></td><td><strong>A9o</strong></td><td><strong>K9o</strong></td><td><strong>Q9o</strong></td><td><strong>J9o</strong></td><td><strong>T9o</strong></td><td><strong>99</strong></td><td><strong>98s</strong></td><td><strong>97s</strong></td><td><strong>96s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>8</strong></td><td><strong>A8o</strong></td><td><strong>K8o</strong></td><td><strong>Q8o</strong></td><td><strong>J8o</strong></td><td><strong>T8o</strong></td><td><strong>98o</strong></td><td><strong>88</strong></td><td><strong>87s</strong></td><td><strong>86s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>7</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>87o</strong></td><td><strong>77</strong></td><td><strong>76s</strong></td><td><strong>75s</strong></td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>6</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>66</strong></td><td><strong>65s</strong></td><td><strong>64s</strong></td><td>·</td><td>·</td></tr><tr><td><strong>5</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>55</strong></td><td><strong>54s</strong></td><td><strong>53s</strong></td><td>·</td></tr><tr><td><strong>4</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>44</strong></td><td><strong>43s</strong></td><td>·</td></tr><tr><td><strong>3</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>33</strong></td><td><strong>32s</strong></td></tr><tr><td><strong>2</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>22</strong></td></tr></tbody></table></div>
+<p><strong>SB, cuando todos se retiran hasta ti (≈ 35 %, 470 combos).</strong> Solo tienes un rival, la BB, pero ella tendrá posición sobre ti. Por eso abres menos que en el botón:</p>
+<blockquote><p><strong>22+, A2s+, K2s+, Q7s+, J7s+, T7s+, 97s+, 86s+, 75s+, 65s, 54s, 43s, A9o+, K9o+, Q9o+, J9o+, T8o+, 98o, 87o</strong></p></blockquote>
+<div class="tw"><table class="grid"><thead><tr><th></th><th>A</th><th>K</th><th>Q</th><th>J</th><th>T</th><th>9</th><th>8</th><th>7</th><th>6</th><th>5</th><th>4</th><th>3</th><th>2</th></tr></thead><tbody><tr><td><strong>A</strong></td><td><strong>AA</strong></td><td><strong>AKs</strong></td><td><strong>AQs</strong></td><td><strong>AJs</strong></td><td><strong>ATs</strong></td><td><strong>A9s</strong></td><td><strong>A8s</strong></td><td><strong>A7s</strong></td><td><strong>A6s</strong></td><td><strong>A5s</strong></td><td><strong>A4s</strong></td><td><strong>A3s</strong></td><td><strong>A2s</strong></td></tr><tr><td><strong>K</strong></td><td><strong>AKo</strong></td><td><strong>KK</strong></td><td><strong>KQs</strong></td><td><strong>KJs</strong></td><td><strong>KTs</strong></td><td><strong>K9s</strong></td><td><strong>K8s</strong></td><td><strong>K7s</strong></td><td><strong>K6s</strong></td><td><strong>K5s</strong></td><td><strong>K4s</strong></td><td><strong>K3s</strong></td><td><strong>K2s</strong></td></tr><tr><td><strong>Q</strong></td><td><strong>AQo</strong></td><td><strong>KQo</strong></td><td><strong>QQ</strong></td><td><strong>QJs</strong></td><td><strong>QTs</strong></td><td><strong>Q9s</strong></td><td><strong>Q8s</strong></td><td><strong>Q7s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>J</strong></td><td><strong>AJo</strong></td><td><strong>KJo</strong></td><td><strong>QJo</strong></td><td><strong>JJ</strong></td><td><strong>JTs</strong></td><td><strong>J9s</strong></td><td><strong>J8s</strong></td><td><strong>J7s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>T</strong></td><td><strong>ATo</strong></td><td><strong>KTo</strong></td><td><strong>QTo</strong></td><td><strong>JTo</strong></td><td><strong>TT</strong></td><td><strong>T9s</strong></td><td><strong>T8s</strong></td><td><strong>T7s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>9</strong></td><td><strong>A9o</strong></td><td><strong>K9o</strong></td><td><strong>Q9o</strong></td><td><strong>J9o</strong></td><td><strong>T9o</strong></td><td><strong>99</strong></td><td><strong>98s</strong></td><td><strong>97s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>8</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>T8o</strong></td><td><strong>98o</strong></td><td><strong>88</strong></td><td><strong>87s</strong></td><td><strong>86s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>7</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>87o</strong></td><td><strong>77</strong></td><td><strong>76s</strong></td><td><strong>75s</strong></td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>6</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>66</strong></td><td><strong>65s</strong></td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>5</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>55</strong></td><td><strong>54s</strong></td><td>·</td><td>·</td></tr><tr><td><strong>4</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>44</strong></td><td><strong>43s</strong></td><td>·</td></tr><tr><td><strong>3</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>33</strong></td><td>·</td></tr><tr><td><strong>2</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>22</strong></td></tr></tbody></table></div>
+<p><strong>Estos rangos son un punto de partida.</strong> Sirven cuando no sabes nada de los jugadores que quedan detrás. Más adelante aprenderás a abrir más si las ciegas se retiran mucho y menos si te resuben a menudo.</p>
+<h3>Ejemplo guiado</h3>
+<p>Tres manos, tres sillas:</p>
+<ul><li><strong><span class="card d">K♦</span> <span class="card d">8♦</span> en el CO:</strong> K8s está en K8s+. <strong>Subes.</strong> En HJ la tirarías.</li><li><strong><span class="card c">Q♣</span> <span class="card c">4♣</span> en el BU:</strong> Q4s está en Q2s+. <strong>Subes.</strong> En CO la tirarías (allí las damas <em>suited</em> empiezan en Q9s).</li><li><strong><span class="card c">Q♣</span> <span class="card c">4♣</span> en la SB:</strong> las damas <em>suited</em> empiezan en Q7s. <strong>Te retiras.</strong></li></ul>
+<p>Fíjate en que la misma mano cambia de decisión según la silla. Eso es jugar por posición.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> <strong><span class="card h">J♥</span> <span class="card c">9♣</span></strong> en el BU. ¿Subes?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>Sí.</strong> J9o está en J8o+ del BU.</p>
+</div></details>
+<p><strong>2.</strong> <strong><span class="card s">A♠</span> <span class="card d">7♦</span></strong> en el CO. ¿Y en el BU?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>CO: <strong>te retiras</strong> (ases <em>offsuit</em> desde A9o). BU: <strong>te retiras</strong> también (desde A8o). Ojo: A7<strong>s</strong> sí se abre en las dos.</p>
+</div></details>
+<p><strong>3.</strong> <strong><span class="card h">5♥</span> <span class="card h">3♥</span></strong> en el BU y en la SB.</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>BU: <strong>subes</strong> (53s+). SB: <strong>te retiras</strong> (el rango de SB baja hasta 54s, pero no incluye 53s).</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Cuanto más cerca del botón, más manos abres: un cuarto de las manos en el CO, más de dos de cada cinco en el BU y algo más de un tercio en la SB.</p>
+<hr>
+<p><em>Fuentes: Clarke, The Grinder's Manual, Cap. 2.5–2.7 (rangos por defecto de CO, BU y SB, Figs. 10, 15 y 16; el BU es la silla que más EV genera y no robar lo suficiente es un error típico de principiantes) y Cap. 10 (el rango de CO tiene 338 combos). Acevedo, Modern Poker Theory, Cap. 5 (el BU abre un 43,4 % en equilibrio de cash 6-max, cifra cercana a la de Clarke). Combos calculados con herramientas/rangos_clarke.py.</em></p></section><section class="leccion" id="M02_L06"><h2>2.6 Tamaño de apertura y robo de ciegas</h2>
+<p><em>Módulo 2 · Lección 6 · 7 minutos</em></p>
+<h3>Gancho</h3>
+<p>Ya sabes qué manos abrir. ¿Cuánto subes? Unos jugadores suben a 2bb, otros a 4bb, otros a 6bb "para que se vayan". Sorprendentemente, la respuesta correcta es sencilla y casi no cambia nada.</p>
+<h3>La idea</h3>
+<p><strong>Regla del curso: abre siempre a 2,5bb.</strong> En $1/$2, <strong>sube a $5</strong>, desde cualquier silla.</p>
+<p>Por qué un solo tamaño:</p>
+<ul><li>Los estudios con ordenador indican que el tamaño de apertura <strong>casi no cambia lo que ganas</strong> siempre que sea razonable (entre 2bb y 3bb).</li><li>Usar siempre el mismo tamaño <strong>no le da pistas a nadie</strong>: si subieras más con ases y menos con manos flojas, los rivales atentos lo notarían.</li><li><strong>Te ahorra una decisión</strong> en cada mano. Mientras aprendes, eso vale mucho.</li></ul>
+<p>Más adelante podrás ajustar: algunos autores suben a 3bb desde UTG y HJ, o a 2bb desde el BU contra rivales sólidos, y más grande cuando hay un <em>fish</em> en las ciegas que paga demasiado. Por ahora, <strong>2,5bb siempre</strong>.</p>
+<p><strong>El robo de ciegas.</strong> Cuando abres desde el CO, el BU o la SB, a menudo todos se retiran y te llevas las ciegas: 1,5bb ($3). ¿Cuántas veces tiene que funcionar para ganar dinero aunque tu mano fuera mala? Se calcula como en la vida misma, <strong>lo que arriesgas entre lo que arriesgas más lo que puedes ganar</strong>:</p>
+<blockquote><p><strong>Retiradas necesarias = riesgo ÷ (riesgo + premio)</strong></p></blockquote>
+<h3>Ejemplo guiado</h3>
+<p><strong>Robo desde el BU.</strong> Subes a 2,5bb ($5) para ganar las ciegas, 1,5bb ($3).</p>
+<ul><li>Retiradas necesarias: 2,5 ÷ (2,5 + 1,5) = <strong>62,5 %</strong>.</li><li>Si las dos ciegas se retiran más de 62,5 de cada 100 veces, el robo ya gana dinero <strong>aunque perdieras siempre que te pagan</strong>. Y no pierdes siempre: muchas veces ganarás el bote después del flop.</li></ul>
+<p><strong>Robo desde la SB.</strong> Subes a 2,5bb, pero ya habías puesto 0,5bb como ciega. Solo arriesgas 2bb más para ganar 1,5bb (tu ciega pequeña y la grande).</p>
+<ul><li>Retiradas necesarias: 2 ÷ (2 + 1,5) = <strong>57 %</strong>.</li></ul>
+<p>Por eso el BU y la SB abren tantas manos: con poca gente detrás, se retiran a menudo.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Estás en el CO con <strong><span class="card h">Q♥</span> <span class="card h">T♥</span></strong> y todos se retiran. ¿De cuánto es tu subida en $1/$2?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>QTs está en el rango de CO. Subes a <strong>$5</strong> (2,5bb).</p>
+</div></details>
+<p><strong>2.</strong> Un amigo abre a 4bb desde el BU. ¿Qué porcentaje de retiradas necesita para que su robo gane solo con eso?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>4 ÷ (4 + 1,5) = <strong>72,7 %</strong>. Arriesga más para ganar lo mismo, así que necesita que se retiren más a menudo.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Abre siempre a 2,5bb; un robo necesita que se retiren un 62,5 % de las veces desde el botón para ganar por sí solo.</p>
+<hr>
+<p><em>Fuentes: Acevedo, Modern Poker Theory, Cap. 4 (el tamaño de apertura apenas afecta al resultado si es razonable; zona de 2bb–2,5bb) y Cap. 5 (aperturas de 2,5bb de UTG a BU en cash 6-max); Clarke, The Grinder's Manual, Cap. 2 (2,5x en CO y SB; 3x en UTG y HJ; 2x en BU contra regs; más grande contra fish; RFE = R ÷ (R + PG), con el ejemplo de 4BB en el BU = 72,7 %); Hardin, Essential Poker Math, Cap. 13 (robo a 2,5bb = 62,5 %).</em></p></section><section class="leccion" id="M02_L07"><h2>2.7 Cuando alguien hace <em>limp</em>: aislar</h2>
+<p><em>Módulo 2 · Lección 7 · 9 minutos</em></p>
+<h3>Gancho</h3>
+<p>En límites bajos verás esto en casi todas las órbitas: un jugador entra pagando solo la ciega grande. Ya sabes que eso es un error (lección 2.3). Ahora toca <strong>cobrárselo</strong>.</p>
+<h3>La idea</h3>
+<p>Cuando un rival hace <em>limp</em> antes que tú, puedes <strong>subir para quedarte a solas con él</strong>. Eso se llama <strong>aislar</strong> (<em>isolation raise</em>, o <strong><em>iso</strong></em>). Si funciona, juegas el flop contra un jugador que suele ser débil, con la iniciativa y, si estás detrás de él, con posición.</p>
+<p><strong>Tamaño de la subida de aislamiento:</strong></p>
+<blockquote><p><strong>3bb + 1bb por cada <em>limper</em> + 1bb más si vas a estar fuera de posición</strong></p></blockquote>
+<p>Es más grande que una apertura normal porque ya hay más dinero en el bote y quieres que se retiren los demás.</p>
+<p><strong>¿Con qué manos aíslas?</strong> Tres factores, de más a menos importante:</p>
+<ol><li><strong>Fuerza de tu mano:</strong> manos que ligan buenas parejas a menudo. Es el factor principal: una mano muy fuerte justifica aislar casi siempre.</li><li><strong><em>Fold equity</em>:</strong> ¿se retira a menudo ese <em>limper</em>? Contra un <em>fish fit-or-fold</em>, mucho.</li><li><strong>Posición:</strong> aislar desde el BU es mejor que desde las ciegas.</li></ol>
+<p><strong>Regla del curso para empezar:</strong> aísla con las manos que abrirías desde tu silla; con el resto, retírate. Pagar detrás de un <em>limper</em> es una opción avanzada para casos concretos, que por ahora dejamos de lado.</p>
+<h3>Ejemplo guiado</h3>
+<p>Mesa $1/$2. Un <em>fish fit-or-fold</em> hace <em>limp</em> desde el HJ (pone $2). Todos se retiran hasta ti, en el <strong>BU</strong>, con <strong><span class="card c">A♣</span> <span class="card d">T♦</span></strong>.</p>
+<ul><li>ATo está en tu rango de BU. <strong>Aíslas.</strong></li><li>Tamaño: 3bb + 1bb por un <em>limper</em> = <strong>4bb = $8</strong>. Estás en posición sobre él, así que no sumas nada más.</li><li>Si paga, el bote del flop será de $8 + $8 + $1 + $2 = <strong>$19</strong> y jugarás con posición contra un rival que se retira a menudo cuando no liga. Si se retira, ganas $5 (su <em>limp</em> y las ciegas) sin ver el flop.</li></ul>
+<p><strong>Dos variantes:</strong></p>
+<ul><li><strong>Dos <em>limpers</strong></em> y tú en el CO: 3 + 2 = <strong>5bb = $10</strong>.</li><li><strong>Un <em>limper</strong></em> y tú en la <strong>SB</strong>: estarás fuera de posición. 3 + 1 + 1 = <strong>5bb = $10</strong>.</li></ul>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Un jugador hace <em>limp</em> en el CO. Tú tienes <strong><span class="card h">K♥</span> <span class="card s">Q♠</span></strong> en el BU. ¿Qué haces y de qué tamaño (en $1/$2)?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>KQo está en tu rango de BU. <strong>Aíslas a 4bb = $8</strong> (3 + 1 por el <em>limper</em>; estás en posición).</p>
+</div></details>
+<p><strong>2.</strong> UTG y HJ hacen <em>limp</em>. Tú tienes <strong><span class="card s">J♠</span> <span class="card d">J♦</span></strong> en la BB. ¿De cuánto aíslas?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>3bb + 2bb (dos <em>limpers</em>) + 1bb (fuera de posición) = <strong>6bb = $12</strong>.</p>
+</div></details>
+<p><strong>3.</strong> Un <em>limper</em> en UTG. Tú, en el HJ, tienes <strong><span class="card c">8♣</span> <span class="card c">6♣</span></strong>. ¿Qué haces?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>86s <strong>no</strong> está en tu rango de HJ. <strong>Te retiras.</strong></p>
+</div></details>
+<h3>En una frase</h3>
+<p>Contra un <em>limper</em>, sube a 3bb más 1bb por cada <em>limper</em> (y 1bb más si vas a estar fuera de posición) con las manos que abrirías desde tu silla.</p>
+<hr>
+<p><em>Fuentes: Clarke, The Grinder's Manual, Cap. 3 (el "triángulo ISO": fuerza frecuente, fold equity y posición, en ese orden; regla de tamaño 3BB + 1BB por limper + 1BB fuera de posición, Cap. 3.6; limp behind como opción ocasional) y Cap. 3.3 (el fish fit-or-fold es el objetivo principal de los aislamientos).</em></p></section><section class="leccion" id="M02_evaluacion"><h2>Mini-evaluación del Módulo 2</h2>
+<p><em>10 minutos. Ten a mano las cuadrículas de las lecciones 2.4 y 2.5 solo después de responder. Si fallas dos o más, repasa antes de seguir.</em></p>
+<p>Mesa $1/$2. Todos se retiran hasta ti salvo que se diga otra cosa.</p>
+<p><strong>1.</strong> (2.4) <strong><span class="card d">Q♦</span> <span class="card d">9♦</span></strong> en UTG. ¿Subes, haces <em>limp</em> o te retiras?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>Te retiras.</strong> Las damas <em>suited</em> empiezan en QTs. Y <em>limp</em> nunca es una opción.</p>
+</div></details>
+<p><strong>2.</strong> (2.4) <strong><span class="card s">A♠</span> <span class="card s">3♠</span></strong> en el HJ.</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>Subes a $5.</strong> A3s está en A2s+.</p>
+</div></details>
+<p><strong>3.</strong> (2.5) <strong><span class="card c">T♣</span> <span class="card c">7♣</span></strong> en el CO. ¿Y en el BU?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>CO: <strong>te retiras</strong>; el CO abre las tes <em>suited</em> desde <strong>T8s</strong>, y T7s se queda fuera por poco. BU: <strong>subes</strong> (T6s+).</p>
+</div></details>
+<p><strong>4.</strong> (2.5) <strong><span class="card h">K♥</span> <span class="card d">5♦</span></strong> en el BU.</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>Te retiras.</strong> Los reyes <em>offsuit</em> del BU empiezan en K8o. (K5<strong>s</strong> sí se abre.)</p>
+</div></details>
+<p><strong>5.</strong> (2.6) ¿A cuánto abres desde la SB? ¿Qué porcentaje de retiradas necesita ese robo para ganar por sí solo?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>A <strong>$5</strong> (2,5bb). Arriesgas 2bb más para ganar 1,5bb: 2 ÷ 3,5 = <strong>57 %</strong>.</p>
+</div></details>
+<p><strong>6.</strong> (2.7) Un jugador hace <em>limp</em> en UTG y otro en el CO. Tú tienes <strong><span class="card h">A♥</span> <span class="card c">Q♣</span></strong> en la SB. ¿Qué haces y de qué tamaño?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>Aíslas</strong>: 3bb + 2bb (dos <em>limpers</em>) + 1bb (fuera de posición) = <strong>6bb = $12</strong>.</p>
+</div></details>
+<h3>Repaso de módulos anteriores</h3>
+<p><strong>7.</strong> (1.6) ¿Contra qué perfil de rival funciona mejor el aislamiento con apuesta en el flop, y por qué?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Contra el <strong><em>fish fit-or-fold</strong></em>: hace muchos <em>limps</em> y se retira cuando no liga el flop, que es la mayoría de las veces.</p>
+</div></details>
+<p><strong>8.</strong> (0.7) ¿Por qué ganar el bote antes del flop es especialmente bueno en <em>cash</em>?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Porque <strong>sin flop no hay <em>rake</strong></em>: te llevas el bote entero.</p>
 </div></details></section><div class="mod" id="m4">Módulo 4 · ¿Pago o me retiro? Equity, pot odds e implied odds</div><section class="leccion" id="M04_L02"><h2>4.2 <em>Pot odds</em>: el precio de ver una carta</h2>
 <p><em>Módulo 4 · Lección 2 · 8 minutos</em></p>
 <h3>Gancho</h3>
