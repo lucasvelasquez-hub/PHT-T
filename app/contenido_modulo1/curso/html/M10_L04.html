@@ -1,0 +1,84 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>10.4 Cuando te hacen 3-bet</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+</style></head><body><div class="wrap"><p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo 10: 3-bet y botes grandes</p><h2>10.4 Cuando te hacen <em>3-bet</em></h2>
+<p><em>Módulo 10 · Lección 4 · 9 minutos</em></p>
+<h3>Gancho</h3>
+<p>Abres con <strong><span class="card d">K♦</span> <span class="card d">J♦</span></strong> y te resuben. Te sientes atacado y quieres "defender tu apertura". Ese impulso hace perder mucho dinero. La mayoría de tus aperturas no aguantan un <em>3-bet</em>, y no pasa nada.</p>
+<h3>La idea</h3>
+<p>Cuando te resuben tienes tres opciones. <strong>Regla del curso:</strong></p>
+<p><strong>1. <em>4-bet</em> (volver a resubir) por valor con QQ+ y AK.</strong></p>
+<ul><li>Tamaño: unas <strong>2,5 veces el <em>3-bet</strong></em>.</li><li>Si tu rival va <em>all-in</em> después, <strong>pagas</strong>: con estas manos estás dispuesto a jugarte el stack.</li></ul>
+<p><strong>2. Pagar en posición con manos que juegan bien:</strong></p>
+<blockquote><p><strong>JJ, TT, 99, AQs, AJs, ATs, KQs, KJs, QJs, JTs, AQo, AJo, KQo</strong></p></blockquote>
+<p>Fuera de posición, paga menos: quédate con <strong>JJ, TT, AQs, AQo y KQs</strong>.</p>
+<p><strong>3. Retirarte con todo lo demás.</strong> Incluidas manos que abriste con gusto: parejas pequeñas, conectadas, ases débiles.</p>
+<p><strong>Ajusta al rival:</strong></p>
+<ul><li>Contra un <strong><em>nit</strong></em>, que solo resube con monstruos: retírate con más, incluso con algunas manos de la lista de pago.</li><li>Contra alguien que resube muchísimo: puedes pagar algo más.</li></ul>
+<h3>Ejemplo guiado</h3>
+<p>Mesa $1/$2. Abres a $5 en el CO.</p>
+<p><strong>La BB, un <em>nit</em>, resube a $20.</strong> Tienes <strong><span class="card d">K♦</span> <span class="card d">J♦</span></strong>.</p>
+<ul><li>Un <em>nit</em> que resube tiene casi siempre QQ+ o AK. Contra eso, K-J está muy por detrás.</li><li><strong>Te retiras.</strong> Pierdes $5, no $25 o más.</li></ul>
+<p><strong>El BU, un <em>reg</em> normal, resube a $15.</strong> Tienes <strong><span class="card h">A♥</span> <span class="card h">Q♥</span></strong>.</p>
+<ul><li>El BU habla después que tú en el flop: <strong>estarás fuera de posición</strong>. AQs está en tu lista reducida de fuera de posición.</li><li><strong>Pagas.</strong></li></ul>
+<p><strong>El BU resube a $15.</strong> Tienes <strong><span class="card s">A♠</span> <span class="card c">K♣</span></strong>.</p>
+<ul><li><strong><em>4-bet</strong></em> a unos <strong>$38</strong> (2,5 × $15). Si va <em>all-in</em>, pagas.</li></ul>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Abres en el HJ y la SB te resube. Tienes <strong><span class="card s">9♠</span> <span class="card c">9♣</span></strong>. ¿Qué haces?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>La SB juega después del flop antes que tú: <strong>estarás en posición</strong>. 99 está en tu lista de pago en posición: <strong>pagas</strong>.</p>
+</div></details>
+<p><strong>2.</strong> Abres en el CO y el BU te resube a $15. Tienes <strong><span class="card c">Q♣</span> <span class="card d">Q♦</span></strong>. ¿Qué haces y de cuánto?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong><em>4-bet</em> por valor</strong> a unos <strong>$38</strong> (2,5 × $15). Si va <em>all-in</em>, pagas.</p>
+</div></details>
+<p><strong>3.</strong> Abres en el BU con <strong><span class="card s">7♠</span> <span class="card s">6♠</span></strong> y la BB te resube. ¿Qué haces?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>Te retiras.</strong> 76s no está en ninguna de las listas.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Frente a un <em>3-bet</em>: <em>4-bet</em> con QQ+ y AK, paga en posición con las manos de la lista y retírate con el resto, sobre todo contra un <em>nit</em>.</p>
+<hr>
+<p><em>Fuentes: Clarke, The Grinder's Manual, Cap. 11.2 (4-bet/call estándar con QQ+ y AK; rango de pago del CO contra un 3-bet de la SB, Fig. 64: JJ, TT, 99, AQs, AJs, ATs, KQs, KJs, QJs, JTs, AQo, KQo, AJo; contra rivales muy tight, más estrecho); Acevedo, Modern Poker Theory, Cap. 5 (4-bet a 23bb contra 3-bets de 8,5–10bb, unas 2,3–2,7 veces). La lista de fuera de posición es una simplificación prudente del curso.</em></p><div class="nav"><a href="M10_L03.html">← 10.3 Tamaños de <em>3-bet</em></a><a href="M10_L05.html">10.5 Botes de <em>3-bet</em> y el SPR →</a></div></div></body></html>

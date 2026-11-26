@@ -1,0 +1,72 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>4.4 ¿Puedo pagar con mi proyecto?</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+</style></head><body><div class="wrap"><p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo 4: ¿Pago o me retiro? Equity, pot odds e implied odds</p><h2>4.4 ¿Puedo pagar con mi proyecto?</h2>
+<p><em>Módulo 4 · Lección 4 · 9 minutos</em></p>
+<h3>Gancho</h3>
+<p>Ya sabes contar <em>outs</em>, estimar tu equity y calcular el precio. Ahora toca juntarlo en un método que puedas hacer en la mesa en diez segundos, cada vez que te apuesten y tengas un proyecto.</p>
+<h3>La idea</h3>
+<p><strong>Tres pasos:</strong></p>
+<ol><li><strong>El precio.</strong> ¿Qué fracción del bote apostó tu rival? Lee la tabla de la lección 4.3.</li><li><strong>Tu equity.</strong> Cuenta tus <em>outs</em> (sin los sucios) y multiplica: <strong>× 2</strong> si solo tienes asegurada una carta, <strong>× 4</strong> si estás <em>all-in</em> en el flop.</li><li><strong>Compara.</strong></li><li><strong>Equity mayor que el precio:</strong> pagas.</li><li><strong>Equity menor que el precio:</strong> te retiras… salvo que tengas buenas razones para esperar ganar mucho más dinero después, que es lo que verás en la lección siguiente.</li></ol>
+<p><strong>Un detalle importante:</strong> en el flop, si tu rival puede volver a apostar en el turn, usa <strong>× 2</strong>, no × 4. Pagar ahora solo te asegura ver una carta.</p>
+<h3>Ejemplo guiado</h3>
+<p><strong>Caso 1. Pagas.</strong> Mesa $1/$2. Tienes <strong><span class="card s">A♠</span> <span class="card s">5♠</span></strong> en la BB. El flop es <strong><span class="card s">K♠</span> <span class="card s">8♠</span> <span class="card d">3♦</span></strong>. Bote de $40; tu rival apuesta <strong>$10</strong>.</p>
+<ol><li>Precio: $10 de $40 es 1/4 del bote → <strong>17 %</strong>.</li><li>Equity: color al as, 9 <em>outs</em>; × 2 = <strong>18 %</strong>.</li><li>18 % &gt; 17 %: <strong>pagas.</strong> Además, si cae una pica tendrás el color más alto posible.</li></ol>
+<p><strong>Caso 2. Te retiras.</strong> Tienes <strong><span class="card h">J♥</span> <span class="card h">T♥</span></strong> en un flop <strong><span class="card c">Q♣</span> <span class="card d">8♦</span> <span class="card s">3♠</span></strong>. Bote de $20; tu rival apuesta <strong>$20</strong>.</p>
+<ol><li>Precio: apuesta del bote → <strong>33 %</strong>.</li><li>Equity: solo te vale el 9 (Q-J-T-9-8), escalera interna, 4 <em>outs</em>; × 2 = <strong>8 %</strong>.</li><li>8 % &lt; 33 %: <strong>te retiras.</strong> No está ni cerca.</li></ol>
+<p><strong>Caso 3. <em>All-in</em>.</strong> Tienes <strong><span class="card h">K♥</span> <span class="card h">Q♥</span></strong> en un flop <strong><span class="card h">J♥</span> <span class="card h">T♥</span> <span class="card c">2♣</span></strong>. Bote de $60; tu rival va <em>all-in</em> por <strong>$60</strong>.</p>
+<ol><li>Precio: apuesta del bote → <strong>33 %</strong>.</li><li>Equity: color + escalera abierta, 15 <em>outs</em>. Verás dos cartas sin pagar más: × 4 = 60 % (exacto, unos 54 %).</li><li>54 % &gt; 33 %: <strong>pagas</strong>, y de hecho eres favorito.</li></ol>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Tienes <strong><span class="card c">7♣</span> <span class="card c">6♣</span></strong> en un flop <strong><span class="card h">8♥</span> <span class="card s">5♠</span> <span class="card d">K♦</span></strong>. Bote de $30, tu rival apuesta $10. ¿Pagas?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Precio: 1/3 del bote → <strong>20 %</strong>. Equity: 8-7-6-5, escalera abierta (9 o 4), 8 <em>outs</em> × 2 = <strong>16 %</strong>. 16 % &lt; 20 %: <strong>te retiras</strong> según las <em>pot odds</em>.</p>
+</div></details>
+<p><strong>2.</strong> Tienes <strong><span class="card d">A♦</span> <span class="card d">2♦</span></strong> en un flop <strong><span class="card d">Q♦</span> <span class="card d">7♦</span> <span class="card c">4♣</span></strong>. Bote de $50, tu rival apuesta $15. ¿Pagas?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Precio: $15 de $50 está entre 1/4 y 1/3, cerca del 1/3 → unos <strong>19 %</strong> (exacto: 15 ÷ 80 = 18,75 %). Equity: color al as, 9 <em>outs</em> × 2 = <strong>18 %</strong> (exacto, 19,1 %). Está justo en el límite. Con el color al as, si ligas, tu rival a menudo seguirá pagando, así que <strong>pagar</strong> es razonable. Lo verás mejor en la lección siguiente.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Precio, equity y comparación: si tu equity supera el precio, pagas; si no, te retiras salvo que esperes ganar mucho más después.</p>
+<hr>
+<p><em>Fuentes: Hardin, Essential Poker Math, Cap. 11 ("Can We Call?": tres pasos, pagar si la equity supera las pot odds, usar ×2 en el flop si no hay all-in) y Cap. 15 (15 outs all-in en el flop = 54,1 %).</em></p><div class="nav"><a href="M04_L03.html">← 4.3 Los precios estándar</a><a href="M04_L05.html">4.5 <em>Implied odds</em>: el dinero que ganarás después →</a></div></div></body></html>

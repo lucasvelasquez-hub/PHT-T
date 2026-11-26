@@ -1,0 +1,71 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>9.3 El segundo tiro (double barrel)</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+</style></head><body><div class="wrap"><p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo 9: Faroles y semifaroles</p><h2>9.3 El segundo tiro (<em>double barrel</em>)</h2>
+<p><em>Módulo 9 · Lección 3 · 8 minutos</em></p>
+<h3>Gancho</h3>
+<p>Hiciste <em>c-bet</em> en el flop y te pagaron. Llega el turn. ¿Vuelves a apostar o te rindes? Muchos principiantes apuestan siempre o nunca. Los dos se equivocan: depende de <strong>qué carta cayó</strong>.</p>
+<h3>La idea</h3>
+<p>Apostar otra vez en el turn después de la <em>c-bet</em> del flop se llama <strong><em>double barrel</strong></em> ("segundo cañonazo"). Como farol o semifarol, tiene sentido cuando:</p>
+<ol><li><strong>La carta del turn te ayuda.</strong> Te da equity (un proyecto nuevo, más <em>outs</em>) o mejora tu rango más que el de tu rival.</li><li><strong>Parece peligrosa para tu rival.</strong> Una carta alta o una que completa proyectos puede hacer que se retire con la pareja media que pagó en el flop. Esto funciona sobre todo contra <em>fish</em> que se asustan.</li><li><strong>Tu mano no tiene valor para ganar sin apostar.</strong> Si tienes algo que gana a veces en el <em>showdown</em>, quizá prefieras pasar.</li><li><strong>El rival no es un <em>station</em>.</strong> Contra quien paga todo, el segundo tiro de farol es tirar dinero (lección 9.4).</li></ol>
+<p><strong>Cuándo rendirse:</strong> el turn es una carta baja que no cambia nada, no tienes proyecto y tu rival pagó el flop con un rango que no se va a retirar.</p>
+<h3>Ejemplo guiado</h3>
+<p>Mesa $1/$2. Abres en el BU con <strong><span class="card h">K♥</span> <span class="card h">J♥</span></strong> y paga la BB. Bote: $11.</p>
+<p><strong>Flop <span class="card h">Q♥</span> <span class="card c">9♣</span> <span class="card s">4♠</span>.</strong> Tienes escalera interna (la T) y proyecto <em>backdoor</em> de color. Haces <em>c-bet</em> de $6 y la BB paga. Bote: $23.</p>
+<p><strong>Turn <span class="card h">2♥</span>.</strong> Ahora tienes <strong>color (9) + escalera interna (la T, una ya contada): 12 <em>outs</strong></em>.</p>
+<ul><li>Tu mano ha mejorado mucho: 12 × 2 = 24 % de ligar en el river.</li><li>Si la BB pagó el flop con una pareja media, una segunda apuesta puede hacerla retirarse.</li><li><strong>Segundo tiro: unos $15</strong> (2/3 del bote). Dos formas de ganar, como en la lección anterior.</li></ul>
+<p><strong>Turn <span class="card d">3♦</span> (en lugar del <span class="card h">2♥</span>).</strong> Nada cambia: sigues con tu escalera interna. La BB pagó el flop con algo. <strong>Pasas</strong> y ves el river gratis.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Hiciste <em>c-bet</em> con <strong><span class="card c">A♣</span> <span class="card c">K♣</span></strong> en <strong><span class="card s">8♠</span> <span class="card d">6♦</span> <span class="card h">2♥</span></strong> y te pagaron. Turn <strong><span class="card d">A♦</span></strong>. ¿Segundo tiro?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Ahora tienes <strong><em>top pair</em> con el mejor <em>kicker</strong></em>: ya no es un farol, es <strong>valor</strong>. Apuesta.</p>
+</div></details>
+<p><strong>2.</strong> Hiciste <em>c-bet</em> con <strong><span class="card s">Q♠</span> <span class="card s">J♠</span></strong> en <strong><span class="card d">K♦</span> <span class="card c">7♣</span> <span class="card h">3♥</span></strong> y te pagó un <em>station</em>. Turn <strong><span class="card c">5♣</span></strong>. ¿Segundo tiro?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>No.</strong> La carta no te da nada (sigues sin pareja ni proyecto: para la escalera te faltarían el A y la T) y un <em>station</em> no se retira. Pasas.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Haz un segundo tiro cuando el turn te da equity o asusta a tu rival y tu mano no gana sin apostar; si el turn no cambia nada, ríndete.</p>
+<hr>
+<p><em>Fuentes: Clarke, The Grinder's Manual, Cap. 12.1 (factores del double barrel, Fig. 73: la carta mejora tu rango o parece peligrosa contra fish, equity, fold equity en el river, tipo de rival, valor de showdown).</em></p><div class="nav"><a href="M09_L02.html">← 9.2 El semifarol: dos formas de ganar</a><a href="M09_L04.html">9.4 No le farolees al <em>station</em> →</a></div></div></body></html>

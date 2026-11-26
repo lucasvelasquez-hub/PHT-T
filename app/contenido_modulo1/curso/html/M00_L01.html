@@ -1,0 +1,78 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>0.1 El viaje de una mano</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+</style></head><body><div class="wrap"><p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo 0: Primeros pasos antes de tu primera mano</p><h2>0.1 El viaje de una mano</h2>
+<p><em>Módulo 0 · Lección 1 · 6 minutos</em></p>
+<h3>Gancho</h3>
+<p>Te sientas en una mesa de póker y el crupier te reparte dos cartas boca abajo. Todos te miran. ¿Qué pasa ahora y cuándo termina esto?</p>
+<p>Una mano de Texas Hold'em siempre sigue el mismo camino. Cuando lo conoces, todo lo demás encaja.</p>
+<h3>La idea</h3>
+<p>En cada mano:</p>
+<ol><li><strong>Cada jugador recibe 2 cartas propias</strong>, boca abajo. Solo tú las ves.</li><li><strong>Se ponen en la mesa hasta 5 cartas comunitarias</strong>, boca arriba, que sirven para todos.</li><li><strong>Hay cuatro rondas de apuestas</strong>, una después de cada reparto:</li></ol>
+<div class="tw"><table><thead><tr><th>Ronda</th><th>Qué se ha repartido</th><th>Cartas comunitarias en la mesa</th></tr></thead><tbody><tr><td><strong>Preflop</strong></td><td>Tus 2 cartas</td><td>0</td></tr><tr><td><strong>Flop</strong></td><td>Las 3 primeras comunitarias, a la vez</td><td>3</td></tr><tr><td><strong>Turn</strong></td><td>La cuarta comunitaria</td><td>4</td></tr><tr><td><strong>River</strong></td><td>La quinta y última</td><td>5</td></tr></tbody></table></div>
+<ol><li><strong>La mano puede terminar de dos formas:</strong></li><li><strong>Todos se retiran menos uno.</strong> Ese jugador gana el bote sin mostrar sus cartas. Puede pasar en cualquier ronda.</li><li><strong>Quedan dos o más jugadores al final del river.</strong> Muestran sus cartas: es el <em>showdown</em> ("la hora de enseñar"). Gana quien forme la mejor mano de cinco cartas combinando sus 2 cartas propias con las 5 comunitarias.</li></ol>
+<p>El <strong>bote</strong> es el dinero que los jugadores van poniendo en el centro durante la mano. Quien gana la mano se lo lleva entero.</p>
+<p><strong>Cash.</strong> En este curso jugamos partidas de <em>cash</em>: las fichas son dinero real, entras y sales de la mesa cuando quieres y cada mano es independiente de la anterior.</p>
+<h3>Ejemplo guiado</h3>
+<p>Juegas contra un rival. Así va la mano:</p>
+<ul><li><strong>Preflop:</strong> recibes <strong><span class="card s">A♠</span> <span class="card c">K♣</span></strong>. Apuestas y tu rival paga. Pasan al flop.</li><li><strong>Flop:</strong> <strong><span class="card h">K♥</span> <span class="card d">7♦</span> <span class="card s">2♠</span></strong>. Ahora tienes una pareja de reyes (tu <span class="card c">K♣</span> con el <span class="card h">K♥</span> de la mesa). Apuestas; tu rival paga.</li><li><strong>Turn:</strong> <strong><span class="card c">9♣</span></strong>. En la mesa hay 4 cartas: <span class="card h">K♥</span> <span class="card d">7♦</span> <span class="card s">2♠</span> <span class="card c">9♣</span>. Los dos pasan sin apostar.</li><li><strong>River:</strong> <strong><span class="card h">4♥</span></strong>. Mesa completa: <span class="card h">K♥</span> <span class="card d">7♦</span> <span class="card s">2♠</span> <span class="card c">9♣</span> <span class="card h">4♥</span>. Apuestas, tu rival paga.</li><li><strong>Showdown:</strong> tu rival muestra <strong><span class="card h">Q♥</span> <span class="card d">Q♦</span></strong> (pareja de damas). Tú tienes pareja de reyes con un as. Los reyes valen más que las damas: <strong>ganas el bote</strong>.</li></ul>
+<p>Fíjate en que tu rival nunca vio tus cartas hasta el final. Durante toda la mano tuvo que decidir sin saber qué tenías. Esa es la esencia del póker.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> ¿Cuántas cartas comunitarias hay en la mesa durante el turn?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>Cuatro.</strong> Tres del flop más la carta del turn.</p>
+</div></details>
+<p><strong>2.</strong> En el flop apuestas y tu único rival se retira. ¿Hay <em>showdown</em>? ¿Quién gana?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>No hay <em>showdown</em>.</strong> Ganas tú el bote sin mostrar tus cartas, porque eres el único jugador que queda. No hacen falta el turn ni el river.</p>
+</div></details>
+<p><strong>3.</strong> ¿Con cuántas cartas en total forma cada jugador su mano en el <em>showdown</em>, y con cuántas puede elegir?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Elige entre <strong>7 cartas</strong> (sus 2 propias y las 5 comunitarias) y su mano final son <strong>las 5 mejores</strong>. Lo verás en detalle en la lección 0.3.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Dos cartas propias, cinco comunitarias, cuatro rondas de apuestas (preflop, flop, turn y river), y gana el último que queda o la mejor mano en el <em>showdown</em>.</p>
+<hr>
+<p><em>Fuentes: reglas públicas de Texas Hold'em. Los libros del curso asumen que el lector ya las conoce.</em></p><div class="nav"><span></span><a href="M00_L02.html">0.2 ¿Qué mano gana? La jerarquía →</a></div></div></body></html>

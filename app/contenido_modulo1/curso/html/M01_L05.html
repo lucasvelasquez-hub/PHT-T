@@ -1,0 +1,77 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>1.5 Tu banca: el dinero del póker va aparte</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+</style></head><body><div class="wrap"><p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo 1: La mesa, el EV y la suerte</p><h2>1.5 Tu banca: el dinero del póker va aparte</h2>
+<p><em>Módulo 1 · Lección 5 · 8 minutos</em></p>
+<h3>Gancho</h3>
+<p>En la lección anterior viste que un buen jugador puede perder durante semanas. Si cada vez que pierdes tienes que dejar de jugar porque se te acabó el dinero, nunca llegarás al largo plazo donde se gana. Para eso sirve la <strong>banca</strong>.</p>
+<h3>La idea</h3>
+<p>Tu <strong>banca</strong> (<em>bankroll</em>) es el dinero que dedicas <strong>solo</strong> al póker. Tres reglas:</p>
+<ol><li><strong>Es dinero aparte.</strong> Tiene que ser una cantidad que puedas perder sin que afecte a tu vida: ni el alquiler, ni la comida, ni los ahorros.</li><li><strong>Para jugar un límite necesitas 30 <em>buy-ins</em> de ese límite.</strong> Un <em>buy-in</em> es la entrada completa a una mesa: 100bb.</li><li><strong>Si tu banca cae por debajo de 20 <em>buy-ins</em>, vuelves al límite anterior.</strong> Y vuelves a subir cuando tengas otra vez 30 <em>buy-ins</em> del límite superior.</li></ol>
+<p><strong>Mientras aprendes, juega el límite más bajo que encuentres.</strong> Al principio casi todos pierden un poco. Piensa en ese dinero como la matrícula del curso: barata si es el límite más bajo, cara si no lo es.</p>
+<p><strong>¿Por qué 30 y 20?</strong> Es una regla de este curso, no de un libro. Se apoya en un cálculo: para un jugador que gana 2,5bb/100, con 30 <em>buy-ins</em> la probabilidad de perder toda la banca antes de que su ventaja se note es de alrededor del <strong>3,5 %</strong>; con 20, del <strong>11 %</strong>. Pero ninguna banca salva a quien todavía pierde. Lo que de verdad protege es <strong>bajar de límite a tiempo</strong>.</p>
+<h3>Ejemplo guiado</h3>
+<p>Una sala online ofrece estos límites (ciegas pequeña/grande):</p>
+<div class="tw"><table><thead><tr><th>Límite</th><th>Ciegas</th><th>1 <em>buy-in</em> (100bb)</th><th>30 <em>buy-ins</em></th><th>20 <em>buy-ins</em></th></tr></thead><tbody><tr><td>NL2</td><td>$0,01/$0,02</td><td>$2</td><td>$60</td><td>$40</td></tr><tr><td>NL5</td><td>$0,02/$0,05</td><td>$5</td><td>$150</td><td>$100</td></tr><tr><td>NL10</td><td>$0,05/$0,10</td><td>$10</td><td>$300</td><td>$200</td></tr></tbody></table></div>
+<p>Luis tiene <strong>$160</strong> para póker.</p>
+<ul><li>Puede jugar <strong>NL5</strong>: $160 son 32 <em>buy-ins</em> de $5.</li><li>Tiene una mala racha y baja a <strong>$95</strong>. Son 19 <em>buy-ins</em> de NL5, menos de 20: <strong>vuelve a NL2</strong>. Allí, $95 son 47 <em>buy-ins</em>, una banca cómoda.</li><li>Cuando vuelva a tener <strong>$150</strong>, puede regresar a NL5.</li></ul>
+<p>Ahora Sofía, que tiene $60 y quiere jugar NL10 "porque es más emocionante". Con $60 solo tiene 6 <em>buy-ins</em> de NL10: una racha normal la deja sin nada. Con $60 su límite es <strong>NL2</strong>.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Tienes $250. ¿Cuál es el límite más alto que puedes jugar según la tabla?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>NL5.</strong> $250 son 50 <em>buy-ins</em> de NL5. Para NL10 necesitarías $300.</p>
+</div></details>
+<p><strong>2.</strong> Juegas NL10 con $310. Pierdes $120. ¿Qué haces?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Te quedan $190: 19 <em>buy-ins</em> de NL10, menos de 20. <strong>Bajas a NL5</strong>, donde tienes 38 <em>buy-ins</em>.</p>
+</div></details>
+<p><strong>3.</strong> "Puedo jugar más alto porque si pierdo, recargo de mi cuenta." ¿Qué falla en este razonamiento?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Que <strong>ya no es banca</strong>: estás usando dinero que no estaba apartado para el póker. La primera regla es que la banca es dinero aparte y que puedes perder.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Juega solo con dinero aparte, con 30 <em>buy-ins</em> del límite, y baja de límite si caes por debajo de 20.</p>
+<hr>
+<p><em>Fuentes: Acevedo, Modern Poker Theory, Cap. 6 (bancas mínimas de cash: 13,5 buy-ins con 5bb/100 y 27 con 2,5bb/100); Clarke, The Grinder's Manual, Cap. 1.4 (la banca como parte del "juego práctico") y Cap. 2 (aceptar perder un poco en el límite más bajo mientras se aprende, "como una matrícula"). La regla 30/20 es del curso; su justificación está en DECISIONES.md.</em></p><div class="nav"><a href="M01_L04.html">← 1.4 La varianza: por qué jugar bien no garantiza ganar hoy</a><a href="M01_L06.html">1.6 ¿Quién está sentado contigo? →</a></div></div></body></html>

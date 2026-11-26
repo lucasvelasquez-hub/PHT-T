@@ -10,7 +10,9 @@ Un **curso de Texas Hold'em No-Limit cash 6-max (100bb) para principiantes absol
 
 | Entregable | Archivo |
 |---|---|
-| **Curso para estudiar** (un solo archivo, sin internet, móvil o PC) | `curso.html` |
+| **Puerta de entrada: índice con enlaces a cada lección y evaluación, en orden** | `indice.html` |
+| Una página por lección, con botones de anterior/siguiente y vuelta al índice | `html/M00_L01.html` … |
+| El curso completo en una sola página (sin internet, móvil o PC) | `curso.html` |
 | 66 lecciones + 13 mini-evaluaciones (fuente) | `lecciones/M00_L01.md` … `lecciones/M12_evaluacion.md` |
 | Auditoría independiente de la estructura v1 | `AUDITORIA_INDEPENDIENTE.md` |
 | Estructura curricular v2 y registro de cambios | `ESTRUCTURA_CURRICULAR.md` |
@@ -25,7 +27,7 @@ Un **curso de Texas Hold'em No-Limit cash 6-max (100bb) para principiantes absol
 1. **Editar** el Markdown de la lección en `lecciones/`.
 2. **Si cambias una cifra o un ejemplo de cartas**, añade o ajusta su comprobación en `herramientas/verificar_lecciones.py` y ejecútalo: `python -I herramientas/verificar_lecciones.py` (debe terminar en 0 errores; hoy son 183 comprobaciones).
 3. **Si cambias un rango**, edítalo en `herramientas/rangos_clarke.py` y regenera las cuadrículas: `python -I herramientas/insertar_cuadriculas.py`.
-4. **Regenera el HTML**: `python -I herramientas/construir_html.py`.
+4. **Regenera el HTML** (curso.html, indice.html y html/): `python -I herramientas/construir_html.py`. Nunca edites los HTML a mano.
 5. Toda cifra nueva sacada de un libro se pregunta antes a NotebookLM (CONFIRMADA / CORREGIDA / NO RESPALDADA + libro y capítulo) y se anota en `REGISTRO_VERIFICACION.md`.
 
 ## 4. Reglas que siguen vigentes

@@ -1,0 +1,72 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>11.1 El tilt</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+</style></head><body><div class="wrap"><p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo 11: Mente y hábitos</p><h2>11.1 El <em>tilt</em></h2>
+<p><em>Módulo 11 · Lección 1 · 8 minutos</em></p>
+<h3>Gancho</h3>
+<p>Pierdes con <strong><span class="card s">A♠</span> <span class="card d">A♦</span></strong> contra un rival que pagó con cualquier cosa y ligó un trío en el river. Diez minutos después pagas un <em>3-bet</em> fuera de posición con <strong><span class="card d">K♦</span> <span class="card c">T♣</span></strong>, una mano que nunca jugarías. No lo decidió tu cabeza: lo decidió el enfado.</p>
+<h3>La idea</h3>
+<p>El <strong><em>tilt</strong></em> es <strong>cualquier desviación de tu forma lógica de decidir causada por las emociones</strong>, que te lleva a hacer jugadas peores.</p>
+<p>Es completamente normal. Es la respuesta humana a la mala suerte, que en póker a veces se siente injusta y hasta cruel. Lo que separa a los jugadores que ganan de los que no es lo que hacen cuando aparece.</p>
+<p><strong>Por qué es tan caro:</strong> la varianza (lección 1.4) te hará perder botes que merecías ganar. Eso no lo puedes evitar. Pero si después de cada golpe juegas peor, conviertes una mala racha normal en una pérdida mucho mayor.</p>
+<p><strong>Señales de que estás en <em>tilt</em>:</strong></p>
+<ul><li>Juegas manos fuera de tus rangos "porque toca ganar una".</li><li>Pagas apuestas grandes para "ver qué tenía".</li><li>Quieres recuperar lo perdido hoy mismo.</li><li>Te enfadas con un rival concreto y quieres ganarle a él.</li><li>Subes de límite para recuperar más rápido.</li></ul>
+<p><strong>Qué hacer (consejos del curso):</strong></p>
+<ol><li><strong>Para en cuanto reconozcas dos señales.</strong> Cierra la mesa. El póker seguirá ahí mañana.</li><li><strong>Recuerda la lección 1.3:</strong> se juzgan las decisiones, no los resultados. Si metiste el dinero con el 80 %, hiciste lo correcto.</li><li><strong>No juegues cansado ni con la cabeza en otra cosa.</strong></li><li><strong>Estudia el juego mental fuera de la mesa</strong>, igual que estudias la estrategia. Los libros del curso recomiendan lecturas específicas sobre el tema.</li></ol>
+<h3>Ejemplo guiado</h3>
+<p>Mesa $1/$2. Llevas una hora y vas ganando $60.</p>
+<ul><li>Pierdes $200 con <strong><span class="card s">A♠</span> <span class="card d">A♦</span></strong> contra <strong><span class="card c">7♣</span> <span class="card c">4♣</span></strong>: el rival pagó tu apuesta del flop con un proyecto malo y ligó el color en el river.</li><li><strong>Revisa la decisión, no el resultado:</strong> metiste el dinero como gran favorito. Decisión +EV.</li><li><strong>Mano siguiente:</strong> recibes <strong><span class="card h">Q♥</span> <span class="card c">8♣</span></strong> en UTG. Sientes ganas de jugarla "para recuperar". Q8o no está en tu rango de UTG (lección 2.4). <strong>Esa sensación es la primera señal.</strong></li><li>Tres manos después, pagas un <em>3-bet</em> con <strong><span class="card d">K♦</span> <span class="card c">T♣</span></strong> fuera de posición. <strong>Segunda señal.</strong></li><li><strong>Paras la sesión.</strong> Anota la mano de los ases para revisarla mañana con calma.</li></ul>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> ¿Cuál es la definición de <em>tilt</em>?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Cualquier desviación de tu forma lógica de decidir causada por las emociones, que te lleva a hacer jugadas peores.</p>
+</div></details>
+<p><strong>2.</strong> Pierdes tres botes grandes seguidos y te descubres pensando en subir de límite "para recuperar". ¿Qué haces?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>Paras.</strong> Querer recuperar rápido y subir de límite son señales claras de <em>tilt</em>, y además rompen tus reglas de banca (lección 1.5).</p>
+</div></details>
+<h3>En una frase</h3>
+<p>El <em>tilt</em> es jugar peor por las emociones: reconócelo por sus señales y, en cuanto veas dos, cierra la mesa.</p>
+<hr>
+<p><em>Fuentes: Clarke, The Grinder's Manual, Glosario (definición de tilt) y Cap. 1.4 (el tilt es una respuesta natural a la varianza negativa; estudiar el juego mental por separado; evitar jugar agotado o muy emocional); Acevedo, Modern Poker Theory, Cap. 6 (importancia del juego mental y recomendación de lecturas y coaching). Las señales y la regla de "dos señales" son consejos del curso: los libros no dan reglas concretas para cortar el tilt durante una sesión.</em></p><div class="nav"><a href="M10_evaluacion.html">← Mini-evaluación del Módulo 10</a><a href="M11_L02.html">11.2 Cómo estudiar y revisar tus manos →</a></div></div></body></html>

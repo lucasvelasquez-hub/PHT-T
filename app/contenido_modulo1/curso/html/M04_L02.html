@@ -1,0 +1,89 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>4.2 Pot odds: el precio de ver una carta</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+</style></head><body><div class="wrap"><p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo 4: ¿Pago o me retiro? Equity, pot odds e implied odds</p><h2>4.2 <em>Pot odds</em>: el precio de ver una carta</h2>
+<p><em>Módulo 4 · Lección 2 · 8 minutos</em></p>
+<h3>Gancho</h3>
+<p>Tienes <strong><span class="card h">9♥</span> <span class="card h">8♥</span></strong>. El flop es <strong><span class="card h">K♥</span> <span class="card h">7♥</span> <span class="card c">2♣</span></strong>: te falta un corazón para el color. En el bote hay <strong>$20</strong> y tu rival apuesta <strong>$10</strong>.</p>
+<p>¿Pagas para ver la siguiente carta o te retiras? La respuesta no depende de lo que sientas ni de lo bonita que sea tu mano. Depende de <strong>cuánto cuesta ver la carta</strong> comparado con <strong>cuántas veces ligarás</strong>. Esa comparación tiene nombre: <em>pot odds</em>.</p>
+<h3>La idea</h3>
+<p>Las <em>pot odds</em> (literalmente, "las probabilidades que te da el bote") son <strong>el precio de pagar una apuesta</strong>, expresado como porcentaje. Te dicen qué porcentaje de veces necesitas ganar para no perder dinero a largo plazo.</p>
+<blockquote><p><strong>Equity necesaria = lo que pagas ÷ bote final</strong></p>
+<p><strong>Bote final</strong> = lo que ya había en el bote + la apuesta del rival + lo que pagas tú.</p></blockquote>
+<p>Piensa en un boleto de rifa. Si el boleto cuesta $10 y el premio total es de $40, cada boleto te da derecho a un cuarto del premio. Para que la rifa te convenga, tienes que ganar al menos 1 de cada 4 veces: un <strong>25 %</strong>.</p>
+<p>Después comparas ese precio con tu <em>equity</em>, que en la lección 4.1 viste que es tu parte del bote. Con un proyecto, la estimas con la regla del 2 y del 4 del Módulo 3:</p>
+<ul><li><strong>Si tu equity es mayor que el precio</strong>, pagar gana dinero a largo plazo (+EV).</li><li><strong>Si es menor</strong>, pagar pierde dinero a largo plazo (−EV): te retiras.</li></ul>
+<p><strong>El error más común:</strong> olvidar sumar al bote la apuesta del rival y tu propio pago. Si divides $10 entre $20, te sale 50 % y crees que la apuesta es carísima. El bote final no es $20, es $40.</p>
+<h3>Ejemplo guiado</h3>
+<p>Volvemos al gancho: <strong><span class="card h">9♥</span> <span class="card h">8♥</span></strong> en <strong><span class="card h">K♥</span> <span class="card h">7♥</span> <span class="card c">2♣</span></strong>, bote $20, el rival apuesta $10.</p>
+<p><strong>Paso 1. El precio.</strong></p>
+<ul><li>Pagas: $10.</li><li>Bote final: $20 + $10 + $10 = <strong>$40</strong>.</li><li>Equity necesaria: 10 ÷ 40 = <strong>25 %</strong>.</li></ul>
+<p><strong>Paso 2. Tu equity.</strong></p>
+<ul><li>Quedan 9 corazones: 9 <em>outs</em>.</li><li>Solo vas a ver una carta (el turn), así que multiplicas por 2: 9 × 2 = <strong>18 %</strong>. (El valor exacto es 19,1 %.)</li></ul>
+<p><strong>Paso 3. Comparas.</strong> 18 % es menor que 25 %. <strong>Te retiras.</strong> Pagar aquí pierde dinero a largo plazo.</p>
+<p><strong>¿Por qué pierde dinero?</strong> Imagina que juegas esta mano 100 veces y que, para simplificar, ganas el bote cuando ligas el color y te retiras cuando no:</p>
+<div class="tw"><table><thead><tr><th></th><th>Veces</th><th>Resultado</th><th>Total</th></tr></thead><tbody><tr><td>Ligas el color</td><td>18</td><td>ganas $30 (los $20 del bote + los $10 del rival)</td><td>+$540</td></tr><tr><td>No ligas</td><td>82</td><td>pierdes tus $10</td><td>−$820</td></tr><tr><td><strong>Balance</strong></td><td>100</td><td></td><td><strong>−$280</strong></td></tr></tbody></table></div>
+<p>Pierdes unos $2,80 cada vez que pagas.</p>
+<p><strong>Ahora cambia un solo dato: el rival apuesta $5 en lugar de $10.</strong></p>
+<ul><li>Bote final: $20 + $5 + $5 = $30.</li><li>Equity necesaria: 5 ÷ 30 = <strong>16,7 %</strong>.</li><li>Tu equity sigue siendo 18 %. Ahora es <strong>mayor</strong> que el precio: <strong>pagas</strong>.</li></ul>
+<p>Las mismas cartas, la misma mesa y dos decisiones distintas. Lo que cambió fue el precio.</p>
+<blockquote><p><strong>Otra forma de decirlo.</strong> Muchos jugadores hablan en proporciones: "me dan 3 a 1" significa que el bote ($30 antes de pagar: $20 + $10) es tres veces lo que pagas ($10). Para pasar de "3 a 1" a porcentaje: 1 ÷ (3 + 1) = 25 %. En este curso usamos porcentajes, porque se comparan directamente con tu equity.</p></blockquote>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> El bote tiene $30 y tu rival apuesta $10. Tienes <strong><span class="card s">J♠</span> <span class="card d">T♦</span></strong> en un flop <strong><span class="card c">Q♣</span> <span class="card h">9♥</span> <span class="card s">2♠</span></strong> (escalera abierta: 8 <em>outs</em>). ¿Qué equity necesitas? ¿Pagas?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Bote final: $30 + $10 + $10 = $50. Equity necesaria: 10 ÷ 50 = <strong>20 %</strong>. Tu equity: 8 × 2 = <strong>16 %</strong>. 16 % &lt; 20 %: <strong>te retiras</strong> (según las <em>pot odds</em>; en la lección 4.5 verás cuándo puede valer la pena igualmente).</p>
+</div></details>
+<p><strong>2.</strong> El bote tiene $16 y tu rival apuesta $4. Tienes un proyecto de color (9 <em>outs</em>). ¿Pagas?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Bote final: $16 + $4 + $4 = $24. Equity necesaria: 4 ÷ 24 = <strong>16,7 %</strong>. Tu equity: 9 × 2 = <strong>18 %</strong>. 18 % &gt; 16,7 %: <strong>pagas</strong>.</p>
+</div></details>
+<p><strong>3.</strong> Un compañero dice: "El bote es de $12, me apostaron $12, así que necesito ganar el 100 % de las veces". ¿Dónde está su error y cuál es el número correcto?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>No sumó la apuesta ni su pago al bote. Bote final: $12 + $12 + $12 = $36. Equity necesaria: 12 ÷ 36 = <strong>33,3 %</strong>. Una apuesta del tamaño del bote te pide ganar 1 de cada 3 veces, no siempre.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Divide lo que pagas entre el bote que quedará: si tu equity es mayor que ese porcentaje, pagas; si es menor, te retiras.</p>
+<hr>
+<p><em>Fuentes: Hardin, Essential Poker Math, Cap. 6 (pot odds como proporción y como porcentaje) y Cap. 11 (comparar pot odds con la equity en tres pasos); Clarke, The Grinder's Manual, Cap. 7 ("Required Equity"; advierte sumar la apuesta del rival al bote); Acevedo, Modern Poker Theory, Cap. 1. Equity exacta de 9 outs con una carta (19,1 %): tabla de referencia de Hardin, Cap. 9.</em></p><div class="nav"><a href="M04_L01.html">← 4.1 La <em>equity</em>: tu parte del bote</a><a href="M04_L03.html">4.3 Los precios estándar →</a></div></div></body></html>

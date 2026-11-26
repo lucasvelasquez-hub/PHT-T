@@ -1,0 +1,73 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>12.2 Rango polarizado y rango condensado</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+</style></head><body><div class="wrap"><p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo 12: Opcional: puente a GTO</p><h2>12.2 Rango polarizado y rango condensado</h2>
+<p><em>Módulo 12 (opcional) · Lección 2 · 10 minutos</em></p>
+<h3>Gancho</h3>
+<p>Un juego con solo tres cartas, un as, un rey y una dama, explica una de las ideas más importantes del póker moderno. Sin flop, sin turn, sin river.</p>
+<h3>La idea</h3>
+<p>Un rango es <strong>polarizado</strong> cuando tiene manos <strong>muy fuertes</strong> y manos <strong>muy débiles</strong>, sin nada en medio. Un rango es <strong>condensado</strong> cuando está formado por <strong>manos medias</strong>: ni monstruos ni basura.</p>
+<p>Con un rango condensado, tus manos son <strong><em>bluff-catchers</strong></em>: ganan a los faroles y pierden contra las manos buenas. Con un rango polarizado, apostar tiene mucho sentido: tus manos fuertes cobran valor y tus manos débiles solo pueden ganar faroleando.</p>
+<p><strong>El juego de la clarividencia:</strong></p>
+<ul><li>Hay tres cartas: <strong>A</strong>, <strong>K</strong> y <strong>Q</strong>. Gana la carta más alta.</li><li><strong>Opal</strong> siempre recibe el <strong>K</strong> (rango condensado: gana a la Q y pierde contra el A).</li><li><strong>Ivan</strong> recibe el <strong>A</strong> o la <strong>Q</strong>, mitad y mitad (rango polarizado).</li><li>Cada uno pone $1 (bote de $2). Opal habla primero; Ivan puede apostar $1; Opal solo puede pagar o retirarse.</li></ul>
+<p><strong>¿Qué hacen en el equilibrio?</strong></p>
+<ul><li><strong>Opal pasa siempre.</strong> Con su K, apostar no le sirve: el A pagaría y la Q se retiraría.</li><li><strong>Ivan apuesta siempre con el A</strong> (valor) y <strong>con la Q una de cada tres veces</strong> (farol).</li><li><strong>Opal paga 2 de cada 3 veces</strong> con su K.</li></ul>
+<p><strong>Por qué esos números.</strong> Si Ivan faroleara siempre con la Q, Opal pagaría siempre y le cazaría. Si no faroleara nunca, Opal se retiraría siempre que él apuesta. Con 1 de cada 3 Q, Opal queda <strong>indiferente</strong>: le da igual pagar o retirarse. Y si Opal paga 2 de cada 3 veces, a Ivan le da igual farolear o no con la Q.</p>
+<p><strong>El resultado:</strong> sin apuestas, el juego es empate. Con apuestas, <strong>Ivan gana de media unos 33 centavos por partida</strong>. El jugador con el rango polarizado y la información saca ventaja apostando.</p>
+<h3>Ejemplo guiado</h3>
+<p>Aplicado a una mano real: la mesa final es <strong><span class="card s">K♠</span> <span class="card s">9♠</span> <span class="card c">4♣</span> <span class="card h">2♥</span> <span class="card d">7♦</span></strong> y el proyecto de color de picas no llegó.</p>
+<ul><li>Tu rival apostó fuerte todas las calles: su rango está <strong>polarizado</strong> (manos muy buenas o proyectos fallidos).</li><li>Tú tienes <strong><span class="card s">Q♠</span> <span class="card d">Q♦</span></strong>: un <em>bluff-catcher</em>. Ganas a todos sus faroles y pierdes contra todo su valor.</li><li>La pregunta no es "¿tengo buena mano?", sino la del Módulo 8: <strong>¿farolea lo suficiente para que me compense pagar?</strong></li></ul>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> ¿Qué es un rango polarizado?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Un rango con manos muy fuertes y manos muy débiles, sin manos medias.</p>
+</div></details>
+<p><strong>2.</strong> En el juego, ¿por qué Opal nunca apuesta con el K?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Porque si apuesta, <strong>el A paga y la Q se retira</strong>: solo le pagan manos mejores. No gana nada apostando.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Un rango polarizado (muy fuertes y muy débiles) saca ventaja apostando; un rango condensado (manos medias) pasa y paga lo justo para que los faroles no le salgan gratis al rival.</p>
+<hr>
+<p><em>Fuentes: Brokos, Play Optimal Poker, Cap. 2 (rangos polarizados y condensados; el juego de la clarividencia con A, K y Q: Ivan apuesta todos sus ases y un tercio de sus damas, Opal paga dos tercios de las veces, EV de Ivan de $0,33 por partida); Acevedo, Modern Poker Theory, Cap. 14 (versión del mismo juego).</em></p><div class="nav"><a href="M12_L01.html">← 12.1 Contar combos y <em>blockers</em></a><a href="M12_L03.html">12.3 El equilibrio y la indiferencia →</a></div></div></body></html>

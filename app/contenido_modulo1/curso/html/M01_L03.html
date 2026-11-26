@@ -1,0 +1,73 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>1.3 El EV: la moneda del póker</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+</style></head><body><div class="wrap"><p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo 1: La mesa, el EV y la suerte</p><h2>1.3 El EV: la moneda del póker</h2>
+<p><em>Módulo 1 · Lección 3 · 9 minutos</em></p>
+<h3>Gancho</h3>
+<p>Vas <em>all-in</em> con <strong><span class="card s">A♠</span> <span class="card h">A♥</span></strong> contra <strong><span class="card c">K♣</span> <span class="card d">K♦</span></strong>. En el river cae un rey y pierdes $200. ¿Jugaste mal? Esta es la pregunta más importante del póker, y casi todos los principiantes la responden mal.</p>
+<h3>La idea</h3>
+<p>En póker, el dinero de una mano depende de la suerte. Pero <strong>cada decisión tiene un valor promedio</strong> que no depende de la suerte: lo que ganarías de media si repitieras esa misma decisión miles de veces. Ese valor se llama <strong>valor esperado</strong>, o <strong>EV</strong> (<em>expected value</em>).</p>
+<blockquote><p><strong>EV = (probabilidad de ganar × lo que ganas) − (probabilidad de perder × lo que pierdes)</strong></p></blockquote>
+<ul><li>Si el EV es positivo (<strong>+EV</strong>), la decisión gana dinero a largo plazo.</li><li>Si es negativo (<strong>−EV</strong>), lo pierde.</li></ul>
+<p>Una decisión +EV puede salir mal hoy. Una −EV puede salir bien hoy. <strong>Se juzga la decisión, no el resultado.</strong> Tu trabajo como jugador es tomar decisiones +EV una y otra vez; la suerte se compensa sola con el tiempo.</p>
+<p>Un ejemplo sin cartas: te ofrecen lanzar una moneda. Si sale cara ganas $3; si sale cruz pagas $2.</p>
+<ul><li>EV = 0,5 × $3 − 0,5 × $2 = <strong>+$0,50</strong> por lanzamiento.</li><li>Puedes perder los tres primeros lanzamientos. Da igual: cada vez que aceptas, ganas 50 centavos de media. Si te lo ofrecen mil veces, aceptas mil veces.</li></ul>
+<h3>Ejemplo guiado</h3>
+<p>Volvemos al gancho. Con <strong><span class="card s">A♠</span> <span class="card h">A♥</span></strong> contra <strong><span class="card c">K♣</span> <span class="card d">K♦</span></strong>, todo el dinero antes del flop, los ases ganan alrededor del <strong>82 %</strong> de las veces. Ponen $200 cada uno.</p>
+<ul><li>82 % de las veces ganas $200.</li><li>18 % de las veces pierdes $200.</li><li>EV = 0,82 × $200 − 0,18 × $200 = $164 − $36 = <strong>+$128</strong>.</li></ul>
+<p>Cada vez que metes el dinero en esta situación, ganas $128 <strong>de media</strong>, aunque esta vez concreta hayas perdido $200. La decisión fue excelente. El resultado fue mala suerte.</p>
+<p>El razonamiento al revés también vale: si tu rival pagó con los reyes, tomó una decisión −EV aunque se llevó el bote. Si sigue jugando así, te devolverá ese dinero con creces.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Un amigo te propone lanzar un dado. Si sale 6 te paga $10; si sale cualquier otro número le pagas $1. ¿Cuál es tu EV? ¿Aceptas?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>EV = 1/6 × $10 − 5/6 × $1 ≈ $1,67 − $0,83 = <strong>+$0,83</strong>. <strong>Aceptas</strong>: aunque pierdes 5 de cada 6 veces, ganas de media.</p>
+</div></details>
+<p><strong>2.</strong> Pierdes cinco sesiones seguidas. ¿Significa que estás jugando mal?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>No necesariamente.</strong> Cinco sesiones son muy pocas manos y la suerte pesa mucho. Para saber si juegas bien, revisa tus <strong>decisiones</strong> (¿eran +EV?), no tus resultados. En la lección siguiente verás cuántas manos hacen falta para que los resultados digan algo.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>El EV es lo que gana una decisión de media a largo plazo: juzga tus decisiones por su EV, nunca por el resultado de una mano.</p>
+<hr>
+<p><em>Fuentes: Clarke, The Grinder's Manual, Cap. 1.2 ("EV, la moneda del póker": una subida que gana $15 de EV puede perder $100 en una mano); Hardin, Essential Poker Math, Cap. 10 (definición de EV y foco en el largo plazo), Cap. 17 (fórmula del EV) y tablas de referencia (AA contra KK ≈ 82 %).</em></p><div class="nav"><a href="M01_L02.html">← 1.2 Tu stack y el stack efectivo</a><a href="M01_L04.html">1.4 La varianza: por qué jugar bien no garantiza ganar hoy →</a></div></div></body></html>

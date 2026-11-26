@@ -1,0 +1,71 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>4.1 La equity: tu parte del bote</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+</style></head><body><div class="wrap"><p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo 4: ¿Pago o me retiro? Equity, pot odds e implied odds</p><h2>4.1 La <em>equity</em>: tu parte del bote</h2>
+<p><em>Módulo 4 · Lección 1 · 7 minutos</em></p>
+<h3>Gancho</h3>
+<p>Hay $200 en el bote, todo el dinero está dentro y quedan dos cartas por salir. Tú no tienes la mejor mano todavía, pero tienes un proyecto. ¿Cuánto de esos $200 es "tuyo"? La respuesta tiene nombre: tu <strong><em>equity</strong></em>.</p>
+<h3>La idea</h3>
+<p>La <strong><em>equity</strong></em> es <strong>el porcentaje de veces que ganarías la mano si se jugara hasta el final</strong>. Dicho de otra forma: es <strong>tu parte del bote</strong> a largo plazo.</p>
+<blockquote><p><strong>Tu parte del bote = equity × bote</strong></p></blockquote>
+<p>Si tienes un 40 % de equity en un bote de $200, tu parte "justa" es $80. No ganarás $80 en esta mano: ganarás $200 o nada. Pero si repites la situación muchas veces, te llevarás de media $80 cada vez.</p>
+<p><strong>La equity cambia en cada calle.</strong> Antes del flop, en el flop, en el turn… cada carta nueva puede subirla o bajarla. En el river ya no quedan cartas: tu equity es 100 % (vas ganando) o 0 % (vas perdiendo), y lo único que no sabes es qué tiene tu rival.</p>
+<p><strong>Cómo la estimas en la mesa:</strong> con un proyecto, usa tus <em>outs</em> y la regla del 2 y del 4 del Módulo 3. Es una aproximación. El cálculo exacto lo hacen programas de ordenador, y lo usarás para estudiar fuera de la mesa.</p>
+<h3>Ejemplo guiado</h3>
+<p>Tienes <strong><span class="card h">9♥</span> <span class="card h">8♥</span></strong>. Tu rival tiene <strong><span class="card s">K♠</span> <span class="card d">Q♦</span></strong>. El flop es <strong><span class="card h">K♥</span> <span class="card h">7♥</span> <span class="card c">2♣</span></strong> y los dos van <em>all-in</em>: hay <strong>$200</strong> en el bote.</p>
+<ul><li>Tu rival tiene pareja de reyes. Tú tienes proyecto de color: 9 <em>outs</em>.</li><li>Regla del 4: 9 × 4 = <strong>36 %</strong>.</li><li>El cálculo exacto da casi un <strong>40 %</strong>: además del color, a veces ganas con dos cartas seguidas que te dan escalera o dobles parejas (por ejemplo, un 9 y un 8). Son jugadas que la regla rápida no cuenta.</li><li>Tu parte del bote: 0,40 × $200 = <strong>$80</strong>. La de tu rival: <strong>$120</strong>.</li></ul>
+<p>Si en el turn cae el <strong><span class="card s">3♠</span></strong>, no ligaste y queda una carta. Ahora te sirven 9 de las 44 cartas que no ves: tu equity baja a un <strong>20 %</strong> y tu parte del bote, a unos <strong>$40</strong>. Si cae un corazón, tu equity sube al 100 %.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Tienes un 25 % de equity en un bote de $80 con todo el dinero dentro. ¿Cuál es tu parte del bote?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>0,25 × $80 = <strong>$20</strong>.</p>
+</div></details>
+<p><strong>2.</strong> En el river, ¿qué equity tienes si vas por detrás? ¿Puedes mejorar?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>0 %.</strong> Ya no quedan cartas por salir: no puedes mejorar. Solo puedes ganar si tu rival se retira.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>La equity es el porcentaje de veces que ganarías si la mano llegara al final, es decir, tu parte del bote a largo plazo.</p>
+<hr>
+<p><em>Fuentes: Hardin, Essential Poker Math, Cap. 5 (la equity como "nuestra parte del bote" en dinero y el hecho de que cambia en cada calle). Equity exacta del ejemplo calculada con herramientas/verificar_lecciones.py.</em></p><div class="nav"><a href="M03_evaluacion.html">← Mini-evaluación del Módulo 3</a><a href="M04_L02.html">4.2 <em>Pot odds</em>: el precio de ver una carta →</a></div></div></body></html>

@@ -1,0 +1,78 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>8.1 El river: la decisión cerrada</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+</style></head><body><div class="wrap"><p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo 8: Defensa después del flop</p><h2>8.1 El river: la decisión cerrada</h2>
+<p><em>Módulo 8 · Lección 1 · 9 minutos</em></p>
+<h3>Gancho</h3>
+<p>River. Bote de $100. Tu rival apuesta $50. Tienes una pareja que gana a sus faroles y pierde contra sus manos buenas. ¿Pagas? Es la decisión más frecuente y más difícil del póker, y tiene un método.</p>
+<h3>La idea</h3>
+<p>En el river ya no salen cartas. No hay proyectos que ligar ni <em>implied odds</em>: la decisión es <strong>cerrada</strong>. Solo importan dos cosas:</p>
+<p><strong>Parte 1. ¿Qué equity necesito?</strong> Es el precio de siempre (lección 4.3). Contra medio bote, 25 %; contra el bote, 33 %.</p>
+<p><strong>Parte 2. ¿Gano esa proporción de veces?</strong> En el river, "ganar" significa que tu rival <strong>tiene una mano peor que la tuya</strong>: casi siempre, que <strong>farolea</strong>. Así que la pregunta es:</p>
+<blockquote><p><strong>¿Mi rival farolea (o apuesta manos peores que la mía) al menos ese porcentaje de veces?</strong></p></blockquote>
+<p>Para responderla, tres preguntas rápidas:</p>
+<ol><li><strong>¿Puede apostar por valor manos peores que la mía?</strong> Si sí, pagar es más fácil.</li><li><strong>¿Llega al river con manos que fallaron?</strong> Proyectos de color o escalera que no ligaron se convierten en faroles.</li><li><strong>¿Su historia tiene sentido?</strong> Si ha jugado como lo haría con una mano muy fuerte, cree la historia.</li></ol>
+<p><strong>Y el tipo de rival lo cambia todo:</strong> un <em>nit</em> casi nunca farolea en el river; un <em>fish</em> agresivo, a menudo.</p>
+<p>Pagar en el river con una mano que solo gana a faroles se llama <strong><em>hero call</strong></em>.</p>
+<h3>Ejemplo guiado</h3>
+<p>Mesa $1/$2. Defiendes la BB con <strong><span class="card c">Q♣</span> <span class="card d">Q♦</span></strong> contra el BU. La mesa final es <strong><span class="card h">K♥</span> <span class="card h">8♥</span> <span class="card c">3♣</span> <span class="card d">5♦</span> <span class="card s">2♠</span></strong>: el proyecto de color de corazones no llegó. Bote: <strong>$100</strong>. El BU apuesta <strong>$50</strong>.</p>
+<p><strong>Parte 1.</strong> Medio bote: necesitas ganar el <strong>25 %</strong> de las veces.</p>
+<p><strong>Parte 2, contra un <em>fish</em> agresivo</strong> que apostó flop, turn y river:</p>
+<ul><li>¿Llega con manos que fallaron? Sí: muchos proyectos de corazones que no ligaron.</li><li>Un <em>fish</em> agresivo farolea a menudo con ellos.</li><li>Basta con que farolee 1 de cada 4 veces. <strong>Pagas.</strong></li></ul>
+<p><strong>Parte 2, contra un <em>nit</em>:</strong></p>
+<ul><li>Un <em>nit</em> rara vez llega al river apostando sin un rey o algo mejor.</li><li>Tus damas ganan muy pocas veces. <strong>Te retiras.</strong></li></ul>
+<p>Las mismas cartas, el mismo precio, dos decisiones.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> River. Bote de $80, tu rival apuesta $80. ¿Qué porcentaje de veces tiene que estar faroleando para que pagar te salga rentable?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Apuesta del bote: <strong>33 %</strong>. Una de cada tres.</p>
+</div></details>
+<p><strong>2.</strong> River. Bote de $60, tu rival apuesta $40 (2/3). Tienes una pareja media. Tu rival es un <em>station</em> que casi nunca apuesta sin tener algo. ¿Pagas?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Necesitas un <strong>29 %</strong>. Pero un <em>station</em> casi nunca farolea: cuando apuesta, tiene algo. <strong>Te retiras</strong> salvo que tu pareja gane también a parte de sus manos de valor.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>En el river paga si tu rival farolea (o apuesta manos peores) al menos tantas veces como pide el precio, y piensa en quién es: el <em>nit</em> casi nunca farolea.</p>
+<hr>
+<p><em>Fuentes: Clarke, The Grinder's Manual, Cap. 7 (proceso en dos partes para el final de la acción: equity requerida y "¿tengo esa equity de media?", con tres preguntas rápidas; Fig. 39); Hardin, Essential Poker Math, Cap. 16 (hero call y tabla de equilibrio: 1/2 bote 25 %, 2/3 28,5 %, 3/4 30 %, bote 33,3 %).</em></p><div class="nav"><a href="M07_evaluacion.html">← Mini-evaluación del Módulo 7</a><a href="M08_L02.html">8.2 Flop y turn: la decisión abierta →</a></div></div></body></html>

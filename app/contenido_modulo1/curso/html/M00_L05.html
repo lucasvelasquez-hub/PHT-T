@@ -1,0 +1,80 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>0.5 Ciegas, botón y por qué contamos en bb</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+</style></head><body><div class="wrap"><p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo 0: Primeros pasos antes de tu primera mano</p><h2>0.5 Ciegas, botón y por qué contamos en bb</h2>
+<p><em>Módulo 0 · Lección 5 · 7 minutos</em></p>
+<h3>Gancho</h3>
+<p>Si nadie estuviera obligado a poner dinero, lo más sensato sería esperar ases toda la noche. El póker se quedaría sin acción. Las <strong>ciegas</strong> existen para que siempre haya algo por lo que pelear.</p>
+<h3>La idea</h3>
+<p><strong>El botón.</strong> Una ficha blanca, el <strong>botón</strong> (<em>button</em>), marca al jugador que hace de "repartidor" en esa mano. Después de cada mano se mueve un asiento hacia la izquierda, así que todos pasan por todas las posiciones.</p>
+<p><strong>Las ciegas.</strong> Antes de repartir, los dos jugadores a la izquierda del botón ponen dinero sin ver sus cartas, por eso se llaman "ciegas":</p>
+<ul><li><strong>Ciega pequeña (SB, <em>small blind</em>):</strong> el primero a la izquierda del botón. Pone la mitad.</li><li><strong>Ciega grande (BB, <em>big blind</em>):</strong> el siguiente. Pone la apuesta completa.</li></ul>
+<p>En una mesa <strong>$1/$2</strong>, la SB pone $1 y la BB pone $2. Esos $3 son el bote inicial.</p>
+<p><strong>Quién habla primero.</strong></p>
+<ul><li><strong>Preflop:</strong> empieza el jugador a la izquierda de la ciega grande. La BB habla la última, porque su ciega ya cuenta como apuesta.</li><li><strong>Flop, turn y river:</strong> empieza el primer jugador que siga en la mano a la izquierda del botón. El botón habla el último.</li></ul>
+<p><strong>¿Por qué contamos en "bb"?</strong> Los jugadores serios no dicen "aposté $10", dicen "aposté 5 ciegas grandes". Así las mismas ideas sirven en cualquier mesa, sea de céntimos o de cientos de dólares. Se escribe <strong>bb</strong> en minúscula cuando hablamos de la unidad ("subo a 2,5bb") y <strong>BB</strong> en mayúscula cuando hablamos del asiento ("el jugador de la BB").</p>
+<p>En $1/$2: <strong>1bb = $2</strong>. Si entras con $200, tienes <strong>100bb</strong>. Ese es el stack estándar de este curso.</p>
+<blockquote><p><strong>Recuadro: cash no es torneo.</strong> En un torneo pagas una entrada, recibes fichas que no son dinero, las ciegas suben cada pocos minutos y cuando pierdes tus fichas quedas eliminado. En <em>cash</em> las fichas son dinero, las ciegas nunca cambian, puedes recargar si pierdes y levantarte cuando quieras. Son juegos tan distintos que muchas estrategias de torneo no sirven en <em>cash</em>. Este curso es solo de <em>cash</em>.</p></blockquote>
+<h3>Ejemplo guiado</h3>
+<p>Mesa de $1/$2 con seis jugadores. Ana tiene el botón; Beto está a su izquierda y Carla a la izquierda de Beto.</p>
+<ul><li>Beto es la <strong>SB</strong>: pone $1.</li><li>Carla es la <strong>BB</strong>: pone $2.</li><li>Preflop habla primero el jugador a la izquierda de Carla.</li><li>Si todos se retiran hasta Beto y él solo paga $1 más, Carla puede pasar: su ciega ya cubre los $2. El bote es $4 y ven el flop.</li><li>En el flop habla primero Beto (el primero a la izquierda del botón que sigue en la mano) y Carla después.</li></ul>
+<p>En la siguiente mano el botón pasa a Beto, Carla será la SB y el siguiente jugador será la BB.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Mesa $0,50/$1. Tienes $100. ¿Cuántas bb tienes?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>1bb = $1, así que <strong>100bb</strong>.</p>
+</div></details>
+<p><strong>2.</strong> En $1/$2, alguien sube a $5. ¿Cuántas bb es esa subida?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>$5 ÷ $2 = <strong>2,5bb</strong>.</p>
+</div></details>
+<p><strong>3.</strong> ¿Quién habla último en el flop si siguen en la mano la BB y el botón?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>El botón.</strong> Después del flop habla último el jugador que sigue en la mano y está más cerca del botón; si el propio botón sigue en la mano, es él.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Las ciegas ponen dinero antes de repartir para que siempre haya un bote, y medimos todo en ciegas grandes (bb) para que las ideas sirvan en cualquier mesa.</p>
+<hr>
+<p><em>Fuentes: reglas públicas del juego (botón, ciegas, orden de acción). Notación BB/bb y stacks de 100bb: Hardin, Essential Poker Math, Cap. 2. Diferencias entre cash y torneos: Acevedo, Modern Poker Theory, Cap. 6.</em></p><div class="nav"><a href="M00_L04.html">← 0.4 Tus opciones en cada turno</a><a href="M00_L06.html">0.6 Cuenta el bote en segundos →</a></div></div></body></html>

@@ -1,0 +1,75 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>2.1 Piensa en rangos, no en una sola mano</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+</style></head><body><div class="wrap"><p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo 2: Abrir el bote antes del flop</p><h2>2.1 Piensa en rangos, no en una sola mano</h2>
+<p><em>Módulo 2 · Lección 1 · 7 minutos</em></p>
+<h3>Gancho</h3>
+<p>Un principiante mira sus cartas y se pregunta: "¿juego esta mano?". Un buen jugador ya sabe la respuesta antes de mirar, porque tiene una lista: <strong>las manos que juega desde cada silla</strong>. Esa lista se llama <strong>rango</strong>.</p>
+<h3>La idea</h3>
+<p>Un <strong>rango</strong> es el conjunto de manos con las que haces una acción concreta. Tu <strong>rango de apertura</strong> desde UTG es el grupo de manos con las que subes cuando eres el primero en entrar desde esa silla.</p>
+<p>Pensar en rangos tiene tres ventajas:</p>
+<ol><li><strong>Decides rápido y sin dudas.</strong> Si tu mano está en el rango, subes; si no, te retiras. No hay que inventar nada en cada mano.</li><li><strong>No te engaña la emoción.</strong> "Hoy me siento con suerte" no cambia el rango.</li><li><strong>Te ayuda a pensar en tu rival.</strong> Él tampoco tiene "una mano": tiene un rango. Si un <em>nit</em> sube desde UTG, su rango es estrecho y fuerte. Si un <em>fish</em> paga desde la BB, su rango es amplio y lleno de manos medias.</li></ol>
+<p>En las próximas lecciones aprenderás un rango para cada silla. Son los rangos "por defecto" del curso: un punto de partida sólido para mesas normales de límites bajos, pensados para no complicarte la vida mientras aprendes.</p>
+<h3>Ejemplo guiado</h3>
+<p>Este es el rango de apertura desde <strong>UTG</strong> que usarás:</p>
+<blockquote><p><strong>77+, ATs+, KTs+, QTs+, JTs, T9s, AJo+, KQo</strong></p></blockquote>
+<p>Tradúcelo con lo que aprendiste en la lección 0.8:</p>
+<ul><li><strong>77+</strong>: 77, 88, 99, TT, JJ, QQ, KK, AA.</li><li><strong>ATs+</strong>: ATs, AJs, AQs, AKs. <strong>KTs+</strong>: KTs, KJs, KQs. <strong>QTs+</strong>: QTs, QJs. Más <strong>JTs</strong> y <strong>T9s</strong>.</li><li><strong>AJo+</strong>: AJo, AQo, AKo. Más <strong>KQo</strong>.</li></ul>
+<p>En total son <strong>140 combos</strong>, alrededor del <strong>11 %</strong> de todas las manos posibles. Desde UTG juegas aproximadamente <strong>1 mano de cada 9</strong>.</p>
+<p>Ahora recibes tres manos en UTG:</p>
+<ul><li><strong><span class="card s">A♠</span> <span class="card h">Q♥</span></strong>: es AQo, está en AJo+. <strong>Subes.</strong></li><li><strong><span class="card c">6♣</span> <span class="card d">6♦</span></strong>: es 66; el rango empieza en 77. <strong>Te retiras.</strong></li><li><strong><span class="card d">K♦</span> <span class="card d">J♦</span></strong>: es KJs, está en KTs+. <strong>Subes.</strong></li></ul>
+<p>No hizo falta pensar en la suerte ni en cómo te sientes. Bastó con mirar la lista.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> En UTG recibes <strong><span class="card s">Q♠</span> <span class="card s">J♠</span></strong>. ¿Subes o te retiras?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Es QJs, dentro de <strong>QTs+</strong>. <strong>Subes.</strong></p>
+</div></details>
+<p><strong>2.</strong> En UTG recibes <strong><span class="card h">A♥</span> <span class="card c">T♣</span></strong>. ¿Subes o te retiras?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Es ATo. El rango de UTG solo tiene ases <em>offsuit</em> desde <strong>AJo+</strong>. <strong>Te retiras.</strong> (Fíjate en la diferencia: ATs sí está en el rango, ATo no.)</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Un rango es la lista de manos con las que haces una acción; decide con la lista, no con la emoción, y piensa también en la lista de tu rival.</p>
+<hr>
+<p><em>Fuentes: Clarke, The Grinder's Manual, Cap. 2 (pensar en rangos desde el primer capítulo; rangos por defecto "conservadores y aptos para principiantes"; rango de UTG ≈ 11 %, Fig. 5) y Glosario (definición de rango); Hardin, Essential Poker Math, Cap. 2 (pensamiento en rangos y notación).</em></p><div class="nav"><a href="M01_evaluacion.html">← Mini-evaluación del Módulo 1</a><a href="M02_L02.html">2.2 La cuadrícula 13×13: el mapa de todas las manos →</a></div></div></body></html>

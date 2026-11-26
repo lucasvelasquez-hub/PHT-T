@@ -1,0 +1,72 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>12.3 El equilibrio y la indiferencia</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+</style></head><body><div class="wrap"><p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo 12: Opcional: puente a GTO</p><h2>12.3 El equilibrio y la indiferencia</h2>
+<p><em>Módulo 12 (opcional) · Lección 3 · 9 minutos</em></p>
+<h3>Gancho</h3>
+<p>¿Existe una forma de apostar que tu rival no pueda aprovechar, haga lo que haga? Sí. Se llama <strong>equilibrio</strong>, y su idea central cabe en una palabra: <strong>indiferencia</strong>.</p>
+<h3>La idea</h3>
+<p>Un jugador está <strong>indiferente</strong> cuando le da igual elegir una opción u otra porque las dos ganan lo mismo. En el river, si consigues que tu rival esté indiferente entre pagar y retirarse con sus <em>bluff-catchers</em>, ninguna de sus decisiones te hace daño.</p>
+<p><strong>¿Cuántos faroles necesitas para eso?</strong> Exactamente el <strong>precio</strong> que le das a tu rival:</p>
+<blockquote><p><strong>Proporción de faroles en tu rango de apuesta = precio del rival = apuesta ÷ (bote + 2 × apuesta)</strong></p></blockquote>
+<div class="tw"><table><thead><tr><th>Tu apuesta</th><th>Precio del rival</th><th>Faroles : valor</th></tr></thead><tbody><tr><td>1/2 del bote</td><td>25 %</td><td>1 farol por cada 3 de valor</td></tr><tr><td>2/3 del bote</td><td>29 %</td><td>2 faroles por cada 5 de valor</td></tr><tr><td>El bote</td><td>33 %</td><td>1 farol por cada 2 de valor</td></tr></tbody></table></div>
+<p><strong>Y del otro lado</strong>, para que tus faroles no ganen dinero solos, tu rival tiene que defender (pagar o subir) una parte de su rango: la <strong>frecuencia mínima de defensa</strong> o <strong>MDF</strong> = bote ÷ (bote + apuesta). Contra medio bote, un 67 %.</p>
+<p><strong>Cuidado:</strong> estas fórmulas son exactas solo en el river, cuando ya no salen cartas. En el flop y en el turn las manos pueden mejorar, y aplicarlas tal cual lleva a errores (lección 8.2).</p>
+<h3>Ejemplo guiado</h3>
+<p>River. Bote de <strong>$100</strong>. Apuestas <strong>$100</strong> (el bote).</p>
+<ul><li>Tu rival paga $100 para ganar $200: necesita acertar el <strong>33 %</strong> de las veces.</li><li>Si en tus apuestas hay <strong>2 manos de valor por cada farol</strong>, exactamente 1 de cada 3 veces será farol.</li><li>EV de pagar para tu rival, con un <em>bluff-catcher</em>: 1/3 × $200 − 2/3 × $100 = $66,67 − $66,67 = <strong>$0</strong>. Le da igual pagar que retirarse.</li></ul>
+<p>Si tuvieras <strong>más</strong> faroles, a tu rival le convendría pagar siempre. Si tuvieras <strong>menos</strong>, le convendría retirarse siempre. En el equilibrio, no le das ninguna opción mejor.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Apuestas medio bote en el river con un rango equilibrado. ¿Qué parte de tus apuestas son faroles?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>El precio del rival: <strong>25 %</strong>. Un farol por cada tres de valor.</p>
+</div></details>
+<p><strong>2.</strong> Tu rival apuesta el bote en el river. ¿Qué parte de tu rango deberías defender para que sus faroles no ganen dinero solos?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>MDF = 1 ÷ (1 + 1) = <strong>50 %</strong>.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>En el equilibrio, apuestas tantos faroles como el precio que le das a tu rival, para que le dé igual pagar o retirarse.</p>
+<hr>
+<p><em>Fuentes: Brokos, Play Optimal Poker, Caps. 1 y 2 (indiferencia; proporción faroles : valor según el tamaño de la apuesta); Acevedo, Modern Poker Theory, Cap. 2 (frecuencia de farol igual a las pot odds del rival; MDF = p ÷ (p + b)) y Cap. 4, Tabla 14 (medio bote: 75 % valor, 25 % faroles, alpha 33 %, MDF 67 %); Cap. 12 (MDF engaña en el flop).</em></p><div class="nav"><a href="M12_L02.html">← 12.2 Rango polarizado y rango condensado</a><a href="M12_L04.html">12.4 El equilibrio como brújula para explotar →</a></div></div></body></html>

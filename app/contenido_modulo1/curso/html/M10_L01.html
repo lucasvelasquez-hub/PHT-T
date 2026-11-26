@@ -1,0 +1,70 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>10.1 ¿Qué es el 3-bet?</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+</style></head><body><div class="wrap"><p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo 10: 3-bet y botes grandes</p><h2>10.1 ¿Qué es el <em>3-bet</em>?</h2>
+<p><em>Módulo 10 · Lección 1 · 8 minutos</em></p>
+<h3>Gancho</h3>
+<p>Un jugador abre y tú tienes <strong><span class="card s">Q♠</span> <span class="card h">Q♥</span></strong>. Desde el Módulo 5 sabes que no se paga: se resube. Hoy aprendes por qué, y por qué a veces se resube también con manos que no son las mejores.</p>
+<h3>La idea</h3>
+<p>Un <strong><em>3-bet</strong></em> es <strong>resubir una apertura</strong> antes del flop. (La ciega grande cuenta como la primera apuesta, la apertura como la segunda y tu resubida como la tercera.)</p>
+<p>Se hace por tres motivos:</p>
+<ol><li><strong>Por valor.</strong> Tu mano es mejor que las manos con las que tu rival te pagará. Con QQ+ y AK, quieres meter dinero ahora.</li><li><strong>Para ganar el bote sin pelear.</strong> Si tu rival se retira, te llevas su apertura y las ciegas: dinero que ya estaba en el centro y que nadie defiende (se le llama <strong>dinero muerto</strong>).</li><li><strong>Para aislar a un jugador débil.</strong> Si un <em>fish</em> abre, una resubida suele dejarte a solas con él, con la iniciativa.</li></ol>
+<p><strong>¿Cuántas veces tiene que funcionar un <em>3-bet</em> de farol?</strong> La cuenta de siempre: lo que arriesgas ÷ (lo que arriesgas + lo que hay en el bote). Si resubes a 3 veces una apertura, necesitas que se retire alrededor de <strong>dos de cada tres veces</strong>. No es poco: por eso los <em>3-bets</em> de farol se hacen solo contra rivales que se retiran mucho.</p>
+<h3>Ejemplo guiado</h3>
+<p>Mesa $1/$2. El HJ abre a <strong>$5</strong>. Estás en el BU con <strong><span class="card s">Q♠</span> <span class="card h">Q♥</span></strong>.</p>
+<ul><li><strong>Por valor:</strong> el HJ abrirá con muchas manos peores (66+, A2s+, ATo+, KJo+…). Una buena parte te pagará o te resubirá con manos peores que tus damas.</li><li><strong>Resubes a $15</strong> (3 veces la apertura; el tamaño lo verás en la lección 10.3).</li><li><strong>Si se retira</strong>, ganas $8: sus $5 más las ciegas ($1 + $2).</li><li><strong>Si paga</strong>, juegas un bote de $33 con posición y con una pareja muy alta.</li></ul>
+<p>¿Y un <em>3-bet</em> de farol en la misma situación, con una mano débil? Arriesgas $15 para ganar $8: necesitas que se retire 15 ÷ (15 + 8) ≈ <strong>65 %</strong> de las veces.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Nombra los tres motivos para hacer <em>3-bet</em>.</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Por <strong>valor</strong>, para <strong>ganar el dinero muerto</strong> sin pelear y para <strong>aislar</strong> a un jugador débil.</p>
+</div></details>
+<p><strong>2.</strong> El CO abre a $5 y resubes a $15 desde el BU. ¿Cuánto ganas si todos se retiran?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Su apertura más las ciegas: $5 + $1 + $2 = <strong>$8</strong>.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>El <em>3-bet</em> es resubir una apertura: por valor con tus mejores manos, para ganar el dinero muerto o para quedarte a solas con un jugador débil.</p>
+<hr>
+<p><em>Fuentes: Clarke, The Grinder's Manual, Cap. 10 (3-bet por valor, por fold equity y para aislar); Hardin, Essential Poker Math, Cap. 13 (matemática del 3-bet de farol: con 3x necesita funcionar alrededor de dos tercios de las veces).</em></p><div class="nav"><a href="M09_evaluacion.html">← Mini-evaluación del Módulo 9</a><a href="M10_L02.html">10.2 Rango lineal y rango polarizado →</a></div></div></body></html>

@@ -1,0 +1,83 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>5.2 Defender la ciega grande</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+</style></head><body><div class="wrap"><p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo 5: Defender antes del flop y set-mining</p><h2>5.2 Defender la ciega grande</h2>
+<p><em>Módulo 5 · Lección 2 · 9 minutos</em></p>
+<h3>Gancho</h3>
+<p>En la lección anterior viste que hay que pagar poco. Hay una silla donde pasa lo contrario: la <strong>ciega grande</strong>. Muchos principiantes la defienden "como si fuera la peste" y tiran manos que deberían jugar. ¿Por qué ahí es distinto?</p>
+<h3>La idea</h3>
+<p>En la BB tienes dos ventajas que no tienes en ninguna otra silla:</p>
+<ol><li><strong>Ya pusiste 1bb.</strong> Pagar te cuesta menos que a cualquier otro.</li><li><strong>Cierras la acción.</strong> Nadie puede subir detrás de ti.</li></ol>
+<p>Las dos se traducen en un <strong>precio muy bueno</strong>. Y cuanto más pequeña es la apertura, mejor precio y más manos puedes defender.</p>
+<p>El precio, con lo que aprendiste en el Módulo 4: el BU abre a $5, la SB se retira. En el bote hay $5 + $1 + $2 = $8. Tú pagas $3 más y el bote queda en $11.</p>
+<blockquote><p><strong>Equity necesaria: 3 ÷ 11 = 27 %</strong></p></blockquote>
+<p>Muchas manos tienen más del 27 % de equity contra el rango amplio de un BU. Por eso se defienden.</p>
+<p><strong>Rango de defensa de la BB contra una apertura de 2,5bb desde el BU (≈ 27 % de las manos):</strong></p>
+<blockquote><p><strong>22+, A2s+, K8s+, Q8s+, J8s+, T8s+, 97s+, 86s+, 76s, 65s, A8o+, KTo+, QTo+, JTo, T9o</strong></p></blockquote>
+<div class="tw"><table class="grid"><thead><tr><th></th><th>A</th><th>K</th><th>Q</th><th>J</th><th>T</th><th>9</th><th>8</th><th>7</th><th>6</th><th>5</th><th>4</th><th>3</th><th>2</th></tr></thead><tbody><tr><td><strong>A</strong></td><td><strong>AA</strong></td><td><strong>AKs</strong></td><td><strong>AQs</strong></td><td><strong>AJs</strong></td><td><strong>ATs</strong></td><td><strong>A9s</strong></td><td><strong>A8s</strong></td><td><strong>A7s</strong></td><td><strong>A6s</strong></td><td><strong>A5s</strong></td><td><strong>A4s</strong></td><td><strong>A3s</strong></td><td><strong>A2s</strong></td></tr><tr><td><strong>K</strong></td><td><strong>AKo</strong></td><td><strong>KK</strong></td><td><strong>KQs</strong></td><td><strong>KJs</strong></td><td><strong>KTs</strong></td><td><strong>K9s</strong></td><td><strong>K8s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>Q</strong></td><td><strong>AQo</strong></td><td><strong>KQo</strong></td><td><strong>QQ</strong></td><td><strong>QJs</strong></td><td><strong>QTs</strong></td><td><strong>Q9s</strong></td><td><strong>Q8s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>J</strong></td><td><strong>AJo</strong></td><td><strong>KJo</strong></td><td><strong>QJo</strong></td><td><strong>JJ</strong></td><td><strong>JTs</strong></td><td><strong>J9s</strong></td><td><strong>J8s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>T</strong></td><td><strong>ATo</strong></td><td><strong>KTo</strong></td><td><strong>QTo</strong></td><td><strong>JTo</strong></td><td><strong>TT</strong></td><td><strong>T9s</strong></td><td><strong>T8s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>9</strong></td><td><strong>A9o</strong></td><td>·</td><td>·</td><td>·</td><td><strong>T9o</strong></td><td><strong>99</strong></td><td><strong>98s</strong></td><td><strong>97s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>8</strong></td><td><strong>A8o</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>88</strong></td><td><strong>87s</strong></td><td><strong>86s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>7</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>77</strong></td><td><strong>76s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>6</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>66</strong></td><td><strong>65s</strong></td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>5</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>55</strong></td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>4</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>44</strong></td><td>·</td><td>·</td></tr><tr><td><strong>3</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>33</strong></td><td>·</td></tr><tr><td><strong>2</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>22</strong></td></tr></tbody></table></div>
+<p>De este rango, las más fuertes (QQ+, AK) se resuben: lo verás en el Módulo 10.</p>
+<p><strong>Contra aperturas de posiciones más tempranas</strong>, el rango de quien abre es más fuerte y tú debes defender menos. Regla prudente del curso para empezar: desde la BB, contra UTG, HJ o CO, <strong>defiende con el mismo rango de pago que tendría el BU contra esa posición</strong> (tabla de la lección 5.1). Es más estrecho que lo que juegan los expertos, pero te evitará los errores caros.</p>
+<p><strong>Atención:</strong> defender la BB no es jugar cualquier cosa. Si la apertura es grande (3bb o más), el precio empeora y se defiende menos.</p>
+<h3>Ejemplo guiado</h3>
+<p>Mesa $1/$2. El <strong>BU</strong> abre a <strong>$5</strong>, la SB se retira. Estás en la <strong>BB</strong>.</p>
+<ul><li><strong><span class="card h">9♥</span> <span class="card h">8♥</span>:</strong> 98s está en 97s+. <strong>Pagas $3.</strong> Es una mano que liga escaleras, colores y parejas.</li><li><strong><span class="card s">K♠</span> <span class="card s">7♠</span>:</strong> el rango de reyes <em>suited</em> empieza en K8s. <strong>Te retiras.</strong> Está cerca del borde, pero fuera.</li><li><strong><span class="card d">A♦</span> <span class="card c">4♣</span>:</strong> los ases <em>offsuit</em> empiezan en A8o. <strong>Te retiras.</strong></li><li><strong><span class="card c">Q♣</span> <span class="card d">T♦</span>:</strong> QTo está en QTo+. <strong>Pagas.</strong></li></ul>
+<p>Ahora el <strong>UTG</strong> abre a $5 y todos se retiran hasta ti, en la BB, con <strong><span class="card c">Q♣</span> <span class="card d">T♦</span></strong>. Contra UTG el BU solo pagaría JJ–22, AQs–ATs, KQs, KJs, QJs, JTs, T9s y AQo. QTo no está. <strong>Te retiras.</strong> La misma mano, otra decisión, porque el rango de UTG es mucho más fuerte.</p>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> El BU abre a $5 y la SB se retira. Tienes <strong><span class="card c">J♣</span> <span class="card c">8♣</span></strong> en la BB. ¿Defiendes? ¿Qué equity necesitas?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>Sí:</strong> J8s está en J8s+. Necesitas un <strong>27 %</strong> (pagas $3 para un bote de $11).</p>
+</div></details>
+<p><strong>2.</strong> El BU abre a $5. Tienes <strong><span class="card s">T♠</span> <span class="card d">6♦</span></strong> en la BB. ¿Defiendes?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>No.</strong> T6o no está en el rango; las tes <em>offsuit</em> empiezan en T9o.</p>
+</div></details>
+<p><strong>3.</strong> ¿Por qué la BB puede defender más manos que el CO contra la misma apertura del HJ?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Por el <strong>precio</strong>: la BB ya puso 1bb y cierra la acción. Aun así, la BB estará fuera de posición después del flop, así que no defiende "todo".</p>
+</div></details>
+<h3>En una frase</h3>
+<p>En la BB ya pusiste dinero y cierras la acción, así que defiendes muchas más manos que en otras sillas, sobre todo contra aperturas pequeñas desde el botón.</p>
+<hr>
+<p><em>Fuentes: Clarke, The Grinder's Manual, Cap. 6.3 (la BB cierra la acción y tiene mejores pot odds; error de evitar pagar fuera de posición "como la peste" contra aperturas pequeñas; Fig. 32, rangos de defensa de la BB contra aperturas del BU de 3x, 2,5x y 2x). La regla para aperturas tempranas es una simplificación prudente del curso. Precio del 27 %: cálculo propio.</em></p><div class="nav"><a href="M05_L01.html">← 5.1 El <em>gap concept</em>: para pagar necesitas más que para abrir</a><a href="M05_L03.html">5.3 Matemáticas del <em>set-mining</em> →</a></div></div></body></html>

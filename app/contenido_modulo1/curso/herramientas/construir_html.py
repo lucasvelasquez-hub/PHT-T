@@ -153,5 +153,63 @@ def main():
     print(f'{len(files)} archivos -> {OUT}')
 
 
+
+NAV_CSS = """
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+"""
+
+
+def pagina(titulo, cuerpo):
+    return f"""<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(titulo)}</title>
+<style>{CSS}{NAV_CSS}</style></head><body><div class="wrap">{cuerpo}</div></body></html>"""
+
+
+def construir_paginas():
+    """Una página HTML por lección en html/ y un índice.html con enlaces en orden."""
+    out_dir = os.path.join(BASE, 'html')
+    os.makedirs(out_dir, exist_ok=True)
+    files = sorted(glob.glob(os.path.join(LEC, 'M*_*.md')), key=lambda p: (os.path.basename(p)[:3], 'evaluacion' in p, p))
+    items = []
+    for f in files:
+        md = open(f, encoding='utf-8').read()
+        first = md.splitlines()[0].lstrip('# ').strip()
+        dur = re.search(r'(\d+) minutos', md)
+        items.append((os.path.basename(f)[:-3], int(os.path.basename(f)[1:3]), first, md, dur.group(1) if dur else ''))
+    for i, (name, m, title, md, dur) in enumerate(items):
+        prev = f'<a href="{items[i-1][0]}.html">← {inline(items[i-1][2])}</a>' if i > 0 else '<span></span>'
+        nxt = f'<a href="{items[i+1][0]}.html">{inline(items[i+1][2])} →</a>' if i < len(items) - 1 else '<span></span>'
+        nav = f'<div class="nav">{prev}{nxt}</div>'
+        cuerpo = (f'<p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo {m}: {html.escape(TITULOS.get(m, ""))}</p>'
+                  + md_to_html(md) + nav)
+        open(os.path.join(out_dir, name + '.html'), 'w', encoding='utf-8').write(pagina(re.sub(r'[*]', '', title), cuerpo))
+    idx = ['<h1>Curso de Texas Hold\'em cash para principiantes</h1>',
+           '<p>No-Limit Hold\'em, mesas de 6 jugadores, 100 ciegas grandes. Una lección al día, de 5 a 10 minutos, y la mini-evaluación al cerrar cada módulo. '
+           'Ruta mínima para empezar a jugar: módulos 0 a 5 y la lección 11.4. El módulo 12 es opcional.</p>',
+           '<p class="top"><a href="curso.html">Abrir el curso completo en una sola página</a></p>']
+    actual = None
+    for name, m, title, md, dur in items:
+        if m != actual:
+            if actual is not None:
+                idx.append('</ol>')
+            idx.append(f'<div class="idx-mod"><small>Módulo {m}</small>{html.escape(TITULOS.get(m, ""))}</div><ol class="idx">')
+            actual = m
+        es_eval = 'evaluacion' in name
+        etiqueta = f'{dur} min' if dur else ''
+        idx.append(f'<li class="{"eval" if es_eval else ""}"><a href="html/{name}.html">{inline(title)}<span>{etiqueta}</span></a></li>')
+    idx.append('</ol>')
+    open(os.path.join(BASE, 'indice.html'), 'w', encoding='utf-8').write(pagina('Índice del curso de póker', '\n'.join(idx)))
+    print(f'{len(items)} páginas -> html/ ; índice -> indice.html')
+
+
 if __name__ == '__main__':
     main()
+    construir_paginas()

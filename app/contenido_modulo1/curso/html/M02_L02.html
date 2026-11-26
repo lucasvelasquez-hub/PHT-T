@@ -1,0 +1,74 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>2.2 La cuadrícula 13×13: el mapa de todas las manos</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+</style></head><body><div class="wrap"><p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo 2: Abrir el bote antes del flop</p><h2>2.2 La cuadrícula 13×13: el mapa de todas las manos</h2>
+<p><em>Módulo 2 · Lección 2 · 8 minutos</em></p>
+<h3>Gancho</h3>
+<p>Hay 1.326 combinaciones posibles de dos cartas. Memorizarlas es imposible. Pero si quitas los palos, se reducen a <strong>169 manos</strong>, y caben todas en una cuadrícula de 13 por 13. Es el mapa que usan todos los jugadores para dibujar rangos.</p>
+<h3>La idea</h3>
+<p>La cuadrícula ordena las cartas de A a 2 en filas y en columnas. Cada casilla es una mano:</p>
+<ul><li><strong>La diagonal</strong> (de arriba a la izquierda hacia abajo a la derecha) son las <strong>13 parejas</strong>: AA, KK, … 22.</li><li><strong>Por encima de la diagonal</strong> están las <strong>78 manos <em>suited</strong></em> (con "s").</li><li><strong>Por debajo de la diagonal</strong> están las <strong>78 manos <em>offsuit</strong></em> (con "o").</li></ul>
+<p>Para encontrar una mano, busca la fila de su carta más alta y la columna de la más baja si es <em>suited</em>; al revés si es <em>offsuit</em>. AKs está en la fila A, columna K. AKo está en la fila K, columna A.</p>
+<div class="tw"><table class="grid"><thead><tr><th></th><th>A</th><th>K</th><th>Q</th><th>J</th><th>T</th><th>9</th><th>8</th><th>7</th><th>6</th><th>5</th><th>4</th><th>3</th><th>2</th></tr></thead><tbody><tr><td><strong>A</strong></td><td>AA</td><td>AKs</td><td>AQs</td><td>AJs</td><td>ATs</td><td>A9s</td><td>A8s</td><td>A7s</td><td>A6s</td><td>A5s</td><td>A4s</td><td>A3s</td><td>A2s</td></tr><tr><td><strong>K</strong></td><td>AKo</td><td>KK</td><td>KQs</td><td>KJs</td><td>KTs</td><td>K9s</td><td>K8s</td><td>K7s</td><td>K6s</td><td>K5s</td><td>K4s</td><td>K3s</td><td>K2s</td></tr><tr><td><strong>Q</strong></td><td>AQo</td><td>KQo</td><td>QQ</td><td>QJs</td><td>QTs</td><td>Q9s</td><td>Q8s</td><td>Q7s</td><td>Q6s</td><td>Q5s</td><td>Q4s</td><td>Q3s</td><td>Q2s</td></tr><tr><td><strong>J</strong></td><td>AJo</td><td>KJo</td><td>QJo</td><td>JJ</td><td>JTs</td><td>J9s</td><td>J8s</td><td>J7s</td><td>J6s</td><td>J5s</td><td>J4s</td><td>J3s</td><td>J2s</td></tr><tr><td><strong>T</strong></td><td>ATo</td><td>KTo</td><td>QTo</td><td>JTo</td><td>TT</td><td>T9s</td><td>T8s</td><td>T7s</td><td>T6s</td><td>T5s</td><td>T4s</td><td>T3s</td><td>T2s</td></tr><tr><td><strong>9</strong></td><td>A9o</td><td>K9o</td><td>Q9o</td><td>J9o</td><td>T9o</td><td>99</td><td>98s</td><td>97s</td><td>96s</td><td>95s</td><td>94s</td><td>93s</td><td>92s</td></tr><tr><td><strong>8</strong></td><td>A8o</td><td>K8o</td><td>Q8o</td><td>J8o</td><td>T8o</td><td>98o</td><td>88</td><td>87s</td><td>86s</td><td>85s</td><td>84s</td><td>83s</td><td>82s</td></tr><tr><td><strong>7</strong></td><td>A7o</td><td>K7o</td><td>Q7o</td><td>J7o</td><td>T7o</td><td>97o</td><td>87o</td><td>77</td><td>76s</td><td>75s</td><td>74s</td><td>73s</td><td>72s</td></tr><tr><td><strong>6</strong></td><td>A6o</td><td>K6o</td><td>Q6o</td><td>J6o</td><td>T6o</td><td>96o</td><td>86o</td><td>76o</td><td>66</td><td>65s</td><td>64s</td><td>63s</td><td>62s</td></tr><tr><td><strong>5</strong></td><td>A5o</td><td>K5o</td><td>Q5o</td><td>J5o</td><td>T5o</td><td>95o</td><td>85o</td><td>75o</td><td>65o</td><td>55</td><td>54s</td><td>53s</td><td>52s</td></tr><tr><td><strong>4</strong></td><td>A4o</td><td>K4o</td><td>Q4o</td><td>J4o</td><td>T4o</td><td>94o</td><td>84o</td><td>74o</td><td>64o</td><td>54o</td><td>44</td><td>43s</td><td>42s</td></tr><tr><td><strong>3</strong></td><td>A3o</td><td>K3o</td><td>Q3o</td><td>J3o</td><td>T3o</td><td>93o</td><td>83o</td><td>73o</td><td>63o</td><td>53o</td><td>43o</td><td>33</td><td>32s</td></tr><tr><td><strong>2</strong></td><td>A2o</td><td>K2o</td><td>Q2o</td><td>J2o</td><td>T2o</td><td>92o</td><td>82o</td><td>72o</td><td>62o</td><td>52o</td><td>42o</td><td>32o</td><td>22</td></tr></tbody></table></div>
+<p><strong>Ojo con el tamaño de las casillas.</strong> Todas ocupan lo mismo en el dibujo, pero no salen igual de a menudo:</p>
+<div class="tw"><table><thead><tr><th>Zona</th><th>Manos</th><th>Combos</th><th>% de todas las manos</th></tr></thead><tbody><tr><td>Diagonal (parejas)</td><td>13</td><td>13 × 6 = 78</td><td>5,9 %</td></tr><tr><td>Arriba (<em>suited</em>)</td><td>78</td><td>78 × 4 = 312</td><td>23,5 %</td></tr><tr><td>Abajo (<em>offsuit</em>)</td><td>78</td><td>78 × 12 = 936</td><td>70,6 %</td></tr></tbody></table></div>
+<p>Más de dos tercios de las manos que recibirás son <em>offsuit</em>. Por eso un rango con muchas casillas <em>offsuit</em> es mucho más amplio de lo que parece a simple vista.</p>
+<h3>Ejemplo guiado</h3>
+<p>Este es el rango de UTG de la lección anterior dibujado en la cuadrícula. Las manos en negrita son las que abres:</p>
+<div class="tw"><table class="grid"><thead><tr><th></th><th>A</th><th>K</th><th>Q</th><th>J</th><th>T</th><th>9</th><th>8</th><th>7</th><th>6</th><th>5</th><th>4</th><th>3</th><th>2</th></tr></thead><tbody><tr><td><strong>A</strong></td><td><strong>AA</strong></td><td><strong>AKs</strong></td><td><strong>AQs</strong></td><td><strong>AJs</strong></td><td><strong>ATs</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>K</strong></td><td><strong>AKo</strong></td><td><strong>KK</strong></td><td><strong>KQs</strong></td><td><strong>KJs</strong></td><td><strong>KTs</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>Q</strong></td><td><strong>AQo</strong></td><td><strong>KQo</strong></td><td><strong>QQ</strong></td><td><strong>QJs</strong></td><td><strong>QTs</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>J</strong></td><td><strong>AJo</strong></td><td>·</td><td>·</td><td><strong>JJ</strong></td><td><strong>JTs</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>T</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>TT</strong></td><td><strong>T9s</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>9</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>99</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>8</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>88</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>7</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td><strong>77</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>6</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>5</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>4</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>3</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr><tr><td><strong>2</strong></td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td><td>·</td></tr></tbody></table></div>
+<p>Fíjate en la forma, que se repite en todos los rangos de apertura:</p>
+<ul><li><strong>Parejas</strong>: la diagonal, desde AA hasta 77.</li><li><strong>Bloque <em>suited</strong></em> arriba a la izquierda: las cartas altas del mismo palo, más conectadas como JTs y T9s.</li><li><strong>Pocas <em>offsuit</strong></em>: solo AJo, AQo, AKo y KQo.</li></ul>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> ¿En qué zona de la cuadrícula está <strong>97s</strong>? ¿Y <strong>97o</strong>?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>97s está <strong>por encima</strong> de la diagonal (fila 9, columna 7). 97o está <strong>por debajo</strong> (fila 7, columna 9).</p>
+</div></details>
+<p><strong>2.</strong> Un rango tiene 10 casillas <em>suited</em> y 10 <em>offsuit</em>. ¿Cuántos combos aporta cada grupo?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><em>Suited</em>: 10 × 4 = <strong>40</strong>. <em>Offsuit</em>: 10 × 12 = <strong>120</strong>. Las mismas casillas <em>offsuit</em> pesan el triple.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>La cuadrícula 13×13 tiene las parejas en la diagonal, las <em>suited</em> arriba y las <em>offsuit</em> abajo, y las <em>offsuit</em> pesan el triple que las <em>suited</em>.</p>
+<hr>
+<p><em>Fuentes: Acevedo, Modern Poker Theory, Cap. 1 (cuadrícula 13×13: 13 parejas, 5,88 %; 78 suited, 23,53 %; 78 offsuit, 70,59 %) y Cap. 4 (de 1.326 combos a 169 manos). Rango de UTG: Clarke, The Grinder's Manual, Cap. 2 (Fig. 5).</em></p><div class="nav"><a href="M02_L01.html">← 2.1 Piensa en rangos, no en una sola mano</a><a href="M02_L03.html">2.3 O subes o te retiras →</a></div></div></body></html>

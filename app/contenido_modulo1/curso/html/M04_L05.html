@@ -1,0 +1,83 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>4.5 Implied odds: el dinero que ganarás después</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+</style></head><body><div class="wrap"><p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo 4: ¿Pago o me retiro? Equity, pot odds e implied odds</p><h2>4.5 <em>Implied odds</em>: el dinero que ganarás después</h2>
+<p><em>Módulo 4 · Lección 5 · 10 minutos</em></p>
+<h3>Gancho</h3>
+<p>Las <em>pot odds</em> dicen que te retires. Pero tu rival es un <em>station</em> con $180 detrás, y si ligas tu escalera te pagará lo que sea. ¿Sigues teniendo que retirarte? No siempre. Las cuentas de la lección anterior solo miraban el dinero que <strong>ya</strong> está en el bote.</p>
+<h3>La idea</h3>
+<p>Las <strong><em>implied odds</strong></em> ("probabilidades implícitas") tienen en cuenta <strong>el dinero extra que esperas ganar en las calles siguientes si ligas tu proyecto</strong>. Con ellas, a veces un pago que parece caro es rentable.</p>
+<p><strong>¿Cuánto tendrías que ganar después?</strong> Hay una cuenta sencilla:</p>
+<blockquote><p><strong>Dinero extra que necesitas ganar = lo que pagas ÷ tu equity − bote final</strong></p></blockquote>
+<p>Si ese número es <strong>realista</strong> contra ese rival y con los stacks que quedan, pagar puede valer la pena. Si no lo es, te retiras.</p>
+<p><strong>Cuándo las <em>implied odds</em> son buenas:</strong></p>
+<ul><li><strong>Tu proyecto está escondido:</strong> cuando ligas, tu rival no lo ve venir. Por ejemplo, un trío con una pareja pequeña, o una escalera interna que nadie espera.</li><li><strong>Tu rival paga mucho</strong>, como un <em>station</em>.</li><li><strong>Hay mucho dinero detrás</strong> (stacks grandes).</li><li><strong>Estás en posición:</strong> puedes apostar cuando ligas, en lugar de esperar a que apueste él.</li><li><strong>Hay varios rivales:</strong> es más probable que alguno tenga algo y te pague.</li></ul>
+<p><strong>Cuándo son malas:</strong></p>
+<ul><li><strong>Tu proyecto es obvio:</strong> si cae el cuarto corazón, todo el mundo ve el color posible y deja de pagar.</li><li><strong>Tu rival es un <em>nit</em>:</strong> se retira en cuanto la mesa se pone peligrosa.</li><li><strong>Queda poco dinero detrás.</strong></li><li><strong>Estás fuera de posición.</strong></li><li><strong>Es el river o un <em>all-in</em>:</strong> ya no hay "después".</li></ul>
+<p><strong>El error típico del principiante:</strong> mirar el stack del rival y dar por hecho que se lo llevará entero si liga. Casi nunca pasa. Sé conservador al estimar.</p>
+<h3>Ejemplo guiado</h3>
+<p><strong>Caso 1. Vale la pena.</strong> Mesa $1/$2. Tienes <strong><span class="card c">8♣</span> <span class="card c">6♣</span></strong> en el BU contra un <em>station</em> de la BB. Flop <strong><span class="card h">K♥</span> <span class="card d">7♦</span> <span class="card s">5♠</span></strong>; tienes 8-7-6-5, escalera abierta y escondida. Bote de $20; tu rival apuesta <strong>$15</strong>. A los dos os quedan unos $180 detrás.</p>
+<ul><li>Precio: 15 ÷ (20 + 15 + 15) = <strong>30 %</strong>. Equity: 8 × 2 = <strong>16 %</strong>. Por <em>pot odds</em>, te retirarías.</li><li>Dinero extra que necesitas ganar: $15 ÷ 0,16 − $50 = $93,75 − $50 ≈ <strong>$44</strong>.</li><li>¿Es realista? Contra un <em>station</em>, con $180 detrás, con posición y con una escalera que no se ve: <strong>sí</strong>. Pagas.</li></ul>
+<p><strong>Caso 2. No vale la pena.</strong> Misma apuesta de $15 en un bote de $20, pero tu proyecto es de <strong>color</strong> con dos cartas del palo en la mesa, contra un <em>nit</em>.</p>
+<ul><li>Con 9 <em>outs</em> (9 × 2 = 18 %), el dinero extra que necesitas es $15 ÷ 0,18 − $50 ≈ <strong>$33</strong>.</li><li>Pero si cae la tercera carta del palo, el <em>nit</em> lo ve y no paga ni un dólar más. <strong>Te retiras.</strong></li></ul>
+<p><strong>Caso 3. Imposible.</strong> Escalera interna (4 <em>outs</em>, 8 %). Bote $20, apuesta $10.</p>
+<ul><li>Dinero extra: $10 ÷ 0,08 − $40 = $125 − $40 = <strong>$85</strong>.</li><li>Tendrías que ganar $85 de media <strong>cada vez</strong> que ligas. Casi nadie paga tanto. <strong>Te retiras.</strong></li></ul>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> Pagas $10 para un bote final de $40 con una equity del 18 %. ¿Cuánto dinero extra necesitas ganar de media cuando ligas?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>$10 ÷ 0,18 − $40 ≈ $55,6 − $40 = <strong>unos $16</strong>. Es poco: con <em>implied odds</em> razonables, pagar es correcto.</p>
+</div></details>
+<p><strong>2.</strong> ¿Por qué un proyecto de color tiene peores <em>implied odds</em> que una escalera escondida?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Porque el color es <strong>obvio</strong>: cuando cae la tercera carta del palo en la mesa, tu rival ve el peligro y deja de pagar.</p>
+</div></details>
+<p><strong>3.</strong> En el river tu rival apuesta y tú no tienes nada. ¿Puedes pagar por <em>implied odds</em>?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>No.</strong> En el river no hay más cartas ni más calles: no existe el "después".</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Puedes pagar sin las <em>pot odds</em> si es realista que ganes después el dinero que falta, sobre todo con proyectos escondidos, rivales que pagan, stacks grandes y posición.</p>
+<hr>
+<p><em>Fuentes: Hardin, Essential Poker Math, Cap. 7 (implied odds: situaciones buenas —botes con varios jugadores, proyectos escondidos, posición, stacks profundos— y malas —rivales tight, stacks cortos, fin de la acción, fuera de posición, proyectos obvios—; error de los jugadores inexpertos al suponer que se llevarán el stack); Clarke, The Grinder's Manual, Cap. 8 (bono de implied odds: RRE = ATC ÷ (ATC + TP + IOB)). La fórmula "dinero extra = pago ÷ equity − bote final" es el mismo cálculo despejado.</em></p><div class="nav"><a href="M04_L04.html">← 4.4 ¿Puedo pagar con mi proyecto?</a><a href="M04_evaluacion.html">Mini-evaluación del Módulo 4 →</a></div></div></body></html>

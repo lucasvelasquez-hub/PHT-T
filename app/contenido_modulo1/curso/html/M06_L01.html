@@ -1,0 +1,75 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>6.1 Qué es una c-bet y por qué no es automática</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+</style></head><body><div class="wrap"><p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo 6: La apuesta de continuación (c-bet)</p><h2>6.1 Qué es una <em>c-bet</em> y por qué no es automática</h2>
+<p><em>Módulo 6 · Lección 1 · 8 minutos</em></p>
+<h3>Gancho</h3>
+<p>Subiste antes del flop, te pagaron y el flop no te dio nada. Casi todos los principiantes apuestan igualmente "porque fui yo quien subió". A veces es la jugada correcta. Muchas otras, es tirar dinero.</p>
+<h3>La idea</h3>
+<p>La <strong>apuesta de continuación</strong> o <strong><em>c-bet</strong></em> (<em>continuation bet</em>) es la apuesta en el flop del jugador que subió antes del flop. "Continúa" la agresión que empezó en el preflop.</p>
+<p><strong>¿Por qué funciona a menudo?</strong></p>
+<ul><li>Tu rival pagó antes del flop con un rango amplio, y <strong>la mayoría de los flops no le dan nada</strong>: ni pareja ni proyecto.</li><li>Tú tienes la <strong>iniciativa</strong>: tu subida mostró fuerza, así que tu apuesta en el flop es creíble.</li></ul>
+<p><strong>¿Por qué no hay que hacerla siempre?</strong></p>
+<ul><li>Si el flop conecta con tu rival, se retirará poco.</li><li>Contra un <em>station</em>, casi nunca se retira.</li><li>Con varios rivales, es mucho más probable que alguno haya ligado.</li></ul>
+<p>Una <em>c-bet</em> sin mano hecha es, en el fondo, un pequeño farol. Y como todo farol, solo gana dinero si el rival se retira lo bastante a menudo. <strong>Un error muy común es apostar el flop con todo el aire</strong> (manos sin nada). Muchos jugadores lo hacen; tú no.</p>
+<p><strong>Regla del curso:</strong> antes de una <em>c-bet</em> sin mano hecha, pregúntate <strong>"¿se va a retirar?"</strong>. Si la respuesta es "poco", pasa.</p>
+<h3>Ejemplo guiado</h3>
+<p>Mesa $1/$2. Abres a $5 en el BU y la BB paga. Bote en el flop: <strong>$11</strong>.</p>
+<p><strong>Caso A. Apuestas.</strong> Tienes <strong><span class="card s">J♠</span> <span class="card s">T♠</span></strong> y el flop es <strong><span class="card d">K♦</span> <span class="card c">7♣</span> <span class="card h">2♥</span></strong>. La BB es un <em>fish fit-or-fold</em>.</p>
+<ul><li>El flop no tiene proyectos y es difícil que la BB lo haya ligado.</li><li>La BB se retira casi siempre que no liga.</li><li><strong>Haces <em>c-bet</em>.</strong> Ganarás el bote muchas veces sin que importe que tú tampoco tengas nada.</li></ul>
+<p><strong>Caso B. Pasas.</strong> Tienes <strong><span class="card d">7♦</span> <span class="card d">6♦</span></strong> y el flop es <strong><span class="card s">Q♠</span> <span class="card h">J♥</span> <span class="card s">T♠</span></strong>. La BB es un <em>station</em>.</p>
+<ul><li>No tienes pareja ni proyecto: necesitas un 9 y un 8 a la vez.</li><li>El flop está lleno de cartas altas y de escaleras posibles: el rango de la BB (QJ, QT, KQ, KJ, J9…) conecta mucho.</li><li>Un <em>station</em> no se retira.</li><li><strong>Pasas.</strong> Si la BB apuesta, te retiras. Has perdido lo que pusiste antes del flop, pero no has tirado más.</li></ul>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> ¿Qué es una <em>c-bet</em>?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>La apuesta en el flop del jugador que subió antes del flop.</p>
+</div></details>
+<p><strong>2.</strong> Abres en el CO con <strong><span class="card c">A♣</span> <span class="card c">4♣</span></strong>, un <em>station</em> paga en el BU. Flop <strong><span class="card h">J♥</span> <span class="card d">T♦</span> <span class="card s">9♠</span></strong>. No tienes nada. ¿<em>C-bet</em>?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p><strong>No.</strong> Flop muy conectado con el rango de quien paga, y un <em>station</em> no se retira. Pasas.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>La <em>c-bet</em> es la apuesta en el flop de quien subió antes; funciona porque la mayoría de los flops no ayudan al rival, pero sin mano hecha solo la haces si es probable que se retire.</p>
+<hr>
+<p><em>Fuentes: Clarke, The Grinder's Manual, Cap. 4 (c-bet "ligera" sin mano hecha y sus factores) y Cap. 3.3 (el fit-or-fold se retira mucho a la c-bet; el station, poco); Acevedo, Modern Poker Theory, Cap. 12 (la mayoría de jugadores hace c-bet demasiado porque apuesta siempre su aire).</em></p><div class="nav"><a href="M05_evaluacion.html">← Mini-evaluación del Módulo 5</a><a href="M06_L02.html">6.2 Flops secos y flops mojados →</a></div></div></body></html>

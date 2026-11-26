@@ -1,0 +1,74 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>5.3 Matemáticas del set-mining</title>
+<style>
+:root{--bg:#f7f5f0;--fg:#1d1d1b;--mut:#5d5a53;--card:#fff;--line:#ddd8cc;--acc:#0f5c45;--accbg:#e4f0ea;
+--s:#1d1d1b;--h:#c8102e;--d:#1f5fbf;--c:#1b7a2f}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;
+--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}}
+:root[data-theme=dark]{--bg:#141513;--fg:#ecebe6;--mut:#a8a59c;--card:#1e1f1c;--line:#34352f;--acc:#6fd0a8;--accbg:#1d2f27;
+--s:#ecebe6;--h:#ff6b7f;--d:#7fb2ff;--c:#6fd58a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Georgia,'Iowan Old Style',serif}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+h1{font:700 2rem/1.2 system-ui,sans-serif;margin:.2em 0}h2,h3,h4{font-family:system-ui,sans-serif;line-height:1.25}
+h2{font-size:1.55rem;margin-top:2.4em;padding-top:1em;border-top:2px solid var(--line)}
+h3{font-size:1.15rem;margin-top:1.8em;color:var(--acc)}
+p,li{max-width:68ch}a{color:var(--acc)}
+.card{display:inline-block;font:700 .95em/1 system-ui,sans-serif;padding:.18em .32em;margin:0 .06em;border:1px solid var(--line);
+border-radius:.3em;background:var(--card);white-space:nowrap}
+.card.s{color:var(--s)}.card.h{color:var(--h)}.card.d{color:var(--d)}.card.c{color:var(--c)}
+blockquote{margin:1.2em 0;padding:.6em 1em;background:var(--accbg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.4em 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;margin:1em 0;font:15px/1.4 system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45em .6em;text-align:left;vertical-align:top}th{background:var(--card)}
+details{margin:.6em 0 1.4em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+summary{cursor:pointer;padding:.6em .9em;font:600 15px system-ui,sans-serif;color:var(--acc)}
+.ans{padding:0 1em .4em}hr{border:0;border-top:1px solid var(--line);margin:2em 0 1em}
+hr+p{font-size:.85em;color:var(--mut)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8em 1.2em}
+nav.toc ol{padding-left:1.4em}nav.toc li{margin:.2em 0}
+.mod{font:700 .8rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:3em}
+.leccion{scroll-margin-top:12px}
+table.grid{font-size:11px;table-layout:fixed}table.grid th,table.grid td{padding:.25em .15em;text-align:center;min-width:2.3em}
+table.grid td strong{display:block;background:var(--accbg);color:var(--acc);border-radius:3px}
+
+.nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:1.2em 0;font:600 15px system-ui,sans-serif}
+.nav a{text-decoration:none;padding:.5em .8em;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.top{font:600 14px system-ui,sans-serif}.top a{text-decoration:none}
+.idx-mod{margin:2em 0 .4em;font:700 1.1rem system-ui,sans-serif}
+.idx-mod small{display:block;color:var(--mut);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+ol.idx{padding-left:0;list-style:none;margin:0}ol.idx li{margin:0}
+ol.idx a{display:flex;justify-content:space-between;gap:12px;padding:.55em .8em;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+ol.idx a:hover{background:var(--card)}ol.idx a span{color:var(--mut);white-space:nowrap;font:14px system-ui,sans-serif}
+ol.idx li.eval a{color:var(--acc);font-weight:600}
+</style></head><body><div class="wrap"><p class="top"><a href="../indice.html">☰ Índice del curso</a> · Módulo 5: Defender antes del flop y set-mining</p><h2>5.3 Matemáticas del <em>set-mining</em></h2>
+<p><em>Módulo 5 · Lección 3 · 9 minutos</em></p>
+<h3>Gancho</h3>
+<p>Pagas una subida con <strong><span class="card s">4♠</span> <span class="card h">4♥</span></strong>. El flop es <strong><span class="card d">K♦</span> <span class="card c">9♣</span> <span class="card c">4♣</span></strong>: trío escondido. Tu rival tiene <strong><span class="card s">A♠</span> <span class="card s">K♠</span></strong> y no se lo imagina. Te lleva todo su stack. Este sueño ocurre… pero no tan a menudo como parece. ¿Cuándo vale la pena perseguirlo?</p>
+<h3>La idea</h3>
+<p>Pagar con una pareja pequeña con la idea de ligar un trío (<em>set</em>) en el flop se llama <strong><em>set-mining</strong></em> ("minar el trío").</p>
+<p><strong>Cuánto sale.</strong> Con una pareja en mano, ligas trío o mejor en el flop <strong>1 de cada 8,5 veces</strong> (11,8 %). Las otras 7,5 veces fallas y casi siempre te retiras.</p>
+<p><strong>Cuánto tienes que ganar.</strong> Si pagas $6 y fallas 7,5 de cada 8,5 veces, para no perder dinero tienes que ganar de media unas <strong>7,5 veces lo que pagaste</strong> cada vez que ligas. Pero no siempre cobras: a veces tu rival no tiene nada y no paga, y a veces incluso pierdes con tu trío. Por eso se usa una regla con margen:</p>
+<blockquote><p><strong>Regla del 15: el stack efectivo debe ser al menos 15 veces lo que pagas.</strong></p></blockquote>
+<p>Otra forma de verlo, de otro autor: necesitas recuperar <strong>unas 10 veces lo pagado</strong> entre lo que hay en el bote y lo que ganes después. Las dos reglas dicen lo mismo: <strong>hace falta mucho dinero detrás</strong>.</p>
+<p><strong>Qué hace bueno un <em>set-mining</em>:</strong></p>
+<ul><li><strong>El rival tiene un rango fuerte</strong> (parejas altas, AK…): cuando ligas, él tendrá algo con lo que pagarte.</li><li><strong>Stacks grandes.</strong></li><li><strong>El rival no se retira fácilmente.</strong></li><li><strong>Botes con varios jugadores.</strong></li><li><strong>Estás en posición.</strong></li></ul>
+<h3>Ejemplo guiado</h3>
+<p>Mesa $1/$2. UTG sube a <strong>$6</strong>. Estás en el BU con <strong><span class="card s">4♠</span> <span class="card h">4♥</span></strong> y los dos tienen $200.</p>
+<ol><li><strong>Regla del 15:</strong> 15 × $6 = <strong>$90</strong>. El stack efectivo es $200: <strong>cumples</strong>.</li><li><strong>¿Contra quién?</strong> Si UTG es un jugador que no suelta una pareja alta, mejor todavía.</li><li><strong>Pagas $6.</strong></li></ol>
+<p><strong>Por qué funciona, en números.</strong> Imagina que juegas esta situación 100 veces:</p>
+<ul><li>Ligas trío unas <strong>12 veces</strong>. Fallas unas <strong>88</strong>: pierdes 88 × $6 = <strong>$528</strong>.</li><li>Para empatar, en esas 12 veces tendrías que ganar de media $528 ÷ 12 = <strong>$44</strong>: unas 7,5 veces tu pago.</li><li>Con $200 detrás y un rival con una pareja alta, ganar más de $44 de media cuando ligas es realista. Por eso hay ganancia.</li></ul>
+<h3>Tu turno</h3>
+<p><strong>1.</strong> El HJ abre a $5. Tienes <strong><span class="card d">3♦</span> <span class="card c">3♣</span></strong> en el BU y el stack efectivo es $200. ¿Cumples la regla del 15?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>15 × $5 = $75. El stack efectivo es $200: <strong>sí</strong>. Y 33 está en el rango de pago del BU contra el HJ.</p>
+</div></details>
+<p><strong>2.</strong> ¿Por qué no basta con ganar 7,5 veces lo que pagas cuando ligas?</p>
+<details>
+<summary>Ver respuesta</summary><div class="ans">
+<p>Porque <strong>no siempre cobras</strong>: a veces el rival no tiene nada y no paga, y a veces tu trío pierde. Hace falta margen; por eso la regla del 15.</p>
+</div></details>
+<h3>En una frase</h3>
+<p>Con una pareja pequeña ligas trío 1 de cada 8,5 veces; págale a una subida para buscarlo solo si el stack efectivo es al menos 15 veces lo que pagas.</p>
+<hr>
+<p><em>Fuentes: Hardin, Essential Poker Math, Cap. 4 (trío o mejor en el flop: 11,76 %, 7,5 a 1, 1 de cada 8,5 veces) y Cap. 13 (regla del 15 a 1 sobre el stack efectivo; punto de equilibrio redondeado a 8 a 1); Clarke, The Grinder's Manual, Cap. 6.1 (recuperar unas 10 veces lo invertido; factores de implied odds: rango del rival, stacks, tendencia a retirarse, botes con varios jugadores y posición, Fig. 27).</em></p><div class="nav"><a href="M05_L02.html">← 5.2 Defender la ciega grande</a><a href="M05_L04.html">5.4 Cuándo no buscar trío →</a></div></div></body></html>
