@@ -171,6 +171,32 @@ def m03():
     ok('M3', 'Q5 K6s no CO, sí BU', not en('CO', 'K6s') and en('BU', 'K6s'))
 
 
+
+# ---------------------------------------------------------------- Módulo 5
+@modulo
+def m05():
+    PAGO = {('UTG', 'HJ'): RG['HJvsUTG'], ('UTG', 'CO'): RG['HJvsUTG'] + ',55,QJs', ('UTG', 'BU'): RG['BUvsUTG'],
+            ('HJ', 'CO'): 'JJ,TT,99,88,77,66,AQs,AJs,ATs,KQs,KJs,QJs,JTs,T9s,AQo,AJo,KQo',
+            ('HJ', 'BU'): 'JJ,TT,99,88,77,66,AQs,AJs,ATs,KQs,KJs,QJs,JTs,T9s,AQo,AJo,KQo,55,44,33,22,QTs,98s',
+            ('CO', 'BU'): RG['BUvsCO']}
+    p = lambda a, b, m: m in range_hands(PAGO[(a, b)])
+    ok('5.1', 'BU vs UTG = HJ + 55,QJs + 44-22,ATs,KJs,JTs,T9s', set(range_hands(PAGO[('UTG', 'BU')])) == set(range_hands(PAGO[('UTG', 'CO')] + ',44,33,22,ATs,KJs,JTs,T9s')))
+    ok('5.1', 'ATo HJ: abre sí, paga vs UTG no; 88 y AQs sí', en('HJ', 'ATo') and not p('UTG', 'HJ', 'ATo') and p('UTG', 'HJ', '88') and p('UTG', 'HJ', 'AQs'))
+    ok('5.1', 'ej A9s BU vs CO; KJs CO vs UTG no, BU sí', p('CO', 'BU', 'A9s') and not p('UTG', 'CO', 'KJs') and p('UTG', 'BU', 'KJs'))
+    ok('5.1', '3-bet KK IP 3x = 15', 3 * 5 == 15)
+    ok('5.2', 'BB vs BU 2,5x: 362 combos 27%', range_combos(RG['BBvsBU25']) == 362)
+    ok('5.2', 'precio 3/11', near(3 / (5 + 1 + 2 + 3), .2727, .0005))
+    b = lambda m: m in range_hands(RG['BBvsBU25'])
+    ok('5.2', '98s sí, K7s no, A4o no, QTo sí, J8s sí, T6o no, 76s sí', b('98s') and not b('K7s') and not b('A4o') and b('QTo') and b('J8s') and not b('T6o') and b('76s'))
+    ok('5.2', 'QTo no en BU vs UTG', not p('UTG', 'BU', 'QTo'))
+    ok('5.3', '11,76% y equilibrio 7,5x', near(1 - (48 / 50) * (47 / 49) * (46 / 48), .1176, .0001) and near((1 - .1176) / .1176, 7.5, .01))
+    ok('5.3', '100 veces: 88x6=528, 528/12=44', 88 * 6 == 528 and 528 / 12 == 44)
+    ok('5.3', '15x6=90; 15x5=75; 33 en BU vs HJ', 15 * 6 == 90 and 15 * 5 == 75 and p('HJ', 'BU', '33'))
+    ok('5.4', 'stack 40 < 90; 15x19=285>200; 55 en BU vs HJ', 40 < 90 and 15 * 19 > 200 and p('HJ', 'BU', '55'))
+    ok('5.4', 'ej 15x3=45<60 y 66 en BB; 15x15=225>200', 15 * 3 < 60 and b('66') and 15 * 15 > 200)
+    ok('M5', 'Q1 KQs CO vs HJ; Q2 AJo no BU vs UTG; Q3 76s BB; Q4 55 no BU vs CO', p('HJ', 'CO', 'KQs') and not p('UTG', 'BU', 'AJo') and b('76s') and not p('CO', 'BU', '55'))
+
+
 # ---------------------------------------------------------------- Módulo 4
 @modulo
 def m04():
