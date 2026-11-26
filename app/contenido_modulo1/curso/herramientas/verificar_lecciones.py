@@ -252,6 +252,23 @@ def m07():
     ok('M7', 'Q7 12 outs 25,5% y precio 25%', near(12 / 47, .255, .001) and near(pot_odds(30, 15), .25))
 
 
+
+# ---------------------------------------------------------------- Módulo 8
+@modulo
+def m08():
+    ok('8.1', '50 en 100 -> 25%; 80 en 80 -> 33%; 40 en 60 -> 28,6%', pot_odds(100, 50) == .25 and near(pot_odds(80, 80), 1 / 3) and near(pot_odds(60, 40), .2857, .001))
+    ok('8.1', 'QQ pierde con Kx, gana a corazones fallados', gana('K♣J♣', 'Q♣Q♦', 'K♥8♥3♣5♦2♠') and gana('Q♣Q♦', 'A♥7♥', 'K♥8♥3♣5♦2♠'))
+    ok('8.2', '6 en 11 -> 26%', near(pot_odds(11, 6), .261, .001))
+    vistas = cards('7♥7♦K♠9♠5♣')
+    malas = [x for x in remaining(vistas) if x[1] == 's' or x[0] in 'AQJT']
+    ok('8.2', 'cartas malas del turn = 23 de 47', len(malas) == 23 and len(remaining(vistas)) == 47)
+    ok('8.3', '98 segunda pareja en K83; JT abierta + sobrecartas en 983', es('9♥8♥', 'K♣8♦3♠', 'pareja') and n_outs('J♠T♠', '9♣8♦3♥') == 8)
+    ok('8.3', '64c en AKJ nada; A7c top pair en 752', n_outs('6♣4♣', 'A♦K♥J♠') == 0 and cat(cards('6♣4♣A♦K♥J♠')) == 'carta alta' and es('A♣7♣', '7♦5♠2♥', 'pareja'))
+    ok('8.4', 'KQ top pair en Q74; AK 6 outs; precio 8/27', es('K♠Q♠', 'Q♥7♣4♠', 'pareja') and near(pot_odds(11, 8), 8 / 27))
+    ok('8.4', 'ej ATd en Jd8d3: 9 outs color, sin escalera', n_outs('A♦T♦', 'J♦8♦3♣', ('color',)) == 9 and n_outs('A♦T♦', 'J♦8♦3♣', ('escalera',)) == 0)
+    ok('M8', 'Q2 JT gana a KQs y 65 fallados, pierde con Ax; Q5 TT trío', gana('J♥T♥', 'K♠Q♠', 'A♠J♠7♦4♣2♥') and gana('J♥T♥', '6♠5♠', 'A♠J♠7♦4♣2♥') and gana('A♦3♦', 'J♥T♥', 'A♠J♠7♦4♣2♥') and es('T♠T♦', 'T♣8♦3♥', 'trío'))
+
+
 # ---------------------------------------------------------------- Módulo 4
 @modulo
 def m04():
