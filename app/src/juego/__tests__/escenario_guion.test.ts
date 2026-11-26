@@ -8,6 +8,7 @@ import {
 } from '../../motor/index.ts'
 import { leerBytes, leerJson } from '../../motor/__tests__/ayudas.ts'
 import { analistaDeServicio } from '../analista.ts'
+import { detenerTrasDecision, lecturaDeContexto } from '../conductor.ts'
 import { GUION_PRACTICA } from '../guionPractica.ts'
 import { Partida, jugarHastaElFinal } from '../partida.ts'
 import type { EscenarioInicial } from '../tipos.ts'
@@ -82,5 +83,55 @@ describe('Mano guiada', () => {
     expect(r.nombreMano).toBe('Par')
     expect(r.cartas[0]).toEqual(['Ah', 'Qh'])
     expect(r.cartas[5]).toEqual(['Kc', 'Jc'])
+  })
+})
+
+describe('Props opcionales: continuar y soloContexto', () => {
+  it('detenerTrasDecision solo detiene con escenarioInicial y continuar: false', () => {
+    const esc = escenarioFlop()
+    expect(detenerTrasDecision(false, esc)).toBe(true)
+    expect(detenerTrasDecision(true, esc)).toBe(false)
+    expect(detenerTrasDecision(undefined, esc)).toBe(false)
+    expect(detenerTrasDecision(false, undefined)).toBe(false)
+  })
+
+  it('con continuar: false la decisión del héroe se registra y no actúa ningún rival', async () => {
+    const p = new Partida({ semilla: 9, boton: 0, escenarioInicial: escenarioFlop() })
+    const analisis = await p.analizarHeroe(analista)
+    const accion = { asiento: p.heroe, tipo: 'cc' as const }
+    const decision = p.decisionHeroe(accion, analisis)
+    p.aplicar(accion, analisis)
+    expect(decision.accion).toBe('cc')
+    expect(decision.calle).toBe(1)
+    expect(decision.lectura.elite.fold + decision.lectura.elite.checkCall + decision.lectura.elite.betRaise).toBeCloseTo(1, 5)
+    // El conductor se detiene aquí: solo hay una acción en el historial y la mano sigue sin terminar
+    expect(detenerTrasDecision(false, escenarioFlop())).toBe(true)
+    expect(p.historial).toHaveLength(1)
+    expect(p.fase()).not.toBe('terminada')
+  })
+
+  it('lecturaDeContexto entrega la lectura del héroe sin tocar la mesa', async () => {
+    const p = new Partida({ semilla: 9, boton: 0, escenarioInicial: escenarioFlop() })
+    const antes = JSON.stringify(p.estado)
+    const c = await lecturaDeContexto(p, analista)
+    expect(c).not.toBeNull()
+    expect(c!.lectura.equityPct).toBeGreaterThan(0)
+    expect(c!.lectura.equityPct).toBeLessThanOrEqual(100)
+    expect(c!.lectura.equityMinimaPct).not.toBeNull() // hay una apuesta que pagar
+    expect(c!.lectura.codigo).toMatch(/_|sin_apuesta/)
+    const { fold, checkCall, betRaise } = c!.lectura.elite
+    expect(fold + checkCall + betRaise).toBeCloseTo(1, 5)
+    expect(JSON.stringify(p.estado)).toBe(antes)
+    expect(p.historial).toHaveLength(0)
+    // Misma semilla, misma lectura
+    const q = new Partida({ semilla: 9, boton: 0, escenarioInicial: escenarioFlop() })
+    expect((await lecturaDeContexto(q, analista))!.lectura).toEqual(c!.lectura)
+  })
+
+  it('lecturaDeContexto devuelve null si no le toca al héroe', async () => {
+    const e = crearMano({ jugadores: ['a', 'b', 'c', 'd', 'e', 'f'], stacks: new Array(6).fill(10000), ciegas: [50, 100, 0, 0, 0, 0] })
+    repartirPrivadas(e, 1, ['As', 'Ks'])
+    const p = new Partida({ semilla: 3, boton: 0, escenarioInicial: { estado: e, asientoHeroe: 1, cartasHeroe: ['As', 'Ks'], tablero: [] } })
+    expect(await lecturaDeContexto(p, analista)).toBeNull()
   })
 })

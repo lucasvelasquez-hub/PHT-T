@@ -46,6 +46,7 @@ export function Mesa({ escena, escenario, cuatroColores, boteBB, stackHeroeBB, h
   const montado = useRef(false)
   const previas = useRef(0)
   const apuestasPrevias = useRef<Record<number, number>>({})
+  const entrada = useRef<gsap.core.Timeline | null>(null)
   const { plano, s } = escena
   const tablero = escenario.tablero
   const { heroe } = escenario
@@ -74,6 +75,7 @@ export function Mesa({ escena, escenario, cuatroColores, boteBB, stackHeroeBB, h
         montado.current = true
         previas.current = tablero.length
         const tl = gsap.timeline()
+        entrada.current = tl
         if (movimientoReducido()) {
           tl.fromTo(
             el.querySelectorAll('[data-e="asiento"], [data-e="bote"], [data-e="apuesta"], [data-carta]'),
@@ -105,6 +107,8 @@ export function Mesa({ escena, escenario, cuatroColores, boteBB, stackHeroeBB, h
     () => {
       const el = raiz.current
       if (!el || !heroeRetirado) return
+      // Si la entrada todavía corre, se termina de golpe: la retirada parte de las cartas ya colocadas y no se pisan
+      entrada.current?.progress(1)
       const cartas = el.querySelectorAll('[data-carta^="heroe"]')
       if (movimientoReducido()) gsap.to(cartas, { autoAlpha: 0, duration: 0.2, ease: 'none' })
       else gsap.to(cartas, { autoAlpha: 0, y: -(plano.heroe.w * s * 0.35), duration: 0.32, ease: CURVA_GSAP, stagger: 0.03 })

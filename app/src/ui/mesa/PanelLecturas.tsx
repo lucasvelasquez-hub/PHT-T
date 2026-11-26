@@ -30,25 +30,21 @@ const FILAS = [
 ] as const
 
 /** `ayuda`: texto de la mano guiada; ocupa el lugar del comentario de la élite. */
-export function PanelLecturas({ lectura, columna = false, ayuda = null }: { lectura: Lectura | null; columna?: boolean; ayuda?: string | null }) {
+/** `ocultarElite`: oculta solo la columna de la élite (y su comentario); al mostrarla se anima solo ella. */
+export function PanelLecturas({ lectura, columna = false, ayuda = null, ocultarElite = false }: { lectura: Lectura | null; columna?: boolean; ayuda?: string | null; ocultarElite?: boolean }) {
   const raiz = useRef<HTMLElement>(null)
 
+  // Equity: se anima cuando llega o cambia la lectura.
   useGSAP(
     () => {
       const el = raiz.current
       if (!el || !lectura) return
-      const campos = {
-        eq: { v: lectura.equity, texto: el.querySelector<HTMLElement>('[data-v="eq"]'), barra: el.querySelector<HTMLElement>('[data-b="eq"]') },
-        fold: { v: lectura.fold, texto: el.querySelector<HTMLElement>('[data-v="fold"]'), barra: el.querySelector<HTMLElement>('[data-b="fold"]') },
-        call: { v: lectura.call, texto: el.querySelector<HTMLElement>('[data-v="call"]'), barra: el.querySelector<HTMLElement>('[data-b="call"]') },
-        raise: { v: lectura.raise, texto: el.querySelector<HTMLElement>('[data-v="raise"]'), barra: el.querySelector<HTMLElement>('[data-b="raise"]') },
-      }
+      const texto = el.querySelector<HTMLElement>('[data-v="eq"]')
+      const barra = el.querySelector<HTMLElement>('[data-b="eq"]')
       const pinta = (t: number) => {
-        for (const c of Object.values(campos)) {
-          const v = c.v * t
-          if (c.texto) c.texto.textContent = fmtPct(v)
-          if (c.barra) c.barra.style.transform = `scaleX(${Math.min(Math.max(v, 0), 1)})`
-        }
+        const v = lectura.equity * t
+        if (texto) texto.textContent = fmtPct(v)
+        if (barra) barra.style.transform = `scaleX(${Math.min(Math.max(v, 0), 1)})`
       }
       if (movimientoReducido()) {
         pinta(1)
@@ -60,6 +56,35 @@ export function PanelLecturas({ lectura, columna = false, ayuda = null }: { lect
       gsap.to(paso, { t: 1, duration: DURACION_CIFRAS, ease: CURVA_GSAP, onUpdate: () => pinta(paso.t) })
     },
     { scope: raiz, dependencies: [lectura] },
+  )
+
+  // Élite: igual, pero al pasar de oculta a visible se anima solo esta columna (la equity no se repite).
+  useGSAP(
+    () => {
+      const el = raiz.current
+      if (!el || !lectura || ocultarElite) return
+      const campos = (['fold', 'call', 'raise'] as const).map((k) => ({
+        v: lectura[k],
+        texto: el.querySelector<HTMLElement>(`[data-v="${k}"]`),
+        barra: el.querySelector<HTMLElement>(`[data-b="${k}"]`),
+      }))
+      const pinta = (t: number) => {
+        for (const c of campos) {
+          const v = c.v * t
+          if (c.texto) c.texto.textContent = fmtPct(v)
+          if (c.barra) c.barra.style.transform = `scaleX(${Math.min(Math.max(v, 0), 1)})`
+        }
+      }
+      if (movimientoReducido()) {
+        pinta(1)
+        gsap.fromTo(el.querySelector('.panel__elite'), { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'none' })
+        return
+      }
+      const paso = { t: 0 }
+      pinta(0)
+      gsap.to(paso, { t: 1, duration: DURACION_CIFRAS, ease: CURVA_GSAP, onUpdate: () => pinta(paso.t) })
+    },
+    { scope: raiz, dependencies: [lectura, ocultarElite] },
   )
 
   const cargando = lectura === null
@@ -100,7 +125,7 @@ export function PanelLecturas({ lectura, columna = false, ayuda = null }: { lect
           )}
         </div>
 
-        <div className="panel__elite">
+        <div className="panel__elite" style={ocultarElite ? { visibility: 'hidden' } : undefined} aria-hidden={ocultarElite || undefined}>
           <h2 className="panel__titulo">ÉLITE</h2>
           <ul className="panel__filas">
             {FILAS.map((f) => (
@@ -117,6 +142,8 @@ export function PanelLecturas({ lectura, columna = false, ayuda = null }: { lect
       </div>
       {ayuda ? (
         <p className="panel__comentario panel__comentario--ayuda" data-e="ayuda" role="status">{ayuda}</p>
+      ) : ocultarElite ? (
+        <p className="panel__comentario" data-e="comentario" aria-hidden="true">&nbsp;</p>
       ) : (
         <p className="panel__comentario" data-e="comentario">
           {cargando ? <span className="panel__esqueleto" aria-hidden="true" /> : <em>{lectura.comentario}</em>}

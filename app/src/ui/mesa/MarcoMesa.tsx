@@ -72,10 +72,12 @@ export function MarcoMesa({ escena, mesa, calle, origen, aviso, onVolver, panel,
           </motion.div>
         </>
       ) : (
+        panel || acciones ? (
         <motion.div className={`panel panel--movil ${panel ? '' : 'panel--solo-acciones'}`} {...entrada(0.1)}>
           {panel}
           {acciones}
         </motion.div>
+        ) : null
       )}
 
       <Ajustes abierto={ajustes.abierto} onCerrar={ajustes.onCerrar} cuatroColores={ajustes.cuatroColores} onCuatroColores={ajustes.onCuatroColores} />

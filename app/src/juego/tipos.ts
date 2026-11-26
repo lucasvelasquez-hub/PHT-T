@@ -146,4 +146,15 @@ export interface PropsMesaEnVivo {
   origen?: string
   /** Texto del botón al terminar la mano; por defecto "SIGUIENTE MANO". */
   textoSiguiente?: string
+  /**
+   * Por defecto `true`. Con `escenarioInicial` y `false`, la mano se detiene justo después de la decisión del héroe:
+   * llama a `onDecisionHeroe`, no juega a los rivales y la mesa queda quieta (lectura visible según `mostrarLecturas`).
+   */
+  continuar?: boolean
+  /**
+   * Muestra la mesa del escenario sin barra de acciones y sin pedir decisión (casos de opción múltiple).
+   * Si es el turno del héroe, calcula su lectura y la entrega en `onLectura`.
+   */
+  soloContexto?: boolean
+  onLectura?: (l: LecturaDecision) => void
 }

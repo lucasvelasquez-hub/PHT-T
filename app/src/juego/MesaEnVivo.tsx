@@ -20,6 +20,7 @@ import { Mesa, type PremioFichas, type VueloFichas } from '../ui/mesa/Mesa.tsx'
 import { PanelLecturas, type Lectura } from '../ui/mesa/PanelLecturas.tsx'
 import type { EscenarioMesa } from '../ui/datos/escenario.ts'
 import { analistaWorker, type Analista, type AnalisisDecision } from './analista.ts'
+import { detenerTrasDecision, lecturaDeContexto } from './conductor.ts'
 import { Partida } from './partida.ts'
 import { repartirBote } from './reparto.ts'
 import { reproducirSeguro } from './sonidoSeguro.ts'
@@ -118,6 +119,7 @@ function ManoEnCurso(props: PropsMesaEnVivo & { analista: Analista }) {
   const [fallo, setFallo] = useState<string | null>(null)
   const [intento, setIntento] = useState(0)
   const [heroeFuera, setHeroeFuera] = useState(false)
+  const [detenida, setDetenida] = useState(false) // `continuar: false`: la mano se paró tras la decisión del héroe
   const reloj = useRef(crearReloj())
   const respuesta = useRef<((a: Accion) => void) | null>(null)
   const partidaRef = useRef<Partida | null>(null)
@@ -150,13 +152,25 @@ function ManoEnCurso(props: PropsMesaEnVivo & { analista: Analista }) {
     }
 
     const correr = async () => {
-      setFallo(null); setFin(null); setDecision(null); setLectura(null); setPendiente(null); setAyuda(null); setTurnoHeroeVisto(false)
+      setFallo(null); setDetenida(false); setFin(null); setDecision(null); setLectura(null); setPendiente(null); setAyuda(null); setTurnoHeroeVisto(false)
       const p = new Partida({ semilla, boton, escenarioInicial, guion, nombreHeroe })
       partidaRef.current = p
       publicar(p)
       reproducirSeguro('carta')
       if (guion?.introduccion) setAyuda(guion.introduccion)
       await reloj0.esperar(T_REPARTO)
+
+      // --- Solo contexto: se muestra la situación y se entrega la lectura, sin pedir decisión ---
+      if (enlace.current.soloContexto) {
+        const c = await lecturaDeContexto(p, analista)
+        if (!vivo) return
+        if (c) {
+          setTurnoHeroeVisto(true)
+          if (enlace.current.mostrarLecturas === 'siempre') setLectura(lecturaDePanel(c.analisis))
+          enlace.current.onLectura?.(c.lectura)
+        }
+        return
+      }
 
       for (let paso = 0; paso < 500 && vivo; paso++) {
         const fase = p.fase()
@@ -210,6 +224,7 @@ function ManoEnCurso(props: PropsMesaEnVivo & { analista: Analista }) {
             }
             publicar(p)
             await reloj0.esperar(T_TRAS_ACCION)
+            if (detenerTrasDecision(enlace.current.continuar, escenarioInicial)) { setDetenida(true); return } // la mesa queda quieta, sin barra ni Saltar
           } else {
             // --- Turno de un rival ---
             if (guionado?.ayuda) setAyuda(guionado.ayuda)
@@ -308,7 +323,7 @@ function ManoEnCurso(props: PropsMesaEnVivo & { analista: Analista }) {
       <PanelLecturas lectura={lectura} columna={columna} ayuda={ayuda} />
     )
 
-  const acciones: ReactNode = fallo ? null : fin ? (
+  const acciones: ReactNode = fallo || props.soloContexto || detenida ? null : fin ? (
     <div className="acciones acciones--una">
       <button type="button" className="accion accion--call" onClick={() => props.onSiguienteMano?.()} data-e="siguiente">{props.textoSiguiente ?? 'SIGUIENTE MANO'}</button>
     </div>
