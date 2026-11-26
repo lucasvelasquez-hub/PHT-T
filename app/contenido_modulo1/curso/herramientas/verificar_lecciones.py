@@ -197,6 +197,31 @@ def m05():
     ok('M5', 'Q1 KQs CO vs HJ; Q2 AJo no BU vs UTG; Q3 76s BB; Q4 55 no BU vs CO', p('HJ', 'CO', 'KQs') and not p('UTG', 'BU', 'AJo') and b('76s') and not p('CO', 'BU', '55'))
 
 
+
+# ---------------------------------------------------------------- Módulo 6
+def nada(hand, board):
+    """Sin pareja ni proyecto de color o escalera (excluye backdoors)."""
+    h, b = cards(hand), cards(board)
+    return cat(h + b) == 'carta alta' and n_outs(hand, board) == 0
+
+
+@modulo
+def m06():
+    ok('6.1', 'bote 11; JTs en K72 y 76d en QJT sin nada; A4c en JT9 sin nada', 5 + 5 + 1 == 11 and nada('J♠T♠', 'K♦7♣2♥') and nada('7♦6♦', 'Q♠J♥T♠') and nada('A♣4♣', 'J♥T♦9♠'))
+    ok('6.2', 'J98: QT y T7 escalera hecha; KT y 76 abiertas', es('Q♦T♥', 'J♣9♣8♦', 'escalera') and es('T♦7♥', 'J♣9♣8♦', 'escalera') and n_outs('K♦T♥', 'J♣9♣8♦', ('escalera',)) == 8 and n_outs('7♦6♥', 'J♣9♣8♦', ('escalera',)) == 8)
+    b = lambda m: m in range_hands(RG['BBvsBU25'])
+    ok('6.2', '98s 87s T8s 76s en defensa BB', all(b(m) for m in ('98s', '87s', 'T8s', '76s')))
+    ok('6.3', 'A5h en K8h3: sin nada hecho; backdoor color (3 corazones)', nada('A♥5♥', 'K♠8♦3♥') and sum(1 for x in cards('A♥5♥K♠8♦3♥') if x[1] == 'h') == 3)
+    ok('6.3', '66 gana a QJ y T8 en AK9', gana('6♠6♣', 'Q♥J♥', 'A♦K♥9♣2♠3♦') and gana('6♠6♣', 'T♥8♥', 'A♦K♥9♣2♠3♦'))
+    ok('6.3', 'JTc en 98d5: abierta', n_outs('J♣T♣', '9♦8♦5♠') == 8)
+    ok('6.4', '6/17=35%, 7/18=39%, medio bote 33%, bote 50%', near(bluff_be(11, 6), .353, .001) and near(bluff_be(11, 7), .389, .001) and near(bluff_be(1, .5), 1 / 3) and bluff_be(1, 1) == .5)
+    ok('6.4', 'ej 7 y 12', 14 / 2 == 7 and 18 * 2 / 3 == 12)
+    ok('6.5', 'tabla .7: 49%, 34,3%; .6^2 36%; .65^2 42%', near(.7 ** 2, .49) and near(.7 ** 3, .343) and near(.6 ** 2, .36) and near(.65 ** 2, .4225))
+    ok('6.5', 'bote 16; QTc gutshot en K98s; en Kc T 4c: pareja + 9 outs color', 5 * 3 + 1 == 16 and n_outs('Q♣T♣', 'K♦9♠8♠') == 4
+       and es('Q♣T♣', 'K♣T♦4♣', 'pareja') and len(outs_to(cards('Q♣T♣'), cards('K♣T♦4♣'), {'color'})) == 9)
+    ok('M6', 'Q1 A5h en K72 sin nada; Q5 A2c en Q83 sin nada; Q7 KQs en Js T 4s = 15', nada('A♥5♥', 'K♠7♦2♣') and nada('A♣2♣', 'Q♦8♣3♥') and n_outs('K♠Q♠', 'J♠T♦4♠') == 15)
+
+
 # ---------------------------------------------------------------- Módulo 4
 @modulo
 def m04():
