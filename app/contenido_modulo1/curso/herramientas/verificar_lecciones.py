@@ -294,6 +294,22 @@ def m09():
     ok('M9', 'Q6 30 en 90 = 20%', near(pot_odds(90, 30), .2))
 
 
+
+# ---------------------------------------------------------------- Módulo 10
+@modulo
+def m10():
+    ok('10.1', 'gana 8; bote 33; farol 15/(15+8) = 65%', 5 + 1 + 2 == 8 and 15 + 15 + 1 + 2 == 33 and near(bluff_be(8, 15), .652, .001))
+    ok('10.1', 'Hardin 3x de 3bb = 66,7%', near(bluff_be(4.5, 9), 2 / 3))
+    ok('10.2', 'JJ en pago BU vs CO; A5s no', 'JJ' in range_hands(RG['BUvsCO']) and 'A5s' not in range_hands(RG['BUvsCO']))
+    ok('10.3', '15, 20, 21, 18, 24', 3 * 5 == 15 and 4 * 5 == 20 and 15 + 6 == 21 and 3 * 6 == 18 and 4 * 6 == 24)
+    ok('10.3', '7,5bb y 10bb entre Clarke (7/8) y Acevedo (8,5/10)', 7 <= 7.5 <= 8.5 and 8 <= 10 <= 10)
+    ok('10.4', 'listas de Clarke', range_combos(RG['4bet']) == 34 and 'KJs' in range_hands(RG['pagar3bet']) and '99' in range_hands(RG['pagar3bet']) and '76s' not in range_hands(RG['pagar3bet']))
+    ok('10.4', '4-bet 2,5 x 15 = 37,5', 2.5 * 15 == 37.5)
+    ok('10.5', 'SPR 4,4; 5,6; 17,7; 2', near(spr(180, 41), 4.39, .01) and near(spr(185, 33), 5.61, .01) and near(spr(195, 11), 17.7, .05) and spr(60, 30) == 2)
+    ok('10.5', 'bote 41 y c-bet 1/3 = 14; AQ top pair en Q72', 20 + 20 + 1 == 41 and round(41 / 3) == 14 and es('A♠Q♠', 'Q♥7♦2♣', 'pareja'))
+    ok('M10', 'Q7 ATs en UTG', en('UTG', 'ATs'))
+
+
 # ---------------------------------------------------------------- Módulo 4
 @modulo
 def m04():
