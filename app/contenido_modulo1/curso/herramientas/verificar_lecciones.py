@@ -222,6 +222,36 @@ def m06():
     ok('M6', 'Q1 A5h en K72 sin nada; Q5 A2c en Q83 sin nada; Q7 KQs en Js T 4s = 15', nada('A♥5♥', 'K♠7♦2♣') and nada('A♣2♣', 'Q♦8♣3♥') and n_outs('K♠Q♠', 'J♠T♦4♠') == 15)
 
 
+
+# ---------------------------------------------------------------- Módulo 7
+def tres_calles(bote, calles, frac=2 / 3):
+    for _ in range(calles):
+        bote += 2 * round(frac * bote)
+    return bote
+
+
+@modulo
+def m07():
+    ok('7.1', 'AQ en Q84 top pair; en QJT9h: K u 8 escalera, corazón color', es('A♠Q♦', 'Q♣8♥4♠', 'pareja')
+       and es('K♠2♣', 'Q♣J♥T♥9♥', 'escalera') and es('8♠2♣', 'Q♣J♥T♥9♥', 'escalera') and es('2♥3♥', 'Q♣J♥T♥9♥', 'color') and not es('2♥3♣', 'Q♣J♥T♥9♥', 'color'))
+    ok('7.1', 'ej AA en 9s8s7s6d: T o 5 escalera; pica color', es('T♦2♣', '9♠8♠7♠6♦', 'escalera') and es('5♦2♣', '9♠8♠7♠6♦', 'escalera') and es('2♠3♠', '9♠8♠7♠6♦', 'color') and not es('2♠3♦', '9♠8♠7♠6♦', 'color'))
+    ok('7.2', 'KQ en K94: KJ, KT, K9?, A9, 88 peores', all(gana('K♥Q♥', h, 'K♦9♠4♣') for h in ('K♣J♣', 'K♣T♣', 'A♠9♦', '8♠8♦')))
+    ok('7.2', 'JT y QT gutshot en K94', n_outs('J♣T♣', 'K♦9♠4♣') == 4 and n_outs('Q♣T♣', 'K♦9♠4♣') == 4)
+    fin = 'K♦9♠4♣8♥7♥'
+    ok('7.2', 'final: JT, T6, 65 escalera; 98 y 87 dobles parejas', all(es(h, fin, 'escalera') for h in ('J♣T♣', 'T♣6♣', '6♣5♣')) and es('9♣8♣', fin, 'dobles parejas') and es('8♣7♣', fin, 'dobles parejas'))
+    ok('7.2', 'ej 77 en AKQJ3: pierde con A,K,Q,J,T', all(gana(h, '7♣7♦', 'A♠K♥Q♦J♣3♠') for h in ('A♦2♣', 'K♦2♣', 'Q♣2♦', 'J♦2♣', 'T♦2♣')))
+    ok('7.3', 'trío 77 en K73; bote 11->25->59->139 y 11->25->59', es('7♠7♥', 'K♣7♦3♠', 'trío') and 11 + 14 == 25 and 25 + 34 == 59 and 59 + 80 == 139 and tres_calles(11, 2) == 59 and near(40 / 59, .68, .01))
+    ok('7.3', 'ej 20 -> 252; invertido 64 < 195', tres_calles(20, 3) == 252 and 7 + 17 + 40 == 64)
+    ok('7.3', 'QQ en Q88 y AA en A88 son full', es('Q♠Q♦', 'Q♥8♣8♦', 'full') and es('A♠A♦', 'A♣8♦8♥', 'full'))
+    ok('7.4', 'tabla elasticidad', near(.9 * 15, 13.5) and near(.85 * 22, 18.7) and near(.8 * 12, 9.6) and near(.4 * 22, 8.8))
+    ok('7.4', 'AJ gana a JT en J825; bote river 69 vs 59', gana('A♥J♦', 'J♣T♣', 'J♥8♦2♠5♣') and 25 + 44 == 69 and 25 + 34 == 59)
+    b75 = 'J♥7♣2♠4♦9♣'
+    ok('7.5', 'AJ gana a JT, J8, 7x, 9x; pierde con T8', all(gana('A♦J♣', h, b75) for h in ('J♦T♦', 'J♠8♠', '7♦6♦', '9♦8♦')) and gana('T♦8♦', 'A♦J♣', b75))
+    ok('7.5', 'no hay color posible en J7249 (dos tréboles)', sum(1 for x in cards(b75) if x[1] == 'c') == 2)
+    ok('M7', 'Q3 10 -> 130 y 56', tres_calles(10, 3) == 130 and tres_calles(10, 2) == 56)
+    ok('M7', 'Q7 12 outs 25,5% y precio 25%', near(12 / 47, .255, .001) and near(pot_odds(30, 15), .25))
+
+
 # ---------------------------------------------------------------- Módulo 4
 @modulo
 def m04():
