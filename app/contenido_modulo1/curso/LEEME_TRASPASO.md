@@ -8,7 +8,7 @@ Un **curso de Texas Hold'em No-Limit cash 6-max (100bb) para principiantes absol
 
 El curso se basa en 4 libros que el usuario ya tiene, pero el **contenido es propio**: los libros dan estructura y conceptos, nunca texto para copiar.
 
-El contexto del repositorio (carpeta `app/contenido_modulo1`, dentro del proyecto PHT-T, cuya app se llama Next Chip) sugiere que el curso podría alimentar esa app. No está confirmado. Revisa `../../CONTEXTO_Y_ESTADO_PROYECTO.md` y los documentos de la app para decidir el formato de entrega con criterio profesional.
+El formato de entrega del curso no está definido. La carpeta vive dentro de un repositorio de otro proyecto, pero el usuario no ha dicho que este curso tenga relación con él. No asumas ninguna; decide el formato con criterio profesional y, si es indispensable, pregunta al usuario.
 
 ## 2. Qué ya está hecho
 
@@ -65,11 +65,9 @@ El usuario delegó la autonomía. Decide con criterio profesional, justifica en 
 ## 8. Preferencias del usuario (importante)
 
 - **Respuestas cortas y directas.** Nada de discursos largos; el usuario se molestó cuando respondí demasiado largo.
-- **Principiante en código.** Si necesitas que ejecute algo, da el comando exacto y explica en lenguaje simple.
 - **Autonomía:** el usuario puede dejar el trabajo desatendido. Trabaja hasta el final, audita tu propio resultado y entrega un resumen claro.
-- **Calidad de estudio:** materiales con profundidad, no prototipos planos. Si algo se ve plano o pobre, mejóralo antes de entregar.
-- **Nunca subas a git** los libros ni las respuestas en bruto de NotebookLM (ya están en `.gitignore`). Commit local sí; push solo si el usuario lo pide.
-- **Si una herramienta o modelo agota su cuota,** sigue con la siguiente opción recomendada sin preguntar.
+- **Contenido propio:** el usuario lo pidió desde el principio; los libros son base, no texto para copiar.
+- **Precaución de derechos de autor (decisión del agente anterior, no pedido del usuario):** los libros y las respuestas en bruto de NotebookLM no se suben a git (ya están en `.gitignore`). Commit local sí; push solo si el usuario lo pide.
 
 ## 9. Qué leer, en orden
 
@@ -77,4 +75,3 @@ El usuario delegó la autonomía. Decide con criterio profesional, justifica en 
 2. `MECANISMO_NOTEBOOKLM.md` (cómo hablar con el cuaderno).
 3. `ESTRUCTURA_CURRICULAR.md` (el plan completo, el registro de verificación y las decisiones pendientes).
 4. Opcional: `notebooklm/02_verificacion.md` (cifras confirmadas por libro y capítulo).
-5. Opcional: `../../CONTEXTO_Y_ESTADO_PROYECTO.md` y la documentación de la app Next Chip, para decidir el formato final.

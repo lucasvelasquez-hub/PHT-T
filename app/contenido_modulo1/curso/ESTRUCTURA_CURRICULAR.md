@@ -278,7 +278,7 @@ Estado: borrador completo, verificado contra los 4 libros en NotebookLM. Pendien
 2. **SPR:** ¿adoptamos los umbrales de Hardin, los de Acevedo o una regla simple propia (bajo ≤ 4, alto ≥ 10)?
 3. **Rangos de apertura:** hay que fijar la tabla final por posición. Propuesta: sacar los gráficos de Clarke (Figuras 10, 15 y 16) con NotebookLM para diseñarla.
 4. **Ritmo:** 64 lecciones es una estimación; si prefieres menos, se pueden fusionar algunas del Módulo 0 y el Módulo 9.
-5. **Formato de entrega** de las lecciones (texto, imágenes de cartas, ejercicios interactivos en la app Next Chip).
+5. **Formato de entrega** de las lecciones (texto, imágenes de cartas, ejercicios, otro formato que el usuario prefiera).
 
 ## 9. Siguiente fase
 
