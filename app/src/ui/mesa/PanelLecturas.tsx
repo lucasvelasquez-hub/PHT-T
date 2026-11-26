@@ -29,7 +29,8 @@ const FILAS = [
   { clave: 'raise', nombre: 'Bet-Raise' },
 ] as const
 
-export function PanelLecturas({ lectura, columna = false }: { lectura: Lectura | null; columna?: boolean }) {
+/** `ayuda`: texto de la mano guiada; ocupa el lugar del comentario de la élite. */
+export function PanelLecturas({ lectura, columna = false, ayuda = null }: { lectura: Lectura | null; columna?: boolean; ayuda?: string | null }) {
   const raiz = useRef<HTMLElement>(null)
 
   useGSAP(
@@ -114,9 +115,13 @@ export function PanelLecturas({ lectura, columna = false }: { lectura: Lectura |
           </ul>
         </div>
       </div>
-      <p className="panel__comentario" data-e="comentario">
-        {cargando ? <span className="panel__esqueleto" aria-hidden="true" /> : <em>{lectura.comentario}</em>}
-      </p>
+      {ayuda ? (
+        <p className="panel__comentario panel__comentario--ayuda" data-e="ayuda" role="status">{ayuda}</p>
+      ) : (
+        <p className="panel__comentario" data-e="comentario">
+          {cargando ? <span className="panel__esqueleto" aria-hidden="true" /> : <em>{lectura.comentario}</em>}
+        </p>
+      )}
     </section>
   )
 }

@@ -10,7 +10,7 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { useEffect, useRef, type CSSProperties } from 'react'
 import { Cifra } from '../Cifra.tsx'
-import type { Escenario } from '../datos/escenario.ts'
+import type { EscenarioMesa } from '../datos/escenario.ts'
 import { fmtBB } from '../datos/formato.ts'
 import { CURVA_GSAP, movimientoReducido } from '../movimiento.ts'
 import { Asiento, rutaAvatar } from './Asiento.tsx'
@@ -20,10 +20,12 @@ import { Fichas, cajaFichas } from './Fichas.tsx'
 import { aPantalla, letra, type Escena } from './geometria.ts'
 
 export interface VueloFichas { id: number; monto: number }
+/** Fichas del bote que viajan a quien gana (0 = el jugador, 1..5 = rivales de izquierda a derecha). */
+export interface PremioFichas { id: number; monto: number; hacia: number }
 
 export interface MesaProps {
   escena: Escena
-  escenario: Escenario
+  escenario: EscenarioMesa
   cuatroColores: boolean
   /** Bote que se muestra (crece cuando el jugador paga o sube). */
   boteBB: number
@@ -33,14 +35,17 @@ export interface MesaProps {
   vuelo: VueloFichas | null
   onLlegadaFichas: () => void
   onFinVuelo: () => void
+  /** Fichas del bote que vuelan a los ganadores (showdown). */
+  premios?: PremioFichas[] | null
 }
 
 const HUECOS_TABLERO = 5
 
-export function Mesa({ escena, escenario, cuatroColores, boteBB, stackHeroeBB, heroeRetirado, vuelo, onLlegadaFichas, onFinVuelo }: MesaProps) {
+export function Mesa({ escena, escenario, cuatroColores, boteBB, stackHeroeBB, heroeRetirado, vuelo, onLlegadaFichas, onFinVuelo, premios = null }: MesaProps) {
   const raiz = useRef<HTMLDivElement>(null)
   const montado = useRef(false)
   const previas = useRef(0)
+  const apuestasPrevias = useRef<Record<number, number>>({})
   const { plano, s } = escena
   const tablero = escenario.tablero
   const { heroe } = escenario
@@ -128,6 +133,50 @@ export function Mesa({ escena, escenario, cuatroColores, boteBB, stackHeroeBB, h
     { scope: raiz, dependencies: [vuelo?.id] },
   )
 
+  // --- Las apuestas de los rivales aparecen delante de su asiento ---------------------------------------------------
+  const claveApuestas = escenario.rivales.map((r) => r.apuestaBB).join(',')
+  useGSAP(
+    () => {
+      const el = raiz.current
+      if (!el) return
+      const previas = apuestasPrevias.current
+      const nuevas: HTMLElement[] = []
+      for (const r of escenario.rivales) {
+        if (r.apuestaBB > (previas[r.indice] ?? 0)) {
+          const nodo = el.querySelector<HTMLElement>(`[data-e="apuesta"][data-i="${r.indice}"]`)
+          if (nodo && montado.current && previas[r.indice] !== undefined) nuevas.push(nodo)
+        }
+        previas[r.indice] = r.apuestaBB
+      }
+      if (nuevas.length === 0) return
+      if (movimientoReducido()) gsap.fromTo(nuevas, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2, ease: 'none' })
+      else gsap.fromTo(nuevas, { autoAlpha: 0, y: -10 }, { autoAlpha: 1, y: 0, duration: 0.26, ease: CURVA_GSAP })
+    },
+    { scope: raiz, dependencies: [claveApuestas] },
+  )
+
+  // --- Las fichas del bote vuelan a los ganadores -------------------------------------------------------------------
+  const claveBote = premios?.map((p) => p.id).join('-') ?? ''
+  useGSAP(
+    () => {
+      const el = raiz.current
+      if (!el || !premios || premios.length === 0) return
+      for (const p of premios) {
+        const nodo = el.querySelector<HTMLElement>(`[data-e="premio-${p.hacia}"]`)
+        if (!nodo) continue
+        const destino = p.hacia === 0 ? plano.heroePildora : plano.asientos[p.hacia - 1]!
+        if (movimientoReducido()) {
+          gsap.fromTo(nodo, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2, ease: 'none' })
+          continue
+        }
+        const tl = gsap.timeline()
+        tl.fromTo(nodo, { x: 0, y: 0, autoAlpha: 1, scale: 1 }, { x: (destino.x - plano.bote.x) * s, y: (destino.y - plano.bote.y) * s, scale: 0.9, duration: 0.5, ease: CURVA_GSAP })
+        tl.to(nodo, { autoAlpha: 0, duration: 0.12, ease: 'none' })
+      }
+    },
+    { scope: raiz, dependencies: [claveBote] },
+  )
+
   // --- Precarga de las caras en uso ---------------------------------------------------------------------------------
   useEffect(() => {
     const enlaces: HTMLLinkElement[] = []
@@ -186,13 +235,13 @@ export function Mesa({ escena, escenario, cuatroColores, boteBB, stackHeroeBB, h
       {/* Rivales (de izquierda a derecha) */}
       {escenario.rivales.map((r, i) => {
         const p = aPantalla(escena, plano.asientos[i]!)
-        return <Asiento key={r.indice} datos={r} indiceRival={i} x={p.x} y={p.y} d={d} fuente={fuente} anchoViewport={escena.anchoViewport} />
+        return <Asiento key={r.indice} datos={r} indiceRival={i} x={p.x} y={p.y} d={d} fuente={fuente} anchoViewport={escena.anchoViewport} cuatroColores={cuatroColores} />
       })}
 
       {/* Apuestas de los rivales delante de su asiento */}
       {escenario.rivales.map((r, i) =>
         r.apuestaBB > 0 ? (
-          <ApuestaRival key={`ap-${r.indice}`} monto={r.apuestaBB} centro={aPantalla(escena, plano.apuestas[i]!)} ancho={plano.fichaApuesta * s} fuente={fuente} />
+          <ApuestaRival key={`ap-${r.indice}`} indice={r.indice} monto={r.apuestaBB} centro={aPantalla(escena, plano.apuestas[i]!)} ancho={plano.fichaApuesta * s} fuente={fuente} />
         ) : null,
       )}
 
@@ -229,6 +278,10 @@ export function Mesa({ escena, escenario, cuatroColores, boteBB, stackHeroeBB, h
 
       {vuelo ? <Fichas key={vuelo.id} dato="vuelo" monto={vuelo.monto} ancho={plano.fichaBote * s} className="fichas--vuelo" style={cajaPos} /> : null}
 
+      {premios?.map((p) => (
+        <Fichas key={`premio-${p.id}`} dato={`premio-${p.hacia}`} monto={p.monto} ancho={plano.fichaBote * s} className="fichas--vuelo" style={cajaPos} />
+      ))}
+
       <CartasHeroe cartas={escenario.cartasHeroe} escena={escena} cuatroColores={cuatroColores} />
 
       {/* Jugador: nombre y stack sobre el riel */}
@@ -246,10 +299,10 @@ export function Mesa({ escena, escenario, cuatroColores, boteBB, stackHeroeBB, h
   )
 }
 
-function ApuestaRival({ monto, centro, ancho, fuente }: { monto: number; centro: { x: number; y: number }; ancho: number; fuente: number }) {
+function ApuestaRival({ indice, monto, centro, ancho, fuente }: { indice: number; monto: number; centro: { x: number; y: number }; ancho: number; fuente: number }) {
   const caja = cajaFichas(ancho)
   return (
-    <div className="apuesta" data-e="apuesta">
+    <div className="apuesta" data-e="apuesta" data-i={indice}>
       <Fichas monto={monto} ancho={ancho} style={{ left: centro.x - caja.w / 2, top: centro.y - caja.h * 0.58 }} />
       <span className="apuesta__monto" style={{ left: centro.x, top: centro.y + ancho * 0.62, fontSize: fuente * 0.92 }}>{fmtBB(monto)} BB</span>
     </div>

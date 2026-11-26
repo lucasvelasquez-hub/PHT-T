@@ -183,7 +183,7 @@ button { font: inherit; color: inherit; }
 .asiento__stack { font-weight: 500; color: var(--texto-2); }
 .asiento__mano { position: absolute; z-index: 0; left: 50%; top: 58%; width: 0; height: 0; pointer-events: none; }
 .asiento__mano img {
-  position: absolute; width: calc(var(--d) * 0.36); height: auto; top: 0; transform-origin: 50% 0;
+  position: absolute; width: calc(var(--d) * 0.36); max-width: none; height: auto; top: 0; transform-origin: 50% 0;
   border-radius: 6%; filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.6));
 }
 .asiento__mano img:first-child { left: calc(var(--d) * -0.36); transform: rotate(-13deg); }
@@ -375,6 +375,67 @@ button { font: inherit; color: inherit; }
 .barra-inferior .acciones { width: 100%; max-width: 560px; padding: 0; border: 0; gap: 12px; }
 .barra-inferior .accion { min-height: 50px; font-size: 18px; }
 
+
+/* ===================================================================== Mano en vivo */
+/* a quién le toca */
+.asiento--turno .asiento__medallon {
+  box-shadow: 0 calc(var(--d) * 0.07) calc(var(--d) * 0.16) rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(0, 0, 0, 0.55), 0 0 0 calc(var(--d) * 0.045) rgba(120, 175, 245, 0.85), 0 0 calc(var(--d) * 0.3) rgba(75, 149, 245, 0.45);
+}
+/* ganador del bote */
+.asiento--ganador .asiento__medallon {
+  box-shadow: 0 calc(var(--d) * 0.07) calc(var(--d) * 0.16) rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(0, 0, 0, 0.55), 0 0 0 calc(var(--d) * 0.05) rgba(236, 242, 252, 0.92), 0 0 calc(var(--d) * 0.35) rgba(190, 215, 255, 0.5);
+}
+.asiento--ganador .asiento__pildora { border-color: rgba(220, 232, 250, 0.7); }
+.asiento__tab--nota { bottom: auto; top: calc(var(--d) * -0.14); right: calc(var(--d) * -0.22); background: linear-gradient(180deg, #e9eef7, #c3cddd); color: #0d1424; box-shadow: 0 0.2em 0.6em rgba(0, 0, 0, 0.55); white-space: nowrap; }
+/* cartas boca arriba en el showdown */
+.asiento__mano--cara { z-index: 2; top: 50%; }
+.asiento__mano--cara img { width: calc(var(--d) * 0.66); animation: voltea 0.34s var(--curva) both; }
+.asiento__mano--cara img:first-child { left: calc(var(--d) * -0.6); transform: rotate(-7deg); }
+.asiento__mano--cara img:last-child { left: calc(var(--d) * -0.02); transform: rotate(6deg); animation-delay: 0.06s; }
+@keyframes voltea { from { opacity: 0; transform: translateY(6px) rotateY(80deg) scale(0.9); } }
+
+/* barra: una sola acción (Saltar, Siguiente mano) y fila de tamaños */
+.acciones--una { grid-template-columns: 1fr; }
+.acciones--una .accion { min-height: 48px; letter-spacing: 0.08em; }
+.acciones--una .accion--call { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 4px 18px rgba(24, 76, 160, 0.45); }
+.acciones--tamanos { gap: 6px; }
+.accion--atras { display: grid; place-items: center; padding: 0; }
+.accion--tamano { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 0 2px; min-width: 0; }
+.accion__etiqueta { font: 700 clamp(13px, 3.6vw, 16px)/1 var(--sans); letter-spacing: 0.02em; white-space: nowrap; }
+.accion__monto { font: 500 11px/1 var(--sans-estrecha); letter-spacing: 0.05em; color: var(--texto-2); font-variant-numeric: tabular-nums; }
+.accion--indicada:not(:disabled) { animation: indica 1.5s ease-in-out infinite; }
+@keyframes indica { 50% { box-shadow: 0 0 0 3px rgba(141, 188, 255, 0.55), 0 0 18px rgba(75, 149, 245, 0.5); } }
+.panel--solo-acciones { height: auto; justify-content: flex-end; }
+.panel--solo-acciones .acciones { border-top: 0; }
+
+/* panel mientras no hay lectura que mostrar */
+.panel__lecturas--espera { justify-content: center; }
+.panel__espera { margin: 0; max-width: 34ch; font: italic 400 14px/1.4 var(--sans); color: var(--texto-2); text-wrap: pretty; }
+.panel__lecturas--columna.panel__lecturas--espera { min-height: 140px; }
+
+/* resultado de la mano */
+.aviso--resultado { padding: 7px 16px; font-weight: 600; letter-spacing: 0.02em; }
+.aviso--gana { border-color: rgba(190, 215, 255, 0.6); }
+
+/* textos de ayuda de la mano guiada y retroalimentación del Retador */
+.panel__comentario--ayuda { font: 600 13.5px/1.35 var(--sans); font-style: normal; color: #d8e6ff; }
+.panel__lecturas--columna .panel__comentario--ayuda { font-size: 15px; }
+.panel__lecturas--espera .panel__comentario--ayuda { margin: 0; max-width: 40ch; }
+/* sin panel (lecturas "nunca"): la ayuda flota bajo la barra superior */
+.ayuda-guion {
+  position: absolute; z-index: 12; left: 4vw; right: 4vw; margin: 0 auto; width: fit-content;
+  top: calc(env(safe-area-inset-top) + 92px);
+  max-width: min(92vw, 460px); padding: 9px 16px; text-align: center;
+  font: 500 14px/1.35 var(--sans); color: var(--texto); text-wrap: pretty;
+  background: rgba(10, 16, 30, 0.9); border: 1px solid rgba(120, 175, 245, 0.5); border-radius: 14px;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.55);
+  animation: aparece 0.25s var(--curva) both;
+}
+.retro {
+  position: absolute; z-index: 12; left: 50%; transform: translateX(-50%);
+  top: calc(env(safe-area-inset-top) + 92px); pointer-events: none;
+}
+
 /* ===================================================================== Hoja de ajustes y créditos */
 .hoja-fondo {
   position: fixed; inset: 0; z-index: 50; display: flex; align-items: flex-end; justify-content: center;
@@ -414,7 +475,9 @@ button { font: inherit; color: inherit; }
 .error .accion { padding: 0 22px; }
 
 @media (prefers-reduced-motion: reduce) {
-  .aviso { animation: none; }
+  .aviso, .ayuda-guion { animation: none; }
+  .accion--indicada:not(:disabled) { animation: none; }
+  .asiento__mano--cara img { animation: none; }
   .panel__esqueleto { animation: none; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
 }

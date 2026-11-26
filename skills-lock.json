@@ -9,6 +9,54 @@
       "computedHash": "163ba8b42c7d9d5ccb08674266d4727c9ec610b9d876c906b1f29ce5e0d933da",
       "installMode": "copy"
     },
+    "audio-design": {
+      "source": "gamedev-skills/awesome-gamedev-agent-skills",
+      "commit": "c6ca6c41c839b68319ffc08430b99ab768debc32",
+      "sourceType": "github",
+      "skillPath": "skills/disciplines/audio-design/SKILL.md",
+      "computedHash": "9cc7466f3e608710f6d6c56337f9ace788fb7569038c4dc26c8b30b2200c511d",
+      "installMode": "copy"
+    },
+    "card-game": {
+      "source": "gamedev-skills/awesome-gamedev-agent-skills",
+      "commit": "c6ca6c41c839b68319ffc08430b99ab768debc32",
+      "sourceType": "github",
+      "skillPath": "skills/genres/card-game/SKILL.md",
+      "computedHash": "9de67b390fb28839eb24c92aed311836e9ec45c0cd07df45f1fe9568b5429421",
+      "installMode": "copy"
+    },
+    "game-docs": {
+      "source": "gamedev-skills/awesome-gamedev-agent-skills",
+      "commit": "c6ca6c41c839b68319ffc08430b99ab768debc32",
+      "sourceType": "github",
+      "skillPath": "skills/workflows/game-docs/SKILL.md",
+      "computedHash": "d1bbdebee0ecef2ef564f5de012ba747be3f4ec3ea15b5fa80d64f85a06003dd",
+      "installMode": "copy"
+    },
+    "game-feel": {
+      "source": "gamedev-skills/awesome-gamedev-agent-skills",
+      "commit": "c6ca6c41c839b68319ffc08430b99ab768debc32",
+      "sourceType": "github",
+      "skillPath": "skills/disciplines/game-feel/SKILL.md",
+      "computedHash": "f0a2becd199feabc7e8720f8f5626c84571ef763a0a5edefcdae8a039ce64338",
+      "installMode": "copy"
+    },
+    "game-ui-ux": {
+      "source": "gamedev-skills/awesome-gamedev-agent-skills",
+      "commit": "c6ca6c41c839b68319ffc08430b99ab768debc32",
+      "sourceType": "github",
+      "skillPath": "skills/disciplines/game-ui-ux/SKILL.md",
+      "computedHash": "8bf85f22ef57c78fd2a5b14c086e6cb4a1a0f6b729111abeed29be96cf615610",
+      "installMode": "copy"
+    },
+    "gamification-loops": {
+      "source": "omer-metin/skills-for-antigravity",
+      "commit": "e8dcf4e8737921a10088bd5c9eb65e81f74c051f",
+      "sourceType": "github",
+      "skillPath": "skills/gamification-loops/SKILL.md",
+      "computedHash": "e25f3c8b18fe8a0fc65044dad1f10dda09d1cce65790e6952421101f97f15bdc",
+      "installMode": "copy"
+    },
     "gsap-core": {
       "source": "greensock/gsap-skills",
       "commit": "aed9cfd3277740755f6bfc1155c7aa645403b760",

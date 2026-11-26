@@ -32,7 +32,19 @@ export interface DatosAsiento {
   activo: boolean
   etiqueta: EtiquetaAccion | null
   esBoton: boolean
+  // --- Solo en la mesa en vivo ---
+  /** Cartas que se muestran boca arriba (showdown). */
+  cartas?: [string, string]
+  /** Le toca actuar (o está "pensando"). */
+  turno?: boolean
+  /** Se lleva el bote. */
+  ganador?: boolean
+  /** Texto breve en la pestaña del asiento (por ejemplo "+12 BB"). */
+  nota?: string
 }
+
+/** Lo que dibuja la mesa de un escenario (el de revisión y el de la mano en vivo cumplen esta forma). */
+export type EscenarioMesa = Pick<Escenario, 'tablero' | 'heroe' | 'cartasHeroe' | 'rivales'>
 
 export interface Escenario {
   claveMano: number
@@ -95,21 +107,9 @@ export function construirEscenario(banco: BancoManos, claveMano: number, indice?
   const [asientoHeroe, , , , calleDecision] = m.a[idx]! as [number, number, number, number, number, number]
   hastaCalle(calleDecision)
 
-  const bb = estado.bb
+  const datosDe = (i: number): DatosAsiento => datosAsiento(estado, i)
   const n = estado.n
-  const datosDe = (i: number): DatosAsiento => {
-    const activo = estado.activos[i]!
-    const puesto = estado.puesto[i]!
-    let etiqueta: EtiquetaAccion | null = null
-    if (!activo) etiqueta = estado.actuoCalle[i]! > 0 ? 'FOLD' : null
-    else if (estado.stacks[i]! <= 0 && estado.actuoCalle[i]! > 0) etiqueta = 'ALL-IN'
-    else if (estado.ultimoAgresor === i && puesto > 0) etiqueta = 'BET'
-    else if (estado.actuoCalle[i]! > 0) etiqueta = puesto > 0 ? 'CALL' : 'CHECK'
-    return {
-      indice: i, nombre: estado.jugadores[i]!, stackBB: estado.stacks[i]! / bb, apuestaBB: puesto / bb,
-      activo, etiqueta, esBoton: i === n - 1,
-    }
-  }
+  const bb = estado.bb
 
   const legales = accionesLegales(estado, asientoHeroe)
   const cartas = estado.cartasPrivadas[asientoHeroe]!
@@ -134,5 +134,21 @@ export function construirEscenario(banco: BancoManos, claveMano: number, indice?
       potOdds: dec[2][iPot]!,
       prediccion: { fold: dec[3][0]!, call: dec[3][1]!, raise: dec[3][2]! },
     },
+  }
+}
+
+/** Lo que se ve de un asiento del motor: stack, apuesta de la calle, si sigue y la etiqueta de su última acción. */
+export function datosAsiento(estado: EstadoMano, i: number): DatosAsiento {
+  const bb = estado.bb
+  const activo = estado.activos[i]!
+  const puesto = estado.puesto[i]!
+  let etiqueta: EtiquetaAccion | null = null
+  if (!activo) etiqueta = estado.actuoCalle[i]! > 0 ? 'FOLD' : null
+  else if (estado.stacks[i]! <= 0 && estado.actuoCalle[i]! > 0) etiqueta = 'ALL-IN'
+  else if (estado.ultimoAgresor === i && puesto > 0) etiqueta = 'BET'
+  else if (estado.actuoCalle[i]! > 0) etiqueta = puesto > 0 ? 'CALL' : 'CHECK'
+  return {
+    indice: i, nombre: estado.jugadores[i]!, stackBB: estado.stacks[i]! / bb, apuestaBB: puesto / bb,
+    activo, etiqueta, esBoton: i === estado.n - 1,
   }
 }

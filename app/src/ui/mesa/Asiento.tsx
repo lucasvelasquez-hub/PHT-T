@@ -6,7 +6,7 @@
 import { memo, useLayoutEffect, useRef } from 'react'
 import type { DatosAsiento } from '../datos/escenario.ts'
 import { fmtBB } from '../datos/formato.ts'
-import { RUTA_DORSO } from './Carta.tsx'
+import { RUTA_DORSO, rutaCarta } from './Carta.tsx'
 
 const AVATARES = new Set([
   'Pluribus', 'MrBlue', 'MrOrange', 'MrPink', 'MrWhite', 'MrBlonde', 'Eddie', 'Bill', 'Hattori', 'MrBrown', 'Budd', 'ORen', 'Joe',
@@ -36,9 +36,11 @@ export interface AsientoProps {
   conCartas?: boolean
   /** Ancho de la ventana: la píldora se desplaza para no salirse de la pantalla. */
   anchoViewport: number
+  /** Mazo de 4 colores (para las cartas que se muestran en el showdown). */
+  cuatroColores?: boolean
 }
 
-export const Asiento = memo(function Asiento({ datos, indiceRival, x, y, d, fuente, conCartas = true, anchoViewport }: AsientoProps) {
+export const Asiento = memo(function Asiento({ datos, indiceRival, x, y, d, fuente, conCartas = true, anchoViewport, cuatroColores = false }: AsientoProps) {
   const pildora = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
     const el = pildora.current
@@ -62,14 +64,21 @@ export const Asiento = memo(function Asiento({ datos, indiceRival, x, y, d, fuen
   const retirado = !datos.activo
   const todoDentro = datos.activo && datos.stackBB <= 0
   const ruta = rutaAvatar(datos.nombre, indiceRival)
-  const clases = ['asiento', retirado && 'asiento--retirado', todoDentro && 'asiento--todo-dentro'].filter(Boolean).join(' ')
+  const clases = ['asiento', retirado && 'asiento--retirado', todoDentro && 'asiento--todo-dentro', datos.turno && 'asiento--turno', datos.ganador && 'asiento--ganador']
+    .filter(Boolean).join(' ')
   const estado = retirado ? 'retirado' : todoDentro ? 'todo dentro' : 'en la mano'
   return (
     <div className={clases} data-e="asiento" style={estilo} role="group" aria-label={`${datos.nombre}, ${fmtBB(datos.stackBB)} BB, ${estado}${datos.etiqueta ? `, ${datos.etiqueta}` : ''}`}>
       {conCartas && datos.activo ? (
-        <div className="asiento__mano" aria-hidden="true">
-          <img src={RUTA_DORSO} width={640} height={894} alt="" decoding="async" draggable={false} />
-          <img src={RUTA_DORSO} width={640} height={894} alt="" decoding="async" draggable={false} />
+        <div className={`asiento__mano ${datos.cartas ? 'asiento__mano--cara' : ''}`} data-e={datos.cartas ? 'cartas-reveladas' : undefined} aria-hidden={datos.cartas ? undefined : true}>
+          {([0, 1] as const).map((k) => (
+            <img
+              key={k}
+              src={datos.cartas ? rutaCarta(datos.cartas[k], cuatroColores) : RUTA_DORSO}
+              width={640} height={894} alt={datos.cartas ? `Carta de ${datos.nombre}: ${datos.cartas[k]}` : ''}
+              decoding="async" draggable={false}
+            />
+          ))}
         </div>
       ) : null}
       <div className="asiento__medallon">
@@ -79,7 +88,11 @@ export const Asiento = memo(function Asiento({ datos, indiceRival, x, y, d, fuen
           <span className="asiento__iniciales">{iniciales(datos.nombre)}</span>
         )}
       </div>
-      {datos.etiqueta ? <span className={`asiento__tab asiento__tab--${datos.etiqueta.toLowerCase()}`}>{datos.etiqueta}</span> : null}
+      {datos.nota ? (
+        <span className="asiento__tab asiento__tab--nota">{datos.nota}</span>
+      ) : datos.etiqueta ? (
+        <span className={`asiento__tab asiento__tab--${datos.etiqueta.toLowerCase()}`}>{datos.etiqueta}</span>
+      ) : null}
       {datos.esBoton ? <span className="asiento__boton" title="Botón del repartidor" aria-label="Botón del repartidor">D</span> : null}
       <div className="asiento__pildora" ref={pildora}>
         <span className="asiento__nombre">{datos.nombre}</span>

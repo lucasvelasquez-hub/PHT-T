@@ -8,3 +8,8 @@ __pycache__/
 
 # Descargas de terceros para la app (76 MB); se conservan locales. Ver app/BITACORA_CONSTRUCCION.md
 recursos/
+
+# Capturas de revisión de los agentes (se regeneran con Playwright)
+app/docs/capturas/
+# Lanzador local
+app/contenido_modulo1/claude-local.bat

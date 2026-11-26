@@ -11,3 +11,13 @@ Sheet of 9 avatar portraits in a clean 3x3 grid, equal square cells separated by
 
 ## avatares_hoja_2 (MAHb8VpUQ7s, SQUARE_1_1)
 Same spec. Row by row: 1 MrBrown (man with brown jacket), 2 Budd (rugged man with hat), 3 ORen (woman with elegant look), 4 Joe (middle-aged man), 5-8 generic poker rivals rival_1..4 (woman; man with glasses; older woman; young man with cap), 9 spare generic poker rival.
+
+# Portada (Gemini PRO, imágenes "Nano Banana", 2026-11-26)
+
+Referencia adjunta: comp-b. El usuario eligió la opción B ("la ficha protagonista") entre tres (A ficha que sube, B ficha de canto, C rivales). Comparación: `.impeccable/mocks/portada/comparacion_portadas.jpg`.
+
+## portada_movil (9:16, 1536×2752 → `portada/portada_movil.webp` a 1080 px)
+Option B without any text or button: one cobalt clay chip with ivory edge spots standing on its edge on the emerald felt, Ace and King of spades face up behind, chip stacks, overhead lamp and warm bokeh. Upper third calm and dark (space for the logo); bottom fifth calm felt (space for the button). Monogram corrected: two separate upright bold letters "N" and "C", geometric sans-serif, ivory, embossed, centered.
+
+## portada_escritorio (16:9)
+Same scene in landscape, chip and cards slightly right of center, left third empty (logo and button). Solo está la vista previa de 1376×768 (`originales_ia/portada_escritorio_gemini_previa.png`); falta descargar la de tamaño completo.
