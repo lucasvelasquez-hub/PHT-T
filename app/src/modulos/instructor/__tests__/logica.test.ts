@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import {
-  calificarCaso, calificarDecision, cartasATexto, calificarPregunta, desplazamiento, ESTADO_INICIAL, estrellas, estrellasDeModulo, leerNumero,
+  calificarCaso, calificarDecision, cartasATexto, sinIdsInternos, sinMarcas, calificarPregunta, desplazamiento, ESTADO_INICIAL, estrellas, estrellasDeModulo, leerNumero,
   nodoSiguienteA, nodosDeModulo, normalizarEstado, porcentaje, registrarRepaso, semillaDeCaso, siguienteRecomendado, textoDeAccion,
   type EstadoInstructor, type ItemRepaso, type ModuloMin,
 } from '../logica.ts'
@@ -199,5 +199,17 @@ describe('cartas en texto', () => {
     expect(cartasATexto('Ah 5h')).toBe('A♥ 5♥')
     expect(cartasATexto('Kh 9h 2c')).toBe('K♥ 9♥ 2♣')
     expect(cartasATexto('')).toBe('')
+  })
+})
+
+describe('texto que se muestra', () => {
+  it('quita los ids internos de lección', () => {
+    expect(sinIdsInternos('Lección 0.7 (M00_L07). Algo más.')).toBe('Lección 0.7. Algo más.')
+    expect(sinIdsInternos('Lección 1.1(M01_L01), después')).toBe('Lección 1.1, después')
+    expect(sinIdsInternos('Ver (M04_L02; M04_L03) y (otra cosa)')).toBe('Ver y (otra cosa)')
+  })
+  it('quita los marcadores de markdown del texto accesible', () => {
+    expect(sinMarcas('Tus cinco mejores cartas, el *kicker* y los *outs*')).toBe('Tus cinco mejores cartas, el kicker y los outs')
+    expect(sinMarcas('**Negrita** y `código`')).toBe('Negrita y código')
   })
 })

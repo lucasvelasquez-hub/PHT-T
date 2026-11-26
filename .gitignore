@@ -13,3 +13,5 @@ recursos/
 app/docs/capturas/
 # Lanzador local
 app/contenido_modulo1/claude-local.bat
+# Archivos temporales de Playwright
+app/.playwright-cli/

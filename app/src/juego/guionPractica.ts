@@ -17,8 +17,8 @@ export const GUION_PRACTICA: GuionMano = {
   acciones: [
     { asiento: 3, tipo: 'f' },
     { asiento: 4, tipo: 'f' },
-    { asiento: 5, tipo: 'cbr', hastaBB: 2.5, ayuda: 'El jugador de CO sube a 2.5 BB.' },
-    { asiento: 0, tipo: 'cc', ayuda: 'Para seguir en la mano tienes que igualar su apuesta. Toca CALL.' },
+    { asiento: 5, tipo: 'cbr', hastaBB: 2.5 },
+    { asiento: 0, tipo: 'cc', ayuda: 'El jugador de CO subió a 2.5 BB. Para seguir en la mano tienes que igualar su apuesta: toca CALL.' },
     { asiento: 1, tipo: 'f' },
     { asiento: 2, tipo: 'cc' },
     // Flop: Q♣ 7♦ 2♠

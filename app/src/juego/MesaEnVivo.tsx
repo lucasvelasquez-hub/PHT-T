@@ -19,7 +19,7 @@ import { MarcoMesa } from '../ui/mesa/MarcoMesa.tsx'
 import { Mesa, type PremioFichas, type VueloFichas } from '../ui/mesa/Mesa.tsx'
 import { PanelLecturas, type Lectura } from '../ui/mesa/PanelLecturas.tsx'
 import type { EscenarioMesa } from '../ui/datos/escenario.ts'
-import { analistaWorker, type Analista, type AnalisisDecision } from './analista.ts'
+import { analistaCompartido, type AnalisisDecision } from './analista.ts'
 import { detenerTrasDecision, lecturaDeContexto } from './conductor.ts'
 import { Partida } from './partida.ts'
 import { repartirBote } from './reparto.ts'
@@ -35,6 +35,10 @@ const T_PENSAR = 600
 const T_TRAS_ACCION = 350
 const T_ENTRE_CALLES = 650
 const T_AYUDA_RIVAL = 1900
+// En una mano guiada los rivales del guion actúan más deprisa: el jugador espera su primer turno menos de 1.5 s
+const T_REPARTO_GUION = 400
+const T_PENSAR_GUION = 200
+const T_TRAS_ACCION_GUION = 100
 const T_SHOWDOWN = 1100
 const T_PREMIO = 600
 
@@ -55,6 +59,8 @@ interface Pendiente {
   textoSubir?: string
   paso: PasoGuion | null
 }
+
+const marca = (nombre: string) => { try { performance.mark(nombre) } catch { /* sin marcas */ } }
 
 /** Reloj que se puede "saltar": al saltar, todas las esperas terminan ya. */
 function crearReloj() {
@@ -87,15 +93,13 @@ function lecturaDePanel(a: AnalisisDecision): Lectura {
 }
 
 export function MesaEnVivo(props: PropsMesaEnVivo) {
-  const [analista] = useState<Analista>(() => analistaWorker())
-  useEffect(() => {
-    void analista.iniciar().catch(() => undefined) // calienta el motor mientras se ve la mesa
-    return () => analista.cerrar()
-  }, [analista])
+  // El Worker del motor es compartido y sigue caliente entre manos (y desde `precalentarMotor`): no se cierra al desmontar.
+  const analista = analistaCompartido()
+  useEffect(() => { void analista.iniciar().catch(() => undefined) }, [analista])
   return <ManoEnCurso key={`${props.semilla}-${props.boton}-${props.escenarioInicial ? 'e' : ''}${props.guion ? 'g' : ''}`} {...props} analista={analista} />
 }
 
-function ManoEnCurso(props: PropsMesaEnVivo & { analista: Analista }) {
+function ManoEnCurso(props: PropsMesaEnVivo & { analista: ReturnType<typeof analistaCompartido> }) {
   const { analista, mostrarLecturas } = props
   const { w, h } = useViewport()
   const escena = useMemo(() => calcularEscena(w, h), [w, h])
@@ -158,7 +162,7 @@ function ManoEnCurso(props: PropsMesaEnVivo & { analista: Analista }) {
       publicar(p)
       reproducirSeguro('carta')
       if (guion?.introduccion) setAyuda(guion.introduccion)
-      await reloj0.esperar(T_REPARTO)
+      await reloj0.esperar(guion ? T_REPARTO_GUION : T_REPARTO)
 
       // --- Solo contexto: se muestra la situación y se entrega la lectura, sin pedir decisión ---
       if (enlace.current.soloContexto) {
@@ -184,7 +188,9 @@ function ManoEnCurso(props: PropsMesaEnVivo & { analista: Analista }) {
             setLectura(null)
             setPendiente(null)
             publicar(p, { turno: 0 })
+            marca('nc:turno-heroe')
             const analisis = await p.analizarHeroe(analista)
+            marca('nc:lectura-lista')
             if (!vivo) return
             const legales = accionesLegales(p.estado, p.heroe)
             const bb = p.estado.bb
@@ -231,13 +237,13 @@ function ManoEnCurso(props: PropsMesaEnVivo & { analista: Analista }) {
             publicar(p, { turno: p.fisicoDe(s) })
             const [d] = await Promise.all([
               p.decidirRival(analista, s),
-              reloj0.esperar(guionado?.ayuda ? T_AYUDA_RIVAL : T_PENSAR),
+              reloj0.esperar(guionado ? (guionado.ayuda ? T_AYUDA_RIVAL : T_PENSAR_GUION) : T_PENSAR),
             ])
             if (!vivo) return
             const ev = p.aplicar(d.accion, d.lectura)
             sonidoAccion(d.accion.tipo, ev.pago)
             publicar(p)
-            await reloj0.esperar(T_TRAS_ACCION)
+            await reloj0.esperar(guionado ? T_TRAS_ACCION_GUION : T_TRAS_ACCION)
           }
         } else if (fase === 'repartir_calle') {
           await reloj0.esperar(T_ENTRE_CALLES)
@@ -272,6 +278,7 @@ function ManoEnCurso(props: PropsMesaEnVivo & { analista: Analista }) {
           for (const s of rep.ganadores) notasFinales[p.fisicoDe(s)] = `+${fmtBB(rep.premios[s]! / bb)} BB`
           publicar(p, { reveladas: rep.showdown, ganadores: ganadoresMesa, notas: notasFinales })
           if (resultado.ganadores.includes(0)) reproducirSeguro('ganar_bote')
+          setAyuda(null) // al terminar queda solo el resultado
           setFin(resultado)
           enlace.current.onFinMano?.(resultado)
           return

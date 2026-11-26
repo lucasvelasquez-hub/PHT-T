@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react'
 import type { Curso, Modulo } from '../../curso/index.ts'
 import { BarraPantalla, Pantalla } from '../../pantallas/elementos.tsx'
 import {
-  desplazamiento, estrellasDeModulo, mismoNodo, nodoHecho, nodosDeModulo, siguienteRecomendado,
+  desplazamiento, estrellasDeModulo, mismoNodo, nodoHecho, nodosDeModulo, siguienteRecomendado, sinMarcas,
   type EstadoInstructor, type NodoCamino,
 } from './logica.ts'
 import { Estrellas, IconoEstrella, IconoCartas, IconoCheck, IconoEvaluacion, IconoJugar, IconoRepaso, Rico } from './piezas.tsx'
@@ -114,7 +114,7 @@ function SeccionModulo({ modulo, estado, recomendado, refRecomendado, onAbrir }:
                   ref={esRecomendado ? refRecomendado : undefined}
                   className={`ins-ficha ins-ficha--${nodo.tipo} ${hecho ? 'ins-ficha--hecha' : ''} ${esRecomendado ? 'ins-ficha--siguiente' : ''}`}
                   onClick={() => onAbrir(nodo)}
-                  aria-label={`${etiqueta.titulo}${hecho ? ' (hecha)' : ''}${esRecomendado ? ' (siguiente recomendada)' : ''}`}
+                  aria-label={`${sinMarcas(etiqueta.titulo)}${hecho ? ' (hecha)' : ''}${esRecomendado ? ' (siguiente recomendada)' : ''}`}
                 >
                   <span className="ins-ficha__centro">
                     {hecho ? <IconoCheck /> : nodo.tipo === 'leccion' ? <span className="ins-ficha__num">{etiqueta.corto}</span> : nodo.tipo === 'evaluacion' ? <IconoEvaluacion /> : <IconoCartas />}

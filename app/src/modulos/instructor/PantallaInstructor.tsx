@@ -66,6 +66,9 @@ export default function PantallaInstructor({ onSalir }: { onSalir: () => void })
 
   const irA = useCallback((v: Vista) => {
     setVista(v)
+    // La lección abierta vive en la ruta (#/instructor/M04_L02) para que recargar la reabra; lo demás vuelve a #/instructor.
+    const destino = v.t === 'leccion' ? `#/instructor/${encodeURIComponent(v.id)}` : '#/instructor'
+    if (window.location.hash !== destino) window.history.replaceState(null, '', destino)
     if (v.t === 'leccion') {
       const l = porId.lecciones.get(v.id)
       if (l) guardarUbicacion({ modulo: l.modulo, leccion: l.id, pantalla: 'leccion', indice: v.indice })
@@ -78,7 +81,6 @@ export default function PantallaInstructor({ onSalir }: { onSalir: () => void })
       const u = ref.current.ultimo
       const sigueAbierta = u && u.pantalla === 'leccion' && u.leccion && !ref.current.lecciones.includes(u.leccion)
       guardarUbicacion(sigueAbierta ? u : null)
-      if (window.location.hash.split('/').length > 2) window.history.replaceState(null, '', '#/instructor')
     }
   }, [porId, guardarUbicacion, ref])
 

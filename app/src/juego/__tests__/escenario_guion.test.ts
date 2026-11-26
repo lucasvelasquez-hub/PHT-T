@@ -135,3 +135,10 @@ describe('Props opcionales: continuar y soloContexto', () => {
     expect(await lecturaDeContexto(p, analista)).toBeNull()
   })
 })
+
+describe('precalentarMotor', () => {
+  it('es idempotente y no falla donde no hay Worker (Node)', async () => {
+    const { precalentarMotor } = await import('../index.ts')
+    expect(() => { precalentarMotor(); precalentarMotor() }).not.toThrow()
+  })
+})

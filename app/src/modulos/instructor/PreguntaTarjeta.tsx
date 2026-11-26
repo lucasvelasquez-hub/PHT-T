@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react'
 import type { Pregunta } from '../../curso/index.ts'
 import { reproducir } from '../../sonido/sonido.ts'
-import { calificarPregunta, leerNumero } from './logica.ts'
+import { calificarPregunta, leerNumero, sinIdsInternos } from './logica.ts'
 import { Rico } from './piezas.tsx'
 
 interface Props {
@@ -85,7 +85,7 @@ export default function PreguntaTarjeta({ pregunta, onResponder, onSiguiente, ul
         <div className={`ins-retro ${resultado ? 'ins-retro--bien' : 'ins-retro--otra'}`} role="status" aria-live="polite">
           <p className="ins-retro__titulo">{resultado ? '¡Bien!' : 'Esta vez no, pero ya lo tienes a la vista'}</p>
           {!resultado ? <p className="ins-retro__esperada">Lo esperado: <b><Rico texto={textoEsperado(pregunta)} /></b>{pregunta.formato === 'numero' && texto ? <> · tú pusiste {texto}</> : null}</p> : null}
-          <p className="ins-retro__texto"><Rico texto={pregunta.explicacion} /></p>
+          <p className="ins-retro__texto"><Rico texto={sinIdsInternos(pregunta.explicacion)} /></p>
           {!resultado ? <p className="ins-retro__repaso">Quedó en tu Repaso para que la vuelvas a ver.</p> : null}
           <button type="button" className="nc-boton nc-boton--ancho" onClick={onSiguiente} autoFocus>{ultima ? 'Ver resultado' : 'Siguiente'}</button>
         </div>

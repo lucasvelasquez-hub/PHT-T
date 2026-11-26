@@ -62,8 +62,13 @@ export default defineConfig({
               short_name: 'Next Chip',
               lang: 'es',
               display: 'standalone',
-              background_color: '#0b0b0f',
-              theme_color: '#0b0b0f',
+              background_color: '#05070b',
+              theme_color: '#05070b',
+              icons: [
+                { src: '/iconos/icono-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
+                { src: '/iconos/icono-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
+                { src: '/iconos/icono-512-maskable.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+              ],
             },
             workbox: {
               // El wasm (~15 MB) y los modelos no se precargan: se guardan en caché al usarse por primera vez.

@@ -5,17 +5,18 @@
  */
 import { lazy, Suspense, useEffect, useMemo } from 'react'
 import { hashDesdeRuta, useRuta, type Ruta } from './app/navegacion.ts'
-import PantallaAnalista from './modulos/analista/PantallaAnalista.tsx'
-import PantallaInstructor from './modulos/instructor/PantallaInstructor.tsx'
-import PantallaRetador from './modulos/retador/PantallaRetador.tsx'
 import Bienvenida from './pantallas/Bienvenida.tsx'
 import Inicio from './pantallas/Inicio.tsx'
 import PantallaAjustes from './pantallas/PantallaAjustes.tsx'
 import PantallaCreditos from './pantallas/PantallaCreditos.tsx'
 import Portada from './pantallas/Portada.tsx'
 import { useProgreso } from './progreso/progreso.ts'
+import { precalentar } from './app/precalentar.ts'
 import { iniciarSonido, reproducir } from './sonido/sonido.ts'
 
+const PantallaAnalista = lazy(() => import('./modulos/analista/PantallaAnalista.tsx'))
+const PantallaInstructor = lazy(() => import('./modulos/instructor/PantallaInstructor.tsx'))
+const PantallaRetador = lazy(() => import('./modulos/retador/PantallaRetador.tsx'))
 const PantallaMesa = lazy(() => import('./ui/PantallaMesa.tsx'))
 const PARAMETROS_REVISION = ['mano', 'd', 'fuente', 'ajustes']
 
@@ -41,6 +42,7 @@ export default function App() {
   }, [revision, destino, ruta])
 
   useEffect(() => { iniciarSonido() }, [])
+  useEffect(() => { if (!revision && efectiva.pantalla === 'portada') precalentar() }, [revision, efectiva.pantalla])
   // La hoja de ajustes de la mesa de revisión escribe el mazo en su clave antigua: se recoge al cambiar de pantalla.
   useEffect(() => { sincronizarMazo() }, [ruta.pantalla, sincronizarMazo])
 
@@ -59,22 +61,25 @@ export default function App() {
   }
 
   const salir = () => ir({ pantalla: 'inicio' })
-  switch (efectiva.pantalla) {
-    case 'portada':
-      return <Portada onJugar={() => ir({ pantalla: bienvenidaVista && perfil ? 'inicio' : 'bienvenida' })} />
-    case 'bienvenida':
-      return <Bienvenida onTerminar={() => { marcarBienvenidaVista(); ir({ pantalla: 'inicio' }) }} />
-    case 'inicio':
-      return <Inicio ir={ir} />
-    case 'retador':
-      return <PantallaRetador onSalir={salir} />
-    case 'instructor':
-      return <PantallaInstructor onSalir={salir} />
-    case 'analista':
-      return <PantallaAnalista onSalir={salir} />
-    case 'ajustes':
-      return <PantallaAjustes onSalir={salir} />
-    case 'creditos':
-      return <PantallaCreditos onSalir={() => ir(perfil ? { pantalla: 'inicio' } : { pantalla: 'portada' })} />
-  }
+  const pantalla = (() => {
+    switch (efectiva.pantalla) {
+      case 'portada':
+        return <Portada onJugar={() => ir({ pantalla: bienvenidaVista && perfil ? 'inicio' : 'bienvenida' })} />
+      case 'bienvenida':
+        return <Bienvenida onTerminar={() => { marcarBienvenidaVista(); ir({ pantalla: 'inicio' }) }} />
+      case 'inicio':
+        return <Inicio ir={ir} />
+      case 'retador':
+        return <PantallaRetador onSalir={salir} />
+      case 'instructor':
+        return <PantallaInstructor onSalir={salir} />
+      case 'analista':
+        return <PantallaAnalista onSalir={salir} />
+      case 'ajustes':
+        return <PantallaAjustes onSalir={salir} />
+      case 'creditos':
+        return <PantallaCreditos onSalir={() => ir(perfil ? { pantalla: 'inicio' } : { pantalla: 'portada' })} />
+    }
+  })()
+  return <Suspense fallback={null}>{pantalla}</Suspense>
 }

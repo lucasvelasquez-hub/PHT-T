@@ -225,3 +225,13 @@ const PALOS: Record<string, string> = { s: '♠', h: '♥', d: '♦', c: '♣' }
 export function cartasATexto(cartas: string): string {
   return cartas.trim().split(/\s+/).filter(Boolean).map((c) => (/^[2-9TJQKA][shdc]$/.test(c) ? `${c[0]}${PALOS[c[1]!]}` : c)).join(' ')
 }
+
+/** Quita los marcadores de markdown en línea (*, _, `) para el texto accesible: "el *kicker*" -> "el kicker". */
+export function sinMarcas(texto: string): string {
+  return texto.replace(/[*`]/g, '').replace(/(^|\s)_+|_+(?=\s|$|[.,;:!?])/g, '$1')
+}
+
+/** Quita las referencias internas a lecciones, como " (M00_L07)", del texto que se muestra. No cambia el contenido guardado. */
+export function sinIdsInternos(texto: string): string {
+  return texto.replace(/\s*\(\s*M\d+_L\d+(?:\s*[;,]\s*M\d+_L\d+)*\s*\)/g, '')
+}

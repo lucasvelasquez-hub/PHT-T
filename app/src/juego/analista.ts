@@ -21,6 +21,8 @@ export interface Analista {
   cerrar(): void
 }
 
+const marca = (nombre: string) => { try { performance.mark(nombre) } catch { /* sin marcas de rendimiento */ } }
+
 /** Analista que usa el Worker del motor (se crea al primer uso). */
 export function analistaWorker(): Analista {
   let cliente: ClienteMotor | null = null
@@ -28,7 +30,10 @@ export function analistaWorker(): Analista {
   const obtener = () => (cliente ??= crearClienteMotor())
   return {
     iniciar() {
-      listo ??= obtener().pedir({ tipo: 'iniciar' }).then(() => undefined, (e) => { listo = null; throw e })
+      if (!listo) {
+        marca('nc:motor-inicio')
+        listo = obtener().pedir({ tipo: 'iniciar' }).then(() => { marca('nc:motor-listo') }, (e) => { listo = null; throw e })
+      }
       return listo
     },
     async analizar(estado, asiento, simulaciones, semilla) {
@@ -42,6 +47,21 @@ export function analistaWorker(): Analista {
       listo = null
     },
   }
+}
+
+/** El Worker del motor compartido por todas las mesas: se crea una vez y se queda caliente entre manos. */
+let compartido: Analista | null = null
+export function analistaCompartido(): Analista {
+  return (compartido ??= analistaWorker())
+}
+
+/**
+ * Arranca el Worker y carga la red y la tabla en segundo plano. Idempotente: se puede llamar cuantas veces se quiera
+ * (por ejemplo, al mostrar la portada); la mesa reutiliza ese mismo Worker.
+ */
+export function precalentarMotor(): void {
+  if (typeof Worker === 'undefined') return
+  void analistaCompartido().iniciar().catch(() => undefined)
 }
 
 /** Analista que usa directamente el servicio del motor (pruebas en Node). */

@@ -9,7 +9,7 @@ import { MesaEnVivo, type DecisionHeroe, type LecturaDecision } from '../../jueg
 import { reproducir } from '../../sonido/sonido.ts'
 import { modoPara } from '../../ui/mesa/geometria.ts'
 import { useViewport } from '../../ui/datos/entorno.ts'
-import { calificarCaso, calificarDecision, cartasATexto, semillaDeCaso, textoDeAccion } from './logica.ts'
+import { calificarCaso, calificarDecision, cartasATexto, semillaDeCaso, sinIdsInternos, textoDeAccion } from './logica.ts'
 import { IconoVer, Rico } from './piezas.tsx'
 
 interface Props {
@@ -98,8 +98,8 @@ export default function CasoVista({ caso, numero, total, onResultado, onSiguient
       <p className="ins-retro__esperada">
         Elegiste <b>{eleccion}</b>{!acierto ? <> · la lección esperaba <b>{esperada}</b></> : null}
       </p>
-      <p className="ins-retro__texto"><Rico texto={caso.explicacion} /></p>
-      {!acierto && eleccion && caso.porOpcion[eleccion] ? <p className="ins-retro__porque"><b>Sobre {eleccion}:</b> <Rico texto={caso.porOpcion[eleccion]!} /></p> : null}
+      <p className="ins-retro__texto"><Rico texto={sinIdsInternos(caso.explicacion)} /></p>
+      {!acierto && eleccion && caso.porOpcion[eleccion] ? <p className="ins-retro__porque"><b>Sobre {eleccion}:</b> <Rico texto={sinIdsInternos(caso.porOpcion[eleccion]!)} /></p> : null}
       {decision ? <LecturaElite caso={caso} lectura={decision.lectura} eleccion={decision.accion} /> : lecturaCtx ? <LecturaElite caso={caso} lectura={lecturaCtx} eleccion={null} /> : null}
       {!acierto ? <p className="ins-retro__repaso">Quedó en tu Repaso para que lo vuelvas a ver.</p> : null}
     </div>
